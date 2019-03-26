@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:jpn:start</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,jpn,start"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:jpn';var JSINFO = {"id":"mri.com-user:jpn:start","namespace":"mri.com-user:jpn"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#日本沿岸海洋再解析データセット_move_mricom-jpn_dataset">日本沿岸海洋再解析データセット MOVE/MRI.COM-JPN Dataset</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#概要">概要</a></div></li>
+<li class="level2"><div class="li"><a href="#データ内容">データ内容</a></div></li>
+<li class="level2"><div class="li"><a href="#海洋モデル・データ同化システム">海洋モデル・データ同化システム</a></div></li>
+<li class="level2"><div class="li"><a href="#提供ファイル仕様">提供ファイル仕様</a></div></li>
+<li class="level2"><div class="li"><a href="#取得">取得</a></div></li>
+<li class="level2"><div class="li"><a href="#結果概要">結果概要</a></div></li>
+<li class="level2"><div class="li"><a href="#ドキュメント">ドキュメント</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#解説">解説</a></div></li>
+<li class="level3"><div class="li"><a href="#論文">論文</a></div></li>
+<li class="level3"><div class="li"><a href="#学会等の発表">学会等の発表</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="日本沿岸海洋再解析データセット_move_mricom-jpn_dataset">日本沿岸海洋再解析データセット MOVE/MRI.COM-JPN Dataset</h1>
+<div class="level1">
+
+<p>
+気象庁気象研究所によって開発された海洋モデル・データ同化システムを用いて、日本沿岸海洋再解析データセット「MOVE/MRI.COM-JPN Dataset」を作成しました。
+このデータセットは、日本沿岸全域の海洋環境を水平解像度約2kmで再現しています。
+また、作成に用いたシステムは、気象庁において現業運用が予定されています。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "日本沿岸海洋再解析データセット MOVE/MRI.COM-JPN Dataset" [1-522] -->
+<h2 class="sectionedit2" id="概要">概要</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> データセット名：MOVE/MRI.COM-JPN Dataset</div>
+</li>
+<li class="level1"><div class="li"> 作成者：気象庁気象研究所 海洋・地球化学研究部</div>
+</li>
+<li class="level1"><div class="li"> 連絡先：坂本圭 (気象研究所 海洋・地球化学研究部) ksakamot@mri-jma.go.jp</div>
+</li>
+<li class="level1"><div class="li"> 手法：海洋モデル・データ同化システム「日本沿岸海況監視予測システム」による再解析値</div>
+</li>
+<li class="level1"><div class="li"> 現在のバージョン：</div>
+</li>
+<li class="level1"><div class="li"> データ識別子：(DOI未取得)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "概要" [523-966] -->
+<h2 class="sectionedit3" id="データ内容">データ内容</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 解析領域：117E-160E, 20N-52N</div>
+</li>
+<li class="level1"><div class="li"> 解像度：水平1/33°×1/50° (約2km)</div>
+</li>
+<li class="level1"><div class="li"> 解析期間：2008/01/01 - 2017/12/31</div>
+</li>
+<li class="level1 node"><div class="li"> 物理要素</div>
+<ul>
+<li class="level2"><div class="li"> 1日毎: 流速、水温、塩分、海面高度、海氷</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "データ内容" [967-1204] -->
+<h2 class="sectionedit4" id="海洋モデル・データ同化システム">海洋モデル・データ同化システム</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 海洋・海氷モデル：MRI.COM ver.4.5</div>
+</li>
+<li class="level1"><div class="li"> 同化システム: MOVE (incremental 4DVAR)</div>
+</li>
+<li class="level1 node"><div class="li"> 同化に使用した観測データ</div>
+<ul>
+<li class="level2"><div class="li"> WOD2013，GTSPP による現場水温・塩分プロファイル (0-2000m)</div>
+</li>
+<li class="level2"><div class="li"> 衛星観測と現場観測から作成した海面水温格子点値 (MGDSST; 栗原他, 2006)</div>
+</li>
+<li class="level2"><div class="li"> 衛星観測による海面高度偏差 (Jason-1/2/3, Envisat, GFO, Cryosat, Altika, HY2A, Sentinel-3A)</div>
+</li>
+<li class="level2"><div class="li"> 衛星観測による海氷密接度 (SSM/I)の合成データ</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 大気外力: <a href="https://climate.mri-jma.go.jp/~htsujino/jra55do.html" class="urlextern" title="https://climate.mri-jma.go.jp/~htsujino/jra55do.html" rel="nofollow">JRA55do ver.1.3</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "海洋モデル・データ同化システム" [1205-1854] -->
+<h2 class="sectionedit5" id="提供ファイル仕様">提供ファイル仕様</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> ファイル名：</div>
+</li>
+<li class="level1"><div class="li"> フォーマット：</div>
+</li>
+<li class="level1"><div class="li"> ファイル構造：</div>
+</li>
+<li class="level1"><div class="li"> 必要なソフトウェア：</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "提供ファイル仕様" [1855-2003] -->
+<h2 class="sectionedit6" id="取得">取得</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 利用条件：</div>
+</li>
+<li class="level1"><div class="li"> 入手方法：</div>
+</li>
+<li class="level1"><div class="li"> プレビュー：</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "取得" [2004-2088] -->
+<h2 class="sectionedit7" id="結果概要">結果概要</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 平年海面水温場</div>
+</li>
+<li class="level1"><div class="li"> デモ: <a href="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/7541ae3249a62e4ad9d370d010f98f20" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/7541ae3249a62e4ad9d370d010f98f20" rel="nofollow">JPNモデル SSTアニメーション</a> <a href="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/yOxJaQt05DYq8I2" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/yOxJaQt05DYq8I2" rel="nofollow">高解像度版 (要ダウンロード)</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "結果概要" [2089-2386] -->
+<h2 class="sectionedit8" id="ドキュメント">ドキュメント</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT8 SECTION "ドキュメント" [2387-2418] -->
+<h3 class="sectionedit9" id="解説">解説</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_jpn_spec.html" class="wikilink1" title="mri.com-user_jpn_spec">詳細な仕様</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=1f95f457d0d5ba4c4d55e7388058bd80" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=1f95f457d0d5ba4c4d55e7388058bd80" rel="nofollow">仕様のまとめ(PPTファイル)</a>　(随時更新)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "解説" [2419-2624] -->
+<h3 class="sectionedit10" id="論文">論文</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> 坂本圭, 山中吾郎, 辻野博之, 中野英之, 平原幹俊, 次世代日本近海予測モデルMRI.COM-JPNによるあびきの予測可能性, 海と空, 88(3), 15-28, 2013/03. <a href="http://www.umitosora.org/umisora_pdf/vol88_3_2.pdf" class="urlextern" title="http://www.umitosora.org/umisora_pdf/vol88_3_2.pdf" rel="nofollow">論文 PDF</a></div>
+</li>
+<li class="level1"><div class="li"> 坂本圭, 山中吾郎, 辻野博之, 中野英之, 平原幹俊, 水平解像度2kmの日本近海モデルの開発 -次世代日本沿岸監視予測システムに向けて, 測候時報海洋気象特集, 80, S99-S109, 2013/05 <a href="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/80/vol80s099.pdf" class="urlextern" title="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/80/vol80s099.pdf" rel="nofollow">論文PDF</a></div>
+</li>
+<li class="level1"><div class="li"> 坂本圭, 山中吾郎, 辻野博之, 中野英之, 平原幹俊, 水平解像度2kmの瀬戸内海モデルMRI.COM-Seto及び日本沿岸モデルMRI.COM-JPNの開発, 測候時報海洋気象特集, 81, S63-S75, 2014/10 <a href="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/81/vol81s063.pdf" class="urlextern" title="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/81/vol81s063.pdf" rel="nofollow">論文PDF</a></div>
+</li>
+<li class="level1"><div class="li"> 小林健作, 櫻井敬三, 佐久間祐介, 日本沿岸モデル MRI.COM-JPN における2012年台風第16号に伴う潮位変動の検証, 測候時報海洋気象特集, 82, S29-S42, 2015 <a href="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/82/vol82s029.pdf" class="urlextern" title="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/82/vol82s029.pdf" rel="nofollow">論文PDF</a></div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT10 SECTION "論文" [2625-3810] -->
+<h3 class="sectionedit11" id="学会等の発表">学会等の発表</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> 坂本圭, 辻野博之, 中野英之, 浦川昇吾, 山中吾郎, 解像度2kmネスト・モデルを用いた日本沿岸海況の再現, 日本海洋学会秋季大会(鹿児島), 2016/09/, 口頭発表 <a href="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=68f66a5bedf1e6cb6edc0f5cc2b85b4f" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=68f66a5bedf1e6cb6edc0f5cc2b85b4f" rel="nofollow">要旨PDF</a></div>
+</li>
+<li class="level1"><div class="li"> 坂本圭, 日本近海モデルMRI.COM-JPNを用いた沿岸海況の再現, 札幌管区気象台談話会, 2017/11/20, <a href="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/3aExPRgxXJvdgul" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/3aExPRgxXJvdgul" rel="nofollow">発表スライド PPT</a> </div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT11 SECTION "学会等の発表" [3811-] --></div>
+</body>
+</html>

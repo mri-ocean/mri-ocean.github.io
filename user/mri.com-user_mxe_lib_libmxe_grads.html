@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:libmxe_grads</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,libmxe_grads"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:libmxe_grads","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#libmxe_grads">libmxe_grads</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#構造体の型">構造体の型</a></div></li>
+<li class="level2"><div class="li"><a href="#サブルーチン">サブルーチン</a></div></li>
+<li class="level2"><div class="li"><a href="#使い方">使い方</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="libmxe_grads">libmxe_grads</h1>
+<div class="level1">
+
+<p>
+gradsコントロール・ファイルを作成する。以下を含む。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "libmxe_grads" [1-101] -->
+<h2 class="sectionedit2" id="構造体の型">構造体の型</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">type_grads: コントロール・ファイルを作成するのに必要な情報を与える。要素はソースコードを参照。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "構造体の型" [102-267] -->
+<h2 class="sectionedit3" id="サブルーチン">サブルーチン</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">libmxe_grads__make: 構造体type_gradsの情報を基にgradsコントロール・ファイルを作成する。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "サブルーチン" [268-418] -->
+<h2 class="sectionedit4" id="使い方">使い方</h2>
+<div class="level2">
+
+<p>
+以下の手順でgradsコントロール・ファイルを作ります。
+</p>
+<ol>
+<li class="level1"><div class="li">libmxe_para, libmxe_grid, libmxe_ioのインスタンスを作成</div>
+</li>
+<li class="level1"><div class="li">作りたいgradsコントロール・ファイルの設定をtype_grads構造体に与える</div>
+</li>
+<li class="level1"><div class="li">libmxe_grads__makeを呼ぶ</div>
+</li>
+</ol>
+
+<p>
+サンプル・プログラムです。namelist.configure.inの実験設定から、水温データのgradsコントロール・ファイルを作ります。
+</p>
+<pre class="code">program main
+
+use libmxe_para, only: libmxe_para__register, type_libmxe_para
+use libmxe_grid, only: libmxe_grid__register, type_libmxe_grid
+use libmxe_io, only: libmxe_io__register, type_libmxe_io
+use libmxe_grads, only: type_grads, libmxe_grads__make
+implicit none
+
+type(type_libmxe_para) :: para
+type(type_libmxe_grid) :: grid
+type(type_libmxe_io) :: io
+type(type_grads) :: grads
+
+call libmxe_para__register(para)
+call libmxe_grid__register(grid,para)
+call libmxe_io__register(io,para)
+
+grads%file_base = &#039;t&#039;
+grads%title = &#039;temperature&#039;
+grads%cgrid = &#039;T&#039;
+grads%ztype = &#039;center&#039;
+grads%nvar = 1
+grads%var(1) = &#039;t 50 99 temperature&#039;
+call libmxe_grads__make(grads,para,grid,io)
+
+end program</pre>
+
+</div>
+<!-- EDIT4 SECTION "使い方" [419-] --></div>
+</body>
+</html>

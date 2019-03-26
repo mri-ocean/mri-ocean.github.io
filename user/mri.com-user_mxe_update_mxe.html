@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:update_mxe</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,update_mxe"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:update_mxe","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mxeをアップデートする">MXEをアップデートする</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#準備">準備</a></div></li>
+<li class="level2"><div class="li"><a href="#マージ">マージ</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mxeをアップデートする">MXEをアップデートする</h1>
+<div class="level1">
+
+<p>
+MXE本体は、ライブラリのバグ修正や新たな解析ツールの追加など随時アップデートされます。
+これらの変更を、MXE上に構築した実験パッケージに反映させるには、gitの機能を使ってMXEの更新をマージします。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MXEをアップデートする" [1-326] -->
+<h2 class="sectionedit2" id="準備">準備</h2>
+<div class="level2">
+
+<p>
+MXE本体の公開リポジトリを、実験パッケージのリモート・リポジトリとして登録します。
+</p>
+<pre class="code">% git remote add mxe [MXE公開リポジトリURL]</pre>
+
+<p>
+ここではリポジトリ名をmxeとしました。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "準備" [327-574] -->
+<h2 class="sectionedit3" id="マージ">マージ</h2>
+<div class="level2">
+
+<p>
+実験パッケージのブランチにMXE本体のmasterをマージします。
+</p>
+<pre class="code">% git fetch mxe
+% git pull mxe master   !!!リモート・リポジトリmxeのブランチmasterを今のブランチにマージする</pre>
+
+<p>
+衝突がなければ、マージ後の状態がすぐにコミットされます。<sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup>
+実験パッケージの作業と衝突した場合には、問題のファイルを手で修正して解決したあとに、手動でコミットします<sup><a href="#fn__2" id="fnt__2" class="fn_top">2)</a></sup>。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "マージ" [575-] --><div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<div class="content">コミット前に止まって欲しければ-nを付ける。</div></div>
+<div class="fn"><sup><a href="#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+<div class="content">コミット・メッセージは勝手に付くので、変えない</div></div>
+</div>
+</div>
+</body>
+</html>

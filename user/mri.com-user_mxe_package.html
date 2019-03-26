@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:package</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,package"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:package","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="mxeベースの実験パッケージ">MXEベースの実験パッケージ</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "MXEベースの実験パッケージ" [1-52] -->
+<h2 class="sectionedit2" id="mxe幹と各パッケージ">MXE幹と各パッケージ</h2>
+<div class="level2">
+
+<p>
+MXE幹はテンプレートであり、各実験における実際の作業はそれを基に作成したローカルなリポジトリ(個別の実験パッケージ)で行います。
+MXE幹が骨格、ローカル・リポジトリで肉付け、という関係になります。
+</p>
+
+<p>
+MXE幹: 全ての実験の共通部分に当たるもので以下を含む。
+</p>
+<ul>
+<li class="level1"><div class="li">実験環境の基本的なディレクトリ構造</div>
+</li>
+<li class="level1"><div class="li">特定の目的で使えるFortranプログラム</div>
+</li>
+<li class="level1 node"><div class="li">上を動かすスクリプトのサンプル</div>
+<ul>
+<li class="level2"><div class="li">ディレクトリ「sample」の下にあるので、コピーして使ってください。</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+ローカル・リポジトリ: MXE幹をベースにして、さらに以下を含む。
+</p>
+<ul>
+<li class="level1"><div class="li">現在行っている実験の設定</div>
+</li>
+<li class="level1"><div class="li">現在行っている実験にだけ必要と思われるツール類</div>
+</li>
+<li class="level1"><div class="li">前処理、後処理、解析が再現できる、すぐに動かせるスクリプト</div>
+</li>
+</ul>
+
+<p>
+新しい実験パッケージはMXE幹から作り始めるのに対し、既存の実験を引き継ぐ場合には個別実験パッケージをコピー(かgit clone)します。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "MXE幹と各パッケージ" [53-] --></div>
+</body>
+</html>

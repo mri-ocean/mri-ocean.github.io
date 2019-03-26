@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:ver44</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,ver44"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:ver44","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_ver44">MRI.COM ver.4.4</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#ソースコードの取得">ソースコードの取得</a></div></li>
+<li class="level2"><div class="li"><a href="#追加された主な機能">追加された主な機能</a></div></li>
+<li class="level2"><div class="li"><a href="#ver42_から_44_への移行">ver.4.2 から 4.4 への移行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#入力データファイル">入力データファイル</a></div></li>
+<li class="level3"><div class="li"><a href="#コンパイル・オプション">コンパイル・オプション</a></div></li>
+<li class="level3"><div class="li"><a href="#namelist">namelist</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#機能削除の予定">機能削除の予定</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_ver44">MRI.COM ver.4.4</h1>
+<div class="level1">
+
+<p>
+MRI.COM ver.4.4 は、2017年10月にリリースされた安定版です。
+次期の気象研地球システムモデル(MRI-ESM2.0)の海洋モデル部分になります。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM ver.4.4" [1-209] -->
+<h2 class="sectionedit2" id="ソースコードの取得">ソースコードの取得</h2>
+<div class="level2">
+
+<p>
+MRI.COM gitリポジトリでブランチ「4_4」をチェックアウトして下さい。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "ソースコードの取得" [210-344] -->
+<h2 class="sectionedit3" id="追加された主な機能">追加された主な機能</h2>
+<div class="level2">
+
+<p>
+ver.4.2から以下の機能が追加されています。
+</p>
+<ul>
+<li class="level1"><div class="li"> MPDATA移流スキーム(オプションMPDATA)</div>
+</li>
+<li class="level1 node"><div class="li"> CMIP6に向けた炭素循環と生態系モデルの機能追加、調整、モニター出力追加</div>
+<ul>
+<li class="level2"><div class="li"> 生物過程を考慮しないDIC</div>
+</li>
+<li class="level2"><div class="li"> 炭素関係の計算にmoscyパッケージ</div>
+</li>
+<li class="level2"><div class="li"> 人為起源・自然起源それぞれの炭素</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> データ同化のためのインクリメント注入ルーチン(オプションTSIAU)</div>
+</li>
+<li class="level1"><div class="li"> 安定性向上のためのオプション(オプションVADVIMP, nml_sfc_stress)</div>
+</li>
+<li class="level1"><div class="li"> 双方向ネスティング実行の高速化(nml_nest_par - flg_feedback_repl_bnd)</div>
+</li>
+<li class="level1"><div class="li"> デバッグモードの拡充</div>
+</li>
+<li class="level1"><div class="li"> ドキュメントファイルを markdown 記法に統一</div>
+</li>
+<li class="level1"><div class="li"> 多数のバグ修正(特に不定値参照の排除)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "追加された主な機能" [345-1175] -->
+<h2 class="sectionedit4" id="ver42_から_44_への移行">ver.4.2 から 4.4 への移行</h2>
+<div class="level2">
+
+<p>
+安定版 ver.4.2 から ver.4.4 へ移行する場合のメモです。
+ほぼ同じ設定にした場合でも結果は変わります。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "ver.4.2 から 4.4 への移行" [1176-1361] -->
+<h3 class="sectionedit5" id="入力データファイル">入力データファイル</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 海氷リスタートファイルは、海洋モデルと同様にサフィックス「.YYYYMMDDHHMMSS」を常に付けるように変更されました。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "入力データファイル" [1362-1562] -->
+<h3 class="sectionedit6" id="コンパイル・オプション">コンパイル・オプション</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 廃止：FSEB</div>
+</li>
+<li class="level1"><div class="li"> 新規：VADVIMP, MPDATA, TSIAU</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "コンパイル・オプション" [1563-1662] -->
+<h3 class="sectionedit7" id="namelist">namelist</h3>
+<div class="level3">
+
+<p>
+主な変更です。
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>炭素関連</strong>: nml_cbnflx に変更があります。</div>
+</li>
+<li class="level1"><div class="li"> <strong>海氷リスタート</strong>: nml_seaice_time_conf は指定する必要がなくなりました。nml_seaice_rst_out の num_rst_ic, maxnum_rst_ic も廃止されました。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "namelist" [1663-1944] -->
+<h2 class="sectionedit8" id="機能削除の予定">機能削除の予定</h2>
+<div class="level2">
+
+<p>
+次期安定版で削除される予定の機能です。
+</p>
+<ul>
+<li class="level1"><div class="li"> 旧形式のヒストリー出力指定</div>
+</li>
+<li class="level1"><div class="li"> 2層以上のBBL</div>
+</li>
+<li class="level1"><div class="li"> BULKNCAR 時にBULKITER必須化</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "機能削除の予定" [1945-] --></div>
+</body>
+</html>

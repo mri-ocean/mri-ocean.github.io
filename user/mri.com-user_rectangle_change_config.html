@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:rectangle:change_config</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,rectangle,change_config"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:rectangle';var JSINFO = {"id":"mri.com-user:rectangle:change_config","namespace":"mri.com-user:rectangle"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#実験設定の変更">実験設定の変更</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#時間ステップ_積分期間_出力等の変更">時間ステップ、積分期間、出力等の変更</a></div></li>
+<li class="level2"><div class="li"><a href="#実験オプションの変更_自動">実験オプションの変更 (自動)</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#オンライン・ネスティング使用時の注意">オンライン・ネスティング使用時の注意</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#実験オプションの変更_手動">実験オプションの変更 (手動)</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="実験設定の変更">実験設定の変更</h1>
+<div class="level1">
+
+<p>
+デフォルトではダブル・ジャイア用の風だけの非常にシンプルな設定ですが、設定を色々と変えることができます。
+以下の3つの変更方法があります。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "実験設定の変更" [1-240] -->
+<h2 class="sectionedit2" id="時間ステップ_積分期間_出力等の変更">時間ステップ、積分期間、出力等の変更</h2>
+<div class="level2">
+
+<p>
+デフォルトでは時間ステップ間隔30分で10日間の積分を行います。
+時間ステップ、積分期間、出力を変更するには、exp/run/run.conf を編集し run_pre.sh を実行します。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "時間ステップ、積分期間、出力等の変更" [241-528] -->
+<h2 class="sectionedit3" id="実験オプションの変更_自動">実験オプションの変更 (自動)</h2>
+<div class="level2">
+
+<p>
+ある特定の設定変更については、必要なファイル変更を自動で行うシェル・スクリプトがあります。
+</p>
+<pre class="code">&gt; cd exp/run
+&gt; sh change_option.sh  !!! 実験設定名をリスト表示する
+&gt; sh change_option.sh [設定名]   !!! 設定名で設定ファイルを書き換える</pre>
+
+<p>
+元に戻すには、gitの機能を使ってください。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "実験オプションの変更 (自動)" [529-957] -->
+<h3 class="sectionedit4" id="オンライン・ネスティング使用時の注意">オンライン・ネスティング使用時の注意</h3>
+<div class="level3">
+
+<p>
+オンライン・ネスティング使用時にはSCUPライブラリを使用します。
+パッケージに同梱されたSCUPライブラリをコンパイルしておきます。
+</p>
+<pre class="code">&gt; cd exp/scup/src
+&gt; make FC_XXX=マシン環境名  !!! Makefileを直接に書き換えても良い</pre>
+
+</div>
+<!-- EDIT4 SECTION "オンライン・ネスティング使用時の注意" [958-1315] -->
+<h2 class="sectionedit5" id="実験オプションの変更_手動">実験オプションの変更 (手動)</h2>
+<div class="level2">
+
+<p>
+手動で設定を変えるには、主に下の2つを編集します。
+</p>
+<ul>
+<li class="level1"><div class="li"> exp/config_files/configure.in</div>
+</li>
+<li class="level1"><div class="li"> exp/run/namelist/ 以下のNAMELISTテンプレートファイル、またはrun_pre.shで生成されるNAMELIST.OGCM</div>
+</li>
+</ul>
+
+<p>
+詳細は、exp/MRICOM3/docs/README.Options, README.Namelist などを参照して下さい。
+</p>
+
+</div>
+<!-- EDIT5 SECTION "実験オプションの変更 (手動)" [1316-] --></div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:libmxe_grid</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,libmxe_grid"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:libmxe_grid","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#libmxe_grid">libmxe_grid</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#構造体の型">構造体の型</a></div></li>
+<li class="level2"><div class="li"><a href="#サブルーチン">サブルーチン</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="libmxe_grid">libmxe_grid</h1>
+<div class="level1">
+
+<p>
+グリッド情報を設定するモジュール。以下を含む。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "libmxe_grid" [1-96] -->
+<h2 class="sectionedit2" id="構造体の型">構造体の型</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">type_libmxe_grid: 実験のグリッド情報を保持するクラス。要素は以下のとおり。</div>
+</li>
+</ul>
+<pre class="code">  logical :: ldef=.false. !- .true. : this object is registered
+  real(8),pointer :: lont(:), latt(:)       !- longitude and latitude at T-grid
+  real(8),pointer :: lonu(:), latu(:)       !-                        at U-grid
+  real(8),pointer :: glont(:,:), glatt(:,:) !- geographical longitude and latitude at T-grid
+  real(8),pointer :: glonu(:,:), glatu(:,:) !-                                     at U-grid
+  real(8),pointer :: cor(:,:)               !- Coriolis parameter at U-grid
+  real(8),pointer :: dxtdeg(:), dytdeg(:)   !- longitude and latitude grid spacing
+  real(8),pointer :: dep(:)  !- box-top depth (1:km+1)
+  real(8),pointer :: depm(:) !- box-center depth (1:km)
+  real(8),pointer :: dzm(:)  !- box-center interval (1:km)
+  real(8),pointer :: a_bl(:,:), a_br(:,:), a_tl(:,:), a_tr(:,:) !- area of quarter
+  !                  T----X----T
+  !                  | tl | tr |
+  !             U----Y----U----Y
+  !             |    | bl | br |
+  !             X----T----X----T
+  !             |    |    |
+  !             U----Y----U
+  real(8),pointer :: areau(:,:) !- area of U-box
+  real(8),pointer :: dx_bl(:,:), dx_br(:,:), dx_tl(:,:), dx_tr(:,:) !- length (x)
+  real(8),pointer :: dy_bl(:,:), dy_br(:,:), dy_tl(:,:), dy_tr(:,:) !- length (y)
+  real(8),pointer :: nendidx(:) !- north end index
+                                !- nendidx(para%jet)=0.5 if para%lfoldnp=.true.
+  character(len=clen) :: namelist !- namelist file</pre>
+
+</div>
+<!-- EDIT2 SECTION "構造体の型" [97-1716] -->
+<h2 class="sectionedit3" id="サブルーチン">サブルーチン</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">libmxe_grid__register: type_libmxe_paraインスタンスを基に、クラスtype_libmxe_gridのインスタンスを生成するメソッド。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "サブルーチン" [1717-] --></div>
+</body>
+</html>

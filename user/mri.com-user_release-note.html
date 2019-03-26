@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:release-note</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,release-note"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:release-note","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_リリース・ノート">MRI.COM リリース・ノート</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#ver4512_2019_03_04">ver.4.5.12 (2019/03/04)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4511_2018_11_09">ver.4.5.11 (2018/11/09)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4510_2018_10_05">ver.4.5.10 (2018/10/05)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4509_2018_09_04">ver.4.5.09 (2018/09/04)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4508_2018_08_06">ver.4.5.08 (2018/08/06)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4507_2018_07_24">ver.4.5.07 (2018/07/24)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4506_2018_06_06">ver.4.5.06 (2018/06/06)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4505_2018_05_07">ver.4.5.05 (2018/05/07)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4504_2018_04_09">ver.4.5.04 (2018/04/09)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4503_2018_03_07">ver.4.5.03 (2018/03/07)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4502_2018_01_18">ver.4.5.02 (2018/01/18)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4501_2017_11_28">ver.4.5.01 (2017/11/28)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4400_2017_10_18">ver.4.4.00 (2017/10/18)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4308_2017_09_15">ver.4.3.08 (2017/09/15)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4307_2017_07_07">ver.4.3.07 (2017/07/07)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4306_2017_06_08">ver.4.3.06 (2017/06/08)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4305_2017_04_10">ver.4.3.05 (2017/04/10)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4304_2017_03_09">ver.4.3.04 (2017/03/09)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4303_2017_01_18">ver.4.3.03 (2017/01/18)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4302_2016_12_12">ver.4.3.02 (2016/12/12)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4301_2016_11_04">ver.4.3.01 (2016/11/04)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4300_2016_09_06">ver.4.3.00 (2016/09/06)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4111_2016_07_19">ver.4.1.11 (2016/07/19)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4110_2016_06_13">ver.4.1.10 (2016/06/13)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4109_2016_05_11">ver.4.1.09 (2016/05/11)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4108_2016_04_06">ver.4.1.08 (2016/04/06)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4107_2016_03_07">ver.4.1.07 (2016/03/07)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4106_2016_02_04">ver.4.1.06 (2016/02/04)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4105_2016_01_05">ver.4.1.05 (2016/01/05)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4104_2015_12_08">ver.4.1.04 (2015/12/08)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4103_2015_11_13">ver.4.1.03 (2015/11/13)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4102_2015_09_07">ver.4.1.02 (2015/09/07)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4101_2015_08_06">ver.4.1.01 (2015/08/06)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver4100_2015_07_03">ver.4.1.00 (2015/07/03)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3326_2015_06_12">ver.3.3.26 (2015/06/12)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3325_2015_05_01">ver.3.3.25 (2015/05/01)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3324_2015_04_07">ver.3.3.24 (2015/04/07)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3323_2015_03_09">ver.3.3.23 (2015/03/09)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3322_2015_02_09">ver.3.3.22 (2015/02/09)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3321_2014_12_02">ver.3.3.21 (2014/12/02)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3320_2014_11_13">ver.3.3.20 (2014/11/13)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3319_2014_10_02">ver.3.3.19 (2014/10/02)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3318_2014_09_01">ver.3.3.18 (2014/09/01)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3217_3317_2014_08_06">ver.3.2.17, 3.3.17 (2014/08/06)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3216_3316_2014_07_03">ver.3.2.16, 3.3.16 (2014/07/03)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3315_のリリース_2014_06_02">ver.3.3.15 のリリース (2014/06/02)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3214_3314_のリリース_2014_05_02">ver.3.2.14, 3.3.14 のリリース (2014/05/02)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3313のリリース_2014_03_12">ver.3.3.13のリリース (2014/03/12)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3312のリリース_2014_02_06">ver.3.3.12のリリース (2014/02/06)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3211_3311のリリース_2014_01_08">ver.3.2.11, 3.3.11のリリース (2014/01/08)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver3209_3310のリリース_2013_12_11">ver.3.2.09, 3.3.10のリリース (2013/12/11)</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_リリース・ノート">MRI.COM リリース・ノート</h1>
+<div class="level1">
+
+<p>
+MRI.COMでは2つのバージョンが開発されています。
+</p>
+<ul>
+<li class="level1"><div class="li"> ver.4.4　安定版：一般的なユーザー、外部提供用</div>
+</li>
+<li class="level1"><div class="li"> ver.4.5　開発版：次期安定版のβ</div>
+</li>
+</ul>
+
+<p>
+更新の詳細はMRI.COMソースコード内のChangeLogを参照してください。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM リリース・ノート" [1-322] -->
+<h2 class="sectionedit2" id="ver4512_2019_03_04">ver.4.5.12 (2019/03/04)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 海氷モデルに熱収支、海面フラックスのモニターを追加しました</div>
+</li>
+<li class="level1 node"><div class="li"> ES3用のチューニング・オプション「ES3」を追加しました</div>
+<ul>
+<li class="level2"><div class="li"> 現在、JAMSTEC佐々木氏によるMPI関連のチューニングが行われます</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> なし</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 新しい時間積分スキーム(l_passive_trc_forward_Euler)にオンライン・ネスティングの一部対応</div>
+</li>
+<li class="level1"><div class="li"> tide killer出力のバグ修正</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正">安定版の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> sigma-t 基準による混合層深度モニターのバグを修正</div>
+</li>
+<li class="level1"><div class="li"> Cray Fortran の高速化オプションに対応</div>
+</li>
+<li class="level1"><div class="li"> pointer 仮引数の intent 属性付与を F2003 オプション時のみに修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "ver.4.5.12 (2019/03/04)" [323-1103] -->
+<h2 class="sectionedit3" id="ver4511_2018_11_09">ver.4.5.11 (2018/11/09)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能1">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> なし</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更1">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> なし</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正1">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 時間差分を leapfrog + Matsuno スキームから leapfrog-Adams-Moulton法 (LFAM3) へ変更するための準備</div>
+</li>
+<li class="level1"><div class="li"> 緯度経度指定の時系列モニタの修正</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正1">安定版の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 不定値参照の修正2件</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "ver.4.5.11 (2018/11/09)" [1104-1466] -->
+<h2 class="sectionedit4" id="ver4510_2018_10_05">ver.4.5.10 (2018/10/05)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能2">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> なし</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更2">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 海氷ヒストリー出力を指定する旧形式 namelist が一部削除されました</div>
+</li>
+<li class="level1 node"><div class="li"> STABLERUN + ICE オプション時に、ゼロ割を回避する追加の操作を加えました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>両オプション併用時に結果が変わる場合があります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正2">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 不定値参照の修正</div>
+</li>
+<li class="level1"><div class="li"> 緯度経度指定の時系列モニタの修正</div>
+</li>
+<li class="level1"><div class="li"> リファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正2">安定版の修正</h4>
+<div class="level4">
+
+<p>
+なし
+</p>
+
+</div>
+<!-- EDIT4 SECTION "ver.4.5.10 (2018/10/05)" [1467-2005] -->
+<h2 class="sectionedit5" id="ver4509_2018_09_04">ver.4.5.09 (2018/09/04)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能3">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 等密度面解析において密度面の中間の値を出力するヒストリー項目を追加しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更3">変更</h4>
+<div class="level4">
+
+<p>
+なし
+</p>
+
+</div>
+
+<h4 id="その他の修正3">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 不定値参照の修正</div>
+</li>
+<li class="level1"><div class="li"> 時間差分の変更に向けたリファクタリング、準備</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正3">安定版の修正</h4>
+<div class="level4">
+
+<p>
+なし
+</p>
+
+</div>
+<!-- EDIT5 SECTION "ver.4.5.09 (2018/09/04)" [2006-2367] -->
+<h2 class="sectionedit6" id="ver4508_2018_08_06">ver.4.5.08 (2018/08/06)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能4">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ppm スキームによるトレーサー輸送のモニターが追加されました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更4">変更</h4>
+<div class="level4">
+
+<p>
+なし
+</p>
+
+</div>
+
+<h4 id="その他の修正4">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 結合モデル時にコンパイルできない問題を修正</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4408">安定版の修正 (ver.4.4.08)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> コンパイル失敗、ヒストリー出力など軽微なバグ修正2件</div>
+</li>
+<li class="level1 node"><div class="li"> 結合モデルの海面CO2フラックス交換における符号反転の修正</div>
+<ul>
+<li class="level2"><div class="li"> いずれも結果は変わりません</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "ver.4.5.08 (2018/08/06)" [2368-2891] -->
+<h2 class="sectionedit7" id="ver4507_2018_07_24">ver.4.5.07 (2018/07/24)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能5">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> パッシヴ・トレーサーの時間発展においてleap frogの偶数時をスキップするオプションが追加されました</div>
+<ul>
+<li class="level2"><div class="li"> 結果はスキップしない場合と同じになるはずです。計算時間が短縮されます</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> SOM のリスタート I/O が MPI-IO に対応しました</div>
+<ul>
+<li class="level2"><div class="li"> 利用するにはnamelistの変更が必要です</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> NetCDF 形式での倍精度出力が可能になりました</div>
+</li>
+<li class="level1 node"><div class="li"> 以下のモニターが追加されました</div>
+<ul>
+<li class="level2"><div class="li"> SOM フラックスリミッターの発生頻度</div>
+</li>
+<li class="level2"><div class="li"> ポテンシャル密度</div>
+</li>
+<li class="level2"><div class="li"> Spiciness</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更5">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> SOMリスタートファイルに新しい命名法が追加されました</div>
+<ul>
+<li class="level2"><div class="li"> 既存のファイルをリネームする場合は tools/ver46to47/ を使って下さい</div>
+</li>
+<li class="level2"><div class="li"> 従来の指定方法も ver.4.6 までは維持されます</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> nml_restart(ver.4.5.06 で導入), nml_history において、一部のパッシヴ・トレーサーの名前が一貫性を持つように変更されました</div>
+<ul>
+<li class="level2"><div class="li"> Dissolved Inorganic Carbon → DIC</div>
+</li>
+<li class="level2"><div class="li"> Alkalinity → Total Alkalinity</div>
+</li>
+<li class="level2"><div class="li"> Particle Organic Nutrient → PON</div>
+</li>
+<li class="level2"><div class="li"> Dissolved Organic Nutrient → DON</div>
+</li>
+<li class="level2"><div class="li"> Fe → Iron</div>
+</li>
+<li class="level2"><div class="li"> 従来の名前も ver.4.6 までは維持されます</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> nml_restart の “Global Mean Density and Pressure” が必須になりました (旧namelist形式ではnmlrs_density)</div>
+</li>
+<li class="level1 node"><div class="li"> ヒストリー出力を指定する旧形式 namelist が一部削除されました</div>
+<ul>
+<li class="level2"><div class="li"> docs/README_Monitor.md を参考に新方式に変更してください</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正5">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> デバッグ用の内部サブルーチンの追加</div>
+</li>
+<li class="level1"><div class="li"> リファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4407">安定版の修正 (ver.4.4.07)</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> コンパイル失敗など軽微なバグ修正2件</div>
+<ul>
+<li class="level2"><div class="li"> 結果は変わりません</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "ver.4.5.07 (2018/07/24)" [2892-4740] -->
+<h2 class="sectionedit8" id="ver4506_2018_06_06">ver.4.5.06 (2018/06/06)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="変更6">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> リスタートファイルを指定する namelist がヒストリーと同じ形式に変更されました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>docs/README_Restart.md を参考に変更する必要があります</strong></div>
+</li>
+<li class="level2"><div class="li"> 従来の指定方法も ver.4.6 までは維持されます</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> ヒストリー出力を指定する旧形式 namelist が一部削除されました</div>
+<ul>
+<li class="level2"><div class="li"> docs/README_Monitor.md を参考に新方式に変更してください</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> デバッグモードの拡充</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正6">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> リファクタリング</div>
+</li>
+<li class="level1"><div class="li"> コンパイル失敗などバグ修正4件</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4406">安定版の修正 (ver.4.4.06)</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 不定値参照など軽微なバグ修正5件</div>
+<ul>
+<li class="level2"><div class="li"> <strong>結果は変わりません</strong></div>
+</li>
+<li class="level2"><div class="li"> <strong>nmlhs_cnvajs_s の出力は間違っていました</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "ver.4.5.06 (2018/06/06)" [4741-5557] -->
+<h2 class="sectionedit9" id="ver4505_2018_05_07">ver.4.5.05 (2018/05/07)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能6">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> デトリタスの沈降制限のファクターを2次元で指定できるようになりました (ver.4.4から)</div>
+</li>
+<li class="level1 node"><div class="li"> オフライントレーサーモデルに機能を追加しました</div>
+<ul>
+<li class="level2"><div class="li"> ageやcfcの読み込みが可能になりました</div>
+</li>
+<li class="level2"><div class="li"> 開始時の時間補間の重みを namelist で変更できるようになりました</div>
+</li>
+<li class="level2"><div class="li"> 駆動に必要な出力がヒストリー新形式に対応しました</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 気象庁 Cray XC50 のコンパイル設定を加えました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更7">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 双方向ネスティング子モデルのスポンジ領域における拡散係数の補間の変更</div>
+<ul>
+<li class="level2"><div class="li"> <strong>双方向ネスティングで flg_sponge_sub = .true. の場合に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正7">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> リファクタリング、高速化</div>
+</li>
+<li class="level1"><div class="li"> バグ修正</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4405">安定版の修正 (ver.4.4.05)</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 軽微なバグ修正3件</div>
+<ul>
+<li class="level2"><div class="li"> <strong>短波放射透過フラックスのモニター出力が僅かに変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "ver.4.5.05 (2018/05/07)" [5558-6585] -->
+<h2 class="sectionedit10" id="ver4504_2018_04_09">ver.4.5.04 (2018/04/09)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能7">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 海面流速ベクトルを海面境界条件データとして読み込む機能が追加されました</div>
+<ul>
+<li class="level2"><div class="li"> この機能を使うことで、相対風速の風強制データを絶対風速として利用できます</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> ヒストリー出力に機能を追加しました</div>
+<ul>
+<li class="level2"><div class="li"> 特定の期間だけ出力する</div>
+</li>
+<li class="level2"><div class="li"> 地点時系列モニタを追加する</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> オプション STABLERUN 時の海面塩分リストア設定を namelist で変更できるようになりました</div>
+</li>
+<li class="level1"><div class="li"> tide killerフィルター出力に対して時間平均をかけられるようになりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更8">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 長波放射はネットではなく下向き成分を与えるように変更</div>
+<ul>
+<li class="level2"><div class="li"> <strong>LWDOWNを使っていなかった場合はフォーシング・ファイルの変更が必要です</strong></div>
+</li>
+<li class="level2"><div class="li"> 使っていた場合はフォーシングを変更する必要はありませんが、コンパイル・オプションからLWDOWNを削除して下さい</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 安定性向上のために海氷厚に下限値を設定しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>ICE使用時に結果が僅かに変わる場合があります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正8">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> リファクタリング</div>
+</li>
+<li class="level1"><div class="li"> バグ修正1件</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4404">安定版の修正 (ver.4.4.04)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 軽微なバグ修正2件</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "ver.4.5.04 (2018/04/09)" [6586-7906] -->
+<h2 class="sectionedit11" id="ver4503_2018_03_07">ver.4.5.03 (2018/03/07)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能8">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 海氷のリッジングに関するパラメータ shear dissipation ratio をnamelistで指定できるようになりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更9">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 海氷リッジングのスキームを安定性向上のために一部変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>ICE使用時に結果が僅かに変わる場合があります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正9">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> バグ修正3件</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4403">安定版の修正 (ver.4.4.03)</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> バグ修正2件</div>
+<ul>
+<li class="level2"><div class="li"> <strong>NPZDモデルの結果が変わる場合があります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "ver.4.5.03 (2018/03/07)" [7907-8463] -->
+<h2 class="sectionedit12" id="ver4502_2018_01_18">ver.4.5.02 (2018/01/18)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能9">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> オフライントレーサーモデルとして使用する場合に、 passive tracer を予報せずデータを読み込むオプション　NOTRACERPREDICT を加えました</div>
+<ul>
+<li class="level2"><div class="li"> OFLT, OFLT_ALL と組合せることで解析だけを行うことが可能です</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> TIDEオプション時、tide killerフィルターをかけた水温・塩分を出力できるようになりました</div>
+</li>
+<li class="level1"><div class="li"> PPMスキーム＋双方向ネスティングの場合に通信節約オプションが可能になりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更10">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> PPMスキームのアルゴリズムを GFDL-MOM に倣って変更</div>
+</li>
+<li class="level1 node"><div class="li"> PPMスキームのリミッターを Zalesak (1979) から Lin et al. (1994) に変更</div>
+<ul>
+<li class="level2"><div class="li"> <strong>PPM使用時に namelist の変更が必要です</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> PGI コンパイラ利用時の標準オプションに -Kieee を追加する</div>
+<ul>
+<li class="level2"><div class="li"> <strong>使用していた場合、結果が僅かに変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正10">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 順圧モードの計算を高速化</div>
+<ul>
+<li class="level2"><div class="li"> <strong>結果が僅かに変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 海氷スキームのアルゴリズムの修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>ICE使用時に結果が僅かに変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> PPMスキーム等のバグ修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>PPM使用時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4402">安定版の修正 (ver.4.4.02)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> バグ修正2件 (結果は変わらない)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "ver.4.5.02 (2018/01/18)" [8464-9831] -->
+<h2 class="sectionedit13" id="ver4501_2017_11_28">ver.4.5.01 (2017/11/28)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能10">新機能</h4>
+<div class="level4">
+
+<p>
+なし
+</p>
+
+</div>
+
+<h4 id="変更11">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <strong>ベクトル機では OPTIONS に VECTOR を加えてください</strong></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正11">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> OpenMP, キャッシュチューニングによる高速化</div>
+</li>
+<li class="level1"><div class="li"> 気象研海洋サーバー「ogsv009」の実行環境を加えました</div>
+</li>
+<li class="level1 node"><div class="li"> リファクタリング</div>
+<ul>
+<li class="level2"><div class="li"> <strong>TRIPOLAR or JOT 使用時に結果が僅かに変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4401">安定版の修正 (ver.4.4.01)</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 海氷強度Pの式について元論文の誤植を修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>海氷使用時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 東端と北端の不要なデータ埋めの削除</div>
+<ul>
+<li class="level2"><div class="li"> <strong>ネスティング使用時に結果が僅かに変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 海面応力のリミッターオプションのバグの修正</div>
+</li>
+<li class="level1"><div class="li"> CMIP6-SIMIP の出力仕様変更への対応</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT13 SECTION "ver.4.5.01 (2017/11/28)" [9832-10667] -->
+<h2 class="sectionedit14" id="ver4400_2017_10_18">ver.4.4.00 (2017/10/18)</h2>
+<div class="level2">
+
+<p>
+ver.4.5.00 も同じです。
+</p>
+
+</div>
+
+<h4 id="新機能11">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 結合モデル立ち上げ時の初期ショックを低減するために海洋モデルから大気へ海洋状態量の初期値を渡すことができるようになりました</div>
+</li>
+<li class="level1"><div class="li"> 大気モデルと結合時に人為起源・自然起源を分けてCO2フラックスを計算できるようになりました</div>
+</li>
+<li class="level1 node"><div class="li"> モニター出力に以下の機能を加えました</div>
+<ul>
+<li class="level2"><div class="li"> 熱力学に基づく diapycnal velocity</div>
+</li>
+<li class="level2"><div class="li"> 等密度面解析の鉛直座標変換における不安定成層への対応</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更12">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> FX100のデフォルトのコンパイル・オプションに openmp を加えました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正12">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> プログラム中の異常終了時処理の対応</div>
+</li>
+<li class="level1"><div class="li"> MPI-IOのエラー処理</div>
+</li>
+<li class="level1"><div class="li"> 未定義値参照を引き起こしうるコードの修正</div>
+</li>
+<li class="level1"><div class="li"> ムダな操作の削除、リファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4209">安定版の修正 (ver.4.2.09)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> BBLなし、TRIPOLARまたはJOT、MPI2ありモデルで接続/継続が一致しない問題の修正</div>
+</li>
+<li class="level1"><div class="li"> 誤って単精度となっている定数を倍精度に修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT14 SECTION "ver.4.4.00 (2017/10/18)" [10668-11831] -->
+<h2 class="sectionedit15" id="ver4308_2017_09_15">ver.4.3.08 (2017/09/15)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能12">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> abiotic 14C の計算が可能になりました</div>
+</li>
+<li class="level1"><div class="li"> 双方向ネスティング時の通信量を削減するオプションを加えました</div>
+</li>
+<li class="level1"><div class="li"> 安定実行のため海面運動量フラックスに対してlimitterをつけられるようになりました</div>
+</li>
+<li class="level1"><div class="li"> 異常終了時の状況を倍精度に加えて単精度でも出力するようにしました</div>
+</li>
+<li class="level1"><div class="li"> 結果がMPI分割によらないように設定を一括で変更するオプションを加えました</div>
+</li>
+<li class="level1 node"><div class="li"> モニターに以下の機能を加えました</div>
+<ul>
+<li class="level2"><div class="li"> ポテンシャル密度の時間変化項</div>
+</li>
+<li class="level2"><div class="li"> 鉛直平均オプション</div>
+</li>
+<li class="level2"><div class="li"> 3次元マスクを用いた領域積分・平均</div>
+</li>
+<li class="level2"><div class="li"> 密度座標系におけるトレーサー時間変化項</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更13">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 大気海洋結合モデルでも海面水温のリストア指定が有効になるように変更しました</div>
+</li>
+<li class="level1"><div class="li"> OMIPのbiogeochemical 関係の出力を解説書に合わせて変更しました</div>
+</li>
+<li class="level1"><div class="li"> abiotic carbon の計算を CMIP 仕様に変更しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正13">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 双方向ネスティング時の海氷スキームのバグを修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>海氷と双方向ネスティング併用時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> gfortran で一部コンパイルできない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> コンパイラによって警告される部分の修正</div>
+</li>
+<li class="level1"><div class="li"> ノンブロッキング通信と部分配列引数を併用している部分の修正</div>
+</li>
+<li class="level1"><div class="li"> 通信の削減、高速化、メモリ削減</div>
+</li>
+<li class="level1"><div class="li"> リファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4208">安定版の修正 (ver.4.2.08)</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 不定値参照が起こりうる部分の修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>TIDE使用時に結果がわずかに変わります</strong></div>
+</li>
+<li class="level2"><div class="li"> <strong>BULKITERなしでBULKNCAR使用時に結果がわずかに変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> intent 属性の指定ミスの修正</div>
+</li>
+<li class="level1"><div class="li"> ヒストリー出力の「per_area」オプションの修正</div>
+</li>
+<li class="level1"><div class="li"> OFLTALL でない OFLT モデルで流速場等の更新がなされないバグの修正</div>
+</li>
+<li class="level1"><div class="li"> 密度座標での総水平体積輸送を単独でモニターできないバグの修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT15 SECTION "ver.4.3.08 (2017/09/15)" [11832-13932] -->
+<h2 class="sectionedit16" id="ver4307_2017_07_07">ver.4.3.07 (2017/07/07)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能13">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> トレーサー及び運動量の鉛直移流の一部を陰解法で解くオプションを追加しました</div>
+</li>
+<li class="level1 node"><div class="li"> モニターを追加しました</div>
+<ul>
+<li class="level2"><div class="li"> steric height</div>
+</li>
+<li class="level2"><div class="li"> フラックス調整を除いた総海面熱フラックス</div>
+</li>
+<li class="level2"><div class="li"> 海氷上の降水</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更14">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> オンライン・ネスティングにおける仕様を変更しました</div>
+<ul>
+<li class="level2"><div class="li"> 高速化のために NSFMRGN=2 固定とするように変更しました</div>
+</li>
+<li class="level2 node"><div class="li"> 海氷モデルにおいて海氷温度の安定化処理を加えました</div>
+<ul>
+<li class="level3"><div class="li"> <strong>オンライン・ネスティングと海氷モデルの併用時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正14">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> デバッグモードの拡充</div>
+</li>
+<li class="level1"><div class="li"> Makefile の依存関係の修正</div>
+</li>
+<li class="level1"><div class="li"> 高速化のためのリファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4207">安定版の修正 (ver.4.2.07)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 大気モデル結合時、海洋上風応力のやりとりにopen water fractionによる重みづけを行わないように変更</div>
+</li>
+<li class="level1"><div class="li"> 大気－海洋ネスト結合モデルが動作するための修正</div>
+</li>
+<li class="level1 node"><div class="li"> 不定値参照、通信、端グリッドの処理の修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>オンライン・ネスティング使用時、潮汐とBIHARMONICの併用時に結果がわずかに変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT16 SECTION "ver.4.3.07 (2017/07/07)" [13933-15222] -->
+<h2 class="sectionedit17" id="ver4306_2017_06_08">ver.4.3.06 (2017/06/08)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能14">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 任意のT点変数が等密度面解析できるようになりました</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング親モデル時の境界出力で層数を選べるようになりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更15">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> デフォルトのマシン設定を変更しました</div>
+<ul>
+<li class="level2 node"><div class="li"> ES3, PGIFortran 13.1 以降のコンパイル設定</div>
+<ul>
+<li class="level3"><div class="li"> <strong> 一部の気象研海洋サーバーでは結果が変わります </strong></div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> PGIFortran と gfortran のデバッグ用オプションを整理</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 高速化のためx方向のSOMコードに対しSIMD化がかかるように変更</div>
+</li>
+<li class="level1"><div class="li"> frazil ice 生成に伴う温位時間変化項・海面熱フラックスモニターの仕様の変更</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング親モデル境界出力の陸グリッドの値を変更</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正15">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> オフライントレーサーモデルで入力変数の任意のサフィックス長に対応</div>
+</li>
+<li class="level1"><div class="li"> デバッグモードの修正と拡充</div>
+</li>
+<li class="level1"><div class="li"> 間隔1分以下のヒストリー出力についてgrads ctlの時間間隔を1MNとするように修正</div>
+</li>
+<li class="level1"><div class="li"> データ同化MOVE関連の修正</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4206">安定版の修正 (ver.4.2.06)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 地球シミュレーター実行時のバグ修正</div>
+</li>
+<li class="level1"><div class="li"> 不定値参照のバグ修正</div>
+</li>
+<li class="level1"><div class="li"> gfortran でコンパイルできないバグの修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT17 SECTION "ver.4.3.06 (2017/06/08)" [15223-16573] -->
+<h2 class="sectionedit18" id="ver4305_2017_04_10">ver.4.3.05 (2017/04/10)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能15">新機能</h4>
+<div class="level4">
+
+<p>
+なし。
+</p>
+
+</div>
+
+<h4 id="変更16">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 気象研 PC クラスタのデフォルトマシン設定を変更</div>
+<ul>
+<li class="level2"><div class="li"> <strong> mri-pccl 使用の場合、結果が変わります </strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> FSEBオプションを削除</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正16">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> オフライン・ネスティング子モデルのnamelistチェックが不十分だった問題を修正</div>
+</li>
+<li class="level1"><div class="li"> 粘性・拡散係数を2次元分布で与える場合、陸を負値としてもモデルを落とさないように変更</div>
+</li>
+<li class="level1 node"><div class="li"> デバッグ関連</div>
+<ul>
+<li class="level2"><div class="li"> 淡水収支チェックツール用で使うcsvファイルへの出力桁数を増やす</div>
+</li>
+<li class="level2"><div class="li"> 実験失敗時に線形潮汐場のリスタートも出力するように変更</div>
+</li>
+<li class="level2"><div class="li"> デバッグモードにGLSの乱流長さスケールのチェックも追加</div>
+</li>
+<li class="level2"><div class="li"> デバッグ時のエラー検出ルーチンのデフォルトを極端に大きい値も検出するように変更</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> その他リファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4205">安定版の修正 (ver.4.2.05)</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 潮汐の天文引数の計算において単精度の定数を倍精度に変更</div>
+<ul>
+<li class="level2"><div class="li"> <strong>TIDEを使っていた場合に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティングと仮想トレーサーを併用すると動作しない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> 未割付けの配列を参照している部分を修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT18 SECTION "ver.4.3.05 (2017/04/10)" [16574-17921] -->
+<h2 class="sectionedit19" id="ver4304_2017_03_09">ver.4.3.04 (2017/03/09)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能16">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> データ同化のためのインクリメント注入ルーチンを追加しました</div>
+</li>
+<li class="level1"><div class="li"> MPDATA移流スキームがネスティングに対応しました</div>
+</li>
+<li class="level1"><div class="li"> SCUPNEST時にMPDATA,SOM,PPMが混在可能になりました</div>
+</li>
+<li class="level1"><div class="li"> 地衡流と非地衡流成分を診断するモニターを追加しました (4.2から)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更17">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> PPM スキームのフラックスリミッターを変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>PPMフラックスリミッターを使っていた場合に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> nml_solarangle の指定を変更しました (4.2から)</div>
+<ul>
+<li class="level2"><div class="li"> <strong>SOLARANGLEオプション使用時にnamelistの変更が必要です</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 標準出力ログをmarkdown記法のように変更</div>
+</li>
+<li class="level1"><div class="li"> READMEファイルをmarkdown記法に変更</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正17">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 気象研 PC クラスタでの netCDF 利用環境の自動設定を追加</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング時にnamelist設定のチェックを追加</div>
+</li>
+<li class="level1"><div class="li"> その他リファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4204">安定版の修正 (ver.4.2.04)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 淡水フラックス強制ファイルで nml_force_data の lfactor=F が効かない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> 海面の地衡流の診断が間違っていた問題を修正</div>
+</li>
+<li class="level1"><div class="li"> CGCM_FLUX+SOLARNGLEのときにsurfflux.F90で使用する変数名が誤っていた問題を修正</div>
+</li>
+<li class="level1"><div class="li"> MPDATA時に配列の領域外参照をする問題を修正</div>
+</li>
+<li class="level1"><div class="li"> モニタリングの組み合わせによって配列の領域外参照が生じる問題を修正</div>
+</li>
+<li class="level1"><div class="li"> NPZDモデルで detritus の沈降で生じる不安定への対応策を追加</div>
+</li>
+<li class="level1"><div class="li"> 日立コンパイラが通らない問題を修正</div>
+</li>
+<li class="level1 node"><div class="li"> ES3での実行対応</div>
+<ul>
+<li class="level2"><div class="li"> ES3 Fortran 2003コンパイラに対応</div>
+</li>
+<li class="level2"><div class="li"> サブルーチンの内部配列がゼロ初期化されていないことにより止まる問題を修正</div>
+</li>
+<li class="level2"><div class="li"> 不要なモジュールの参照を削除</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT19 SECTION "ver.4.3.04 (2017/03/09)" [17922-19839] -->
+<h2 class="sectionedit20" id="ver4303_2017_01_18">ver.4.3.03 (2017/01/18)</h2>
+<div class="level2">
+
+<p>
+全てver.4.2から変更されます。
+</p>
+
+</div>
+
+<h4 id="新機能17">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> MPDATA移流スキームを使えるようになりました</div>
+</li>
+<li class="level1"><div class="li"> 生物過程を考慮しないDICの予測計算が可能になりました</div>
+</li>
+<li class="level1"><div class="li"> 炭素関係の出力をヒストリー新形式に対応しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更18">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> weight_upcurrent_vertのデフォルト値を1.0に変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>nml_tracer_adv を指定していないと結果が変わる場合があります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 炭素循環の計算のシリケイトをWOA13の年平均から読み込むように変更しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正18">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> SOM Morales Maqueda and Holloway (2008) method B のリミッターで undershoot が生じる場合がある問題を修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>SOMを使っていれば僅かに結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> nml_force_data の名前「AtmosphericPCO2」を「AtmosphericxCO2」に修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>使っていればnamelistの変更が必要です</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 等密度面拡散による水平トレーサー輸送モニターがBBLで間違っている問題を修正</div>
+</li>
+<li class="level1"><div class="li"> cyclic かつ xsplit でない場合にコンパイルできない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> SOMとPPM以外の移流スキームを使いかつVVDIMPでない場合、BBLの計算が間違っていた問題を修正</div>
+</li>
+<li class="level1"><div class="li"> PO4を計算していない場合、NO3からRedfield ratio で決まる値とする</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT20 SECTION "ver.4.3.03 (2017/01/18)" [19840-21235] -->
+<h2 class="sectionedit21" id="ver4302_2016_12_12">ver.4.3.02 (2016/12/12)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能18">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 炭素関係の計算にmoscyパッケージ準拠のルーチンを選べるにようになりました (4.2から)</div>
+</li>
+<li class="level1 node"><div class="li"> モニター出力に以下の機能を加えました</div>
+<ul>
+<li class="level2"><div class="li"> 時間ステップ「開始」時と「中間」時で行う海氷密接度サンプリング (4.2から)</div>
+</li>
+<li class="level2"><div class="li"> 「海氷面積輸送量」 (4.2から)</div>
+</li>
+<li class="level2"><div class="li"> トレーサー水平拡散による東西・南北輸送量 (4.2から)</div>
+</li>
+<li class="level2"><div class="li"> 積分と平均を計算する場合に和を厳密に計算するオプション</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更19">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 海氷のリスタートファイルに日付と時刻のサフィックスを常に付けるように変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>ICEオプションの場合、namelistやリスタートファイル名の変更が必要になる可能性があります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 双方向ネストかつ親モデルにナッジングでフィードバックする場合も、file_upscaleを読むように変更しました</div>
+<ul>
+<li class="level3"><div class="li"> <strong>namelistの追加が必要になる場合があります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正19">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> リファクタリング(海氷モデルの時刻管理、ネスティング)</div>
+</li>
+<li class="level1"><div class="li"> 海氷モデルの標準ログ出力の整理</div>
+</li>
+<li class="level1 node"><div class="li"> デバッグモード時のチェック項目を追加</div>
+<ul>
+<li class="level2"><div class="li"> 海氷モデルの異常値チェック</div>
+</li>
+<li class="level2"><div class="li"> ネスティングのremapファイルの整合性</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4202">安定版の修正 (ver.4.2.02)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 大気－海洋結合モデル＋海洋1wayネスティング時に、海氷上フラックス調整を間違って行っていた</div>
+</li>
+<li class="level1"><div class="li"> 双方向ネスティング+複数子モデルの場合、親へのフィードバックに一部バグ</div>
+</li>
+<li class="level1"><div class="li"> Mellor and Yamada スキームの運動エネルギー海底境界条件を常にゼロになるように修正</div>
+</li>
+<li class="level1"><div class="li"> OCMIPのプロトコルに従いガス交換係数を更新しました</div>
+</li>
+<li class="level1 node"><div class="li"> モニター出力の変更</div>
+<ul>
+<li class="level2"><div class="li"> 海氷上の短波・長波フラックスについて上向きを正に変更しました</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT21 SECTION "ver.4.3.02 (2016/12/12)" [21236-23222] -->
+<h2 class="sectionedit22" id="ver4301_2016_11_04">ver.4.3.01 (2016/11/04)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能19">新機能</h4>
+<div class="level4">
+
+<p>
+なし
+</p>
+
+</div>
+
+<h4 id="変更20">変更</h4>
+<div class="level4">
+
+<p>
+なし
+</p>
+
+</div>
+
+<h4 id="その他の修正20">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ネスティング時にnodemapファイルの読み込みを失敗するとデッドロックになる問題を修正</div>
+</li>
+<li class="level1"><div class="li"> コードのリファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4201">安定版の修正 (ver.4.2.01)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> トレーサー定常分布をもとに一様成層から始めると落ちる問題を修正</div>
+</li>
+<li class="level1 node"><div class="li"> モニター出力の修正</div>
+<ul>
+<li class="level2"><div class="li"> 積算オプションでマスクファイル、X/Y点に対応する</div>
+</li>
+<li class="level2"><div class="li"> 11文字以上の単位を指定できるようにする</div>
+</li>
+<li class="level2"><div class="li"> operator &#039;per_area&#039; のW点対応と area_integral, sum_2d のバグ修正</div>
+</li>
+<li class="level2"><div class="li"> 修正フラックス抜き総淡水フラックスに関する修正</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT22 SECTION "ver.4.3.01 (2016/11/04)" [23223-23971] -->
+<h2 class="sectionedit23" id="ver4300_2016_09_06">ver.4.3.00 (2016/09/06)</h2>
+<div class="level2">
+
+<p>
+ver.4.2.00 も同じです。
+</p>
+
+</div>
+
+<h4 id="新機能20">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 非等方粘性のテーパリングにおいて赤道での比率を任意の値に設定できるようになりました</div>
+</li>
+<li class="level1"><div class="li"> 淡水フラックス・風応力偏差を追加的に与えられるようになりました</div>
+</li>
+<li class="level1"><div class="li"> ネストモデルにおいて海氷熱エネルギーを保存する機能を加えました</div>
+</li>
+<li class="level1"><div class="li"> 底摩擦係数に2次元分布を使えるようになりました</div>
+</li>
+<li class="level1 node"><div class="li"> モニター出力に以下の機能を加えました</div>
+<ul>
+<li class="level2"><div class="li"> 2乗積分・平均、総和、単位面積あたり、単位体積あたり、海底2次元分布を出力するオプション</div>
+</li>
+<li class="level2"><div class="li"> マスク配列を用いて領域積分・平均するオプション</div>
+</li>
+<li class="level2"><div class="li"> 1変数と1次元配列について標準出力に表示させるオプション</div>
+</li>
+<li class="level2"><div class="li"> 海底摩擦のモニタリング</div>
+</li>
+<li class="level2"><div class="li"> 運動方程式テンデンシー、乱流混合パラメタリゼーション変数、トレーサー移流の新方式namelist</div>
+</li>
+<li class="level2"><div class="li"> 海面地衡流速の診断計算</div>
+</li>
+<li class="level2"><div class="li"> CMIP6対応(residual mean velocity)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更21">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 海底摩擦をより正確な表現に変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>結果が僅かに変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 大気モデルと海洋ネストモデルの結合時に熱・淡水フラックスが保存するように調整しました</div>
+</li>
+<li class="level1"><div class="li"> ベクトル解析モニタリングの計算方法を一部変更しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正21">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 推奨されないオンライン・ネスティングのオプションを削除しました</div>
+</li>
+<li class="level1"><div class="li"> NetCDF出力の時間情報形式を変更しました</div>
+</li>
+<li class="level1"><div class="li"> ネスティングモデル実行時に動かなくなるバグを修正</div>
+</li>
+<li class="level1"><div class="li"> SR-16000でコンパイルできない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> MPI-IO の引数指定の間違いを修正</div>
+</li>
+<li class="level1"><div class="li"> BBLあり、VVDIMPなしでコンパイルできない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> 変数初期化、配列範囲外参照のバグを修正</div>
+</li>
+<li class="level1"><div class="li"> モニタリングのいくつかの項目のバグを修正</div>
+</li>
+<li class="level1"><div class="li"> メモリ使用量の低減</div>
+</li>
+<li class="level1 node"><div class="li"> 以下は<strong>オプションによっては結果が僅かに変わります</strong></div>
+<ul>
+<li class="level2"><div class="li"> 大気熱フラックスにより海氷が融解する場合の余剰フラックスの処理を修正</div>
+</li>
+<li class="level2"><div class="li"> SOM Merryfield and Holloway (2003) リミッター使用時の北端縫合部のミスを修正</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4012">安定版の修正 (ver.4.0.12)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> NEC SXで実行できない問題を修正</div>
+</li>
+<li class="level1 node"><div class="li"> 大気モデル結合時の海氷上熱フラックス調節に軽微なバグを修正</div>
+<ul>
+<li class="level2"><div class="li"> <strong>オプションによっては結果が僅かに変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT23 SECTION "ver.4.3.00 (2016/09/06)" [23972-26556] -->
+<h2 class="sectionedit24" id="ver4111_2016_07_19">ver.4.1.11 (2016/07/19)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能21">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 海氷密接度下限値が namelist で指定できるようになりました</div>
+</li>
+<li class="level1 node"><div class="li"> モニター出力を加えました</div>
+<ul>
+<li class="level2"><div class="li"> CMIP6項目 (Table 2.12)</div>
+</li>
+<li class="level2"><div class="li"> 海氷モデルのSIMIP用モニタリング</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更22">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 海氷モデルを使う場合は淡水フラックスオプション(WFLUX)が必須になりました</div>
+</li>
+<li class="level1"><div class="li"> トレーサー時間変化項のモニター出力を体積重み付きに変更しました</div>
+</li>
+<li class="level1 node"><div class="li"> 風など外力要素のnamelist指定をnml_force_dataブロックに統一しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>旧形式の外力の場合、namelistやフォーシングファイルの変更が必要です</strong> (MXE/prep/convert/ver40to42/)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正22">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 異常終了時にデッドロックにならないよう終了時処理を変更しました</div>
+</li>
+<li class="level1"><div class="li"> 異常値のチェック時に不定値を参照してたまに落ちる問題を修正</div>
+</li>
+<li class="level1"><div class="li"> ifort でコンパイルできない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> 配列サイズの指定ミスを修正</div>
+</li>
+<li class="level1"><div class="li"> その他、コードのリファクタリング</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4011">安定版の修正 (ver.4.0.11)</h4>
+<div class="level4">
+
+<p>
+結果は変わらない軽微な修正です。
+</p>
+<ul>
+<li class="level1"><div class="li"> 配列添え字の記述のミスを修正</div>
+</li>
+<li class="level1"><div class="li"> BBL利用時に鉛直粘性による流速の時間変化項が出力できない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> MPI_Abort の引数にエラーコードを加えるように修正</div>
+</li>
+<li class="level1"><div class="li"> nodemap のための前処理ツール mk_node_map.F90 を修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT24 SECTION "ver.4.1.11 (2016/07/19)" [26557-28025] -->
+<h2 class="sectionedit25" id="ver4110_2016_06_13">ver.4.1.10 (2016/06/13)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能22">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 粒子追跡法(北大松村氏作成)を実装しました</div>
+</li>
+<li class="level1"><div class="li"> 水平粘性・拡散係数の水平分布をファイルで与えられるようになりました</div>
+</li>
+<li class="level1 node"><div class="li"> モニター出力を加えました</div>
+<ul>
+<li class="level2"><div class="li"> CMIP6項目 (Table 2.10,11)</div>
+</li>
+<li class="level2"><div class="li"> 渦度解析</div>
+</li>
+<li class="level2"><div class="li"> 順圧モデルフォーシング項</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更23">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 順圧計算スキームの設定方法を変更しました</div>
+<ul>
+<li class="level2"><div class="li"> l_global_local_cnsv_ssh のデフォルト値を .true. に変更</div>
+</li>
+<li class="level2"><div class="li"> 順圧タイムフィルタリングの非推奨な方法を削除</div>
+</li>
+<li class="level2"><div class="li"> <strong>namelist の変更が必要な場合があります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 海氷モデルのモニター出力指定方法が海洋モデルと共通になりました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>ICE使用時にnamelist の変更が必要です</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> BBLから内部への運動量移流に使う流速をトレーサー移流とコンシステントになるように変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>BBL使用時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 潮汐スキームのチューニングパラメータをnamelistで指定できるようにしました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>TIDE使用時にnamelistの変更が必要です</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正23">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> stream 型でファイルを開く場合のバグを修正</div>
+</li>
+<li class="level1"><div class="li"> ANALY がBBL なしの場合にコンパイルできない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> オプションF2003時に構造体要素の配列をpointer からallocatable に変更</div>
+</li>
+<li class="level1"><div class="li"> 海面フォーシングの時刻管理を時間逆回しに対応させました</div>
+</li>
+<li class="level1"><div class="li"> デバッグモード時に潮汐のサブサイクル計算でも異常値チェックを行うように変更</div>
+</li>
+<li class="level1"><div class="li"> FX-100 コンパイルの最適化メッセージをファイルに出力するようにデフォルト設定を変更</div>
+</li>
+<li class="level1"><div class="li"> モニタリングに関する標準出力ログを簡潔にしました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4010">安定版の修正 (ver.4.0.10)</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 潮汐の底摩擦と水平粘性のバグを修正しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>TIDE使用時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT25 SECTION "ver.4.1.10 (2016/06/13)" [28026-30017] -->
+<h2 class="sectionedit26" id="ver4109_2016_05_11">ver.4.1.09 (2016/05/11)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能23">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> ヒストリー出力を拡充しました</div>
+<ul>
+<li class="level2"><div class="li"> CMIP6向けの追加 (Table 2.3, Priority 1,2)</div>
+</li>
+<li class="level2"><div class="li"> Sigma-t 基準による混合層深度</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> オフライン・ネスティング子モデル時に付加的に潮汐を導入できるようにしました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>計算順序の変更によりオフライン・ネスティングの場合に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更24">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 新形式ヒストリー出力の operator 指定を sampling と operator に分割しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>モニター用namelistの変更が必要です</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> モデルグリッド南西端の位置座標の計算方法をより簡潔に変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>多くの場合に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 鉛直拡散係数の背景値にデフォルト値が設定されました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正24">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ICEオプションなしではANALYオプション時にコンパイルできない問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> ALANY ルーチンにおいてBBLの値が適切に反映されない問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> 正味海面熱フラックスについてモニターの間違いを修正しました</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング子モデル+潮汐+global_local_cnsvオプション時に、側面の海面高度の更新が不十分だった問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> デバッグ用ルーチン grid_util_print_target_index の拡張</div>
+</li>
+<li class="level1"><div class="li"> margin.F90 のリファクタリング</div>
+</li>
+<li class="level1"><div class="li"> 1ファイルに複数変数を出力できるようにヒストリー出力モジュールを拡張</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4009">安定版の修正 (ver.4.0.09)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ヒストリー出力の名前指定で大文字Zが小文字に変換されない問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> 東西分割なし・周期境界条件の場合にX点定義変数の袖領域が正しく埋められない問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> SPHERICALかつ可変格子のときにMPI分割によって結果が意図せず変わる問題を修正しました</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT26 SECTION "ver.4.1.09 (2016/05/11)" [30018-32013] -->
+<h2 class="sectionedit27" id="ver4108_2016_04_06">ver.4.1.08 (2016/04/06)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能24">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> ヒストリー出力を拡充しました</div>
+<ul>
+<li class="level2"><div class="li"> CMIP6向けにヒストリー項目を追加 (Table 2.2, 2.5, 2.6, 2.7, 2.9)</div>
+</li>
+<li class="level2"><div class="li"> 出力方法(operator)に水平積分、鉛直積分、体積積分を追加</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> オフライン・トレーサー実験を拡充しました</div>
+<ul>
+<li class="level2"><div class="li"> 逆向きの時間積分</div>
+</li>
+<li class="level2"><div class="li"> virtual tracerとIdeal age tracerで最大最小のリミッターの指定</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 双方向ネスティングがOFLTオプション、潮汐オプション時にも使用できるようになりました</div>
+</li>
+<li class="level1"><div class="li"> デバッグ用に、配列のある特定の要素の値を標準出力するサブルーチンを加えました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更25">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 双方向ネスティングにおける海氷の処理を変更しました</div>
+<ul>
+<li class="level2"><div class="li"> 移流項では、モデル領域から出ていくフラックスを優先的に使う</div>
+</li>
+<li class="level2"><div class="li"> 親子の側面境界で海氷温度に異常値を検出した場合に、海氷上面と下面の平均温度で置き換える</div>
+</li>
+<li class="level2"><div class="li"> <strong>双方向ネスティングとICEを併用していた場合、結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> MPI2 指定時にリスタート入出力もMPI-IOを利用するように変更しました</div>
+</li>
+<li class="level1"><div class="li"> MPI-IOでファイル入出力時にエラーがあった場合に止まるように変更しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正25">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 多重ネスティング時にSOM移流スキームの変数交換にあった間違いを修正しました</div>
+</li>
+<li class="level1"><div class="li"> デバッグモード時にはオフライン・ネスティングとトレーサーナッジングの後に異常値チェックするように変更しました</div>
+</li>
+<li class="level1"><div class="li"> フォーシングの時刻指定に関してREADMEをより正確にしました</div>
+</li>
+<li class="level1"><div class="li"> サービスルーチンの拡張 (ogmpi.F90, ogfile.F90, namelist.F90)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT27 SECTION "ver.4.1.08 (2016/04/06)" [32014-33806] -->
+<h2 class="sectionedit28" id="ver4107_2016_03_07">ver.4.1.07 (2016/03/07)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能25">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> CMIP6に向けた機能、モニタリングが追加されました</div>
+<ul>
+<li class="level2"><div class="li"> FAFMIP/heatFAF 実験が実行可能になりました</div>
+</li>
+<li class="level2"><div class="li"> CMIP6ヒストリー項目(Table 2.8)が追加されました</div>
+</li>
+<li class="level2"><div class="li"> 体積積分モニタリングを行うツールが整備されました</div>
+</li>
+<li class="level2"><div class="li"> 1次元ファイルでもNetCDF形式出力が可能になりました</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> passive tracerの時間変化項をモニターできるようになりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正26">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> dynamic heightだけを求める時にエラーとなる問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> TIDEかつ l_barotro_SM2005_weight =.true. で未定義値参照で落ちる問題を修正しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4007">安定版の修正 (ver.4.0.07)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 海底熱フラックス供給深度を修正しました</div>
+</li>
+<li class="level1"><div class="li"> 4.0 の Makefile.in に間違いがありコンパイルに失敗する問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング子モデル時に global_local_cnsv_ssh が使えない問題を修正しました</div>
+</li>
+<li class="level1 node"><div class="li"> オフライン・ネスティング子モデルで海氷データの一部の取得に失敗する問題を修正しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>オフライン・ネスティングと海氷を用いていた場合、結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング子モデルで側面境界値を入れるときに、陸グリッドも変えてしまっていた問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> ネスティング子モデルの南端格子のrarの計算(topo.F90)の配列インデックスの間違いを修正しました</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT28 SECTION "ver.4.1.07 (2016/03/07)" [33807-35401] -->
+<h2 class="sectionedit29" id="ver4106_2016_02_04">ver.4.1.06 (2016/02/04)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能26">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> オプションMPI2時にMPI-IO出力が使用されます</div>
+</li>
+<li class="level1"><div class="li"> 相対風速を求める際の海流の寄与率をnamelistで指定できるようになりました</div>
+</li>
+<li class="level1"><div class="li"> デバッグモードでは順圧計算の各ステップで異常値チェックを行うようになりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更26">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 順圧計算の時間フィルターにShchepetkin and McWilliams (2005)をデフォルトで用いるように変更しました</div>
+<ul>
+<li class="level2"><div class="li"> namelistで使わないことを指定しないかぎり、<strong>結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> SOM移流スキームをオンライン・ネスティングで使用する場合、トレーサー保存されるようになりました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>使用に必要な設定ファイル、及び結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> モデル安定性のために海氷密接度の下限値を大きくしました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>海氷を用いていた場合、結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 風応力のヒストリー出力を新形式で指定できるようになりました</div>
+<ul>
+<li class="level2"><div class="li"> 旧形式でも従来どおり出力されます</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正27">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ヒストリーのkfirst/klast 指定と1ファイル複数レコード出力を併用した場合の問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> NETCDF関連オプション使用時のみ netcdf.F90 をコンパイルするように変更しました</div>
+</li>
+<li class="level1"><div class="li"> som_adv.F90 の advec_x でモーメントの格子間移動量の計算と加算のdo-loopを分離しました</div>
+</li>
+<li class="level1"><div class="li"> ice_mpdata.F90 でネスティングに係るフラックス調整部分を別サブルーチンにしました</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT29 SECTION "ver.4.1.06 (2016/02/04)" [35402-37020] -->
+<h2 class="sectionedit30" id="ver4105_2016_01_05">ver.4.1.05 (2016/01/05)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能27">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> NetCDF4のデータ圧縮機能が使用可能になりました</div>
+</li>
+<li class="level1"><div class="li"> ヒストリー出力にファクターやオフセット等のオプションが追加されました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正28">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> SOM (Merryfield and Holloway, 2003) のリミッター使用時の通信頻度を削減</div>
+</li>
+<li class="level1"><div class="li"> 参照密度を独立の配列として確保し、再計算しないように変更</div>
+</li>
+<li class="level1"><div class="li"> SR16000 オプションを廃止</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT30 SECTION "ver.4.1.05 (2016/01/05)" [37021-37499] -->
+<h2 class="sectionedit31" id="ver4104_2015_12_08">ver.4.1.04 (2015/12/08)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能28">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> SOMでフラックスリミッターが使えるようになりました</div>
+</li>
+<li class="level1"><div class="li"> パッシブトレーサーにSF6が追加されました</div>
+</li>
+<li class="level1"><div class="li"> 現場密度の時間変化項に対するモニターが追加されました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正29">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 1-wayネスティング+海氷＋デバッグモードで未割り付けの配列を参照するバグを修正しました</div>
+</li>
+<li class="level1"><div class="li"> 整数Formatの桁数が省略されているとgfortranでコンパイルできないバグを修正しました</div>
+</li>
+<li class="level1"><div class="li"> PGIFortranでMPI2の場合にコンパイルできない問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> 別リポジトリで管理するためdocs/ にあるマニュアルを削除しました</div>
+</li>
+<li class="level1"><div class="li"> システムのendianを判定するサブルーチンを作成しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4004">安定版の修正 (ver.4.0.04)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 気象庁システムでコンパイルできない問題を修正しました</div>
+</li>
+<li class="level1"><div class="li"> nml_nest_par で指定するロジカル変数のデフォルト値を修正しました</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT31 SECTION "ver.4.1.04 (2015/12/08)" [37500-38533] -->
+<h2 class="sectionedit32" id="ver4103_2015_11_13">ver.4.1.03 (2015/11/13)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能29">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 海氷モデルの双方向ネスティングが可能になりました</div>
+<ul>
+<li class="level2"><div class="li"> 親と子それぞれの主領域における海氷積分値がモニター可能です</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 新方式のヒストリー出力を拡充しました</div>
+<ul>
+<li class="level2"><div class="li">   オフライントレーサー(OFLT)ランを行うための基本的な物理量</div>
+</li>
+<li class="level2 node"><div class="li"> 様々なトレーサー時間変化項</div>
+<ul>
+<li class="level3"><div class="li"> 層厚拡散、混合層渦パラメタリゼーション</div>
+</li>
+<li class="level3"><div class="li"> 陰解法鉛直拡散</div>
+</li>
+<li class="level3"><div class="li"> frazil ice生成</div>
+</li>
+<li class="level3"><div class="li"> 海面フラックス</div>
+</li>
+<li class="level3"><div class="li"> 海底熱源</div>
+</li>
+<li class="level3"><div class="li"> ソルトプリューム</div>
+</li>
+<li class="level3"><div class="li"> 短波放射吸収</div>
+</li>
+<li class="level3"><div class="li"> body forcing</div>
+</li>
+<li class="level3"><div class="li"> 水平拡散</div>
+</li>
+<li class="level3"><div class="li"> 総トレーサー時間変化率</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更27">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> two-way ネスティングにおけるデータの送信の順序を upscale, downscale に統一しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正30">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 未定義値に関連するいくつかのバグを修正しました</div>
+</li>
+<li class="level1 node"><div class="li"> 以下のリファクタリングを行いました</div>
+<ul>
+<li class="level2"><div class="li"> 海氷モデル</div>
+</li>
+<li class="level2"><div class="li"> ネスティングの体積・トレーサーモニター</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4003">安定版の修正 (ver.4.0.03)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 異常終了時に終了コード99が返るようにしました</div>
+</li>
+<li class="level1"><div class="li"> MRI-ESM のためにGONDOLA_100のconfigure.inをサンプルに追加しました</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT32 SECTION "ver.4.1.03 (2015/11/13)" [38534-39847] -->
+<h2 class="sectionedit33" id="ver4102_2015_09_07">ver.4.1.02 (2015/09/07)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能30">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Fox-Kemper and Ferrari (2008) の混合層渦パラメタリゼーションが使用可能になりました</div>
+</li>
+<li class="level1"><div class="li"> オンラインで等密度面解析を行うオプションを追加しました</div>
+</li>
+<li class="level1 node"><div class="li"> 以下を行う「デバッグモード」を追加しました</div>
+<ul>
+<li class="level2"><div class="li"> 実行サブルーチン名を逐次、標準出力する</div>
+</li>
+<li class="level2"><div class="li"> 時間ステップごとにトレーサー値のチェック</div>
+</li>
+<li class="level2"><div class="li"> オフライン・ネスティング使用時に側面境界で異常値のチェック</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> オフライントレーサー機能を拡充しました</div>
+<ul>
+<li class="level2"><div class="li"> パッシブトレーサー以外のrestartを読み書きしないことで計算コストを低減</div>
+</li>
+<li class="level2"><div class="li"> 海面フラックスに関する履歴の読み込みを減らす</div>
+</li>
+<li class="level2"><div class="li"> 入力データーの時間補間をしないオプションの追加</div>
+</li>
+<li class="level2"><div class="li"> パッシブトレーサーの数が0でも動作可能</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4002">安定版の修正 (ver.4.0.02)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> nodemap 利用時に体積・トレーサー保存の双方向ネスティング計算が破綻する不具合の修正</div>
+</li>
+<li class="level1"><div class="li"> l_hvisc_add_harmonic=.true.の場合に計算が破綻するバグを修正</div>
+</li>
+<li class="level1"><div class="li"> ipcoef.F90 + ネスティングにおける IO エラー判定用iiosの初期化漏れを修正</div>
+</li>
+<li class="level1"><div class="li"> MRI-ESM で海洋モデルが動作しない不具合の修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT33 SECTION "ver.4.1.02 (2015/09/07)" [39848-41190] -->
+<h2 class="sectionedit34" id="ver4101_2015_08_06">ver.4.1.01 (2015/08/06)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能31">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 海氷生産量のモニター機能が追加されました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver4001">安定版の修正 (ver.4.0.01)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> nonhydro で接続計算が破綻する問題を修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT34 SECTION "ver.4.1.01 (2015/08/06)" [41191-41414] -->
+<h2 class="sectionedit35" id="ver4100_2015_07_03">ver.4.1.00 (2015/07/03)</h2>
+<div class="level2">
+
+<p>
+ver.4.0.00 も同じです。
+</p>
+
+</div>
+
+<h4 id="新機能32">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> cyclic 条件を持つモデルをネスティングの子モデルとして使うことが可能になりました</div>
+</li>
+<li class="level1"><div class="li"> オンライン・ネスティング使用時にも閏年ありのランが可能になりました</div>
+</li>
+<li class="level1"><div class="li"> l_sss_rst_cnsv 使用時(海面塩分リストア時に塩分を保存させる)において、MPI変更時にも結果を一致させるオプションを追加しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更28">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> リスタート出力の陸グリッドの値を0.d0から-9.99d33と大きな値に変更しました</div>
+</li>
+<li class="level1"><div class="li"> オンライン・ネスティング時における淡水フラックスと塩分フラックス調節を（子モデル）＋（親モデル）で行うようにしました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正31">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 3次元配列の「のりしろ」送信ルーチンの作成</div>
+</li>
+<li class="level1"><div class="li"> mpi_allreduce の mpi_sum における総和をシリアルに計算する機能を追加する</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT35 SECTION "ver.4.1.00 (2015/07/03)" [41415-42404] -->
+<h2 class="sectionedit36" id="ver3326_2015_06_12">ver.3.3.26 (2015/06/12)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能33">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 地熱の導入が可能になりました</div>
+</li>
+<li class="level1"><div class="li"> ヒストリー出力の領域指定が可能になりました</div>
+</li>
+<li class="level1"><div class="li"> 大気の物性に関して複数の経験式が用意されました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更29">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 塩分が0近傍でも動作するように状態方程式を調整しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>全ての場合で結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> Large and Yeager のバルク係数に上限値を設けるように変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>BULKNCAR使用時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 順圧モデルのネスティング部分を軽くするように通信の処理を変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>オンライン・ネスティング時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正32">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> nodemap (MPI分割で陸領域除外)を使った場合にモデルの結果が異なる問題を修正</div>
+</li>
+<li class="level1"><div class="li"> ipcoef.F90におけるプリプロセッサ命令のバグ修正</div>
+</li>
+<li class="level1"><div class="li"> 潮汐スキームにおいてダンピング係数の読み込みのバグ修正</div>
+</li>
+<li class="level1"><div class="li"> 潮汐スキームで nodemap が使えるように修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT36 SECTION "ver.3.3.26 (2015/06/12)" [42405-43489] -->
+<h2 class="sectionedit37" id="ver3325_2015_05_01">ver.3.3.25 (2015/05/01)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能34">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 等密度面拡散係数のテーパリングが可能になりました</div>
+</li>
+<li class="level1"><div class="li"> ヒストリー出力項目ごとにGrADS ctlファイルを作成するようになりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更30">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 等密度面拡散の使用時に、スキームによる鉛直拡散係数と背景鉛直拡散係数の大きい方を使っていたのを加算するように変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>ISOPYCNAL使用時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 順圧モデルのネスティング部分を軽くするように通信の処理を変更しました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>オンライン・ネスティング時に結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正33">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> オプションSIDYNなしで海氷モデルをコンパイルできない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> オプションNETCDF未使用時にコンパイルできない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> namelist.F90 でパラメータ値の表示に加えてMPI分配も行うように変更</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT37 SECTION "ver.3.3.25 (2015/05/01)" [43490-44466] -->
+<h2 class="sectionedit38" id="ver3324_2015_04_07">ver.3.3.24 (2015/04/07)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能35">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> NetCDFでのヒストリー出力が可能になりました</div>
+</li>
+<li class="level1"><div class="li"> オプションWADJにおいてMPI変更時にも結果を一致させるオプションを追加しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更31">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> FX100のコンパイルオプションを高速なものに変更しました(結果は変わらない)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正34">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> FX100でオフライン・ネスティング使用時にMPI並列数によって結果が変わる問題を修正</div>
+</li>
+<li class="level1"><div class="li"> オンライン・ネスティングとcnsv_sshを併用すると、MPIによって結果が変わる問題を修正</div>
+</li>
+<li class="level1"><div class="li"> set_wind_reduction_factor の標準出力をルートノードのみに制限する</div>
+</li>
+<li class="level1"><div class="li"> NAMELIST_SCUP をチェックするプログラムがコンパイルできない/意図通りに分岐されていない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> nodemap.d を作るプログラムのバグ修正</div>
+</li>
+<li class="level1"><div class="li"> nodemap.d を使った場合にモデルが落ちる場合がある問題を修正</div>
+</li>
+<li class="level1"><div class="li"> メモリ節約のためvmnointpolで全体の二次元ごとに読み込むように変更</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT38 SECTION "ver.3.3.24 (2015/04/07)" [44467-45560] -->
+<h2 class="sectionedit39" id="ver3323_2015_03_09">ver.3.3.23 (2015/03/09)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能36">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 潮汐スキームを使用時にもオフライン・ネスティングが可能になりました</div>
+</li>
+<li class="level1"><div class="li"> 気象研FX-100でのコンパイルに対応しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更32">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> HFLUXなしでWFLUXを使えるようにしました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正35">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> オンラインネスティングで潮汐が動かなかった問題を修正</div>
+</li>
+<li class="level1"><div class="li"> 傾圧ステップ毎の順圧流量送信(surface_nest__send_side_bcli_uv)における送信変数の間違えを修正</div>
+</li>
+<li class="level1"><div class="li"> オンライン・ネスティング時に、NAMELIST_SCUPの指定が不十分な場合は停止するように変更</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティングの子モデルで海氷用の境界値ファイルを閉じていなかったのを修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT39 SECTION "ver.3.3.23 (2015/03/09)" [45561-46353] -->
+<h2 class="sectionedit40" id="ver3322_2015_02_09">ver.3.3.22 (2015/02/09)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能37">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> オンライン・ネスティングに新しいオプションを追加しました</div>
+<ul>
+<li class="level2"><div class="li"> 子⇒親の拡散フラックス渡し</div>
+</li>
+<li class="level2"><div class="li"> トレーサー格子側面を境界とした子モデルの駆動</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 海氷とGLSスキームを使用時にもオフライン・ネスティングが可能になりました</div>
+</li>
+<li class="level1"><div class="li"> 東大Oakbridge-FXでのコンパイルに対応しました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更33">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> PPM の仕様を、長期ランを可能にするために変更しました</div>
+</li>
+<li class="level1"><div class="li"> GLSスキームのヒストリー出力のnamelist指定方法が変わりました</div>
+</li>
+<li class="level1"><div class="li"> 海面気圧のnamelist指定方法が変わりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正36">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> オンラインネスティングモデル＋トライポーラーにおける、海面高度関連変数の「のりしろ」埋めの順序が間違っていたのを修正</div>
+</li>
+<li class="level1 node"><div class="li"> リファクタリング</div>
+<ul>
+<li class="level2"><div class="li"> 連続の式・自由表面の式・トレーサーの式において、フラックス計算と収束・発散の計算を分離する</div>
+</li>
+<li class="level2"><div class="li"> 水平2次元配列を順圧モデルグリッドに配置するサブルーチンを用意する</div>
+</li>
+<li class="level2"><div class="li"> 海氷モデルの履歴出力呼び出しを hist_ctl.F90 ではなく surfflux.F90 から行う</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT40 SECTION "ver.3.3.22 (2015/02/09)" [46354-47627] -->
+<h2 class="sectionedit41" id="ver3321_2014_12_02">ver.3.3.21 (2014/12/02)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能38">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> ヒストリー出力を指定する新しいnamelistブロックが追加されました</div>
+<ul>
+<li class="level2"><div class="li"> ある変数に対して複数の種類のサンプリングが可能です</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正37">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> NONHYDRO オプションでコンパイル/実行ができない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> rdinit.F90 (レガシーコード)の削除</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT41 SECTION "ver.3.3.21 (2014/12/02)" [47628-48021] -->
+<h2 class="sectionedit42" id="ver3320_2014_11_13">ver.3.3.20 (2014/11/13)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="新機能39">新機能</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> free slip およびpartial slip 条件が可能になりました</div>
+</li>
+<li class="level1"><div class="li"> 閏年判定をnamelistで指定できるようになりました</div>
+</li>
+<li class="level1"><div class="li"> 海面外力の入力を１ファイル１要素で行うことが可能になりました</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="変更34">変更</h4>
+<div class="level4">
+<ul>
+<li class="level1 node"><div class="li"> 物理定数(水温0℃の絶対温度、海面大気密度)が修正されました</div>
+<ul>
+<li class="level2"><div class="li"> <strong>オプションによっては実験結果が変わります</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 海面フラックス計算用バルク式の仕様が変わりました</div>
+<ul>
+<li class="level2"><div class="li"> Large and Yeager (2004) のバルク式において、大気の密度を定数ではなく、その場の気象要素（気圧・気温・比湿）の関数とする(オプション BULKNCARのみ)</div>
+</li>
+<li class="level2"><div class="li"> 今まで水蒸気の凝結・凝固を許していなかった（蒸発・昇華のみとしていた）が、許す</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="その他の修正38">その他の修正</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ogfile_open, close で257文字以上のパスが考慮されていない問題を修正</div>
+</li>
+<li class="level1"><div class="li"> FX10 におけるコンパイルを可能にする/MPI数によらず計算結果を一致させる</div>
+</li>
+<li class="level1"><div class="li"> 移流スキーム upc に配列領域外参照がある問題を修正</div>
+</li>
+<li class="level1"><div class="li"> surfflux__oceanflux (surfflux.F90) における履歴出力の呼び出し(history__write_history)で実行時に落ちる場合がある問題を修正</div>
+</li>
+<li class="level1"><div class="li"> FUJITSU FX10用のコンパイラ指示行を加える</div>
+</li>
+<li class="level1"><div class="li"> PPM の高速化</div>
+</li>
+<li class="level1"><div class="li"> トレーサーの符号チェック、全領域積分量モニターをつける</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="安定版の修正_ver3220">安定版の修正 (ver.3.2.20)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Makefile.in で force_data.o が force_data.F90 に依存する記述が抜けている問題を修正</div>
+</li>
+<li class="level1"><div class="li"> 移流スキーム quick に不定のまま使用される配列がある問題を修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT42 SECTION "ver.3.3.20 (2014/11/13)" [48022-49771] -->
+<h2 class="sectionedit43" id="ver3319_2014_10_02">ver.3.3.19 (2014/10/02)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver.3.3 を更新しました。
+</p>
+<ul>
+<li class="level1"><div class="li"> gitタグ: MRICOM-3_3_19-20141002</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="更新内容">更新内容</h4>
+<div class="level4">
+
+<p>
+バグ修正
+</p>
+<ul>
+<li class="level1"><div class="li"> global_local_cnsv=.true. におけるoffline tracer の流速場が正しくない</div>
+</li>
+</ul>
+
+<p>
+内部の変更
+</p>
+<ul>
+<li class="level1"><div class="li"> time__c2dt_secをループ外に出す</div>
+</li>
+<li class="level1"><div class="li"> history / restart の出力ルーチンで nstep を使うようにする</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT43 SECTION "ver.3.3.19 (2014/10/02)" [49772-50160] -->
+<h2 class="sectionedit44" id="ver3318_2014_09_01">ver.3.3.18 (2014/09/01)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.3が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_18-20140901</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+
+<p>
+内部の変更
+</p>
+<ul>
+<li class="level1"><div class="li"> src/machines/ (ビルド設定) に説明を加える</div>
+</li>
+<li class="level1"><div class="li"> JAMSTEC ICEXシステム向け環境設定の追加</div>
+</li>
+<li class="level1"><div class="li"> ogmpi__sum の拡張および ogmpi__max の作成</div>
+</li>
+<li class="level1"><div class="li"> nstep_matsuno_interval を返すfunctionを用意する</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT44 SECTION "ver.3.3.18 (2014/09/01)" [50161-50583] -->
+<h2 class="sectionedit45" id="ver3217_3317_2014_08_06">ver.3.2.17, 3.3.17 (2014/08/06)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.2, 3.3が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_2_17-20140806</div>
+</li>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_17-20140806</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+
+<p>
+[3.2, 3.3共通]
+</p>
+
+<p>
+バグ修正
+</p>
+<ul>
+<li class="level1"><div class="li"> 鉛直拡散による塩分のtendencyが正しく出力されない(VVDIMP使用時)</div>
+</li>
+<li class="level1"><div class="li"> vvdimp でなく、vmbg3d である場合に、粘性拡散係数が正しく計算されない。</div>
+</li>
+</ul>
+
+<p>
+[3.3のみ]
+</p>
+
+<p>
+バグ修正
+</p>
+<ul>
+<li class="level1"><div class="li"> FSVISCオプションで水平粘性の鉛直積分が行われていない</div>
+</li>
+<li class="level1"><div class="li"> TRIPOLAR またはJOT格子においてl_sss_rst_cnsv=.true.の時に塩分リストア項の全球積分値が完全にゼロとなるようにする</div>
+</li>
+<li class="level1"><div class="li"> パッシブトレーサの緩和条件の配列の添え字に間違いがある。</div>
+</li>
+<li class="level1"><div class="li"> CALPP 時の層毎・領域全体の平均密度計算の MPI プロセス数依存を解消する</div>
+</li>
+<li class="level1"><div class="li"> CALPP オプションが正常に機能しない</div>
+</li>
+<li class="level1"><div class="li"> NEMUROがコンパイルできない</div>
+</li>
+</ul>
+
+<p>
+機能
+</p>
+<ul>
+<li class="level1"><div class="li"> som_adv.F90 のモニターを全てのモーメントに拡張する</div>
+</li>
+</ul>
+
+<p>
+その他
+</p>
+<ul>
+<li class="level1"><div class="li"> diagnosis__integ_3d (diagnosis.F90) の桁落ち誤差を低減する</div>
+</li>
+<li class="level1"><div class="li"> 積分タイムステップ管理変数を nstep に一本化する</div>
+</li>
+<li class="level1"><div class="li"> calendar.F90 が他モジュールに依存しないようにする</div>
+</li>
+<li class="level1"><div class="li"> Matsunoループ・カウンタ、診断ステップ間隔の情報をcalendar.F90から適切なモジュールに移す</div>
+</li>
+<li class="level1"><div class="li"> dtやmatsuno状態変数の保持を calendar から time へ移す</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT45 SECTION "ver.3.2.17, 3.3.17 (2014/08/06)" [50584-52087] -->
+<h2 class="sectionedit46" id="ver3216_3316_2014_07_03">ver.3.2.16, 3.3.16 (2014/07/03)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.2, 3.3が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_2_16-20140703</div>
+</li>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_16-20140703</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+
+<p>
+[3.2, 3.3共通]
+</p>
+
+<p>
+バグ修正
+</p>
+<ul>
+<li class="level1"><div class="li"> ppm_adv.F90 に配列定義外参照がある</div>
+</li>
+<li class="level1"><div class="li"> SOMにおいてモーメント合成時に用いられている係数の修正</div>
+</li>
+<li class="level1"><div class="li"> 浮力による乱流エネルギー生成・消滅の評価項の表現</div>
+</li>
+</ul>
+
+<p>
+[3.3のみ]
+</p>
+
+<p>
+バグ修正
+</p>
+<ul>
+<li class="level1"><div class="li"> ppm_adv.F90 の zstar への移行が完全ではない等</div>
+</li>
+<li class="level1"><div class="li"> ZSTAR オプションにおける深度アノマリの計算ミス</div>
+</li>
+<li class="level1"><div class="li"> cbnNPZD のzstar 対応が完全でない件</div>
+</li>
+<li class="level1"><div class="li"> モデルの海水＋海氷体積をモニターする部分(total_vol_sigma (oghist2.F90)) のZSTAR向け修正が欠落</div>
+</li>
+<li class="level1"><div class="li"> topo_vary.F90 に配列定義外参照がある</div>
+</li>
+</ul>
+
+<p>
+機能
+</p>
+<ul>
+<li class="level1"><div class="li"> オフライン・ネスティングとオンライン・ネスティングを同時に使用できるようにする</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング子モデルでパッシヴ・トレーサーを独自に流せるようにする</div>
+</li>
+<li class="level1"><div class="li"> 海面淡水フラックスに対する z* 座標系における扱いの適用</div>
+</li>
+<li class="level1"><div class="li"> z* 座標系の乱流混合モデルへの適用(仕様変更)</div>
+</li>
+<li class="level1"><div class="li"> z* 座標系のBBLスキームへの適用</div>
+</li>
+<li class="level1"><div class="li"> solarangle.F90 における入射短波の減衰率計算に zstar　座標用のものを加える</div>
+</li>
+<li class="level1"><div class="li"> Leap-frog スキームを解く際、海面淡水フラックスに伴う、熱・海水の出入りを前半・後半部分のものでシリアルに加算する(仕様変更)</div>
+</li>
+<li class="level1"><div class="li"> 水平フラックスを計算に乗じる断面積、鉛直粘性/拡散計算に使用する層厚の見直し(仕様変更)</div>
+</li>
+</ul>
+
+<p>
+その他
+</p>
+<ul>
+<li class="level1"><div class="li"> NEMUROの鉄のパラメーター調節</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング子モデルにおける順圧成分出力の見栄えを良くする</div>
+</li>
+<li class="level1"><div class="li"> namelist__print_blockに渡す変数iosに初期値を設定する</div>
+</li>
+<li class="level1"><div class="li"> SOMの高速化</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT46 SECTION "ver.3.2.16, 3.3.16 (2014/07/03)" [52088-54062] -->
+<h2 class="sectionedit47" id="ver3315_のリリース_2014_06_02">ver.3.3.15 のリリース (2014/06/02)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.3 が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_15-20140602</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+<ul>
+<li class="level1"><div class="li"> ssh異常値による終了の際に、標準出力が全てファイルに書き出されるようにする</div>
+</li>
+<li class="level1"><div class="li"> l_global_local_cnsv_ssh = .true. の時、拡散フラックスのリスタートを読み込まなくても計算を開始できるようにする</div>
+</li>
+<li class="level1"><div class="li"> bottom friction の係数をnamelist 指定できるようにする。</div>
+</li>
+<li class="level1"><div class="li"> 標準出力 write(*,)と print *, をwrite(6,)に統一する</div>
+</li>
+<li class="level1"><div class="li"> 東大FX10用の設定ファイル作成</div>
+</li>
+<li class="level1"><div class="li"> 体積・層厚関連で重複している変数を一本化する</div>
+</li>
+<li class="level1"><div class="li"> 体積・層厚関連の旧変数を削除する</div>
+</li>
+<li class="level1"><div class="li"> isopycnal 関係のzstar対応</div>
+</li>
+<li class="level1"><div class="li"> cbnbio 関係のzstar 対応</div>
+</li>
+<li class="level1"><div class="li"> オフライン関係のzstar 対応</div>
+</li>
+<li class="level1"><div class="li"> ptrc のzstar 対応</div>
+</li>
+<li class="level1"><div class="li"> nonhydro および upc, utzq, quick の移流スキームのzstar 対応</div>
+</li>
+<li class="level1"><div class="li"> バグ修正: MLONLY オプションでコンパイル/実行ができない</div>
+</li>
+<li class="level1"><div class="li"> バグ修正: vvdimp.F90 体積変数のtypo</div>
+</li>
+<li class="level1"><div class="li"> バグ修正: offline nesting の親モデルがsr16000でコンパイルできない</div>
+</li>
+<li class="level1"><div class="li"> バグ修正: margin__lpmax_[2,3]d における処理を同じにする</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT47 SECTION "ver.3.3.15 のリリース (2014/06/02)" [54063-55332] -->
+<h2 class="sectionedit48" id="ver3214_3314_のリリース_2014_05_02">ver.3.2.14, 3.3.14 のリリース (2014/05/02)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.2, 3.3 が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_2_14-20140502　（3_2_12,13をとばします）</div>
+</li>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_14-20140502</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+
+<p>
+[共通]
+</p>
+<ul>
+<li class="level1"><div class="li"> バグ修正：オフライン・ネスティング子モデル+Nohkimの時に、変数のノード分配忘れ</div>
+</li>
+<li class="level1"><div class="li"> バグ修正：オフライントレーサーで接続計算が一致しない場合がある。</div>
+</li>
+</ul>
+
+<p>
+[3.3]
+</p>
+<ul>
+<li class="level1"><div class="li"> オフライントレーサーの計算でもglobalおよびlocalなトレーサーの保存を保証することができるようにする。</div>
+</li>
+<li class="level1"><div class="li"> 運動方程式における付加的水平粘性項のモニターを追加</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティングの子モデル時に2次元分割を可能にする</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング・モジュール(src/sub/)のリファクタリング</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティングの入力インターフェースの変更</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティングの境界データを各パッケージごとに分ける</div>
+</li>
+<li class="level1"><div class="li"> バグ修正：Smagorinsky 粘性係数への下限値の設定が正しく行われていない</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT48 SECTION "ver.3.2.14, 3.3.14 のリリース (2014/05/02)" [55333-56536] -->
+<h2 class="sectionedit49" id="ver3313のリリース_2014_03_12">ver.3.3.13のリリース (2014/03/12)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.3 が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_13-20140312</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+<ul>
+<li class="level1"><div class="li"> モニター、診断ルーチンの追加</div>
+</li>
+<li class="level1"><div class="li"> margin.F90 の Y方向通信のバグ修正</div>
+</li>
+<li class="level1"><div class="li"> 海面高度の最高・最低値の初期設定を修正</div>
+</li>
+<li class="level1"><div class="li"> 背景鉛直拡散係数としてゼロを指定可能に</div>
+</li>
+<li class="level1"><div class="li"> 鉛直座標zstarをメインフレームに導入する</div>
+</li>
+<li class="level1"><div class="li"> リスタートファイルのGrADs可視化ツール</div>
+</li>
+<li class="level1"><div class="li"> モニター、リスタートファイルの海陸マスクやのりしろ処理をスキップ可能に</div>
+</li>
+<li class="level1"><div class="li"> iomodule.F90 の機能を明確に</div>
+</li>
+<li class="level1"><div class="li"> margin.F90 への機能追加</div>
+</li>
+<li class="level1"><div class="li"> 海氷初期処理標準出力修正</div>
+</li>
+<li class="level1"><div class="li"> 水平一様成層を初期値とするための条件緩和</div>
+</li>
+<li class="level1"><div class="li"> ３次元流速場の更新をsurface_ctl.F90 からclinic_ctl.F90に移動</div>
+</li>
+<li class="level1"><div class="li"> 複数領域ネスティングの不具合解消</div>
+</li>
+<li class="level1"><div class="li"> ネスト子モデル→親モデルの置換におけるバグ修正</div>
+</li>
+<li class="level1"><div class="li"> Smagorinsky粘性における背景値設定を可能に</div>
+</li>
+<li class="level1"><div class="li"> ２次元分布する調和型粘性係数を追加可能に</div>
+</li>
+<li class="level1"><div class="li"> 大気との結合ランで受け取る海面境界条件データを追加</div>
+</li>
+<li class="level1"><div class="li"> 大気から海面気圧の陸上値も受け取る</div>
+</li>
+<li class="level1"><div class="li"> surffluxにおける海面緩和処理の整理</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT49 SECTION "ver.3.3.13のリリース (2014/03/12)" [56537-57868] -->
+<h2 class="sectionedit50" id="ver3312のリリース_2014_02_06">ver.3.3.12のリリース (2014/02/06)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.3 が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_12-20140206</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+<ul>
+<li class="level1"><div class="li"> コンパイルオプション NESTONLINE, FEEDBACK 廃止</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティングのモジュール再構成</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング親モデルの2次元分割を可能に</div>
+</li>
+<li class="level1"><div class="li"> リファクタリング：parent/ に構造体を導入し共通ルーチンをまとめる</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT50 SECTION "ver.3.3.12のリリース (2014/02/06)" [57869-58361] -->
+<h2 class="sectionedit51" id="ver3211_3311のリリース_2014_01_08">ver.3.2.11, 3.3.11のリリース (2014/01/08)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.[23]が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_2_11-20140108　（3_2_10をとばします）</div>
+</li>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_11-20140108</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+
+<p>
+[共通]
+</p>
+<ul>
+<li class="level1"><div class="li"> バグフィックス：配列定義外参照、変数の初期化</div>
+</li>
+<li class="level1"><div class="li"> 　〃　： nest_scup の初期設定でデッドロックとなりうる</div>
+</li>
+</ul>
+
+<p>
+[3.3]
+</p>
+<ul>
+<li class="level1"><div class="li"> 海氷厚さカテゴリの数をconfigure.inで指定</div>
+</li>
+<li class="level1"><div class="li"> cgcm_scup ディレクトリを vpath でサーチ</div>
+</li>
+<li class="level1"><div class="li"> サブルーチン名の短縮</div>
+</li>
+<li class="level1"><div class="li"> Intel Fortran コンパイラー(ifort)を使用可能に</div>
+</li>
+<li class="level1"><div class="li"> gfortran によるコンパイル＆実行を可能に</div>
+</li>
+<li class="level1"><div class="li"> 1000以上のMPI並列数でも動作するように</div>
+</li>
+<li class="level1"><div class="li"> オンライン・ネスティング動作時に1つのサブモデルが止まれば全モデルが止まるように</div>
+</li>
+<li class="level1"><div class="li"> バグフィックス： offline nesting + SOM でコンパイルできない</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT51 SECTION "ver.3.2.11, 3.3.11のリリース (2014/01/08)" [58362-59322] -->
+<h2 class="sectionedit52" id="ver3209_3310のリリース_2013_12_11">ver.3.2.09, 3.3.10のリリース (2013/12/11)</h2>
+<div class="level2">
+
+<p>
+MRI.COM ver. 3.[23]が更新されました。
+</p>
+<ul>
+<li class="level1"><div class="li"> タグ: MRICOM-3_2_09-20131211</div>
+</li>
+<li class="level1"><div class="li"> タグ: MRICOM-3_3_10-20131211</div>
+</li>
+</ul>
+
+<p>
+更新には以下の内容が含まれます。
+</p>
+
+<p>
+[共通]
+</p>
+<ul>
+<li class="level1"><div class="li"> カレンダ―のモニターのタイミング修正</div>
+</li>
+<li class="level1"><div class="li"> 最大・最小値モニターの修正</div>
+</li>
+</ul>
+
+<p>
+[3.3]
+</p>
+<ul>
+<li class="level1"><div class="li"> 格子情報等の入力を分かりやすくする</div>
+</li>
+<li class="level1"><div class="li"> 気象研外部でのコンパイルのために configure を整理する</div>
+</li>
+<li class="level1"><div class="li"> 新しい海面高度計算に関するバグ修正</div>
+</li>
+<li class="level1"><div class="li"> namelist読み込みチェックのエラーメッセージ修正</div>
+</li>
+<li class="level1"><div class="li"> MPI分割数により結果が一致しない場合の警告表示</div>
+</li>
+<li class="level1"><div class="li"> トレーサの初期設定、緩和に関する namelist の整理・統合</div>
+</li>
+<li class="level1"><div class="li"> namelist の名前変更（nml_*）</div>
+</li>
+<li class="level1"><div class="li"> ディレクトリ構成の見直し</div>
+</li>
+<li class="level1"><div class="li"> force_data.F90 周辺のバグ修正</div>
+</li>
+<li class="level1"><div class="li"> README の修正</div>
+</li>
+<li class="level1"><div class="li"> マニュアル第６章の改訂</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT52 SECTION "ver.3.2.09, 3.3.10のリリース (2013/12/11)" [59323-] --></div>
+</body>
+</html>

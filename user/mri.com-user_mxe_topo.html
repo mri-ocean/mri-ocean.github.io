@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:topo</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,topo"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:topo","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#prep_nest_topo">prep/nest/topo</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#概要">概要</a></div></li>
+<li class="level2"><div class="li"><a href="#マシンにあわせて作業環境を整えるsetupsh">0. マシンにあわせて作業環境を整える: setup.sh</a></div></li>
+<li class="level2"><div class="li"><a href="#子モデルの格子情報_格子点数・間隔_を作成する">1. 子モデルの格子情報(格子点数・間隔)を作成する</a></div></li>
+<li class="level2"><div class="li"><a href="#ネスティングの境界値入出力の設定ファイルを作成する">2. ネスティングの境界値入出力の設定ファイルを作成する</a></div></li>
+<li class="level2"><div class="li"><a href="#地形を機械的に作成する">3. 地形を機械的に作成する</a></div></li>
+<li class="level2"><div class="li"><a href="#地形を手で修正する">4. 地形を手で修正する</a></div></li>
+<li class="level2"><div class="li"><a href="#地形を仕上げる">5. 地形を仕上げる</a></div></li>
+<li class="level2"><div class="li"><a href="#水平拡散・粘性係数の分布を作成する">6. 水平拡散・粘性係数の分布を作成する</a></div></li>
+<li class="level2"><div class="li"><a href="#境界域における境界値とモデルの寄与率データを作成する">7. 境界域における境界値とモデルの寄与率データを作成する</a></div></li>
+<li class="level2"><div class="li"><a href="#ファイルを移動する">8. ファイルを移動する</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="prep_nest_topo">prep/nest/topo</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "prep/nest/topo" [1-28] -->
+<h2 class="sectionedit2" id="概要">概要</h2>
+<div class="level2">
+
+<p>
+MRI.COM ではネスティング計算を行うことができる。
+</p>
+
+<p>
+境界値を与える低解像度モデル(親モデル)の中に
+高解像度モデル(子モデル)領域を設定する。
+</p>
+
+<p>
+格子は、速度点の間隔(トレーサー点が中心にある, T box)を奇数に分割する。
+</p>
+
+<p>
+このディレクトリでは、作成済みの親モデルから、
+ネスティッドグリッドの子モデルを作成する作業を行う。
+</p>
+
+<p>
+最終出力
+</p>
+<pre class="code">   vgrid.d, parapar.F90, parasub.F90, topo.d, hddiff.d, hdbuff.d</pre>
+
+</div>
+<!-- EDIT2 SECTION "概要" [29-580] -->
+<h2 class="sectionedit3" id="マシンにあわせて作業環境を整えるsetupsh">0. マシンにあわせて作業環境を整える: setup.sh</h2>
+<div class="level2">
+
+<p>
+作業環境のセットアップを行うためにシェル・スクリプトを実行する。
+</p>
+<pre class="code"> % sh setup.sh</pre>
+
+<p>
+作成されるもの
+</p>
+<pre class="code">   gj-topo30_c.gr : 地形データへのリンク</pre>
+
+</div>
+<!-- EDIT3 SECTION "0. マシンにあわせて作業環境を整える: setup.sh" [581-847] -->
+<h2 class="sectionedit4" id="子モデルの格子情報_格子点数・間隔_を作成する">1. 子モデルの格子情報(格子点数・間隔)を作成する</h2>
+<div class="level2">
+
+<p>
+namelist.configure.in.par (親モデルのMXEライブラリ用namelistファイル)を用意する。
+</p>
+
+<p>
+親モデルが矩形海盆の場合：
+</p>
+<pre class="code">% cp ../../rectangle/namelist.configure.in ./namelist.configure.in.par
+ namelist.configure.in.par の
+    &amp;topofile ftopo=&#039;topo.d&#039; &amp;end  を
+    &amp;topofile ftopo=&#039;topo_parent.d&#039; &amp;end  と書きかえて
+% ln -s ../../rectangle/topo.d ./topo_parent.d</pre>
+
+<p>
+namelist.nestを編集し子モデルの領域(nest_para)やネスト率(mkngrids)などを決めて、コンパイルと実行を行う。
+</p>
+<pre class="code">% cp sample/namelist.nest .
+% edit namelist.nest
+% make mkngrids
+% ./mkngrids</pre>
+
+<p>
+子モデルの格子情報(格子点数・間隔)が作成される。
+</p>
+<pre class="code">   general.txt   : configure.in や paranest.F90 への情報
+   confignest.in : general.txt の内容を、parapar.F90.in -&gt; parapar.F90,
+                   parasub.F90.in -&gt; parasub.F90 の入力情報となるように
+                   したもの（作業 2. を参照）。
+   vgrid.d  : 格子情報
+   nest.d  : 3以降の作業に必要な一時出力</pre>
+
+<p>
+西と南の端では、ネストする、しないにかかわらず、２格子分の「のりしろ」が設定される。
+</p>
+
+<p>
+東と北の境界では、ネストする場合には２つ、しない場合には１つの「のりしろ」が、コア領域の外側に設定されるようになっている。
+</p>
+
+<p>
+mkngrids.F90は、グリッド分割の比率はx方向、y方向それぞれに一定としている。
+</p>
+
+<p>
+変更したい場合には、irt, jrtを決める部分を編集する。
+</p>
+
+<p>
+MXEのマージで衝突しないように、編集後のプログラムは別名にする。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "1. 子モデルの格子情報(格子点数・間隔)を作成する" [848-2599] -->
+<h2 class="sectionedit5" id="ネスティングの境界値入出力の設定ファイルを作成する">2. ネスティングの境界値入出力の設定ファイルを作成する</h2>
+<div class="level2">
+
+<p>
+1. の作業により作成される、confignest.in ファイルの内容を確認の上
+</p>
+<pre class="code"> % sh mkparam.sh</pre>
+
+<p>
+とすると、parapar.F90.in から parapar.F90 が、parasub.F90.in から parasub.F90 が作成される。
+</p>
+
+<p>
+作成されたファイルはMRI.COM実験で使うので MXE/exp/config_files/に移動する。
+</p>
+<pre class="code">   parapar.F90 : 親モデルで境界値出力ランをするときのパラメータファイル
+   parasub.F90 : 子モデルランをするときのパラメータファイル</pre>
+
+</div>
+<!-- EDIT5 SECTION "2. ネスティングの境界値入出力の設定ファイルを作成する" [2600-3197] -->
+<h2 class="sectionedit6" id="地形を機械的に作成する">3. 地形を機械的に作成する</h2>
+<div class="level2">
+
+<p>
+namlist.configure.in (子モデルのMXEライブラリ用namelistファイル)を作成し、
+namelist.nest を編集した後
+</p>
+<pre class="code">namelist.nest
+  &amp;mkntopo l_use_parent_topo=.true. : 親モデルの地形をそのまま子モデルの地形とする
+  &amp;mkntopo l_smth_parent_topo=.true. : 親モデルの地形を平滑化して子モデルの地形とする
+                    default         : gj-topo30_c.gr を使って子モデルの地形を作る</pre>
+
+<p>
+mkntopo をコンパイルし実行する。
+</p>
+<pre class="code">% make mkntopo
+% ./mkntopo</pre>
+
+<p>
+子モデルの地形(水深[cm]、海底が何層目か)が作成される。
+</p>
+<pre class="code">      firsttpdt.dat: 4.で手作業により修正するためのsequential地形データ。
+      topo_sub_1st.gd: direct accessの地形データ。</pre>
+
+<p>
+地形データを読み込むため、マシンのメモリに注意。
+解像度30分のデータなら4GB必要。
+</p>
+
+</div>
+<!-- EDIT6 SECTION "3. 地形を機械的に作成する" [3198-4141] -->
+<h2 class="sectionedit7" id="地形を手で修正する">4. 地形を手で修正する</h2>
+<div class="level2">
+
+<p>
+<em class="u">仮想地形などの場合で手動修正の必要がなければ、ここはスキップ</em>
+</p>
+
+<p>
+スクリプトmanipulate_topo.shを実行する。
+</p>
+<pre class="code">   % sh manipulate_topo.sh</pre>
+
+<p>
+GrADS が立ち上がるので地形の修正を行う。
+</p>
+
+<p>
+(MRICOM2_4/mktopo-sj/README.mktopo-sj を参照。step2 にあたる。)
+</p>
+
+<p>
+MRICOM2_4のmantopo_nest.gs をそのまま使う。
+</p>
+
+<p>
+以下の地形ファイルが作成される。
+</p>
+<pre class="code">   mantopo.gd: direct accessの地形データ。</pre>
+
+</div>
+<!-- EDIT7 SECTION "4. 地形を手で修正する" [4142-4652] -->
+<h2 class="sectionedit8" id="地形を仕上げる">5. 地形を仕上げる</h2>
+<div class="level2">
+
+<p>
+地形が海洋モデルの実行条件を満たすように仕上げ作業を行う。
+</p>
+
+<p>
+mantopo.gd(またはtopo_sub_1st.gd)に topoin.gd という名前でリンクを張り、
+namelist.nest を編集した後、finishtopo をコンパイルし実行する。
+</p>
+<pre class="code">% make finishtopo
+% ./finishtopo</pre>
+
+<p>
+以下の地形ファイルが作成される。
+</p>
+<pre class="code">   topo.d: MRI.COMで使用できるsequential地形データ。
+   masku.d: U点の3次元マスク配列。direct access。
+   maskt.d: T点の3次元マスク配列。direct access。</pre>
+
+</div>
+<!-- EDIT8 SECTION "5. 地形を仕上げる" [4653-5233] -->
+<h2 class="sectionedit9" id="水平拡散・粘性係数の分布を作成する">6. 水平拡散・粘性係数の分布を作成する</h2>
+<div class="level2">
+
+<p>
+namelist.nest を編集して水平拡散・粘性係数の分布を作成する。
+</p>
+
+<p>
+境界値を与える親モデルと子モデルの係数が滑らかに接続するように設定を行う。
+</p>
+
+<p>
+現在は、境界から親モデルの５格子分は親モデルの値、
+そこからさらに内側へ５格子で線型に子モデルの格子の値に
+接続するようになっている。
+(Smagorinskyでは粘性係数は無視される。)
+</p>
+<pre class="code"> % make mkhddf
+ % ./mkhddf</pre>
+
+<p>
+以下の水平拡散・粘性係数ファイルが作成される。
+</p>
+<pre class="code">   hddiff.d: MRI.COMで使用できるsequentialデータ。
+   hdts.d, hduv.d: 水平拡散と粘性のdirect access データ。</pre>
+
+</div>
+<!-- EDIT9 SECTION "6. 水平拡散・粘性係数の分布を作成する" [5234-5988] -->
+<h2 class="sectionedit10" id="境界域における境界値とモデルの寄与率データを作成する">7. 境界域における境界値とモデルの寄与率データを作成する</h2>
+<div class="level2">
+
+<p>
+buffer.F90 を編集して境界域における境界値とモデルの寄与率
+データを作成する。
+</p>
+
+<p>
+これは本来、境界から低解像度モデル１格子分内側で、境界値とモデルの値を重みつき平均で求めるために作成したものであるが、境界値は境界域で重み 1.0、高解像度モデル領域では 0.0 とすることを推奨する。
+</p>
+
+<p>
+従って、プログラムの中身を大幅に変更する必要はない。
+</p>
+<pre class="code">% make buffer
+% ./buffer</pre>
+
+<p>
+以下の寄与率を示すファイルが作成される。
+</p>
+<pre class="code">   hdbuff.d: MRI.COMで使用できるsequentialデータ。
+   wbufu.d,wbuft.d : direct access データ。</pre>
+
+</div>
+<!-- EDIT10 SECTION "7. 境界域における境界値とモデルの寄与率データを作成する" [5989-6764] -->
+<h2 class="sectionedit11" id="ファイルを移動する">8. ファイルを移動する</h2>
+<div class="level2">
+
+<p>
+作成されたファイルを適当なディレクトリに移動する。
+</p>
+
+<p>
+sample/move_file.sh が使えるかもしれない。
+</p>
+
+</div>
+<!-- EDIT11 SECTION "8. ファイルを移動する" [6765-] --></div>
+</body>
+</html>

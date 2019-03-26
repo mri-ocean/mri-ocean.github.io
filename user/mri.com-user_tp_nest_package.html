@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:tp_nest:package</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,tp_nest,package"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:tp_nest';var JSINFO = {"id":"mri.com-user:tp_nest:package","namespace":"mri.com-user:tp_nest"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom-tp_nestパッケージ">MRI.COM-TP_NESTパッケージ</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#実験の実行">実験の実行</a></div></li>
+<li class="level2"><div class="li"><a href="#前処理">前処理</a></div></li>
+<li class="level2"><div class="li"><a href="#後処理">後処理</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom-tp_nestパッケージ">MRI.COM-TP_NESTパッケージ</h1>
+<div class="level1">
+
+<p>
+MRI.COM-TP_NESTパッケージの内容。
+詳細は各ディレクトリのREADME.md等を参照。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM-TP_NESTパッケージ" [1-149] -->
+<h2 class="sectionedit2" id="実験の実行">実験の実行</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">ディレクトリ</th><th class="col1">内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">exp/MRICOM/</td><td class="col1">MRI.COMソースコード</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">exp/config_files/</td><td class="col1">コンパイルの設定ファイル</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">exp/src-glb/</td><td class="col1">全球モデル用ソース</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">exp/src-tp/</td><td class="col1">熱帯モデル用ソース</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">exp/run/</td><td class="col1">実験の実行</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">exp/data-glb/</td><td class="col1">入力データファイル(全球モデル)</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">exp/data-np/</td><td class="col1">入力データファイル(熱帯モデル)</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">exp/remap/</td><td class="col1">全球⇔熱帯モデルの格子変換テーブル(Scupへ入力)</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">exp/test-system/</td><td class="col1">MRI.COMの統合テスト</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0">exp/test-unit/</td><td class="col1">MRI.COMの単体テスト</td>
+	</tr>
+	<tr class="row11">
+		<td class="col0">postp</td><td class="col1">後処理</td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [179-722] -->
+</div>
+<!-- EDIT2 SECTION "実験の実行" [150-723] -->
+<h2 class="sectionedit4" id="前処理">前処理</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">ディレクトリ</th><th class="col1">内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">prep/nest/topo</td><td class="col1">熱帯モデルのグリッド、地形を作成</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">prep/nest/remap</td><td class="col1">熱帯モデルと全球モデルの格子変換テーブル</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">prep/nest/clim</td><td class="col1">熱帯モデル立ち上げのための気候値ファイルを作成</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">prep/global-tripoloar/vmbd3d</td><td class="col1">熱帯モデルの背景鉛直混合係数作成の準備</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">prep/nest/vmbd3d</td><td class="col1">熱帯モデルの背景鉛直混合係数作成</td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [747-1163] -->
+</div>
+<!-- EDIT4 SECTION "前処理" [724-1164] -->
+<h2 class="sectionedit6" id="後処理">後処理</h2>
+<div class="level2">
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">ディレクトリ</th><th class="col1">内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">exp/storeroom/</td><td class="col1">この下に各実験のログや処理ツールを格納する</td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [1188-1296] -->
+</div>
+<!-- EDIT6 SECTION "後処理" [1165-] --></div>
+</body>
+</html>

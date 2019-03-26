@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:clim</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,clim"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:clim","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#prep_nest_clim">/prep/nest/clim</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#基本的な手順">基本的な手順</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#direct_accessの月別tsデータから_気候値tsデータセットを作成する">1. direct accessの月別TSデータから、気候値TSデータセットを作成する</a></div></li>
+<li class="level3"><div class="li"><a href="#気候値tsデータセットの1層目を他のデータに置き換える">2. 気候値TSデータセットの1層目を他のデータに置き換える</a></div></li>
+<li class="level3"><div class="li"><a href="#気候値tsデータセットの2層目以深の陸地_欠損_を海の値で埋める">3. 気候値TSデータセットの2層目以深の陸地(欠損)を海の値で埋める。</a></div></li>
+<li class="level3"><div class="li"><a href="#気候値tsのグリッド情報を与える_mricom用サブルーチンtsintpolf90を作成する">4. 気候値TSのグリッド情報を与える MRI.COM用サブルーチンtsintpol.F90を作成する</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#その他">その他</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="prep_nest_clim">/prep/nest/clim</h1>
+<div class="level1">
+
+<p>
+親モデルの月毎historyデータを用いて、子モデル用の気候値TSデータファイルを作る。
+</p>
+
+<p>
+sample/ にあるスクリプトは ./にコピー、編集して使用する。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "/prep/nest/clim" [1-231] -->
+<h2 class="sectionedit2" id="基本的な手順">基本的な手順</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "基本的な手順" [232-263] -->
+<h3 class="sectionedit3" id="direct_accessの月別tsデータから_気候値tsデータセットを作成する">1. direct accessの月別TSデータから、気候値TSデータセットを作成する</h3>
+<div class="level3">
+<pre class="code">スクリプト例 sample/make_climts.sh</pre>
+
+</div>
+<!-- EDIT3 SECTION "1. direct accessの月別TSデータから、気候値TSデータセットを作成する" [264-406] -->
+<h3 class="sectionedit4" id="気候値tsデータセットの1層目を他のデータに置き換える">2. 気候値TSデータセットの1層目を他のデータに置き換える</h3>
+<div class="level3">
+
+<p>
+MRI.COM海面リストアにはbforce.dのようなマスクが使えないため、陸域欠損値を含むデータ(親モデル結果など)を気候値にすると、異常なリストアが起こる。
+</p>
+
+<p>
+1層目だけ広い領域の気候値にしておくことでこの問題を回避する。
+</p>
+<pre class="code">プログラム replace_surface.F90
+スクリプト例 sample/replace_bywoa.sh</pre>
+
+</div>
+<!-- EDIT4 SECTION "2. 気候値TSデータセットの1層目を他のデータに置き換える" [407-879] -->
+<h3 class="sectionedit5" id="気候値tsデータセットの2層目以深の陸地_欠損_を海の値で埋める">3. 気候値TSデータセットの2層目以深の陸地(欠損)を海の値で埋める。</h3>
+<div class="level3">
+
+<p>
+この修正をしなければ、MRI.COMのリストアで欠損値を使う可能性がある。
+</p>
+<pre class="code"> プログラム fill_land.F90
+スクリプト例 sample/fill_wnpclim.sh</pre>
+
+</div>
+<!-- EDIT5 SECTION "3. 気候値TSデータセットの2層目以深の陸地(欠損)を海の値で埋める。" [880-1158] -->
+<h3 class="sectionedit6" id="気候値tsのグリッド情報を与える_mricom用サブルーチンtsintpolf90を作成する">4. 気候値TSのグリッド情報を与える MRI.COM用サブルーチンtsintpol.F90を作成する</h3>
+<div class="level3">
+<pre class="code">プログラム   make_tsintpol.F90</pre>
+
+</div>
+<!-- EDIT6 SECTION "4. 気候値TSのグリッド情報を与える MRI.COM用サブルーチンtsintpol.F90を作成する" [1159-1311] -->
+<h2 class="sectionedit7" id="その他">その他</h2>
+<div class="level2">
+<pre class="code">bforce.F90</pre>
+
+<p>
+body forceをかけるグリッドを決める配列bforce.dを作成する。
+</p>
+
+<p>
+Namelist njobbdyのkmbを用いて、全領域でかける場合には不要。
+</p>
+
+</div>
+<!-- EDIT7 SECTION "その他" [1312-] --></div>
+</body>
+</html>

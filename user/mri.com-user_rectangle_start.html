@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:rectangle:start</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,rectangle,start"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:rectangle';var JSINFO = {"id":"mri.com-user:rectangle:start","namespace":"mri.com-user:rectangle"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#矩形海モデル・パッケージ_rectangle">矩形海モデル・パッケージ「rectangle」</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#概要">概要</a></div></li>
+<li class="level2"><div class="li"><a href="#デモ">デモ</a></div></li>
+<li class="level2"><div class="li"><a href="#バージョン">バージョン</a></div></li>
+<li class="level2"><div class="li"><a href="#必要要件">必要要件</a></div></li>
+<li class="level2"><div class="li"><a href="#動作実績">動作実績</a></div></li>
+<li class="level2"><div class="li"><a href="#提供物と取得方法">提供物と取得方法</a></div></li>
+<li class="level2"><div class="li"><a href="#使い方">使い方</a></div></li>
+<li class="level2"><div class="li"><a href="#開発に参加するには">開発に参加するには</a></div></li>
+<li class="level2"><div class="li"><a href="#ライセンス">ライセンス</a></div></li>
+<li class="level2"><div class="li"><a href="#著者">著者</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="矩形海モデル・パッケージ_rectangle">矩形海モデル・パッケージ「rectangle」</h1>
+<div class="level1">
+
+<p>
+シンプルな設定の矩形海モデル。MRI.COMのテストに使われており、パッケージ中に最新のMRI.COM(開発版)が含まれる。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "矩形海モデル・パッケージ「rectangle」" [1-224] -->
+<h2 class="sectionedit2" id="概要">概要</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 水平解像度1°、水深6000mの矩形海で理想的なダブルジャイア実験を行う。</div>
+</li>
+<li class="level1"><div class="li"> グリッド数は62×52×10であり、PCでも動かせる程度に小さい。</div>
+</li>
+<li class="level1"><div class="li"> デフォルトでは、ダブルジャイア用の東西風の下で10日間の積分を行い、初期順圧応答を見る。</div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_rectangle_spec.html" class="wikilink1" title="mri.com-user_rectangle_spec">詳細な仕様</a></div>
+</li>
+<li class="level1"><div class="li"> MRI.COM開発における単体テストや統合テストも本パッケージで行っている。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "概要" [225-702] -->
+<h2 class="sectionedit3" id="デモ">デモ</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> デフォルト設定の実験結果：<a href="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/7fwpkayr5OrESfS" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/7fwpkayr5OrESfS" rel="nofollow">海面高度の時間発展</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "デモ" [703-864] -->
+<h2 class="sectionedit4" id="バージョン">バージョン</h2>
+<div class="level2">
+
+<p>
+MRI.COMに合わせて、月1回更新します。
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_rectangle_release.html" class="wikilink1" title="mri.com-user_rectangle_release">リリースノート</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "バージョン" [865-984] -->
+<h2 class="sectionedit5" id="必要要件">必要要件</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Fortran コンパイラ</div>
+</li>
+<li class="level1"><div class="li"> MPIライブラリ (設定を変えればMPI並列なしでも動く)</div>
+</li>
+<li class="level1"><div class="li"> make</div>
+</li>
+<li class="level1"><div class="li"> GrADS (他の描画ツールでも良い)</div>
+</li>
+<li class="level1"><div class="li"> git</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "必要要件" [985-1176] -->
+<h2 class="sectionedit6" id="動作実績">動作実績</h2>
+<div class="level2">
+<ul>
+<li class="level1 node"><div class="li"> スパコン</div>
+<ul>
+<li class="level2"><div class="li"> 気象研 FX-100, SR-16000</div>
+</li>
+<li class="level2"><div class="li"> 東大FX10</div>
+</li>
+<li class="level2"><div class="li"> JAMSTEC ICE-X</div>
+</li>
+<li class="level2"><div class="li"> ES3 (SX-ACE)</div>
+</li>
+<li class="level2"><div class="li"> 北大 SR-16000</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> サーバー</div>
+<ul>
+<li class="level2"><div class="li"> 気象研海洋 (Xeon + SUSE Linux + PGI Fortran)</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> PC</div>
+<ul>
+<li class="level2"><div class="li"> Ubuntu Linux + gfortran</div>
+</li>
+<li class="level2"><div class="li"> Debian + gfortran (Google Compute Engine)</div>
+</li>
+<li class="level2"><div class="li"> CentOS7 + gfortran (ZSTARオプションなし+MPI並列時に落ちる現象が確認されています。ZSTARの使用を推奨。)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "動作実績" [1177-1630] -->
+<h2 class="sectionedit7" id="提供物と取得方法">提供物と取得方法</h2>
+<div class="level2">
+<ul>
+<li class="level1 node"><div class="li"> <a href="./mri.com-user_rectangle_contents.html" class="wikilink1" title="mri.com-user_rectangle_contents">パッケージ(ソースコード環境一式)</a></div>
+<ul>
+<li class="level2"><div class="li"> 気象庁、気象研の方：<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/rectangle-ksakamot/wiki/Wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/rectangle-ksakamot/wiki/Wiki" rel="nofollow">本庁Redmine</a>を参照</div>
+</li>
+<li class="level2"><div class="li"> モデル共同研究の方：<a href="http://synthesis.jamstec.go.jp/redmine/projects/mri/wiki" class="urlextern" title="http://synthesis.jamstec.go.jp/redmine/projects/mri/wiki" rel="nofollow">JAMSTEC Redmine</a>を参照</div>
+</li>
+<li class="level2"><div class="li"> その他の方：開発者(坂本)まで連絡してください</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 入力ファイル一式 <a href="https://github.com/mokkei1978/rectangle_data/" class="urlextern" title="https://github.com/mokkei1978/rectangle_data/" rel="nofollow">GitHubでホスト中(今のところ)</a></div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">&gt; wget https://github.com/mokkei1978/rectangle_data/archive/master.zip; unzip master.zip </pre>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "提供物と取得方法" [1631-2307] -->
+<h2 class="sectionedit8" id="使い方">使い方</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_rectangle_run_test.html" class="wikilink1" title="mri.com-user_rectangle_run_test">デフォルト設定で動かす</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_rectangle_debug_test.html" class="wikilink2" title="mri.com-user_rectangle_debug_test" rel="nofollow">動かない場合の対応</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_rectangle_change_config.html" class="wikilink1" title="mri.com-user_rectangle_change_config">設定を変更する</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_rectangle_config_files.html" class="wikilink1" title="mri.com-user_rectangle_config_files">rectangleパッケージにおける設定ファイル</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "使い方" [2308-2549] -->
+<h2 class="sectionedit9" id="開発に参加するには">開発に参加するには</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 気象研、気象庁の方：<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/rectangle-ksakamot" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/rectangle-ksakamot" rel="nofollow">本庁Redmine</a>に参加</div>
+</li>
+<li class="level1"><div class="li"> モデル共同研究の方：<a href="http://dand056-redmine.tkl.iis.u-tokyo.ac.jp/projects/mri" class="urlextern" title="http://dand056-redmine.tkl.iis.u-tokyo.ac.jp/projects/mri" rel="nofollow">DIAS Redmine</a>に参加</div>
+</li>
+<li class="level1"><div class="li"> その他の方：開発者(坂本)まで連絡してください</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "開発に参加するには" [2550-2920] -->
+<h2 class="sectionedit10" id="ライセンス">ライセンス</h2>
+<div class="level2">
+
+<p>
+MRI.COMにならいます。(第三者への提供や一般公開は許可していません。)
+</p>
+
+</div>
+<!-- EDIT10 SECTION "ライセンス" [2921-3048] -->
+<h2 class="sectionedit11" id="著者">著者</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 開発者：坂本圭 ksakamot@mri-jma.go.jp</div>
+</li>
+<li class="level1"><div class="li"> 開発環境：Xeon + SUSE Linux + PGI Fortran (MPIあり)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "著者" [3049-] --></div>
+</body>
+</html>

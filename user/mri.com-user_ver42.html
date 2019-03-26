@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:ver42</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,ver42"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:ver42","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_ver42">MRI.COM ver.4.2</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#ソースコードの取得">ソースコードの取得</a></div></li>
+<li class="level2"><div class="li"><a href="#追加された主な機能">追加された主な機能</a></div></li>
+<li class="level2"><div class="li"><a href="#ver40_から_42_への移行">ver.4.0 から 4.2 への移行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#入力データファイル">入力データファイル</a></div></li>
+<li class="level3"><div class="li"><a href="#コンパイル・オプション">コンパイル・オプション</a></div></li>
+<li class="level3"><div class="li"><a href="#namelist">namelist</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#機能削除の予定">機能削除の予定</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_ver42">MRI.COM ver.4.2</h1>
+<div class="level1">
+
+<p>
+MRI.COM ver.4.2 は、2016年9月にリリースされた安定版です。
+</p>
+
+<p>
+<strong>MRI.COM ver.4.2 は開発終了しました。ver.4.4をお使い下さい。</strong>
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM ver.4.2" [1-191] -->
+<h2 class="sectionedit2" id="ソースコードの取得">ソースコードの取得</h2>
+<div class="level2">
+
+<p>
+MRI.COM gitリポジトリでブランチ「4_2」をチェックアウトして下さい。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "ソースコードの取得" [192-326] -->
+<h2 class="sectionedit3" id="追加された主な機能">追加された主な機能</h2>
+<div class="level2">
+
+<p>
+ver.4.0から様々な機能が追加されています。
+</p>
+<ul>
+<li class="level1"><div class="li"> Fox-Kemper and Ferrari (2008) の混合層渦パラメタリゼーション</div>
+</li>
+<li class="level1"><div class="li"> 粒子追跡法(北大松村氏作成)の実装</div>
+</li>
+<li class="level1"><div class="li"> 等密度面解析など様々な解析のオンライン実行</div>
+</li>
+<li class="level1"><div class="li"> SOMフラックスリミッターと順圧タイムフィルタリングの変更によるモデル安定化</div>
+</li>
+<li class="level1"><div class="li"> ネスティング実行時の保存性向上</div>
+</li>
+<li class="level1"><div class="li"> 海氷モデルの双方向オンライン・ネスティング</div>
+</li>
+<li class="level1"><div class="li"> オフライン・ネスティング時の潮汐の付加</div>
+</li>
+<li class="level1"><div class="li"> CMIP6に向けたモニタリング、実験設定の追加</div>
+</li>
+<li class="level1"><div class="li"> 入出力でMPI-IO、NetCDF4のサポート</div>
+</li>
+<li class="level1"><div class="li"> 新しいnamelistによる柔軟なヒストリー出力の指定</div>
+</li>
+<li class="level1"><div class="li"> デバッグモードの追加</div>
+</li>
+<li class="level1"><div class="li"> 多数のバグ修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "追加された主な機能" [327-1164] -->
+<h2 class="sectionedit4" id="ver40_から_42_への移行">ver.4.0 から 4.2 への移行</h2>
+<div class="level2">
+
+<p>
+安定版 ver.4.0 から ver.4.2 へ移行する場合のメモです。
+ほぼ同じ設定にした場合でも結果は変わります。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "ver.4.0 から 4.2 への移行" [1165-1350] -->
+<h3 class="sectionedit5" id="入力データファイル">入力データファイル</h3>
+<div class="level3">
+
+<p>
+フォーマットの変更が1つあります。
+</p>
+<ul>
+<li class="level1"><div class="li"> 大気フォーシング: 1ファイル複数要素から1ファイル1要素に変更されました。(変換ツール：MXE/prep/convert/ver40to42/)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "入力データファイル" [1351-1597] -->
+<h3 class="sectionedit6" id="コンパイル・オプション">コンパイル・オプション</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 廃止：DEBUG, DEBUGRESTORE, NETCDF, SR16000</div>
+</li>
+<li class="level1"><div class="li"> 新規：ANALY, HEATFAF, MLE, NETCDF4, NETCDF4CLASSIC, PARTICLE, PASSIVEHEAT, SF6, TAUANOMALY, WFLUXANOMALY</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "コンパイル・オプション" [1598-1805] -->
+<h3 class="sectionedit7" id="namelist">namelist</h3>
+<div class="level3">
+
+<p>
+主な変更です。
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>大気フォーシング</strong>: nml_force_* のnamelistブロックは全て廃止され、nml_force_data に一本化されました。</div>
+</li>
+<li class="level1"><div class="li"> <strong>ヒストリー出力</strong>: nmlhs_* は nml_history (NAMELIST.OGCM.MONITORに記述)への移行が推奨されます。(nmlhs_*は次の安定版で削除される予定です。)</div>
+</li>
+<li class="level1"><div class="li"> <strong>順圧モデル</strong>: 順圧・傾圧のタイム・フィルタリングの変更により、nml_barotropic_model の nstep_time_filter は廃止されました。</div>
+</li>
+<li class="level1"><div class="li"> <strong>トレーサーのSOMリミッター</strong>: SOMリミッター変更により、nml_tracer_data の要素 adv_scheme%limiter_som が廃止され、adv_scheme%limiter_som_org, limiter_som_Merryfield03 が追加されました。</div>
+</li>
+<li class="level1"><div class="li"> <strong>潮汐</strong>: nml_diff_tide, nml_visc_tide, nml_dmp_tide, nml_tidept は nml_tide_model, nml_tide_run, nml_tide_forcing に改編されました。</div>
+</li>
+<li class="level1"><div class="li"> <strong>ネスティング子モデルの水平粘性・拡散</strong>: オンライン・ネスティングとオフライン・ネスティングの子モデル時の水平粘性・拡散2次元場の指定<sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup>は、共通したnamelistに変更されました<sup><a href="#fn__2" id="fnt__2" class="fn_top">2)</a></sup>。</div>
+</li>
+<li class="level1"><div class="li"> <strong>オンライン・ネスティング</strong>: オプションの整理により、nml_nest_sub, nml_nest_par の項目に一部変更があります。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "namelist" [1806-3314] -->
+<h2 class="sectionedit8" id="機能削除の予定">機能削除の予定</h2>
+<div class="level2">
+
+<p>
+次期安定版ではコード整理のために、重要でない、またはメンテナンスされていない機能を削除する予定です。
+</p>
+<ul>
+<li class="level1"><div class="li"> 旧形式のヒストリー出力指定</div>
+</li>
+<li class="level1"><div class="li"> 2層以上のBBL</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "機能削除の予定" [3315-] --><div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<div class="content">それぞれnml_nest_sub, nml_submodel_bnd_cnd の file_sub_diff, file_sub_visc, file_sub_diff</div></div>
+<div class="fn"><sup><a href="#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+<div class="content">nml_baroclinic_visc_horz - file_visc_horz_2d, nml_tracer_diff_horz - file_diff_horz_2d</div></div>
+</div>
+</div>
+</body>
+</html>

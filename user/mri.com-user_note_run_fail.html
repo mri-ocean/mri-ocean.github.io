@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:note:run_fail</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,note,run_fail"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:note';var JSINFO = {"id":"mri.com-user:note:run_fail","namespace":"mri.com-user:note"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#モデル実行中に問題が起こったとき">モデル実行中に問題が起こったとき</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#現象">現象</a></div></li>
+<li class="level2"><div class="li"><a href="#まずやること">まずやること</a></div></li>
+<li class="level2"><div class="li"><a href="#モデルの安定性を向上させる">モデルの安定性を向上させる</a></div></li>
+<li class="level2"><div class="li"><a href="#誤った設定を見つける">誤った設定を見つける</a></div></li>
+<li class="level2"><div class="li"><a href="#結果が変わる原因を探す">結果が変わる原因を探す</a></div></li>
+<li class="level2"><div class="li"><a href="#コードのバグを見つける">コードのバグを見つける</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="モデル実行中に問題が起こったとき">モデル実行中に問題が起こったとき</h1>
+<div class="level1">
+
+<p>
+MRI.COMの実行中に問題が発生した場合の対処方です。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "モデル実行中に問題が起こったとき" [1-138] -->
+<h2 class="sectionedit2" id="現象">現象</h2>
+<div class="level2">
+
+<p>
+以下のような問題を想定しています。
+</p>
+<ul>
+<li class="level1"><div class="li"> 立ち上げ中に落ちる(fail restart出力なし)</div>
+</li>
+<li class="level1"><div class="li"> 時間積分中に落ちる(fail restart出力あり)</div>
+</li>
+<li class="level1"><div class="li"> 結果に異常な値が出る</div>
+</li>
+<li class="level1"><div class="li"> 結果がこれまでと変わってしまった</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "現象" [139-416] -->
+<h2 class="sectionedit3" id="まずやること">まずやること</h2>
+<div class="level2">
+
+<p>
+まずは以下を行います。
+</p>
+<ul>
+<li class="level1"><div class="li"> 再コンパイル</div>
+</li>
+<li class="level1"><div class="li"> MRI.COMを最新版に更新</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "まずやること" [417-540] -->
+<h2 class="sectionedit4" id="モデルの安定性を向上させる">モデルの安定性を向上させる</h2>
+<div class="level2">
+
+<p>
+特に時間積分中に落ちる場合は、モデルの安定性を向上させます。
+</p>
+<ul>
+<li class="level1 node"><div class="li"> 時間ステップ間隔を短くする</div>
+<ul>
+<li class="level2"><div class="li"> 傾圧 <strong>nml_time_step - dt_sec</strong></div>
+</li>
+<li class="level2"><div class="li"> 順圧 <strong>nml_barotropic_model - dt_barotropic_sec</strong></div>
+</li>
+<li class="level2"><div class="li"> 海氷運動 <strong>nml_seaice_dyn - dt_seaice_dyn_sec</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 順圧タイムフィルターを変更する</div>
+<ul>
+<li class="level2"><div class="li"> <strong>nml_barotropic_model - l_global_local_cnsv_ssh</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 移流スキームのリミッターを付ける</div>
+<ul>
+<li class="level2"><div class="li"> <strong>nml_tracer_data - adv_scheme%limiter_som_Merryfield03</strong> </div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 粘性係数</div>
+<ul>
+<li class="level2"><div class="li"> 落ちやすい領域に背景水平粘性係数を与える <strong>nml_hvisc_add</strong> </div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 地形</div>
+<ul>
+<li class="level2"><div class="li"> 急峻な地形を取り除く</div>
+</li>
+<li class="level2"><div class="li"> partial_cell の比率の下限値を上げる</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 外力</div>
+<ul>
+<li class="level2"><div class="li"> 極端に短い時間ステップでしか動かない場合は風速に上限を掛ける。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 海氷の漂流速度が上限を超えたら、Rayleigh friction を課す</div>
+<ul>
+<li class="level2"><div class="li"> <strong>nml_seaice_dyn - damp_vice = 1.0d-4</strong> (Rayleigh friction 係数)</div>
+</li>
+<li class="level2"><div class="li"> <strong>nml_seaice_dyn - damp_vmax = 1.0d0</strong>  (1.0[m/s]以上の漂流速度になったら friction がかかる)</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 河川のスムージング</div>
+<ul>
+<li class="level2"><div class="li"> 質量を保存するように、1. T点にある河川水を周囲４点のうち海のU点に仮に広げる。2. Ｕ点広げた河川水を周囲４点のうち海のＴ点に広げる。を２回ぐらい繰り返す</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "モデルの安定性を向上させる" [541-1954] -->
+<h2 class="sectionedit5" id="誤った設定を見つける">誤った設定を見つける</h2>
+<div class="level2">
+
+<p>
+立ち上げ中や積分開始直後に落ちる場合は、設定が誤っている可能性が高いです。
+</p>
+<ul>
+<li class="level1 node"><div class="li"> 入力ファイルをチェックする</div>
+<ul>
+<li class="level2"><div class="li"> 面倒臭がらずに図を描く</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> デバッグモードで実行する</div>
+<ul>
+<li class="level2"><div class="li"> <strong>nml_stdout - l_debug</strong> </div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 出力項目を増やす</div>
+<ul>
+<li class="level2"><div class="li"> テンデンシー項 <strong>NAMELIST.OGCM.MONITOR - nml_monitor - “temperature total tendency” etc.</strong></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "誤った設定を見つける" [1955-2402] -->
+<h2 class="sectionedit6" id="結果が変わる原因を探す">結果が変わる原因を探す</h2>
+<div class="level2">
+
+<p>
+なぜか結果が変わってしまった場合は、原因を探します。
+</p>
+<ul>
+<li class="level1 node"><div class="li"> MPIに依存して結果が変わるモデルオプションを外す</div>
+<ul>
+<li class="level2"><div class="li"> 標準出力で「WARNING」をgrepしてMPI依存のオプションを探しだし、外して再実行</div>
+</li>
+<li class="level2"><div class="li"> <strong>WADJ</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 標準出力ログのdiffをとる</div>
+</li>
+<li class="level1 node"><div class="li"> コンパイル時、実行時オプションを確認する</div>
+<ul>
+<li class="level2"><div class="li"> 最適化オプション</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "結果が変わる原因を探す" [2403-2865] -->
+<h2 class="sectionedit7" id="コードのバグを見つける">コードのバグを見つける</h2>
+<div class="level2">
+
+<p>
+コード自体がおかしい気がする場合は、コードを編集しバグを探します。
+</p>
+<ul>
+<li class="level1 node"><div class="li"> 異常値が検出されるグリッドの値を書き出す</div>
+<ul>
+<li class="level2"><div class="li"> <strong>grid_util__print_target_index</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 問題のありそうなサブルーチンを外す</div>
+<ul>
+<li class="level2"><div class="li"> 制御系のモジュール(hoge_ctl.F90)で、call文をコメントアウトする</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "コードのバグを見つける" [2866-] --></div>
+</body>
+</html>

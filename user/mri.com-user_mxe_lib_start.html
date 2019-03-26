@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:start</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,start"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:start","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mxeライブラリ">MXEライブラリ</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#使い方_開発者">使い方(開発者)</a></div></li>
+<li class="level2"><div class="li"><a href="#構成">構成</a></div></li>
+<li class="level2"><div class="li"><a href="#現状">現状</a></div></li>
+<li class="level2"><div class="li"><a href="#高度な機能">高度な機能</a></div></li>
+<li class="level2"><div class="li"><a href="#作成の方針">作成の方針</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mxeライブラリ">MXEライブラリ</h1>
+<div class="level1">
+
+<p>
+MXE独自にFortranライブラリを作成しています。
+MRI.COM実験に関連するプログラムにおいて、特に基本的な作業をまとめたものです。
+</p>
+
+<p>
+ここにはツール開発者用の情報をまとめています。ツールを使用する一般ユーザーは<a href="./mri.com-user_mxe_use_tools.html" class="wikilink1" title="mri.com-user_mxe_use_tools">MXEのツールを使う</a>を参照して下さい。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MXEライブラリ" [1-405] -->
+<h2 class="sectionedit2" id="使い方_開発者">使い方(開発者)</h2>
+<div class="level2">
+
+<p>
+MXEライブラリを利用してツールを開発する方法です。
+</p>
+<ol>
+<li class="level1"><div class="li">ライブラリのモジュールを使って<a href="./mri.com-user_mxe_lib_program.html" class="wikilink1" title="mri.com-user_mxe_lib_program">Fortranプログラムを書く。</a></div>
+</li>
+<li class="level1"><div class="li">Makefileを作成し<a href="./mri.com-user_mxe_lib_compile.html" class="wikilink1" title="mri.com-user_mxe_lib_compile">コンパイルする。</a></div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT2 SECTION "使い方(開発者)" [406-667] -->
+<h2 class="sectionedit3" id="構成">構成</h2>
+<div class="level2">
+
+<p>
+ライブラリに含まれるモジュールです。
+</p>
+<ol>
+<li class="level1 node"><div class="li">独立したライブラリ</div>
+<ul>
+<li class="level2"><div class="li"><a href="./mri.com-user_mxe_lib_libmxe_calendar.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_calendar">libmxe_calendar</a>_ カレンダー</div>
+</li>
+<li class="level2"><div class="li">libmxe_display: 標準出力のフォーマット</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li">MRI.COM実験の設定情報を読み込むモジュール群</div>
+<ul>
+<li class="level2"><div class="li"><a href="./mri.com-user_mxe_lib_libmxe_para.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_para">libmxe_para</a>_ 実験の基本パラメータ</div>
+</li>
+<li class="level2"><div class="li"><a href="./mri.com-user_mxe_lib_libmxe_grid.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_grid">libmxe_grid</a>_ グリッド</div>
+</li>
+<li class="level2"><div class="li"><a href="./mri.com-user_mxe_lib_libmxe_topo.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_topo">libmxe_topo</a>_ 海底地形</div>
+</li>
+<li class="level2"><div class="li"><a href="./mri.com-user_mxe_lib_libmxe_io.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_io">libmxe_io</a>_ データの入出力(実験出力ヒストリーデータの各レコードの日付・時刻)</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li">上記のモジュール群を利用した単機能モジュール</div>
+<ul>
+<li class="level2"><div class="li"><a href="./mri.com-user_mxe_lib_libmxe_grads.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_grads">libmxe_grads</a>_ gradsコントロール・ファイルを作成する</div>
+</li>
+<li class="level2"><div class="li"><a href="./mri.com-user_mxe_lib_libmxe_stmrgn.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_stmrgn">libmxe_stmrgn</a>_ 与えられた配列について、モデルのマージン領域に値を入れる</div>
+</li>
+</ul>
+</li>
+</ol>
+
+<p>
+モジュールは次のような階層構造を持ちます。高レベルのモジュールは低レベルのモジュールに依存します。
+</p>
+<ul>
+<li class="level1"><div class="li"> Level 4: grads</div>
+</li>
+<li class="level1"><div class="li"> Level 3: grid,topo,io</div>
+</li>
+<li class="level1"><div class="li"> Level 2: para</div>
+</li>
+<li class="level1"><div class="li"> Level 1: calendar</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "構成" [668-1666] -->
+<h2 class="sectionedit4" id="現状">現状</h2>
+<div class="level2">
+
+<p>
+今のところライブラリには、
+</p>
+<ul>
+<li class="level1"><div class="li">グリッド座標の計算</div>
+</li>
+<li class="level1"><div class="li">海底地形の読み込み</div>
+</li>
+<li class="level1"><div class="li">入出力ファイルのsuffixの付加</div>
+</li>
+<li class="level1"><div class="li">gradsコントロール・ファイルの作成</div>
+</li>
+</ul>
+
+<p>
+といった機能があります。
+今後、netCDFの入出力など、皆さんに協力して頂いてライブラリの機能を継続的に追加していければと思います。
+ただし、ライブラリのインターフェースの修正は全体に影響するため、なるべく利用者の同意を得てから行うつもりです。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "現状" [1667-2236] -->
+<h2 class="sectionedit5" id="高度な機能">高度な機能</h2>
+<div class="level2">
+
+<p>
+以下のような高度な機能があります。
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_mxe_lib_nml_anl_region.html" class="wikilink1" title="mri.com-user_mxe_lib_nml_anl_region">メモリ節約のため解析領域の指定</a> </div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "高度な機能" [2237-2388] -->
+<h2 class="sectionedit6" id="作成の方針">作成の方針</h2>
+<div class="level2">
+
+<p>
+以下のような方針で作成しています。
+</p>
+<ul>
+<li class="level1"><div class="li">複数の実験設定を同時に扱えるように構造体(オブジェクト指向のクラスに相当)を導入</div>
+</li>
+<li class="level1"><div class="li">全ての配列は、定義を行うサブルーチンの中でallocateする</div>
+</li>
+<li class="level1"><div class="li">実数変数は基本的に倍精度</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "作成の方針" [2389-] --></div>
+</body>
+</html>

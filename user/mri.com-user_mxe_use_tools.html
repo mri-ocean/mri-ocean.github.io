@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:use_tools</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,use_tools"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:use_tools","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mxeのツールを使う">MXEのツールを使う</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#環境の設定">環境の設定</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#パッケージ_入力データの展開">パッケージ、入力データの展開</a></div></li>
+<li class="level3"><div class="li"><a href="#設定ファイルの作成">設定ファイルの作成</a></div></li>
+<li class="level3"><div class="li"><a href="#mxeライブラリのコンパイル">MXEライブラリのコンパイル</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#ツールの実行">ツールの実行</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mxeのツールを使う">MXEのツールを使う</h1>
+<div class="level1">
+
+<p>
+MXEに用意されているツールを使う手順です。
+環境を設定した上で、各ディレクトリのREADMEを参考にツールを実行します。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MXEのツールを使う" [1-204] -->
+<h2 class="sectionedit2" id="環境の設定">環境の設定</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "環境の設定" [205-233] -->
+<h3 class="sectionedit3" id="パッケージ_入力データの展開">パッケージ、入力データの展開</h3>
+<div class="level3">
+
+<p>
+MXEパッケージと、必要であればMRI.COM実験の入力データを、取得・展開します。
+以下、パッケージを展開したディレクトリを$HOMEと表記する。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "パッケージ、入力データの展開" [234-477] -->
+<h3 class="sectionedit4" id="設定ファイルの作成">設定ファイルの作成</h3>
+<div class="level3">
+
+<p>
+$HOME/setting/ で以下のファイルを作成する。詳細はディレクトリ内のREADME.mdを参照。
+</p>
+<ul>
+<li class="level1"><div class="li"> macros.make マシン環境を記述</div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_mxe_lib_namelist.html" class="wikilink1" title="mri.com-user_mxe_lib_namelist">NAMELIST.MXE</a> MXEライブラリを使用するためのnamelistファイル、モデル設定を記述</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "設定ファイルの作成" [478-813] -->
+<h3 class="sectionedit5" id="mxeライブラリのコンパイル">MXEライブラリのコンパイル</h3>
+<div class="level3">
+<pre class="code">&gt; cd $HOME/lib/
+&gt; make  !!! MXEライブラリのコンパイル</pre>
+
+<p>
+極座標系かtripolar座標系以外を使う場合には、<a href="./mri.com-user_mxe_coordinate.html" class="wikilink2" title="mri.com-user_mxe_coordinate" rel="nofollow">座標系に関する指定</a>が必要です。
+</p>
+
+</div>
+<!-- EDIT5 SECTION "MXEライブラリのコンパイル" [814-1054] -->
+<h2 class="sectionedit6" id="ツールの実行">ツールの実行</h2>
+<div class="level2">
+
+<p>
+MXEに用意されているツールは<a href="./mri.com-user_mxe_start.html#内容" class="wikilink1" title="mri.com-user_mxe_start">内容</a>を見てください。
+</p>
+
+<p>
+該当するディレクトリに移動し、<a href="./mri.com-user_mxe_lib_namelist.html" class="wikilink1" title="mri.com-user_mxe_lib_namelist">NAMELIST.MXE</a>と<a href="./mri.com-user_mxe_data.html" class="wikilink2" title="mri.com-user_mxe_data" rel="nofollow">実験設定に関するデータファイル</a>を用意してからプログラムを実行します。詳細は各ディレクトリのREADMEファイルを参照して下さい。
+</p>
+
+</div>
+<!-- EDIT6 SECTION "ツールの実行" [1055-] --></div>
+</body>
+</html>

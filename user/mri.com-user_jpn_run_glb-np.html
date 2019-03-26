@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:jpn:run_glb-np</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,jpn,run_glb-np"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:jpn';var JSINFO = {"id":"mri.com-user:jpn:run_glb-np","namespace":"mri.com-user:jpn"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#全球_北太平洋実験の実施方法">全球－北太平洋実験の実施方法</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#準備">準備</a></div></li>
+<li class="level2"><div class="li"><a href="#モデルの積分_fx100">モデルの積分（@FX100）</a></div></li>
+<li class="level2"><div class="li"><a href="#補足_spinup一年目とそれ以後の違い">補足：spinup一年目とそれ以後の違い</a></div></li>
+<li class="level2"><div class="li"><a href="#補足_シェルの流れ">補足：シェルの流れ</a></div></li>
+<li class="level2"><div class="li"><a href="#補足_地形を微修正して接続計算をする場合のシェルの流れ">補足：地形を微修正して接続計算をする場合のシェルの流れ</a></div></li>
+<li class="level2"><div class="li"><a href="#補足_モデルが落ちた場合">補足：モデルが落ちた場合</a></div></li>
+<li class="level2"><div class="li"><a href="#実験結果のルーチン処理_任意のワークステーション">実験結果のルーチン処理（@任意のワークステーション）</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="全球_北太平洋実験の実施方法">全球－北太平洋実験の実施方法</h1>
+<div class="level1">
+
+<p>
+ここでは、気象研 FX100 を用いた「全球－北太平洋ネスティング実験」の実施について、推奨される方法を説明します。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "全球－北太平洋実験の実施方法" [1-220] -->
+<h2 class="sectionedit2" id="準備">準備</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="入力ファイルを整備">1. 入力ファイルを整備</h4>
+<div class="level4">
+
+<p>
+<em class="u"><strong>気象研スパコン以外</strong></em>で実験する場合、モデルへの入力データの一式を以下から自分の環境にコピーまたはミラーリングをする。
+</p>
+<pre class="code"> ocsv001:/workd/htsujino/JPN/data, forcing, restart 
+ front:/data/ocpublic/JPN/data, forcing, restart</pre>
+
+</div>
+
+<h4 id="パッケージを_git_clone_して_初期設定を行う">2. パッケージを git clone して、初期設定を行う</h4>
+<div class="level4">
+<pre class="code">     $ git clone http://jksv-pj.npd.naps.kishou.go.jp/git_repos/ocean/move-jpn
+     $ ./Setup.sh    !!! linkdir/ にリンクが自動作成されなかった場合は手動で作成</pre>
+
+<p>
+<a href="./git_start.html" class="wikilink1" title="git_start">git の一般的解説はこちら</a>
+</p>
+
+<p>
+<a href="./redmine_git.html" class="wikilink2" title="redmine_git" rel="nofollow">気象庁の開発管理サーバーを使うための設定はこちらを参考にしてみてください</a>
+</p>
+
+</div>
+
+<h4 id="設定ファイルの作成">3. 設定ファイルの作成</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="手動で作る場合">手動で作る場合</h5>
+<div class="level5">
+
+<p>
+exp-np に移動し、sample ディレクトリから config_exp.sh をコピーし、
+</p>
+<pre class="code">     $ cd exp-np
+     $ cp sample/config_exp.sh .</pre>
+
+<p>
+以下を編集する。
+</p>
+<pre class="code">    STOREDIR : ルーチン処理や事後解析を行うサーバー等における実験結果の格納場所
+    FX100DIR : FX100 における実験結果の格納場所
+    FX100HOME: FX100 における実験実施場所
+    ST_YEAR, ST_MON, ST_DAY : 実験開始年月日
+    ED_YEAR, ED_MON, ED_DAY : 実験開始年月日
+    CONT_GLB : 全球モデルをリスタートファイルから始めるか否か[yes,no]
+    INIT_DIR_GLB : リスタートファイルから始める場合、リスタートファイルの格納場所 (../linkdir/initial 以下)
+    CONT_NP : 北太平洋モデルをリスタートファイルから始めるか否か[yes,no]
+    INIT_DIR_NP : リスタートファイルから始める場合、リスタートファイルの格納場所  (../linkdir/initial 以下)
+    runoff : 河川データ JRA55-do (JRA55-do)  or JMARI (気象庁の流域雨量指数)
+    nest : ネスティング手法、最初から 2way の場合は 2way とする。
+    advec_scheme: som or ppm (SOMを推奨)
+    rst_in_som: som スキームのリスタートが実験の最初から用意されているか否か(.false. or .true.) </pre>
+
+</div>
+
+<h5 id="fx100のテスト設定を使う場合">FX100のテスト設定を使う場合</h5>
+<div class="level5">
+<pre class="code">     $ cd exp-np
+     $ cp test-system/config_exp-fx100.sh config_exp.sh</pre>
+
+<p>
+初期値等の入力ファイルがスパコンに揃っています。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "準備" [221-2637] -->
+<h2 class="sectionedit3" id="モデルの積分_fx100">モデルの積分（@FX100）</h2>
+<div class="level2">
+
+<p>
+<strong>exp-np</strong> ディレクトリで GLB-NP モデルの実行/解析を行う
+</p>
+
+</div>
+
+<h4 id="実験の実行環境を作成">1. 実験の実行環境を作成</h4>
+<div class="level4">
+<pre class="code">     $ ./make_newexp.sh 実験名  (実験名は spinup_001, historical_002 等と &quot;実験内容&quot;_&quot;実験番号&quot; とする)</pre>
+
+</div>
+
+<h4 id="run_ディレクトリに移動_3_以下は_run_ディレクトリで行います">2. run ディレクトリに移動 (3 以下は run ディレクトリで行います)</h4>
+<div class="level4">
+<pre class="code">     $ cd run</pre>
+
+</div>
+
+<h4 id="run_confsh_の編集">3. run_conf.sh の編集</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> FX100でのテスト実験では変更は不要。</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> run_conf.sh は 1. の <code>make_newexp.sh</code> の実行により、<code>run/sample/run_conf.sh_template</code> をもとに、<code>../config_exp.sh</code> で指定した内容が反映して作成する。</div>
+</li>
+<li class="level1"><div class="li"> run_conf.sh の中の tracer でトレーサーの種類を定義(tracer=ts または iage をサポート)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> MONITORを一括変更する場合には option/monitor/setup.sh_template を修正してsetup.sh を作った後に以下を実行する。</div>
+</li>
+</ul>
+<pre class="code">     $ sh option/monitor/setup.sh</pre>
+<ul>
+<li class="level1"><div class="li"> NPモデルをオフライン・ネスティングで単体実行する場合は以下を実行する。</div>
+</li>
+</ul>
+<pre class="code">     $ sh option/offnestsub/setup.sh</pre>
+
+</div>
+
+<h4 id="ソースのコンパイル">4. ソースのコンパイル</h4>
+<div class="level4">
+<pre class="code">     $ ./compile.sh </pre>
+
+<p>
+必要であれば自動でパッケージに同梱されたSCUPもコンパイルします。
+</p>
+
+<p>
+もし、並列数等をdefault(=48)から変更する場合は上のコマンドを実行する前に
+</p>
+<pre class="code">     $ sh option/parallel/setup.sh 72</pre>
+
+<p>
+などとする。(上の例は、72node 実行の場合。現在、48(default), 72, 96 が用意されている)
+</p>
+
+<p>
+これにより、configure.in のNPARTX, NPARTY, run.sh の実行数、run_conf-*min.sh のnodemap の指定が一括して変更となる。
+</p>
+
+</div>
+
+<h4 id="初期値を_restart-_glb_np_にシンボリックリンク_またはコピー">5. 初期値を restart-[glb,np] にシンボリックリンク （またはコピー)</h4>
+<div class="level4">
+
+<p>
+1978年など、特定の外力ファイルの始まりで、../linkdir/initial 以下においてある場合は以下のコマンドを実行（run_conf.sh の <code>init_glb</code> や <code>init_np</code> をチェックしておくとよい）。
+</p>
+<pre class="code">     $ ./link_restart.sh </pre>
+
+<p>
+上記以外で、/denkei-shared/ 等、スパコンから（注. フロントエンドからアクセスできても、スパコンからアクセスできないディスクもある）直接アクセスできない場所においてある場合、コピーが必要。(sample に参考ファイルあり)
+</p>
+<pre class="code">     $ cp sample/cp_restart.sh .
+     cp_restart.sh を適宜変更後
+     $ ./cp_restart.sh YYYY (sample にある cp_restart.sh の場合: YYYY は年)</pre>
+
+<p>
+全ての項目のリスタートがある場合、run_conf.sh でリスタート読み込みの設定をしている以下の部分を確認の上、齟齬があったら必要な修正をこの段階で行うこともできる（「準備」の項で説明した ../config_exp.sh で適切に設定しているば問題はないはず）。
+</p>
+<pre class="code">     continue_glb=yes
+     continue_np=yes
+     lrstin_som_start=.true.</pre>
+
+</div>
+
+<h4 id="run_presh_の実行によりnamelistなどを作成">6. run_pre.sh の実行によりnamelistなどを作成</h4>
+<div class="level4">
+<pre class="code">     $ ./run_pre.sh </pre>
+<ul>
+<li class="level1"><div class="li">  NAMELIST.GLOBAL</div>
+</li>
+<li class="level1"><div class="li">  NAMELIST.NP01</div>
+</li>
+<li class="level1"><div class="li">  date.txt</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="実験の実行">7. 実験の実行</h4>
+<div class="level4">
+<pre class="code">     $ pjsub run.sh （１ヶ月だけ実行する場合）
+     $ submit_step_job.sh 12 （１年(12ヶ月)実行する場合）</pre>
+
+</div>
+
+<h4 id="実行ログの整理">8. 実行ログの整理</h4>
+<div class="level4">
+<pre class="code">     $ ./clean_logs.sh YYYYMMDD (実験が成功すれば run.sh の最後で実行される)</pre>
+
+</div>
+<!-- EDIT3 SECTION "モデルの積分（@FX100）" [2638-6174] -->
+<h2 class="sectionedit4" id="補足_spinup一年目とそれ以後の違い">補足：spinup一年目とそれ以後の違い</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="一年目では_ideal_age_をいれない">1. 一年目では ideal age をいれない。</h4>
+<div class="level4">
+
+<p>
+　　config_exp.sh においてideal tracer を抜く。
+</p>
+
+</div>
+
+<h4 id="一年目は最初の2ヶ月は1way">2. 一年目は最初の2ヶ月は1way</h4>
+<div class="level4">
+<pre class="code">  config_exp.sh のnest= は空白。</pre>
+
+<p>
+<del>二年目はnest=2way としないと、自動的に最初の二ヶ月が1wayとなってしまう。</del>
+</p>
+
+</div>
+
+<h4 id="一年目は一ヶ月ごとの積分">3. 一年目は一ヶ月ごとの積分</h4>
+<div class="level4">
+<pre class="code">  run/run_conf.sh においてdayintv=-1 とする。(10min,7.5min,6min,5min,3minの修正)
+  
+  最初の二ヶ月のdt=5min
+  自動シェルは面倒なので最初の月は
+  ln -sf run_conf-5min.sh run_conf.sh
+  
+  submit はrun_1st_month.sh
+  続きはrun.sh でよい。</pre>
+
+</div>
+<!-- EDIT4 SECTION "補足：spinup一年目とそれ以後の違い" [6175-6895] -->
+<h2 class="sectionedit5" id="補足_シェルの流れ">補足：シェルの流れ</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="run_presh_の実行">1. run_pre.sh の実行</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="mricom実行用のnamelis_を作る準備">MRI.COM実行用のNAMELIS を作る準備</h5>
+<div class="level5">
+<pre class="code">./run_conf.sh </pre>
+
+<p>
+ 1. exp-np/config_exp.sh で指定されるRUN start, EXP start　を決める。
+</p>
+
+<p>
+ 2. exp-np/run/sample/run_conf.sh_template により最初は決まる monitor_day_np や　monitor_5day_glb を決める。
+</p>
+
+<p>
+ 3. 拡張子により異なる時間ステップを決める。
+</p>
+
+</div>
+<div class="level5">
+<pre class="code">./datel_leap.sh  </pre>
+
+<p>
+ カレンダー関係の関数の定義
+</p>
+
+</div>
+<div class="level5">
+<pre class="code">./sh_run_pre_common.func　　</pre>
+
+<p>
+ model_name() と　calc_ntep() の定義
+</p>
+
+</div>
+<div class="level5">
+<pre class="code">calc_nstep (in run_pre_common.func)</pre>
+
+<p>
+　1. date.txt を読んで、次に実行すべき積分の開始時刻を得て、suffix に渡す。
+</p>
+
+<p>
+　2. 積分する日数(dayintv), 積分するステップ数(nstep), モニターの間隔の計算を行う。
+</p>
+
+</div>
+
+<h5 id="mricom実行用のnamelist_の作成">MRI.COM実行用のNAMELIST の作成</h5>
+<div class="level5">
+
+<p>
+MRI.COM実行で必要となるNAMELIST をいくつかのグループに分けて作成し、最後にmerge してMRI.COM実行時のNAMELIST入力用のファイルとする。
+</p>
+
+</div>
+
+<h5 id="nml_common_directory_にあるファイルを基準とするのnamelist">nml_common directory にあるファイルを基準とするのNAMELIST</h5>
+<div class="level5">
+
+<p>
+1. NAMELIST.COMMON  
+</p>
+
+<p>
+2. NAMELIST.HVISC_ADD
+</p>
+
+<p>
+3. NAMELIST.NODEMAP
+</p>
+
+</div>
+
+<h5 id="nml_sub_directoryのファイルが基準">nml_${sub} directoryのファイルが基準</h5>
+<div class="level5">
+
+<p>
+1. NAMELIST.ADVEC
+</p>
+
+<p>
+2. NAMELIST.BASE
+</p>
+
+<p>
+3. NAMELIST.TRACER
+</p>
+
+<p>
+4. NAMELIST.FORCING
+</p>
+
+<p>
+5. NAMELIST.RUNOFF
+</p>
+
+<p>
+6. NAMELIST.SEAICE
+</p>
+
+<p>
+8. NAMELIST.NEST
+</p>
+
+<p>
+9. NAMELIST.add
+</p>
+
+</div>
+
+<h5 id="nml_history_directory_のファイル基準">nml_history directory のファイル基準</h5>
+<div class="level5">
+
+<p>
+1. NAMELIST.HISTORY (旧形式)
+</p>
+
+</div>
+
+<h5 id="nml_monitor_directory_のファイルが基準">nml_monitor directory のファイルが基準</h5>
+<div class="level5">
+
+<p>
+a. NAMELIST.MONITOR 
+</p>
+<pre class="code">nml_monitor/add_NAMELIST.sh で作られる。</pre>
+
+</div>
+
+<h5 id="nml_scup_directory_のファイルが基準">nml_scup directory のファイルが基準</h5>
+<div class="level5">
+
+<p>
+b. NAMELIST.SCUP
+</p>
+
+</div>
+
+<h4 id="本体の実行">2. 本体の実行</h4>
+<div class="level4">
+
+</div>
+
+<h4 id="run_postsh_の実行">3. run_post.sh の実行</h4>
+<div class="level4">
+
+</div>
+
+<h4 id="モデルが落ちた時の処理">4. モデルが落ちた時の処理</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="a_時間ステップを短く_例10min_-_75_min_へ">a. 時間ステップを短く (例10min -&gt; 7.5 min へ)　</h5>
+<div class="level5">
+
+<p>
+run_conf_7.5min.sh をrun_conf.sh へ付け替え
+</p>
+<pre class="code"> ln -sf run_conf_7.5min.sh run_conf.sh</pre>
+
+<p>
+retry.txt に何回目の失敗かを記入。以後、このretry.txt を参考に短くしていく。
+成功したら、retry.txt に0を記入。
+</p>
+
+</div>
+<!-- EDIT5 SECTION "補足：シェルの流れ" [6896-9022] -->
+<h2 class="sectionedit6" id="補足_地形を微修正して接続計算をする場合のシェルの流れ">補足：地形を微修正して接続計算をする場合のシェルの流れ</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="地形の微修正">1. 地形の微修正</h4>
+<div class="level4">
+<pre class="code">prep/TOPO/np/slinght_modify.sh の修正実行</pre>
+
+<p>
+モデルの海陸分布や、nesting 境界での地形が変わっていないことが前提
+上のシェルで、該当の../linkdir/以下の場所にtopo.d がされる。
+</p>
+
+</div>
+
+<h4 id="鉛直拡散粘性係数の修正">2. 鉛直拡散粘性係数の修正</h4>
+<div class="level4">
+<pre class="code">prep/global-tripolar/vmbd3d/NAMELIST.MXE.NP の修正（上で指定した場所のtopo.dを読むようにする)
+prep/global-tripolar/vmbd3d/make_vmbd3d_np.sh の実行( 一時間弱時間がかかる )
+prep/nest/vmbd3d/make_vmbd3d_iput_np.sh の修正および、またここで指定した場所に上で作ったファイルをコピー後に、実行。</pre>
+
+</div>
+
+<h4 id="topod_や鉛直係数のファイルの指定">3. topo.d や鉛直係数のファイルの指定</h4>
+<div class="level4">
+<pre class="code">exp-np/data-np/ に先ほど作ったファイルをシンボリックリンク</pre>
+
+</div>
+
+<h4 id="適当な_陸埋めをした_rs_t_rs_s_を用意する">4. 適当な(陸埋めをした)rs_t, rs_s を用意する。</h4>
+<div class="level4">
+<pre class="code">anl/fill_land が参考になる。そのまま使う場合には一旦、real(4) に変更する必要有り。</pre>
+
+</div>
+
+<h4 id="計算実行">5. 計算実行</h4>
+<div class="level4">
+<pre class="code">exp-np/config_exp.sh において、CONT_GLB=yes CONT_NP=NO  TRACER_IN_NP=yes とする。
+restart-glb には接続計算できるrestart 一式をおく。
+restart-np には先ほど穴埋めしたrs_t, rs_s のみを置く。</pre>
+
+</div>
+<!-- EDIT6 SECTION "補足：地形を微修正して接続計算をする場合のシェルの流れ" [9023-10402] -->
+<h2 class="sectionedit7" id="補足_モデルが落ちた場合">補足：モデルが落ちた場合</h2>
+<div class="level2">
+
+<p>
+stdout に出力されず、
+error 出力に invalid pointer などとある場合は、入力ファイル(restart, data)
+等が不足していることが考えられる。
+</p>
+
+</div>
+<!-- EDIT7 SECTION "補足：モデルが落ちた場合" [10403-10626] -->
+<h2 class="sectionedit8" id="実験結果のルーチン処理_任意のワークステーション">実験結果のルーチン処理（@任意のワークステーション）</h2>
+<div class="level2">
+
+<p>
+<strong>exp-np</strong> ディレクトリで GLB-NP モデルのルーチン処理環境を作成、<strong>storeroom/実験名</strong> で処理を行う
+</p>
+
+</div>
+
+<h4 id="各実験結果の処理環境を作成">1. 各実験結果の処理環境を作成</h4>
+<div class="level4">
+<pre class="code">    $ ./make_exp_storeroom.sh 実験名 ⇒ config_exp.sh を参考に、storeroom/実験名 以下に環境が作成される</pre>
+
+</div>
+
+<h4 id="実験結果のコピー">2. 実験結果のコピー</h4>
+<div class="level4">
+<pre class="code">    $ cd storeroom/実験名
+    $ ./rsync_front.sh</pre>
+
+</div>
+
+<h4 id="tools_np_tools_glb_にけるルーチン処理">3. tools_np, tools_glb にけるルーチン処理</h4>
+<div class="level4">
+
+<p>
+以下の処理プログラムが用意されている
+</p>
+<ul>
+<li class="level1"><div class="li"> 海峡通過流 (passages_daily.sh, passages_monthly.sh)</div>
+</li>
+<li class="level2"><div class="li"> 子午面循環 (moc.sh, gmmoc.sh)</div>
+</li>
+<li class="level2"><div class="li"> 日毎から月毎データの作成 (d2m_basic.sh)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "実験結果のルーチン処理（@任意のワークステーション）" [10627-] --></div>
+</body>
+</html>

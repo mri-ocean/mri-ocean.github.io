@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:remap</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,remap"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:remap","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#prep_nest_remap">prep/nest/remap</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#低解像度モデル_高解像度モデルへの格子変換">1. 低解像度モデル ⇒ 高解像度モデルへの格子変換</a></div></li>
+<li class="level2"><div class="li"><a href="#高解像度モデル_低解像度モデルへの格子変換">2. 高解像度モデル ⇒ 低解像度モデルへの格子変換</a></div></li>
+<li class="level2"><div class="li"><a href="#作成された変換テーブル・ファイルのチェック">3. 作成された変換テーブル・ファイルのチェック</a></div></li>
+<li class="level2"><div class="li"><a href="#scup用のnamelistファイルを作成する">4. SCUP用のNamelistファイルを作成する</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="prep_nest_remap">prep/nest/remap</h1>
+<div class="level1">
+
+<p>
+ネスティッドグリッドモデル格子変換重みファクター作成ツール(Scup用)
+</p>
+
+<p>
+モデルの第１層 東南端(1,1,1)を 番号 1 として格子番号を全格子に割り当て、親モデルと子モデルの間のデータのやりとり（必要な格子番号、その重み）方法のデータを作成する。
+</p>
+
+<p>
+事前に両モデルの格子間隔や地形を設定しておき、以下を作成する。
+</p>
+<pre class="code">  子モデルの設定ファイル namelist.configure.in
+  親モデルの設定ファイル namelist.configure.in.par
+  （MXEライブラリlibmxe用の設定）</pre>
+
+<p>
+prep/nest/topo/mkngrids.F90で作成したnest.d, namelist.nestも使用する。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "prep/nest/remap" [1-720] -->
+<h2 class="sectionedit2" id="低解像度モデル_高解像度モデルへの格子変換">1. 低解像度モデル ⇒ 高解像度モデルへの格子変換</h2>
+<div class="level2">
+
+<p>
+海面フラックスデータの変換
+</p>
+<pre class="code">  プログラム(1): mk_surf_p2c.F90
+  実行: バイナリをそのまま実行 ./mk_surf_p2c
+  生成されるファイル
+      rmp_p2ct_surf.d ... T-点のフラックスデータの補間用</pre>
+<pre class="code">  プログラム(2): mk_surf_p2c_tu.F90
+  実行: バイナリをそのまま実行 ./mk_surf_p2c_tu
+  生成されるファイル
+    rmp_p2ct_surf_t.d ... T-点のフラックスデータの補間用
+                         (補間を行わない。親モデルのフラックスが
+                          そのまま子モデルに降り注ぐ形)
+    rmp_p2ct_surf_u.d ... U-点のフラックスデータの補間用
+                         (双一次補間)</pre>
+
+<p>
+側面境界データの変換
+</p>
+<pre class="code">  プログラム : mk_side_p2c.F90
+  実行: バイナリをそのまま実行 ./mk_side_p2c
+  生成されるファイル
+    rmp_p2ct_2d.d ... トレーサー順圧モード用
+    rmp_p2ct_3d.d ... トレーサー傾圧モード用
+    rmp_p2cu_2d.d ... 東西流速順圧モード用
+    rmp_p2cu_3d.d ... 東西流速傾圧モード用
+    rmp_p2cv_2d.d ... 南北流速順圧モード用
+    rmp_p2cv_3d.d ... 南北流速傾圧モード用
+    rmp_p2ct_ic.d ... 海氷モデル、トレーサー点、厚さカテゴリ用
+         パラメータncatで海氷カテゴリーの数を指定する。</pre>
+
+</div>
+<!-- EDIT2 SECTION "1. 低解像度モデル ⇒ 高解像度モデルへの格子変換" [721-2198] -->
+<h2 class="sectionedit3" id="高解像度モデル_低解像度モデルへの格子変換">2. 高解像度モデル ⇒ 低解像度モデルへの格子変換</h2>
+<div class="level2">
+
+<p>
+内部領域のトレーサー(T,S)データの変換
+</p>
+<pre class="code">  プログラム(1) : mk_pinpoint_c2p.F90
+    低解像度と高解像度で位置が一致する点をつなぐ
+  namelist: namelist.nest に エントリを追加。
+     /pinp_c2p/ i_shift_u
+     フラックス(流入出)の境界をトレーサーの内側から外に i_shift_u だけずらす。
+  実行: バイナリをそのまま実行 ./mk_pinpoint_c2p
+  生成されるファイル
+   rmp_c2pt_3d.d ... トレーサー点傾圧モード用</pre>
+<pre class="code">  プログラム(2) : mk_areaave_c2p.F90
+    高解像度の面積平均値を低解像度に戻す。
+  namelist: namelist.nest に エントリを追加。
+     /aave_c2p/ flg_u_line   境界を横切る流速を境界線上の平均として算出
+                i_shift_u    フラックス(流入出)の境界をトレーサーの内側から外に i_shift_u だけずらす。
+  実行: バイナリをそのまま実行 ./mk_areaave_c2p
+  生成されるファイル
+   rmp_c2pt_aave_3d.d ... トレーサー点傾圧モード用(3d)
+   rmp_c2pt_aave_2d.d ... トレーサー点順圧モード用(2d)
+   rmp_c2pu_aave_3d.d ... 速度点(U)傾圧モード用(3d)
+   rmp_c2pu_aave_2d.d ... 速度点(U)順圧モード用(2d)
+   rmp_c2pv_aave_3d.d ... 速度点(V)傾圧モード用(3d)
+   rmp_c2pv_aave_2d.d ... 速度点(V)順圧モード用(2d)</pre>
+
+</div>
+<!-- EDIT3 SECTION "2. 高解像度モデル ⇒ 低解像度モデルへの格子変換" [2199-3686] -->
+<h2 class="sectionedit4" id="作成された変換テーブル・ファイルのチェック">3. 作成された変換テーブル・ファイルのチェック</h2>
+<div class="level2">
+
+<p>
+変換テーブルを読む
+</p>
+<pre class="code">  プログラム: read_remap.F90
+  ファイルの与え方はsample/read.shを参照</pre>
+
+<p>
+変換テーブルを検証する
+</p>
+<pre class="code">  プログラム: check_remap.F90
+   地中をリンクしていないかチェックする
+   ファイルの与え方はsample/check.shを参照。</pre>
+
+</div>
+<!-- EDIT4 SECTION "3. 作成された変換テーブル・ファイルのチェック" [3687-4078] -->
+<h2 class="sectionedit5" id="scup用のnamelistファイルを作成する">4. SCUP用のNamelistファイルを作成する</h2>
+<div class="level2">
+<pre class="code">  実行: make_NAMELIST_SCUP.sh を引数付きで実行
+  生成されるファイル
+      NAMELIST_SCUP_2way: 2way実験用のNamelistファイル</pre>
+<pre class="code">  1-wayのネスティング実験にはNAMELIST_SCUP_2wayを編集して使う。
+      子モデルから親モデルへの部分を削除する。</pre>
+
+</div>
+<!-- EDIT5 SECTION "4. SCUP用のNamelistファイルを作成する" [4079-] --></div>
+</body>
+</html>

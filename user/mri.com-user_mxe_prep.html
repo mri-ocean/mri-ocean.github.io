@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:prep</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,prep"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:prep","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#prepmricom実験を行うための前処理ツール">prep: MRI.COM実験を行うための前処理ツール</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#モデル基盤">モデル基盤</a></div></li>
+<li class="level3"><div class="li"><a href="#共通">共通</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="prepmricom実験を行うための前処理ツール">prep: MRI.COM実験を行うための前処理ツール</h1>
+<div class="level1">
+
+<p>
+MRI.COM を用いた実験を行うのに必要な入力データを作成します。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "prep: MRI.COM実験を行うための前処理ツール" [1-158] -->
+<h3 class="sectionedit2" id="モデル基盤">モデル基盤</h3>
+<div class="level3">
+
+<p>
+グリッドや地形などモデル基盤の作成では、無理に一般化すると分かりにくくなるため、異なる実験設定（モデルのタイプ）ごとに作業ディレクトリが別れています。
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">ディレクトリ</th><th class="col1">内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">rectangle</td><td class="col1">極座標の矩形海を用いた簡単な実験</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"><a href="./mri.com-user_mxe_global-tripolar.html" class="wikilink1" title="mri.com-user_mxe_global-tripolar">global-tripolar</a></td><td class="col1">3極格子(TRIPOLAR)の現実全球海洋の為の設定</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"><a href="./mri.com-user_mxe_nest.html" class="wikilink1" title="mri.com-user_mxe_nest">nest</a></td><td class="col1">ネスティング実験の子モデル設定（親モデルは別途作成されているとする）</td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [411-692] -->
+</div>
+<!-- EDIT2 SECTION "モデル基盤" [159-694] -->
+<h3 class="sectionedit4" id="共通">共通</h3>
+<div class="level3">
+
+<p>
+作成方法をある程度一般化できる入力データについては、モデルに関わらず共通のディレクトリで作業します。(上記のモデル基盤作成用ディレクトリ下にサブディレクトリがあれば、そちらを優先します。)
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">ディレクトリ</th><th class="col1">内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">force</td><td class="col1">海面強制データを作成する</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">river</td><td class="col1">河川データをモデル格子に変換する</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">rivermouth</td><td class="col1">河川流路を意識して、河川データをモデル格子に変換する</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">restore</td><td class="col1">トレーサーのナッジング係数を決めて入力データを作成する</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">vtrc</td><td class="col1">仮想パッシヴ・トレーサーの初期値リスタートファイルを作成する</td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [991-1402] -->
+</div>
+<!-- EDIT4 SECTION "共通" [695-] --></div>
+</body>
+</html>

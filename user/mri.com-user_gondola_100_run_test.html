@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:gondola_100:run_test</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,gondola_100,run_test"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:gondola_100';var JSINFO = {"id":"mri.com-user:gondola_100:run_test","namespace":"mri.com-user:gondola_100"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#標準実験のチュートリアル">標準実験のチュートリアル</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#実験環境の用意">実験環境の用意</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#パッケージの展開">パッケージの展開</a></div></li>
+<li class="level3"><div class="li"><a href="#入力データの展開">入力データの展開</a></div></li>
+<li class="level3"><div class="li"><a href="#各種ディレクトリ設定">各種ディレクトリ設定</a></div></li>
+<li class="level3"><div class="li"><a href="#make_環境の設定">make 環境の設定</a></div></li>
+<li class="level3"><div class="li"><a href="#実験ディレクトリの作成">実験ディレクトリの作成</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#mricomのコンパイル">MRI.COMのコンパイル</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#ビルド環境の設定">ビルド環境の設定</a></div></li>
+<li class="level3"><div class="li"><a href="#ビルドの実行">ビルドの実行</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#プログラムの実行">プログラムの実行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#実行の準備">実行の準備</a></div></li>
+<li class="level3"><div class="li"><a href="#サイクル分のジョブの実行">1サイクル分のジョブの実行</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#実験結果の確認と後処理">実験結果の確認と後処理</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#リスタートファイルとヒストリーファイル">リスタートファイルとヒストリーファイル</a></div></li>
+<li class="level3"><div class="li"><a href="#解の簡単な確認">解の簡単な確認</a></div></li>
+<li class="level3"><div class="li"><a href="#ファイルの移動">ファイルの移動</a></div></li>
+<li class="level3"><div class="li"><a href="#grads_control_ファイル">grads control ファイル</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="標準実験のチュートリアル">標準実験のチュートリアル</h1>
+<div class="level1">
+
+<p>
+デフォルト設定で実験を行う手順です。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "標準実験のチュートリアル" [1-106] -->
+<h2 class="sectionedit2" id="実験環境の用意">実験環境の用意</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "実験環境の用意" [107-141] -->
+<h3 class="sectionedit3" id="パッケージの展開">パッケージの展開</h3>
+<div class="level3">
+
+<p>
+パッケージのtar ballを展開するか、gitでパッケージを取得する。
+</p>
+<pre class="code">&gt; git clone [共有リポジトリURL]</pre>
+
+<p>
+以下、展開したディレクトリを$HOMEと表記する。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "パッケージの展開" [142-372] -->
+<h3 class="sectionedit4" id="入力データの展開">入力データの展開</h3>
+<div class="level3">
+
+<p>
+準備中です。気象研海洋サーバおよびスパコンには置いてあります。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "入力データの展開" [373-501] -->
+<h3 class="sectionedit5" id="各種ディレクトリ設定">各種ディレクトリ設定</h3>
+<div class="level3">
+
+<p>
+現在のところ東大FX10および気象研FX100での利用を前提
+</p>
+
+<p>
+$HOME/setting/dir.confs以下の設定ファイルを必要に応じて編集 (最低限RESULTHOMEは修正が必要)
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">変数</th><th class="col1">内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">RESULTHOME</td><td class="col1">データ出力格納先の親ディレクトリ (実験毎に子ディクレトリが作成される)</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">CONSTHOME</td><td class="col1">【準備中】MRICOM-gondola_100-data.tarを展開して現れるdataディレクトリ</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">FRCORG</td><td class="col1">【準備中】MRICOM-gondola_100-data.tarを展開して現われるforcingディレクトリ</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">RIVORG</td><td class="col1">【準備中】MRICOM-gondola_100-data.tarを展開して現われるriverディレクトリ</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">FRC_YRS</td><td class="col1">外力データ1年目の西暦 (CORE ver.2の場合1948)</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">FRC_YRE</td><td class="col1">外力データ最終年の西暦 (CORE ver.2の場合2009)</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">NY_PHASE</td><td class="col1">1サイクルの年数 (CORE ver.2の場合62)</td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [737-1371] -->
+</div>
+
+<h4 id="各種ディレクトリ設定_npzd_fx100_core">各種ディレクトリ設定(NPZD+fx100+core)</h4>
+<div class="level4">
+
+<p>
+$HOME/setting/dir.confs/rmi-fx_core_NPZDを必要に応じて編集 (最低限RESULTHOMEは修正が必要)
+</p>
+
+</div>
+<!-- EDIT5 SECTION "各種ディレクトリ設定" [502-1538] -->
+<h3 class="sectionedit7" id="make_環境の設定">make 環境の設定</h3>
+<div class="level3">
+
+<p>
+$HOME/setting/ に make_macros.make.sh を作成。詳しくわからない場合は$HOME/setting/sample/make_macros.make.sh をコピーする。
+</p>
+
+</div>
+<!-- EDIT7 SECTION "make 環境の設定" [1539-1717] -->
+<h3 class="sectionedit8" id="実験ディレクトリの作成">実験ディレクトリの作成</h3>
+<div class="level3">
+<pre class="code">&gt; cd $HOME
+&gt; ./Setup.sh (forcing dataset) (実験名)</pre>
+
+<p>
+存在しなければ$CONSTHOMEへのシンボリック・リンクが$HOME/linkdirに作成される。
+存在しなければ$RESULTHOME以下に実験結果出力用ディレクトリresult-(実験名)が作成され、初期値ファイルへのシンボリック・リンクがその中に作成される。<sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup>
+実験ディレクトリrun-(実験名)が$HOME/exp以下に作成される。
+forcing datasetにはcoreもしくはjra55を指定。
+</p>
+
+</div>
+
+<h4 id="実験ディレクトリの作成_npzd">実験ディレクトリの作成(NPZD)</h4>
+<div class="level4">
+
+<p>
+NPZDの場合は現在CORE外力の場合のみ対応
+</p>
+<pre class="code">&gt; cd $HOME
+&gt; ./Setup-NPZD.sh core (実験名)</pre>
+
+</div>
+<!-- EDIT8 SECTION "実験ディレクトリの作成" [1718-2444] -->
+<h2 class="sectionedit9" id="mricomのコンパイル">MRI.COMのコンパイル</h2>
+<div class="level2">
+
+<p>
+ビルド環境を設定してから、MRI.COMをコンパイルします。
+</p>
+
+</div>
+<!-- EDIT9 SECTION "MRI.COMのコンパイル" [2445-2559] -->
+<h3 class="sectionedit10" id="ビルド環境の設定">ビルド環境の設定</h3>
+<div class="level3">
+
+<p>
+必要に応じて $HOME/exp/config_files/configure.in を編集し、ビルド環境を設定する。
+NPZDの場合はconfigure.in.NPZD を編集
+</p>
+
+</div>
+<!-- EDIT10 SECTION "ビルド環境の設定" [2560-2744] -->
+<h3 class="sectionedit11" id="ビルドの実行">ビルドの実行</h3>
+<div class="level3">
+
+<p>
+exp/srcディレクトリで シンボリック・リンク作成、configure と make を行う。
+</p>
+<pre class="code">&gt; cd $HOME/exp/src
+&gt; ln -s ../MRICOM/src/* .
+&gt; ln -s ../config_files/configure.in .    (NPZDの場合はconfigure.in.NPZD)
+&gt; ./configure
+&gt; gmake -j 5</pre>
+
+<p>
+configure (シェル・スクリプト)を実行すると、コンパイルに必要な項目が $HOME/exp/config_files/configure.in ファイルをもとに設定され、Makefileが作成される。
+次にmakeによってコンパイルが成功すると実行モジュール ogcm　が作られる。
+</p>
+
+<p>
+fxでのコンパイルの際には　configure の実行前に以下のコマンドによってコンパイラーの情報を得なければならない。
+</p>
+<pre class="code">&gt; module load TCSuite/fx/GM-2.0.0-02 (数字は時期により異なる) が必要。</pre>
+
+</div>
+<!-- EDIT11 SECTION "ビルドの実行" [2745-3588] -->
+<h2 class="sectionedit12" id="プログラムの実行">プログラムの実行</h2>
+<div class="level2">
+
+<p>
+プログラムの実行は作成済の exp/run-(実験名) で行う。
+</p>
+
+</div>
+<!-- EDIT12 SECTION "プログラムの実行" [3589-3700] -->
+<h3 class="sectionedit13" id="実行の準備">実行の準備</h3>
+<div class="level3">
+
+<p>
+$HOME/exp/src 以下から実行ファイルをコピーする。
+</p>
+<pre class="code">&gt; cd $HOME/exp/run-(実験名)
+&gt; cp ../src/ogcm .</pre>
+
+</div>
+<!-- EDIT13 SECTION "実行の準備" [3701-3851] -->
+<h3 class="sectionedit14" id="サイクル分のジョブの実行">1サイクル分のジョブの実行</h3>
+<div class="level3">
+
+<p>
+ジョブ実行スクリプト用テンプレートファイル (run_24node.sh_template or run_12node.sh_template) にリンクを張り、sumit_jobs_1cycle.sh を実行
+</p>
+<pre class="code">&gt; cd $HOME/exp/run-(実験名)
+&gt; ln -s run_24node.sh_template run.sh_template
+&gt; ./submit_jobs_1cycle.sh (周回番号)</pre>
+
+<p>
+(周回番号)には実験予定の周回番号を指定する。(e.g.: 2サイクルめの実験を実行するならば2)
+</p>
+
+</div>
+<!-- EDIT14 SECTION "1サイクル分のジョブの実行" [3852-4327] -->
+<h2 class="sectionedit15" id="実験結果の確認と後処理">実験結果の確認と後処理</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT15 SECTION "実験結果の確認と後処理" [4328-4372] -->
+<h3 class="sectionedit16" id="リスタートファイルとヒストリーファイル">リスタートファイルとヒストリーファイル</h3>
+<div class="level3">
+
+<p>
+$RESULTHOME/result-(実験名)/ にプレフィックス「rs_」のリスタートファイルと、「hs_」のヒストリーファイルが出力されたことを確認する。
+</p>
+
+</div>
+<!-- EDIT16 SECTION "リスタートファイルとヒストリーファイル" [4373-4625] -->
+<h3 class="sectionedit17" id="解の簡単な確認">解の簡単な確認</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT17 SECTION "解の簡単な確認" [4626-4659] -->
+<h3 class="sectionedit18" id="ファイルの移動">ファイルの移動</h3>
+<div class="level3">
+
+<p>
+データ解析サーバにおいてもパッケージを展開
+</p>
+<pre class="code">&gt; cd $HOME/exp
+&gt; cp setup_shells/make_analysis.sh .</pre>
+
+<p>
+make_analysis.sh冒頭を必要に応じて編集
+</p>
+<pre class="code">&gt; ./make_analysis.sh (実験名)
+&gt; cd run-(実験名)</pre>
+
+<p>
+tools/script からシンボリックリンクが張られている実行バイナリをコンパイル(anl, anl/gondola_100)した後、次のシェルスクリプトを実行
+</p>
+<pre class="code">&gt; ./copyhist_mon_c.sh</pre>
+
+</div>
+<!-- EDIT18 SECTION "ファイルの移動" [4660-5127] -->
+<h3 class="sectionedit19" id="grads_control_ファイル">grads control ファイル</h3>
+<div class="level3">
+
+<p>
+上記make_analysis.shを実行した場合、grads controlファイルのサンプルは　$HOME/exp/run-(実験名)/grads/ にある。
+</p>
+
+</div>
+<!-- EDIT19 SECTION "grads control ファイル" [5128-] --><div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<div class="content">rs_iageとsicatrst</div></div>
+</div>
+</div>
+</body>
+</html>

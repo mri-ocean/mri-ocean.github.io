@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:rectangle:config_files</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,rectangle,config_files"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:rectangle';var JSINFO = {"id":"mri.com-user:rectangle:config_files","namespace":"mri.com-user:rectangle"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#rectangleパッケージにおける設定ファイル">rectangleパッケージにおける設定ファイル</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#設定ファイルのリスト">設定ファイルのリスト</a></div></li>
+<li class="level2"><div class="li"><a href="#設定ファイルのgit管理状況">設定ファイルのgit管理状況</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="rectangleパッケージにおける設定ファイル">rectangleパッケージにおける設定ファイル</h1>
+<div class="level1">
+
+<p>
+rectangleパッケージにおいて、ユーザーによる編集を想定している設定ファイルをまとめる。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "rectangleパッケージにおける設定ファイル" [1-195] -->
+<h2 class="sectionedit2" id="設定ファイルのリスト">設定ファイルのリスト</h2>
+<div class="level2">
+
+<p>
+主要な設定ファイルは以下のとおり。
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">ファイル</th><th class="col1">内容</th><th class="col2">種類</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">linkdir/</td><td class="col1">入出力ファイルのディレクトリ</td><td class="col2">マシン環境</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">setting/macros.make</td><td class="col1">MXEツールのコンパイル設定</td><td class="col2">マシン環境</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">exp/config_files/<strong>configure.in</strong></td><td class="col1">MRI.COMのコンパイル設定</td><td class="col2">実験設定 (マシン環境)</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">exp/run/run.sh </td><td class="col1">MRI.COMの実行シェル・スクリプト</td><td class="col2">マシン環境</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">exp/run/<strong>namelist/</strong></td><td class="col1">MRI.COM用namelistファイルのテンプレート</td><td class="col2">実験設定</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">exp/run/<strong>run.conf</strong></td><td class="col1">実行設定</td><td class="col2">実験設定、ラン設定</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">exp/run/NAMELIST….</td><td class="col1">MRI.COM入力namelist(上記テンプレートから作成)</td><td class="col2">ラン設定</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">exp/run/NAMELIST_SCUP</td><td class="col1">SCUP入力namelist(change_option.shで作成)</td><td class="col2">実験設定(ネスト実験のみ)</td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [293-998] -->
+<p>
+ここで「種類」は以下を示す。
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">種類</th><th class="col1">内容</th><th class="col2">git管理方針</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">マシン環境</td><td class="col1">パッケージの始めの展開時に設定するもの。一度作れば良い。</td><td class="col2">しない</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">実験設定</td><td class="col1">MRI.COM実験の基本設定。change_option.shで変更される。</td><td class="col2">する(NAMELIST_SCUPはしない)</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">ラン設定</td><td class="col1">時間ステップ間隔や積分期間など、ラン毎の設定。</td><td class="col2">しない</td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [1045-1402] -->
+</div>
+<!-- EDIT2 SECTION "設定ファイルのリスト" [196-1404] -->
+<h2 class="sectionedit5" id="設定ファイルのgit管理状況">設定ファイルのgit管理状況</h2>
+<div class="level2">
+
+<p>
+上記リストのファイルのうち太字で示したものが、パッケージによってgit管理されている。
+ローカル環境に合わせた変更を維持したい場合は、変更をcommitしたローカル・ブランチにorigin/masterの更新をマージしていく。
+</p>
+
+</div>
+<!-- EDIT5 SECTION "設定ファイルのgit管理状況" [1405-] --></div>
+</body>
+</html>

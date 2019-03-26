@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:tp_nest:run_cgcm</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,tp_nest,run_cgcm"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:tp_nest';var JSINFO = {"id":"mri.com-user:tp_nest:run_cgcm","namespace":"mri.com-user:tp_nest"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#大気_海洋全球_熱帯ネストモデル実験_結合モデル_の実施方法">大気－海洋全球－熱帯ネストモデル実験（結合モデル）の実施方法</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#準備_入力ファイルの整備_実験設定の作成_ソースのコンパイルなど">準備(入力ファイルの整備、実験設定の作成、ソースのコンパイルなど)</a></div></li>
+<li class="level2"><div class="li"><a href="#モデルの積分_fx100">モデルの積分（@FX100）</a></div></li>
+<li class="level2"><div class="li"><a href="#実験結果のルーチン処理_fx100のフロントエンドサーバーを含む任意のワークステーション">実験結果のルーチン処理（@fx100のフロントエンドサーバーを含む任意のワークステーション）</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="大気_海洋全球_熱帯ネストモデル実験_結合モデル_の実施方法">大気－海洋全球－熱帯ネストモデル実験（結合モデル）の実施方法</h1>
+<div class="level1">
+
+<p>
+ここでは、気象研 FX100 を用いた「大気モデル－海洋全球－熱帯域高解像度モデルネスティング実験」の実施について、推奨される方法を説明します。
+</p>
+
+<p>
+地球システムモデルの大気－海洋モデルを動かすための手順は<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" rel="nofollow">地球システムモデルのwiki </a>を参考にしてください。まずはそちらに慣れるのが良いと思います。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "大気－海洋全球－熱帯ネストモデル実験（結合モデル）の実施方法" [1-596] -->
+<h2 class="sectionedit2" id="準備_入力ファイルの整備_実験設定の作成_ソースのコンパイルなど">準備(入力ファイルの整備、実験設定の作成、ソースのコンパイルなど)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="本庁の開発管理サーバーから_mri-esm_パッケージの複製を取得する">1. 本庁の開発管理サーバーから MRI-ESM パッケージの複製を取得する</h4>
+<div class="level4">
+
+<p>
+大気－海洋全球－熱帯海洋高解像度モデルは、気象研究所で開発されている地球システムモデル（MRI-ESM）で選択可能なモデル構成のうちの一つとなっている。
+</p>
+
+<p>
+まずは本庁の開発管理サーバーから MRI-ESM パッケージを取得する。
+</p>
+<pre class="code">      $ git clone http://jksv-pj.npd.naps.kishou.go.jp/git_repos/cgcm/esm　MRI-ESM</pre>
+<ul>
+<li class="level1"><div class="li"> git を初めて使用する場合には、いくつか初期設定が必要となる場合がある。<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" rel="nofollow">開発管理サーバーredmine の地球システムモデルの wiki </a>を参照</div>
+</li>
+<li class="level1"><div class="li"> MRI-ESM ディレクトリ以下に展開される。MRI-ESM ディレクトリを「親ディレクトリ」と呼ぶことにする。</div>
+</li>
+<li class="level1"><div class="li"> 00README.txt や README-ocnnest.md に地球システムモデル実行手順や海洋ネストモデルの実行手順などが記載されているので参考にする。</div>
+</li>
+<li class="level1"><div class="li"> パッケージが更新された時には、以下のようにして最新版を取得する</div>
+</li>
+</ul>
+<pre class="code">    (MRI-ESM パッケージが展開されたディレクトリから)
+      $ git checkout master
+      $ git fetch origin
+      $ git pull origin master</pre>
+
+</div>
+
+<h4 id="ソースの展開とリンク">2. ソースの展開とリンク</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ソースを展開する</div>
+</li>
+</ul>
+<pre class="code">      $ cd src_Dr047
+      $ sh ln_extract.sh</pre>
+<ul>
+<li class="level1 node"><div class="li"> SCUP を海洋ネストモデル用のものに差し替える</div>
+<ol>
+<li class="level2"><div class="li"> scup_v1.0.21_pre1 の取得と展開</div>
+</li>
+<li class="level2"><div class="li"> Makefile の scup バージョンを変更</div>
+</li>
+</ol>
+</li>
+</ul>
+<pre class="code">      (src_Dr047にて)
+      $ cp /home/htsujino/CGCM/MRI-ESM1-TP_NEST/src_Dr047/scup_v1.0.21_pre1.tgz .
+      $ tar xvfz scup_v1.0.21_pre1.tgz
+      $ vi Makefile
+       (80-81行目)
+        DIR_SCUP = ./scup_v1.0.17a をコメントアウトし → #DIR_SCUP = ./scup_v1.0.17a
+        DIR_SCUP = ./scup_v1.0.21_pre1 を新たに挿入</pre>
+<ul>
+<li class="level1"><div class="li"> src-glb（ネスティングをする場合の海洋全球モデル）, src-tp（熱帯モデル） ディレクトリから MRICOM にリンクを貼る</div>
+</li>
+</ul>
+<pre class="code">      $ cd src-glb
+      $ ln -s ../MRICOM-4_2_02-20161212/src/* .
+
+      $ cd src-tp
+      $ ln -s ../MRICOM-4_2_02-20161212/src/* .</pre>
+
+</div>
+
+<h4 id="ソースのコンパイル">3. ソースのコンパイル</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 地球システムモデルの海洋ネストを除く全コンポーネントをコンパイルする(ネストしない海洋モデルもコンパイルされる)</div>
+</li>
+</ul>
+<pre class="code">    ($ module load TCSuite/fx/fx ... まだコンパイラモジュールをロードしていない場合)
+     *****  src_Dr047 から *****
+     $ gmake </pre>
+<ul>
+<li class="level1"><div class="li"> 海洋ネストモデルをコンパイルする（全球・熱帯）</div>
+</li>
+</ul>
+<pre class="code">     $ cd src-glb
+     $ ln -s ../config_ogcm/nest_glb_tp/configure.in-glb configure.in
+     $ ./compile.sh
+     
+     $ cd src-tp
+     $ ln -s ../config_ogcm/nest_glb_tp/configure.in-tp configure.in
+     $ ./compile.sh</pre>
+
+</div>
+<!-- EDIT2 SECTION "準備(入力ファイルの整備、実験設定の作成、ソースのコンパイルなど)" [597-3721] -->
+<h2 class="sectionedit3" id="モデルの積分_fx100">モデルの積分（@FX100）</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="実験の実行環境を作成">1. 実験の実行環境を作成</h4>
+<div class="level4">
+
+<p>
+結合モデルの親ディレクトリで、直下の setup_shells から mkneweruns.sh をコピーしてくる。
+</p>
+<pre class="code">     $ cp setup_shells/mkneweruns.sh .</pre>
+
+<p>
+mkneweruns.sh を 00README.txt や README-ocnnest.md を参考に適宜編集する。主な変更箇所は以下の通り。
+</p>
+<pre class="code">　実験開始に関連する設定  
+    runno_lst=&#039;218&#039;    # 実験番号
+    year_sta=1951      # 実験開始年
+    mm_lst=&#039;1&#039;         # 実験開始月
+    year_end=1951      # 実験終了年
+    initstrt=&#039;no&#039;      # リスタートファイルから実験を開始（大気・海洋）
+    initstrt_aer=&#039;no&#039;  # 同上（エーロゾル・化学輸送）
+    dir_parent_runs=&quot;/large1/og_keijo/htsujino/MRI-ESM1-TP_NEST/run-Dr047_historical_&quot; # リスタートファイルの在処(実験名を除いた部分)
+    parent_runno=&#039;214&#039;                                                         # リスタートファイルの在処(リスタートファイルを作成した実験名)
+    ignore_ini_date=0  # リスタートファイルの日付とこの実験の開始日付の整合をチェックする（一致しない場合はエラーとなる）
+
+  海洋モデルに関連する設定
+　  OGCM_NEST=&#039;yes&#039;　  # 海洋ネストモデル
+    OGCM_LIST=&quot;glb tp&quot; # 海洋モデルのリスト
+
+  実験結果の格納場所
+    ARCH_DIR=&quot;/data/$USER/CGCM/$model_name&quot;        # 実験制御関係のファイル
+    WORK_DIR=&quot;/large1/og_keijo/$USER/$model_name&quot;　# モニターやリスタートなど (/large1/og_keijo などは自分が利用可能な場所にする)
+
+  スレッド数の指定
+    ns_agcm=4    # CGCM_SCUPの場合，AGCMで使用するthread数
+    ns_ogcm=2    # CGCM_SCUPの場合，OGCMで使用するthread数
+    ns_ozon=4    # CTM_OZONEで使用するthread数
+    ns_aero=4    # CTM_AEROSOLで使用するthread数</pre>
+
+<p>
+mkneweruns.sh を実行する
+</p>
+<pre class="code">     $ ./mkneweruns.sh (いくつか訊かれるが、すべて &quot;y&quot; を入力しておく)</pre>
+
+</div>
+
+<h4 id="run-dr047_historical_xxx_ディレクトリに移動_xxxはmknewerunshでrunno_lst_xxxでとして与えた実験番号">2. run-Dr047_historical_XXX ディレクトリに移動 (XXXはmknewerun.shでrunno_lst=XXXでとして与えた実験番号)</h4>
+<div class="level4">
+<pre class="code">     $ cd run-Dr047_historical_XXX</pre>
+
+</div>
+
+<h4 id="海洋モデルの設定">3. 海洋モデルの設定</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> cntl/ogcm (海洋モデルを制御するディレクトリ)　に移動</div>
+</li>
+<li class="level1"><div class="li"> 直下の sample/config_nest.sh をコピーして各項目を修正する。CMIP5仕様ヒストリカルランでは、そのサンプルである、config_nest.sh.glb_tp_historical をコピーしてそのまま使用すればよい。</div>
+</li>
+<li class="level1"><div class="li"> link_restart.sh を実行(実験開始用のリスタートや入力ファイルの格納先へのリンクが張られる)</div>
+</li>
+</ul>
+<pre class="code">    $ cd cntl/ogcm
+    $ cp sample/config_nest.sh.glb_tp_historical config_nest.sh
+    $ ./link_restart.sh</pre>
+
+<p>
+(参考)海洋ネストモデルへの入力データの一式が以下に用意されており、config_nest.sh.glb_tp_historical はその場所へのリンクが張られるように記述されている。
+</p>
+<pre class="code"> front:/data/ocpublic/TP_NEST/data, restart</pre>
+
+</div>
+
+<h4 id="結合モデル実行スクリプトの作成">4. 結合モデル実行スクリプトの作成</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> cntl に戻り、mkjob.sh を少し変更する</div>
+</li>
+<li class="level1"><div class="li"> アカウント番号</div>
+</li>
+</ul>
+<pre class="code">     jacct=&#039;c0111&#039; → jacct=&#039;a0411&#039; 等、自身が使用できる課金番号に変更</pre>
+<ul>
+<li class="level1"><div class="li"> 1カ月あたりの実行時間(単位 hour)…ここでは1500(秒)の部分を変更</div>
+</li>
+</ul>
+<pre class="code">     hh_month=&#039;1500/3600&#039; → hh_month=3600/3600 (モニターが多いので、1時間ちょっとかかってしまうが、実行経過時間は＋1時間55分で設定されるので大丈夫)</pre>
+<ul>
+<li class="level1"><div class="li"> mkjob.sh の実行</div>
+</li>
+</ul>
+<pre class="code">    $ ./mkjob.sh
+    この例では da1951a と da1951[01-12] が作成されるはず。
+    daYYYYa が daYYYYMM を12カ月分実行する仕様となっている </pre>
+
+</div>
+
+<h4 id="実験の実行">5. 実験の実行</h4>
+<div class="level4">
+<pre class="code">    １年だけ実行する場合
+       $ pjsub da1951a 
+    複数年の実行を一度のサブミットで行う場合（ステップジョブ）
+       $ ./step_job.sh </pre>
+
+</div>
+<!-- EDIT3 SECTION "モデルの積分（@FX100）" [3722-7844] -->
+<h2 class="sectionedit4" id="実験結果のルーチン処理_fx100のフロントエンドサーバーを含む任意のワークステーション">実験結果のルーチン処理（@fx100のフロントエンドサーバーを含む任意のワークステーション）</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="準備_解析プログラムのコンパイル">1. （準備）解析プログラムのコンパイル</h4>
+<div class="level4">
+
+<p>
+解析プログラムは tools/ogcm/anl にある。tools/ogcm/setting で make_macros_make.sh を実行してコンパイル設定のファイル(macros.make)を置く。make_macros_make.sh に該当するマシンがない場合は、netCDF のライブラリの場所など確認して定義記述する。
+</p>
+<pre class="code">    ($ module unload TCSuite/fx/fx)
+    ($ module load TCSuite/pc/pc)
+    ($ module load NetCDF/pc/4.2.1.1)
+    ($ module load NetCDF-fortran/pc/4.2)
+
+    $ cd tools/ogcm/setting
+    $ ./make_macros.make.sh
+
+    $ cd tools/ogcm/anl
+    $ ./make_all.sh</pre>
+
+</div>
+
+<h4 id="各実験結果の処理環境を作成">2. 各実験結果の処理環境を作成</h4>
+<div class="level4">
+
+<p>
+結合モデルの親ディレクトリで直下の setup_shells から setup_analy.sh をコピー、mkneweruns.sh と整合するように実験番号等を変更してから、実行する
+</p>
+<pre class="code">    $ cp setup_shells/setup_analy.sh .
+
+    ***** setup_analy.sh の編集 *****
+
+    $ ./setup_analy.sh</pre>
+
+</div>
+
+<h4 id="事後解析プログラムの実行">3. 事後解析プログラムの実行</h4>
+<div class="level4">
+
+<p>
+ run-Dr047_historical_XXX/analy/ogcm_tools に移動して、ネスティングモデル用の事後解析プログラムを実行する
+</p>
+<pre class="code">    $ cd run-Dr047_historical_XXX/analy/ogcm_tools
+    $ ./post_run-nest_glb_tp-glb.sh YYYY MM (全球モデル用 YYYY MM は実行が済んでいる年月)
+    $ ./post_run-nest_glb_tp-tp.sh  YYYY MM (熱帯モデル用 YYYY MM は実行が済んでいる年月)</pre>
+
+</div>
+
+<h4 id="grads_で結果を見る">4. grads で結果を見る</h4>
+<div class="level4">
+
+<p>
+ netCDFファイルを GrADs で開くためのコントロールファイルの作成を run-Dr047_historical_XXX/grads/ogcm で行う
+</p>
+<pre class="code">   $ cd run-Dr047_historical_XXX/grads/ogcm
+
+   ***** script/make_ctl.sh の編集 *****
+     ... model_lst=&quot;glb tp&quot; とするくらいで OK
+     
+   $ ./script/make_ctl.sh monthly YYYYMM (YYYYMM は実験開始年月 例: 195101)
+     ... いくつかエラーメッセージが出るが気にしない   </pre>
+
+<p>
+実験結果は run-Dr047_historical_XXX/grads/ogcm/monit_tp/monthly などで見る。
+子午面循環(MOC)や南北熱輸送を全球＋熱帯で見たい場合は、例えば熱帯モデル用のディレクトリ(run-Dr047_historical_XXX/grads/ogcm/monit_tp/monthly)で
+</p>
+<pre class="code">  $ cp ../../monit_glb/monthly/hs_moc.ctl hs_moc_glb.ctl
+  $ cp ../../monit_glb/monthly/hs_nht_tot.ctl hs_nht_tot_glb.ctl</pre>
+
+<p>
+として全球モデルの GrADs control ファイルをコピーして grads を立ち上げ
+</p>
+<pre class="code">  ga-&gt; xdfopen hs_moc.ctl
+  ga-&gt; xdfopen hs_moc_glb.ctl
+  ga-&gt; set z 1 61
+  ga-&gt; d ave(glb.1+glb.2,time=jan1951,time=dec1951)</pre>
+
+<p>
+として図示する。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "実験結果のルーチン処理（@fx100のフロントエンドサーバーを含む任意のワークステーション）" [7845-] --></div>
+</body>
+</html>

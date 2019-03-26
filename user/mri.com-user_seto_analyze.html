@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:seto:analyze</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,seto,analyze"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:seto';var JSINFO = {"id":"mri.com-user:seto:analyze","namespace":"mri.com-user:seto"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#解析ツールを使う">解析ツールを使う</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#環境の設定">環境の設定</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#パッケージ_入力データの展開">パッケージ、入力データの展開</a></div></li>
+<li class="level3"><div class="li"><a href="#設定ファイルの作成">設定ファイルの作成</a></div></li>
+<li class="level3"><div class="li"><a href="#ライブラリのコンパイル">ライブラリのコンパイル</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#解析ツールの実行">解析ツールの実行</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="解析ツールを使う">解析ツールを使う</h1>
+<div class="level1">
+
+<p>
+Seto のFortran解析ツールを使う手順です。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "解析ツールを使う" [1-94] -->
+<h2 class="sectionedit2" id="環境の設定">環境の設定</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "環境の設定" [95-123] -->
+<h3 class="sectionedit3" id="パッケージ_入力データの展開">パッケージ、入力データの展開</h3>
+<div class="level3">
+
+<p>
+<a href="./mri.com-user_seto_run_test.html" class="wikilink1" title="mri.com-user_seto_run_test">標準実験のチュートリアル</a>と同様に、パッケージと入力データの取得・展開と、シンボリック・リンクの作成を行う。
+以下、パッケージを展開したディレクトリを$HOMEと表記する。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "パッケージ、入力データの展開" [124-433] -->
+<h3 class="sectionedit4" id="設定ファイルの作成">設定ファイルの作成</h3>
+<div class="level3">
+
+<p>
+$HOME/setting/ で以下のファイルを作成する。詳細はディレクトリ内のREADME.mdを参照。
+</p>
+<ul>
+<li class="level1"><div class="li"> macros.make マシン環境を記述</div>
+</li>
+<li class="level1"><div class="li"> NAMELIST.MXE ライブラリを使用するためのSetoモデル設定を記述</div>
+</li>
+</ul>
+<pre class="code">&gt; cd $HOME/setting/
+&gt; sh make_namelist.sh  !!! NAMELIST.MXE の作成。編集して時間を変更
+&gt; sh make_macros.make.sh  !!! macros.make の作成。編集してコンパイラ設定を変更</pre>
+
+</div>
+<!-- EDIT4 SECTION "設定ファイルの作成" [434-915] -->
+<h3 class="sectionedit5" id="ライブラリのコンパイル">ライブラリのコンパイル</h3>
+<div class="level3">
+<pre class="code">&gt; cd $HOME/lib/
+&gt; make  !!! MXEライブラリのコンパイル</pre>
+
+</div>
+<!-- EDIT5 SECTION "ライブラリのコンパイル" [916-1029] -->
+<h2 class="sectionedit6" id="解析ツールの実行">解析ツールの実行</h2>
+<div class="level2">
+
+<p>
+MRI.COM-Setoパッケージに用意されている解析ツールは<a href="./mri.com-user_seto_package.html" class="wikilink1" title="mri.com-user_seto_package">パッケージ内容</a>を見てください。
+コンパイルや実行については各ディレクトリのREADME.mdを参照して下さい。
+</p>
+
+</div>
+<!-- EDIT6 SECTION "解析ツールの実行" [1030-] --></div>
+</body>
+</html>

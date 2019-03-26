@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:seto:start</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,seto,start"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:seto';var JSINFO = {"id":"mri.com-user:seto:start","namespace":"mri.com-user:seto"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#瀬戸内海モデル_mricom-seto">瀬戸内海モデル MRI.COM-Seto</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#概要">概要</a></div></li>
+<li class="level2"><div class="li"><a href="#デモ">デモ</a></div></li>
+<li class="level2"><div class="li"><a href="#バージョン">バージョン</a></div></li>
+<li class="level2"><div class="li"><a href="#必要要件">必要要件</a></div></li>
+<li class="level2"><div class="li"><a href="#モデル動作実績">モデル動作実績</a></div></li>
+<li class="level2"><div class="li"><a href="#提供物">提供物</a></div></li>
+<li class="level2"><div class="li"><a href="#取得方法">取得方法</a></div></li>
+<li class="level2"><div class="li"><a href="#使い方">使い方</a></div></li>
+<li class="level2"><div class="li"><a href="#開発に参加するには">開発に参加するには</a></div></li>
+<li class="level2"><div class="li"><a href="#ライセンス">ライセンス</a></div></li>
+<li class="level2"><div class="li"><a href="#発表資料">発表資料</a></div></li>
+<li class="level2"><div class="li"><a href="#開発">開発</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="瀬戸内海モデル_mricom-seto">瀬戸内海モデル MRI.COM-Seto</h1>
+<div class="level1">
+
+<p>
+気象研で開発している瀬戸内海領域モデルのパッケージ。最新のMRI.COMを用いた実験設定や、前処理ツール、解析ツールをまとめています。
+</p>
+
+<p>
+本庁へ納入した MOVE/MRI.COM-Seto からはZSTAR使用、沿岸地形の向上を施しています。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "瀬戸内海モデル MRI.COM-Seto" [1-350] -->
+<h2 class="sectionedit2" id="概要">概要</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 水平解像度1/33°×1/50°(約2km)の瀬戸内海領域モデル。</div>
+</li>
+<li class="level1"><div class="li"> フォーシングにはGSMとMSM、側面境界にはMOVE-WNP-4DVARを使用。</div>
+</li>
+<li class="level1"><div class="li"> 海面気圧による押し下げ吸い上げと、潮汐は与えていない。</div>
+</li>
+<li class="level1"><div class="li"> 2009-2011の3年間のフリーランによってチューニングしている。</div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_seto_spec.html" class="wikilink1" title="mri.com-user_seto_spec">詳細な仕様</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "概要" [351-732] -->
+<h2 class="sectionedit3" id="デモ">デモ</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 実験結果：<a href="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=gallery&amp;t=1061ecc1d15a792a0a7481cfaf969f4e" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=gallery&amp;t=1061ecc1d15a792a0a7481cfaf969f4e" rel="nofollow">海面水温の時間発展(2011)</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "デモ" [733-910] -->
+<h2 class="sectionedit4" id="バージョン">バージョン</h2>
+<div class="level2">
+
+<p>
+MRI.COMに合わせて、月1回更新します。
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_seto_release.html" class="wikilink1" title="mri.com-user_seto_release">リリースノート</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "バージョン" [911-1030] -->
+<h2 class="sectionedit5" id="必要要件">必要要件</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Fortran コンパイラ</div>
+</li>
+<li class="level1"><div class="li"> MPIライブラリ</div>
+</li>
+<li class="level1"><div class="li"> make</div>
+</li>
+<li class="level1"><div class="li"> GrADS</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "必要要件" [1031-1127] -->
+<h2 class="sectionedit6" id="モデル動作実績">モデル動作実績</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 気象研海洋サーバー(Xeon + SUSE Linux + PGI Fortran)</div>
+</li>
+<li class="level1"><div class="li"> 気象研スパコン FX-100</div>
+</li>
+<li class="level1"><div class="li"> 東大FX10</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "モデル動作実績" [1128-1276] -->
+<h2 class="sectionedit7" id="提供物">提供物</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_seto_package.html" class="wikilink1" title="mri.com-user_seto_package">パッケージ</a>　ソースコードと解析ツール等一式</div>
+</li>
+<li class="level1"><div class="li"> 入力ファイル一式　(内容は同梱のREADME.mdを参照。入力ファイルは全て Big Endian。約35GB)</div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_seto_result.html" class="wikilink1" title="mri.com-user_seto_result">実験結果</a> 気象庁内のみ</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "提供物" [1277-1548] -->
+<h2 class="sectionedit8" id="取得方法">取得方法</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 気象庁、気象研の方：<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/seto/wiki/Wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/seto/wiki/Wiki" rel="nofollow">本庁Redmine</a>を参照</div>
+</li>
+<li class="level1"><div class="li"> モデル共同研究の方：<a href="http://dand056-redmine.tkl.iis.u-tokyo.ac.jp/projects/mri/wiki" class="urlextern" title="http://dand056-redmine.tkl.iis.u-tokyo.ac.jp/projects/mri/wiki" rel="nofollow">DIAS Redmine MRI.COM Wiki</a>を参照</div>
+</li>
+<li class="level1"><div class="li"> その他の方：開発者(坂本)まで連絡してください</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "取得方法" [1549-1917] -->
+<h2 class="sectionedit9" id="使い方">使い方</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_seto_run_test.html" class="wikilink1" title="mri.com-user_seto_run_test">標準実験のチュートリアル</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_seto_analyze.html" class="wikilink1" title="mri.com-user_seto_analyze">解析ツールを使う</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "使い方" [1918-2037] -->
+<h2 class="sectionedit10" id="開発に参加するには">開発に参加するには</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 気象研、気象庁の方：<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/seto" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/seto" rel="nofollow">本庁Redmine - 瀬戸内海2kmモデル</a>に参加</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "開発に参加するには" [2038-2232] -->
+<h2 class="sectionedit11" id="ライセンス">ライセンス</h2>
+<div class="level2">
+
+<p>
+気象庁内、及び共同研究の下でのみ使用可能です。
+</p>
+
+</div>
+<!-- EDIT11 SECTION "ライセンス" [2233-2333] -->
+<h2 class="sectionedit12" id="発表資料">発表資料</h2>
+<div class="level2">
+<ol>
+<li class="level1 node"><div class="li"> 坂本圭, 山中吾郎, 辻野博之, 碓氷典久, 平原幹俊, 小川浩司, 日本沿岸海況監視予測システムに向けた瀬戸内海モデルの開発,  日本海洋学会秋季大会(札幌), 2013/09/19, 口頭発表</div>
+<ul>
+<li class="level2"><div class="li"> <a href="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=f60530d7996ff46a9a7766ff5f5a96a8" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=f60530d7996ff46a9a7766ff5f5a96a8" rel="nofollow">発表スライド PPT</a></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 坂本圭, 山中吾郎, 辻野博之, 中野英之, 浦川昇吾, 碓氷典久, 日本沿岸海況監視予測システムに向けた瀬戸内海モデルの開発II,  日本海洋学会秋季大会(長崎), 2014/09/15, ポスター発表</div>
+<ul>
+<li class="level2"><div class="li"> <a href="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=ee460dbbb3b71ae2c873888350196c72" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=ee460dbbb3b71ae2c873888350196c72" rel="nofollow">ポスター PDF</a></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li">  Kei Sakamoto, Goro Yamanaka, Hiroyuki Tsujino, Hideyuki Nakano, Norihisa Usui and Shogo Urakawa, Development of a Seto-Inland-Sea model toward operational monitoring and forecasting, PICES Annual meeting(韓国、ヨス), 2014/10/21, 招待講演</div>
+<ul>
+<li class="level2"><div class="li"> <a href="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=4aa57fd8eae284d5dc4e3db40127278c" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/public.php?service=files&amp;t=4aa57fd8eae284d5dc4e3db40127278c" rel="nofollow">発表スライド PPT</a></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 坂本圭, 山中吾郎, 辻野博之, 中野英之, 平原幹俊, 水平解像度2kmの瀬戸内海モデルMRI.COM-Seto及び日本沿岸モデルMRI.COM-JPNの開発, 測候時報海洋気象特集, 81, S63-S75, 2014/10 <a href="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/81/vol81s063.pdf" class="urlextern" title="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/81/vol81s063.pdf" rel="nofollow">論文PDF</a></div>
+</li>
+<li class="level1"><div class="li"> 碓氷典久, 坂本圭, 小川浩司, 藤井陽介, 辻野博之, 山中吾郎, 倉賀野連, 蒲地政文, 日本沿岸海況監視予測システムによる2011年瀬戸内海異常潮位の再現実験, 測候時報海洋気象特集, 81, S53-S62, 2014/10 <a href="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/81/vol81s053.pdf" class="urlextern" title="http://www.jma.go.jp/jma/kishou/books/sokkou-kaiyou/81/vol81s053.pdf" rel="nofollow">論文PDF</a></div>
+</li>
+<li class="level1"><div class="li"> Norihasa Usui, Yosuke Fujii, Kei Sakamoto, Masafumi Kamachi, Development of a four-dimensional variational assimilation system toward coastal data assimilation around Japan, Monthly Weather Review, 2015. (accepted) </div>
+</li>
+<li class="level1"><div class="li"> Kei Sakamoto, Goro Yamanaka, Hiroyuki Tsujino, Hideyuki Nakano, Shogo Urakawa, Norihisa Usui, Mikitoshi Hirabara and Koji Ogawa, Development of an operational coastal model of the Seto Inland Sea, Japan, Ocean Dyn., 66(1), 77-97, <a href="http://link.springer.com/article/10.1007/s10236-015-0908-9" class="urlextern" title="http://link.springer.com/article/10.1007/s10236-015-0908-9" rel="nofollow">10.1007/s10236-015-0908-9</a>, 2016.</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT12 SECTION "発表資料" [2334-4686] -->
+<h2 class="sectionedit13" id="開発">開発</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 開発者：坂本圭 ksakamot@mri-jma.go.jp</div>
+</li>
+<li class="level1"><div class="li"> 環境：Xeon + SUSE Linux + PGI Fortran (MPIあり), FX-100</div>
+</li>
+<li class="level1"><div class="li"> 管理：<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/seto" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/seto" rel="nofollow">本庁Redmine - 瀬戸内海2kmモデル</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT13 SECTION "開発" [4687-] --></div>
+</body>
+</html>

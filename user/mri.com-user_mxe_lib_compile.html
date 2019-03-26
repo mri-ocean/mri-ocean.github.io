@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:compile</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,compile"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:compile","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="コンパイル">コンパイル</h1>
+<div class="level1">
+
+<p>
+MXEライブラリを用いたプログラムのコンパイルには、以下のようなMakefileを作成して下さい。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "コンパイル" [1-156] -->
+<h2 class="sectionedit2" id="makefile">Makefile</h2>
+<div class="level2">
+
+<p>
+Makefileに以下の内容を加えます。
+</p>
+<ol>
+<li class="level1"><div class="li">変数LIB_DIRにディレクトリlibの相対パスを入れる</div>
+</li>
+<li class="level1"><div class="li">lib/libmxe.makeをinclude</div>
+</li>
+<li class="level1"><div class="li">コンパイル時の必須項目に変数$(LIBMXE)を加える</div>
+</li>
+<li class="level1"><div class="li">コンパイル・オプションとして変数$(INCLUDES)を加える</div>
+</li>
+<li class="level1"><div class="li">結合時オプションとして変数$(LDFLAGS)を加える</div>
+</li>
+</ol>
+
+<p>
+test.F90をコンパイルする場合のMakefileは以下のようになります。<sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup>
+</p>
+<pre class="code make"><span class="co1">### Target objects ###</span>
+targets <span class="sy0">:=</span> test
+&nbsp;
+<span class="co1">### Phony targets ###</span>
+all<span class="sy0">:</span> <span class="sy0">$</span><span class="br0">&#40;</span><span class="re2">targets</span><span class="br0">&#41;</span>
+clean<span class="sy0">:</span>
+	rm <span class="sy0">*.</span>o core <span class="sy0">$</span><span class="br0">&#40;</span><span class="re2">targets</span><span class="br0">&#41;</span> <span class="sy0">*</span>~ <span class="sy0">*.</span>ctl <span class="nu0">2</span><span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null
+&nbsp;
+<span class="co1">### Platform dependent settings ###</span>
+<span class="kw1">include</span> <span class="sy0">../../</span>setting<span class="sy0">/</span>macros<span class="sy0">.</span>make
+&nbsp;
+<span class="co1">### MXE library ###</span>
+LIB_DIR <span class="sy0">:=</span> <span class="sy0">../../</span>lib
+<span class="kw1">include</span> <span class="sy0">../../</span>lib<span class="sy0">/</span>libmxe<span class="sy0">.</span>make
+&nbsp;
+<span class="co1">### Compile ###</span>
+<span class="sy0">%.</span>o<span class="sy0">:</span> <span class="sy0">%.</span>F90 <span class="sy0">$</span><span class="br0">&#40;</span><span class="re2">LIBMXE</span><span class="br0">&#41;</span>
+	<span class="sy0">$</span><span class="br0">&#40;</span><span class="re2">F90</span><span class="br0">&#41;</span> <span class="sy0">-</span>c <span class="sy0">$</span><span class="br0">&#40;</span><span class="re2">FFLAGS</span><span class="br0">&#41;</span> <span class="sy0">$</span><span class="br0">&#40;</span><span class="re2">INCLUDES</span><span class="br0">&#41;</span> <span class="sy0">-</span>o <span class="re0">$@</span> <span class="re0">$&lt;</span>
+&nbsp;
+<span class="co1">### Link ###</span>
+<span class="sy0">%:</span> <span class="sy0">%.</span>o
+	<span class="sy0">$</span><span class="br0">&#40;</span><span class="re2">F90</span><span class="br0">&#41;</span> <span class="re0">$^</span> <span class="sy0">$</span><span class="br0">&#40;</span><span class="re2">LDFLAGS</span><span class="br0">&#41;</span> <span class="sy0">-</span>o <span class="re0">$@</span></pre>
+
+<p>
+簡単に説明すると、まずコンパイル時にライブラリ$(LIBMXE)(=libmxe.a)が作成されているかどうかを$(LIB_DIR)(=lib/)でチェックして(libmxe.make内のvpath)、なければ$(LIB_DIR)でmakeを実行します。
+ただし、プログラムのコンパイルと結合のコマンドでは、$(LIBMXE)を結合の対象には加えず、$(INCLUDES)と$(LDFLAGS)でライブラリとして参照します。
+詳細はlib/libmxe.makeの中身を見て下さい。
+</p>
+
+<p>
+ライブラリ自体のコンパイルはlib/Makefileで行います。モジュール間の依存関係を満たすように順番にコンパイルしています(objs_libmxeの順番に注意)。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Makefile" [157-] --><div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<div class="content">実際のソースはMXEのanl/test_libを参照。ローカルなモジュールも併用する場合にはanl/integ/Makefileなどが参考になると思います。</div></div>
+</div>
+</div>
+</body>
+</html>

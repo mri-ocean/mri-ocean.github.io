@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:libmxe_io</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,libmxe_io"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:libmxe_io","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#libmxe_io">libmxe_io</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#構造体の型">構造体の型</a></div></li>
+<li class="level2"><div class="li"><a href="#サブルーチン">サブルーチン</a></div></li>
+<li class="level2"><div class="li"><a href="#関数">関数</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="libmxe_io">libmxe_io</h1>
+<div class="level1">
+
+<p>
+データの入出力に関するモジュール。主に、実験出力データ・ファイルの日付・時刻を示すサフィックスを管理する。
+</p>
+
+<p>
+ここでは、実験出力データのうち、ある時刻のものを「レコード」と呼ぶ。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "libmxe_io" [1-288] -->
+<h2 class="sectionedit2" id="構造体の型">構造体の型</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">type_libmxe_io: レコードの日付・時刻情報を保持するクラス。要素はソースコードを参照。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "構造体の型" [289-437] -->
+<h2 class="sectionedit3" id="サブルーチン">サブルーチン</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">libmxe_io__register_ type_libmxe_paraインスタンスを基に、クラスtype_libmxe_ioのインスタンスを生成するメソッド。<a href="./mri.com-user_mxe_lib_namelist.html" class="wikilink1" title="mri.com-user_mxe_lib_namelist">namelistファイル</a>を読み、レコードの日付・時刻を計算している。</div>
+</li>
+<li class="level1"><div class="li">libmxe_io__open: type_libmxe_ioインスタンスを基に、レコードの読み込み、または書き込みのためにファイルを開く。関数libmxe_io__suffixを使ってファイル名にサフィックスを追加する。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "サブルーチン" [438-964] -->
+<h2 class="sectionedit4" id="関数">関数</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">libmxe_io__suffix: 文字変数に日付・時刻を示すサフィックスを加える。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "関数" [965-] --></div>
+</body>
+</html>

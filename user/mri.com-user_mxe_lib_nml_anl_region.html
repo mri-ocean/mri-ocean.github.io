@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:nml_anl_region</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,nml_anl_region"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:nml_anl_region","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#メモリ節約のための解析領域の指定">メモリ節約のための解析領域の指定</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#namelistmxe_の設定">NAMELIST.MXE の設定</a></div></li>
+<li class="level2"><div class="li"><a href="#入出力ファイル">入出力ファイル</a></div></li>
+<li class="level2"><div class="li"><a href="#解析プログラム">解析プログラム</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#ライブラリのオプション機能をオン">ライブラリのオプション機能をオン</a></div></li>
+<li class="level3"><div class="li"><a href="#ヒストリーデータの入力">ヒストリーデータの入力</a></div></li>
+<li class="level3"><div class="li"><a href="#解析と出力">解析と出力</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="メモリ節約のための解析領域の指定">メモリ節約のための解析領域の指定</h1>
+<div class="level1">
+
+<p>
+メモリ不足の場合に対応するため、モデル全領域でなく小さい領域を指定して、ライブラリの各機能を使うことができます。
+ただし、以下のような様々な指定が必要です。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "メモリ節約のための解析領域の指定" [1-298] -->
+<h2 class="sectionedit2" id="namelistmxe_の設定">NAMELIST.MXE の設定</h2>
+<div class="level2">
+
+<p>
+NAMELIST.MXE の nml_anl_region ブロックで解析領域(グリッド範囲)を指定します。
+</p>
+<pre class="code">&amp;nml_anl_region
+  anl_region%ifirst =,
+  anl_region%ilast =  ,
+  anl_region%jfirst = ,
+  anl_region%jlast = ,
+/</pre>
+
+<p>
+これにより、ライブラリで作成される2次元、3次元配列は全て解析領域だけ(厳密には2グリッド外側まで)をメモリに記憶するようになります。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "NAMELIST.MXE の設定" [299-757] -->
+<h2 class="sectionedit3" id="入出力ファイル">入出力ファイル</h2>
+<div class="level2">
+
+<p>
+ファイル入力、出力とも、anl_regionではなくモデル全領域のサイズ(imut,jmut)の配列が使われるので対応は不要です。
+</p>
+
+<p>
+ただし、既に同名の出力ファイルがある場合は、解析領域に結果を注入してファイルを書き換えます。
+(ない場合は解析領域以外は欠損値が入ったファイルが出力されます。)
+</p>
+
+</div>
+<!-- EDIT3 SECTION "入出力ファイル" [758-1184] -->
+<h2 class="sectionedit4" id="解析プログラム">解析プログラム</h2>
+<div class="level2">
+
+<p>
+nml_anl_region オプションを使うには、解析プログラムで以下のように対応する必要があります。
+詳細は、例えば anl/mixed_layer/src/mixed_layer_depth.F90 を参照して下さい。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "解析プログラム" [1185-1440] -->
+<h3 class="sectionedit5" id="ライブラリのオプション機能をオン">ライブラリのオプション機能をオン</h3>
+<div class="level3">
+
+<p>
+プログラム冒頭でlibmxe_para__set_anl_region_enableをcallします。
+</p>
+<pre class="code">call libmxe_para__set_anl_region_enable  !-- registerの前でanl_regionオプションをオン
+call libmxe_para__register( para )
+call libmxe_io__register( io, para )
+...</pre>
+
+<p>
+これがないと nml_anl_region は無視され、通常どおり全領域が解析対象になります。
+オンにすれば以下の2つの構造体が作成されます。
+</p>
+<ul>
+<li class="level1"><div class="li"> para%anl_region 解析領域、nml_anl_regionによってユーザーが指定</div>
+</li>
+<li class="level1"><div class="li"> para%input_region メモリ確保領域、anl_region より2グリッド外側まで</div>
+</li>
+</ul>
+
+<p>
+デフォルトではどちらもモデル全領域に対応します。
+</p>
+
+</div>
+<!-- EDIT5 SECTION "ライブラリのオプション機能をオン" [1441-2199] -->
+<h3 class="sectionedit6" id="ヒストリーデータの入力">ヒストリーデータの入力</h3>
+<div class="level3">
+<pre class="code">  real(4),allocatable :: t(:,:,:)
+
+  ifirst = para%input_region%ifirst
+  ilast  = para%input_region%ilast
+  jfirst = para%input_region%jfirst
+  jlast  = para%input_region%jlast
+  allocate( t(ifirst:ilast,jfirst:jlast,para%km) )  !!! para%input_region のサイズで読み込み用配列を割当
+  call libmxe_io__read_hst( para, io, trim(file_base_in), nrec, para%km, t )  !!! 読み込みには libmxe_io__read_hst を使用</pre>
+
+</div>
+<!-- EDIT6 SECTION "ヒストリーデータの入力" [2200-2688] -->
+<h3 class="sectionedit7" id="解析と出力">解析と出力</h3>
+<div class="level3">
+<pre class="code">  real(4),allocatable :: r(:,:)
+
+  allocate( r(ifirst:ilast,jfirst:jlast) )  !!!　書き出し用配列もpara%input_region のサイズ
+  do j = para%anl_region%jfirst, para%anl_region%jlast  !!! 解析は anl_region でよい
+    do i = para%anl_region%ifirst, para%anl_region%ilast
+      r(i,j) = ...
+    enddo
+  enddo
+  call libmxe_io__write_hst( para, io, trim(file_base_out), nrec, 1, r )  !!!ファイル出力には libmxe_io__write_hst を使用</pre>
+
+</div>
+<!-- EDIT7 SECTION "解析と出力" [2689-] --></div>
+</body>
+</html>

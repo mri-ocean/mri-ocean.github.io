@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:make_package</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,make_package"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:make_package","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mxe上に新しい実験パッケージを作る">MXE上に新しい実験パッケージを作る</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#mxeと実験パッケージ">MXEと実験パッケージ</a></div></li>
+<li class="level2"><div class="li"><a href="#実験の前処理">実験の前処理</a></div></li>
+<li class="level2"><div class="li"><a href="#実行環境の作成">実行環境の作成</a></div></li>
+<li class="level2"><div class="li"><a href="#後処理">後処理</a></div></li>
+<li class="level2"><div class="li"><a href="#解析">解析</a></div></li>
+<li class="level2"><div class="li"><a href="#メモ">メモ</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mxe上に新しい実験パッケージを作る">MXE上に新しい実験パッケージを作る</h1>
+<div class="level1">
+
+<p>
+MXEをベースに新しい実験パッケージを作る方法です。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MXE上に新しい実験パッケージを作る" [1-136] -->
+<h2 class="sectionedit2" id="mxeと実験パッケージ">MXEと実験パッケージ</h2>
+<div class="level2">
+
+<p>
+MXEはテンプレートであり、それに設定ファイルや実行シェル・スクリプトを加えたものが実験パッケージになります。
+</p>
+
+<p>
+MXE: 全ての実験の共通部分に当たるもので以下を含む。
+</p>
+<ul>
+<li class="level1"><div class="li">実験環境の基本的なディレクトリ構造</div>
+</li>
+<li class="level1"><div class="li">特定の目的で使えるFortranプログラム</div>
+</li>
+<li class="level1"><div class="li">上を動かすスクリプトのサンプル(通常サブディレクトリsample/にあるので、コピーして使う)</div>
+</li>
+</ul>
+
+<p>
+実験パッケージ: MXEをベースに、さらに以下を含む。
+</p>
+<ul>
+<li class="level1"><div class="li">現在行っている実験の設定</div>
+</li>
+<li class="level1"><div class="li">現在行っている実験にだけ必要と思われるツール類</div>
+</li>
+<li class="level1"><div class="li">前処理、後処理、解析が再現できる、すぐに動かせるスクリプト</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "MXEと実験パッケージ" [137-926] -->
+<h2 class="sectionedit3" id="実験の前処理">実験の前処理</h2>
+<div class="level2">
+
+<p>
+地形など、実験に必要な入力ファイルを以下の手順で作成します。
+</p>
+<ol>
+<li class="level1"><div class="li"> 最新のMXEを取得する。</div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_mxe_use_tools.html" class="wikilink1" title="mri.com-user_mxe_use_tools">環境の設定</a>を行う。</div>
+</li>
+<li class="level1 node"><div class="li"> linkdir ディレクトリから以下の名前のファイル置き場を作成する（またはワークスペースへのリンクを作成）</div>
+<ul>
+<li class="level3"><div class="li"> data … 解像度、地形などモデルの基本データの格納場所</div>
+</li>
+<li class="level3"><div class="li"> forcing … 風応力などの駆動用データの格納場所</div>
+</li>
+<li class="level3"><div class="li"> result … モデル計算の初期値や結果の格納場所</div>
+</li>
+<li class="level3"><div class="li"> （参考）linkdir/sample にリンク作成用のサンプルスクリプト link.sh があります</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 入力ファイルを<a href="./mri.com-user_mxe_prep.html" class="wikilink1" title="mri.com-user_mxe_prep">prep</a>ディレクトリで作成する</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT3 SECTION "実験の前処理" [927-1710] -->
+<h2 class="sectionedit4" id="実行環境の作成">実行環境の作成</h2>
+<div class="level2">
+
+<p>
+ディレクトリ<a href="./mri.com-user_mxe_exp.html" class="wikilink1" title="mri.com-user_mxe_exp">exp</a>/ で以下を作成します。
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">ディレクトリ、ファイル</th><th class="col1">内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">MRICOM/</td><td class="col1">MRI.COM本体　(コピー用のスクリプト: run/sample/copy_MRICOM.sh)</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">config_files/configure.in</td><td class="col1">コンパイル用設定ファイル(docs/README.Options を参照)</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">src/</td><td class="col1">MRICOM/src/の全ファイルとconfigure.inへのシンボリックリンク</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">data/</td><td class="col1">前処理で作成した実行時入力データファイル(またはそれらへのシンボリックリンク)</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">result</td><td class="col1">出力ディレクトリ(またはそれへのシンボリックリンク)</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">run/NAMELIST.OGCM</td><td class="col1">実行時入力namelistファイル(docs/README.Namelist, README.Restartを参照)</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">run/NAMELIST.OGCM.MONITOR</td><td class="col1">モニター用NAMELISTファイル (docs/README.Monitorを参照)</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">run/</td><td class="col1">実行用シェル・スクリプト (run/sample/run.sh等を参照)</td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [1805-2594] -->
+<p>
+src/でコンパイルし、run/で実行します。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "実行環境の作成" [1711-2651] -->
+<h2 class="sectionedit6" id="後処理">後処理</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT6 SECTION "後処理" [2652-2674] -->
+<h2 class="sectionedit7" id="解析">解析</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT7 SECTION "解析" [2675-2694] -->
+<h2 class="sectionedit8" id="メモ">メモ</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT8 SECTION "メモ" [2695-] --></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:program</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,program"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:program","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="mxeライブラリを用いたプログラミング">MXEライブラリを用いたプログラミング</h1>
+<div class="level1">
+
+<p>
+必要なモジュールをuseし、プログラム冒頭で実験設定の情報を保持するインスタンスを登録します。
+</p>
+
+<p>
+基本パラメータ(<a href="./mri.com-user_mxe_lib_libmxe_para.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_para">libmxe_para</a>)、グリッド情報(<a href="./mri.com-user_mxe_lib_libmxe_grid.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_grid">libmxe_grid</a>)、地形(<a href="./mri.com-user_mxe_lib_libmxe_topo.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_topo">libmxe_topo</a>)、入出力(<a href="./mri.com-user_mxe_lib_libmxe_io.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_io">libmxe_io</a>)を全て使う場合、次のような記述になります。
+</p>
+<pre class="code">program main
+  use libmxe_para, only: libmxe_para__register, type_libmxe_para
+  use libmxe_grid, only: libmxe_grid__register, type_libmxe_grid
+  use libmxe_topo, only: libmxe_topo__register, type_libmxe_topo
+  use libmxe_io, only: libmxe_io__register, type_libmxe_io 
+  implicit none
+
+!- 構造体の宣言
+  type(type_libmxe_para) :: para
+  type(type_libmxe_grid) :: grid
+  type(type_libmxe_topo) :: topo
+  type(type_libmxe_io) :: io
+
+!- プログラム冒頭で実験設定インスタンスを登録する(構造体に情報を読み込む)
+  call libmxe_para__register(para)  !- ./NAMELIST.MXE の情報を構造体paraに読み込む
+  call libmxe_grid__register(grid,para)  !- グリッドの情報を構造体gridに読み込む
+  call libmxe_topo__register(topo,para)  !- 地形情報を構造体topoに読み込む
+  call libmxe_io__register(io,para)  !- 入出力の情報を構造体ioに読み込む
+
+!- 以下、プログラム本体
+  write(*,*) para%imut, para%jmut
+
+
+end program main</pre>
+
+<p>
+特定の機能を持ったモジュールについては、それぞれのページを参照して下さい。
+</p>
+<ul>
+<li class="level1"><div class="li"><a href="./mri.com-user_mxe_lib_libmxe_grads.html" class="wikilink1" title="mri.com-user_mxe_lib_libmxe_grads">libmxe_grads</a></div>
+</li>
+</ul>
+
+</div>
+</div>
+</body>
+</html>

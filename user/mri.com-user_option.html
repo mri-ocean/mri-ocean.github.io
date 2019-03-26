@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:option</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,option"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:option","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="mricomのオプション">MRI.COMのオプション</h1>
+<div class="level1">
+
+<p>
+MRI.COMで使用できるオプションの索引(一部)。
+大文字はコンパイル時オプション、小文字はnamelistオプションを示す。
+詳細やその他のオプションについては、MRI.COMソースコードのdocs/README.OptionsとREADME.Namelistを参照。
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">対象</th><th class="col1">オプション</th><th class="col2">説明</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0" rowspan="3">座標系・格子</td><td class="col1">SPHERICAL</td><td class="col2">球座標系を用いてスケールファクターを半解析的に計算</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">nml_horz_grid / file_dxdy_tbox_deg</td><td class="col1">水平可変格子</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">CYCLIC</td><td class="col1">東西周期境界条件を課す</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0" rowspan="3">自由表面</td><td class="col1">FSEB</td><td class="col2">順圧の時間ステップにEuler-backwardスキームを用いる</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">FSMOM</td><td class="col1">MOMの自由表面スキームを用いる</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">FSVISC</td><td class="col1">順圧渦度方程式で粘性を陽に計算する</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0" rowspan="4">トレーサー移流</td><td class="col1">QUICKADVEC</td><td class="col2">水平鉛直移流にQUICKを用いる</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">UTZQADVEC</td><td class="col1">水平鉛直移流にUTOPIA+QUICKESTを用いる</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">SOMADVEC</td><td class="col1">SOMを用いる</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0">PPMADVEC</td><td class="col1">PPMを用いる</td>
+	</tr>
+	<tr class="row11">
+		<td class="col0" rowspan="2">水平粘性・拡散</td><td class="col1">SMAGOR</td><td class="col2">Smagorinskyの水平粘性を用いる</td>
+	</tr>
+	<tr class="row12">
+		<td class="col0">SMAGHD</td><td class="col1">Smagorinskyの水平粘性に一定の比率を掛けた値を用いる（SMAGORの場合のみ有効）</td>
+	</tr>
+	<tr class="row13">
+		<td class="col0" rowspan="2">等密度面拡散</td><td class="col1">ISOPYCNAL</td><td class="col2">Gent&amp;McWilliams(1990)の等密度面拡散を用いる</td>
+	</tr>
+	<tr class="row14">
+		<td class="col0">VARHID</td><td class="col1">水平（等密度面)拡散係数と水平粘性係数を格子幅の関数とする</td>
+	</tr>
+	<tr class="row15">
+		<td class="col0" rowspan="4">鉛直粘性・拡散</td><td class="col1">VVDIMP</td><td class="col2">鉛直拡散を陰解放で計算する（混合層スキームまたはISOPYCNALの場合に自動的に有効）</td>
+	</tr>
+	<tr class="row16">
+		<td class="col0">nml_visc_vert_bg</td><td class="col1">鉛直粘性係数の背景値(デフォルトは1cm2/s)</td>
+	</tr>
+	<tr class="row17">
+		<td class="col0">nml_diff_vert_bg</td><td class="col1">鉛直拡散係数の背景値(指定必須)</td>
+	</tr>
+	<tr class="row18">
+		<td class="col0">VMBG3D+nml_vmbg3d</td><td class="col1">3次元の背景鉛直粘性・拡散係数をファイルから読み込む</td>
+	</tr>
+	<tr class="row19">
+		<td class="col0" rowspan="3">混合層スキーム</td><td class="col1">MELYAM</td><td class="col2">Mellor&amp;Yamada Level 2.5スキーム</td>
+	</tr>
+	<tr class="row20">
+		<td class="col0">KPP</td><td class="col1">KPPスキーム</td>
+	</tr>
+	<tr class="row21">
+		<td class="col0">NOHKIM</td><td class="col1">Noh&amp;Kimスキーム</td>
+	</tr>
+	<tr class="row22">
+		<td class="col0">対流調節</td><td class="col1">DIFAJS</td><td class="col2">対流調節の代わりに不安定成層の場所で鉛直拡散係数を大きくする</td>
+	</tr>
+	<tr class="row23">
+		<td class="col0" rowspan="2">状態方程式</td><td class="col1">CALPP</td><td class="col2">状態方程式で圧力の時間変化を考慮する</td>
+	</tr>
+	<tr class="row24">
+		<td class="col0">nml_density_homodens</td><td class="col1">密度一様(密度計算しない)</td>
+	</tr>
+	<tr class="row25">
+		<td class="col0">風応力</td><td class="col1">TAUBULK</td><td class="col2">海上風速を読み込んでバルク式で風応力を計算する</td>
+	</tr>
+	<tr class="row26">
+		<td class="col0" rowspan="8">海面熱フラックスのバルク式</td><td class="col1">HFLUX</td><td class="col2">バルク式で海面熱フラックスを計算する。BULKKARA, BULKNCAR, BULKKONDO2から1つを選ぶ。</td>
+	</tr>
+	<tr class="row27">
+		<td class="col0">BULKKARA</td><td class="col1">Karaのバルク式を用いる</td>
+	</tr>
+	<tr class="row28">
+		<td class="col0">BULKKONDO2</td><td class="col1">Kondo(1975)のバルク式を用いる</td>
+	</tr>
+	<tr class="row29">
+		<td class="col0">BULKNCAR</td><td class="col1"> Large and Yeager (2004) のCORE用バルク式を用いる</td>
+	</tr>
+	<tr class="row30">
+		<td class="col0">BULKITER</td><td class="col1">風速が海上10mでない場合、繰り返し法でバルク係数を計算する (BULKNCARかBULKKONDO2のみ有効)</td>
+	</tr>
+	<tr class="row31">
+		<td class="col0">TDEW</td><td class="col1">露点温度を読み込む（未定義の場合は比湿を読み込む）</td>
+	</tr>
+	<tr class="row32">
+		<td class="col0">SOLARANGLE</td><td class="col1">Ishizaki and Yamanaka (2009)の短波入射スキーム (HFLUXの場合のみ有効)</td>
+	</tr>
+	<tr class="row33">
+		<td class="col0">LWDOWN</td><td class="col1">長波放射は下向き成分のみ(海面からの上向き放射をモデルで計算して差し引く)</td>
+	</tr>
+	<tr class="row34">
+		<td class="col0" rowspan="5">淡水フラックス</td><td class="col1">WFLUX</td><td class="col2">海面の淡水フラックス(降水)を与える</td>
+	</tr>
+	<tr class="row35">
+		<td class="col0">SFLUXW</td><td class="col1">淡水フラックスを海面塩分フラックスに変換する（WFULXの場合のみ有効）</td>
+	</tr>
+	<tr class="row36">
+		<td class="col0">SFLUXR</td><td class="col1">塩分リストアを淡水フラックスに変換しない（WFULXの場合のみ有効）</td>
+	</tr>
+	<tr class="row37">
+		<td class="col0">WADJ</td><td class="col1">海面の淡水フラックスが総計でゼロになるように調節する（WFULXの場合のみ有効）</td>
+	</tr>
+	<tr class="row38">
+		<td class="col0">RUNOFF</td><td class="col1">河川流入を与える（WFLUXの場合のみ有効）</td>
+	</tr>
+	<tr class="row39">
+		<td class="col0" rowspan="3">海面境界条件の関連</td><td class="col1">MON30D</td><td class="col2">１か月は30日、1年は360日として計算</td>
+	</tr>
+	<tr class="row40">
+		<td class="col0">MONFRC</td><td class="col1">月平均のForcing</td>
+	</tr>
+	<tr class="row41">
+		<td class="col0">nml_sss_restore</td><td class="col1">海面塩分リストア</td>
+	</tr>
+	<tr class="row42">
+		<td class="col0">海底境界条件</td><td class="col1">nml_bottom_friction</td><td class="col2">海底摩擦</td>
+	</tr>
+	<tr class="row43">
+		<td class="col0" rowspan="3">トレーサーのシンク/ソース</td><td class="col1">nml_tracer_data/trcref_conf, rstcoef_conf</td><td class="col2">トレーサーナッジング</td>
+	</tr>
+	<tr class="row44">
+		<td class="col0">nml_tracer_data/trcref_surf_conf, rstcoef_surf_conf</td><td class="col1">海面トレーサーナッジング</td>
+	</tr>
+	<tr class="row45">
+		<td class="col0">STABLERUN</td><td class="col1">塩分が基準値より低くなると強制的に上げる</td>
+	</tr>
+	<tr class="row46">
+		<td class="col0" rowspan="3">海氷</td><td class="col1">ICE</td><td class="col2">海氷モデルを導入する</td>
+	</tr>
+	<tr class="row47">
+		<td class="col0">ICECLIM</td><td class="col1">海氷被覆率の気候値をファイルから読み込む</td>
+	</tr>
+	<tr class="row48">
+		<td class="col0">SIDYN</td><td class="col1">海氷力学モデル(EVP)を導入する（※ICEの場合のみ有効）</td>
+	</tr>
+	<tr class="row49">
+		<td class="col0" rowspan="2">他スキーム</td><td class="col1">BBL</td><td class="col2">海底境界層スキームを導入する</td>
+	</tr>
+	<tr class="row50">
+		<td class="col0">TIDE</td><td class="col1">潮汐キームを導入する(Sakamoto et al. 2013 <abbr title="Operating System">OS</abbr>)</td>
+	</tr>
+	<tr class="row51">
+		<td class="col0" rowspan="2">トレーサー、生態系</td><td class="col1">IDEALAGE</td><td class="col2">エイジ・トレーサー</td>
+	</tr>
+	<tr class="row52">
+		<td class="col0">VTRC</td><td class="col1">仮想パッシヴ・トレーサー</td>
+	</tr>
+	<tr class="row53">
+		<td class="col0">初期値</td><td class="col1">nml_run_ini_state</td><td class="col2">初期値リスタートファイルを読み込むかどうか</td>
+	</tr>
+	<tr class="row54">
+		<td class="col0" rowspan="2">プログラム実行</td><td class="col1">nml_stdout/l_debug</td><td class="col2">デバッグのため配列の異常値チェックや出力を行う</td>
+	</tr>
+	<tr class="row55">
+		<td class="col0">PARALLEL</td><td class="col1">MPIによる並列化</td>
+	</tr>
+	<tr class="row56">
+		<td class="col0" rowspan="5">ネスティング</td><td class="col1">OFFNESTPAR</td><td class="col2">オフライン・ネスティング親モデル</td>
+	</tr>
+	<tr class="row57">
+		<td class="col0">OFFNESTSUB</td><td class="col1">オフライン・ネスティング子モデル</td>
+	</tr>
+	<tr class="row58">
+		<td class="col0">SCUPNEST</td><td class="col1">オンライン・ネスティングの使用</td>
+	</tr>
+	<tr class="row59">
+		<td class="col0">PARENT</td><td class="col1">オンライン・ネスティング親モデル</td>
+	</tr>
+	<tr class="row60">
+		<td class="col0">SUB</td><td class="col1">オンライン・ネスティング子モデル</td>
+	</tr>
+	<tr class="row61">
+		<td class="col0" rowspan="2">システム連携</td><td class="col1">CGCM</td><td class="col2">結合モデルの海洋モジュールとして動作する</td>
+	</tr>
+	<tr class="row62">
+		<td class="col0">MOVE</td><td class="col1">海洋データ同化システムMOVEの海洋モジュールとして動作する</td>
+	</tr>
+</table></div>
+<!-- EDIT2 TABLE [332-5211] -->
+</div>
+</div>
+</body>
+</html>

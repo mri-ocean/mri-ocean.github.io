@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:rectangle:run_test</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,rectangle,run_test"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:rectangle';var JSINFO = {"id":"mri.com-user:rectangle:run_test","namespace":"mri.com-user:rectangle"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#標準実験のチュートリアル">標準実験のチュートリアル</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#実験環境の用意">実験環境の用意</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#パッケージの展開">パッケージの展開</a></div></li>
+<li class="level3"><div class="li"><a href="#入力データの展開">入力データの展開</a></div></li>
+<li class="level3"><div class="li"><a href="#シンボリック・リンクの作成">シンボリック・リンクの作成</a></div></li>
+<li class="level3"><div class="li"><a href="#初期値データの用意">初期値データの用意</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#mricomのコンパイル">MRI.COMのコンパイル</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#マシン環境の設定">マシン環境の設定</a></div></li>
+<li class="level3"><div class="li"><a href="#コンパイル">コンパイル</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#プログラムの実行">プログラムの実行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#実行の準備">実行の準備</a></div></li>
+<li class="level3"><div class="li"><a href="#プログラムの実行1">プログラムの実行</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#実験結果の確認と後処理">実験結果の確認と後処理</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#リスタートファイルとヒストリーファイル">リスタートファイルとヒストリーファイル</a></div></li>
+<li class="level3"><div class="li"><a href="#解の簡単な確認">解の簡単な確認</a></div></li>
+<li class="level3"><div class="li"><a href="#ファイルの移動">ファイルの移動</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="標準実験のチュートリアル">標準実験のチュートリアル</h1>
+<div class="level1">
+
+<p>
+とりあえずデフォルト設定で動かす手順です。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "標準実験のチュートリアル" [1-117] -->
+<h2 class="sectionedit2" id="実験環境の用意">実験環境の用意</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "実験環境の用意" [118-152] -->
+<h3 class="sectionedit3" id="パッケージの展開">パッケージの展開</h3>
+<div class="level3">
+
+<p>
+<a href="./mri.com-user_rectangle_start.html#提供物と取得方法" class="wikilink1" title="mri.com-user_rectangle_start">提供物と取得方法</a>を参照し、実験環境一式のパッケージをgitで取得する。
+</p>
+
+<p>
+以下、展開して現れるディレクトリ rectangle/ を$HOMEと表記する。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "パッケージの展開" [153-412] -->
+<h3 class="sectionedit4" id="入力データの展開">入力データの展開</h3>
+<div class="level3">
+
+<p>
+実験入力データ一式を<a href="https://github.com/mokkei1978/rectangle_data/" class="urlextern" title="https://github.com/mokkei1978/rectangle_data/" rel="nofollow">GitHub (仮置き場)</a>から取得する。<sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup>　気象研内では不要。
+</p>
+<pre class="code">&gt; wget https://github.com/mokkei1978/rectangle_data/archive/master.zip; unzip master.zip</pre>
+
+</div>
+<!-- EDIT4 SECTION "入力データの展開" [413-770] -->
+<h3 class="sectionedit5" id="シンボリック・リンクの作成">シンボリック・リンクの作成</h3>
+<div class="level3">
+
+<p>
+以下のシンボリック・リンクを作る。
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">リンク</th><th class="col1">リンク先</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">$HOME/linkdir/data</td><td class="col1">入力データを展開して現れるrectangle_dataディレクトリ</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">$HOME/linkdir/result</td><td class="col1">入出力ファイル用のディレクトリ(どこでも良い)。以降、絶対パスを$RESULTと表記</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">$HOME/exp/result-main</td><td class="col1">$RESULT/result-main(作る)</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">$HOME/exp/result-sub</td><td class="col1">$RESULT/result-sub(ネスト子モデル用、必要であれば作る)</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">$HOME/exp/result-bay</td><td class="col1">$RESULT/result-bay(ネスト孫モデル用、必要であれば作る)</td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [875-1366] -->
+<p>
+(気象研内では ./Setup.shを使えば自動で設定。)
+</p>
+
+</div>
+<!-- EDIT5 SECTION "シンボリック・リンクの作成" [771-1429] -->
+<h3 class="sectionedit7" id="初期値データの用意">初期値データの用意</h3>
+<div class="level3">
+<pre class="code">&gt; cd $HOME/exp/run
+&gt; sh link_restart.sh</pre>
+
+<p>
+初期値ファイルへのシンボリック・リンクが $HOME/exp/result-main/ の中に作られる。(デフォルト設定で使用するのは、rs_t, rs_s, rs_u, rs_v, rs_ssh, rs_uml, rs_vml のみ。)
+</p>
+
+</div>
+<!-- EDIT7 SECTION "初期値データの用意" [1430-1728] -->
+<h2 class="sectionedit8" id="mricomのコンパイル">MRI.COMのコンパイル</h2>
+<div class="level2">
+
+<p>
+マシン環境を設定したあとにMRI.COMをコンパイルする。
+</p>
+
+</div>
+<!-- EDIT8 SECTION "MRI.COMのコンパイル" [1729-1842] -->
+<h3 class="sectionedit9" id="マシン環境の設定">マシン環境の設定</h3>
+<div class="level3">
+
+<p>
+気象研内と気象研外では設定方法が異なる。
+</p>
+
+</div>
+
+<h4 id="気象研内">気象研内</h4>
+<div class="level4">
+<pre class="code">&gt; cd $HOME/exp/run
+&gt; sh setup.sh</pre>
+
+<p>
+マシン環境に応じて、コンパイル設定の変更と、実行シェル・スクリプトrun.shの作成を行う。
+</p>
+
+</div>
+
+<h4 id="気象研外">気象研外</h4>
+<div class="level4">
+
+<p>
+コンパイラ等のビルド環境を $HOME/exp/config_files/configure.in に記述する。<sup><a href="#fn__2" id="fnt__2" class="fn_top">2)</a></sup>
+</p>
+
+</div>
+
+<h5 id="自動判定">自動判定</h5>
+<div class="level5">
+
+<p>
+以下のマシンでは、MRI.COM内で自動判定されるので設定は不要です。
+</p>
+<ul>
+<li class="level1"><div class="li"> 東大FX10</div>
+</li>
+<li class="level1"><div class="li"> JAMSTEC ICE-X</div>
+</li>
+</ul>
+
+</div>
+
+<h5 id="標準的なマシン設定の利用">標準的なマシン設定の利用</h5>
+<div class="level5">
+
+<p>
+モデル添付の標準的なマシン設定の中から選ぶ場合は、以下の変数を設定する。
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">変数</th><th class="col1">設定内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">MACHINE</td><td class="col1">$HOME/exp/MRICOM/src/machines/ 以下のディレクトリ名から選ぶ</td>
+	</tr>
+</table></div>
+<!-- EDIT10 TABLE [2640-2745] -->
+<p>
+例えば
+</p>
+<pre class="code">MACHINE=linux86-ifort</pre>
+
+</div>
+
+<h5 id="直接の指定">直接の指定</h5>
+<div class="level5">
+
+<p>
+コンパイラやコンパイル・オプションを直接に指定する場合は、以下の項目を設定する。
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">変数</th><th class="col1">設定内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">F90</td><td class="col1">Fortranコンパイラ</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">FFLAGS</td><td class="col1">コンパイル時オプション</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">INCLUDES</td><td class="col1">結合ライブラリ</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">LDFLAGS</td><td class="col1">結合時オプション</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">POSTFC</td><td class="col1">後処理</td>
+	</tr>
+</table></div>
+<!-- EDIT11 TABLE [2927-3107] -->
+<p>
+詳細は $HOME/exp/MRICOM/README.Firstの3節(To build)を参照せよ。
+</p>
+
+</div>
+
+<h4 id="mpi分割数">MPI分割数</h4>
+<div class="level4">
+
+<p>
+本パッケージのデフォルト設定ではMPI並列を使用する。
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">変数</th><th class="col1">設定内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">NPARTX</td><td class="col1">X方向分割数</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">NPARTY</td><td class="col1">Y方向分割数</td>
+	</tr>
+</table></div>
+<!-- EDIT12 TABLE [3284-3357] -->
+</div>
+<!-- EDIT9 SECTION "マシン環境の設定" [1843-3358] -->
+<h3 class="sectionedit13" id="コンパイル">コンパイル</h3>
+<div class="level3">
+
+<p>
+exp/srcディレクトリで configure と make を行う。
+</p>
+<pre class="code">&gt; cd $HOME/exp/src
+&gt; ./configure
+&gt; make</pre>
+
+<p>
+configure (シェル・スクリプト)を実行すると、コンパイルに必要な項目が $HOME/exp/config_files/configure.in ファイルをもとに設定され、Makefileが作成される。
+次にmakeによってコンパイルが成功すると実行モジュール ogcm　が作られる。
+</p>
+
+</div>
+<!-- EDIT13 SECTION "コンパイル" [3359-3800] -->
+<h2 class="sectionedit14" id="プログラムの実行">プログラムの実行</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT14 SECTION "プログラムの実行" [3801-3838] -->
+<h3 class="sectionedit15" id="実行の準備">実行の準備</h3>
+<div class="level3">
+
+<p>
+実行準備のシェル・スクリプト run_pre.sh を実行する。
+</p>
+<pre class="code">&gt; cd $HOME/exp/run
+&gt; sh run_pre.sh</pre>
+
+<p>
+実行モジュール ogcm が実行ディレクトリ $HOME/exp/run にコピーされる。また、実行時に読み込むNAMELISTファイル(NAMELIST.OGCM)が作られる。
+</p>
+
+</div>
+<!-- EDIT15 SECTION "実行の準備" [3839-4160] -->
+<h3 class="sectionedit16" id="プログラムの実行1">プログラムの実行</h3>
+<div class="level3">
+
+<p>
+実行モジュール ogcm を直接に実行するか、マシンやMPI分割数に応じて編集した実行スクリプト run.sh を使う。
+</p>
+
+<p>
+入力ファイルは全て Big Endian である。<sup><a href="#fn__3" id="fnt__3" class="fn_top">3)</a></sup>
+</p>
+
+</div>
+<!-- EDIT16 SECTION "プログラムの実行" [4161-4721] -->
+<h2 class="sectionedit17" id="実験結果の確認と後処理">実験結果の確認と後処理</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT17 SECTION "実験結果の確認と後処理" [4722-4768] -->
+<h3 class="sectionedit18" id="リスタートファイルとヒストリーファイル">リスタートファイルとヒストリーファイル</h3>
+<div class="level3">
+
+<p>
+$HOME/exp/result-main/ にプレフィックス「rs_」のリスタートファイルと、「hs_」のヒストリーファイルが出力されたことを確認する。grads controlファイルも作成される。
+</p>
+
+</div>
+<!-- EDIT18 SECTION "リスタートファイルとヒストリーファイル" [4769-5058] -->
+<h3 class="sectionedit19" id="解の簡単な確認">解の簡単な確認</h3>
+<div class="level3">
+
+<p>
+標準出力ログファイル「OGCM-19010101-stdout.0000」中の「zos (#snap,area_average#)」項目(領域平均した海面高度)の値を確認する。
+</p>
+<pre class="code">% grep &quot;zos (#snap&quot; OGCM-19010101-stdout.0000</pre>
+
+<p>
+値がほぼゼロであれば良い(体積保存)。
+</p>
+
+</div>
+<!-- EDIT19 SECTION "解の簡単な確認" [5059-5357] -->
+<h3 class="sectionedit20" id="ファイルの移動">ファイルの移動</h3>
+<div class="level3">
+
+<p>
+出力データとログファイルを $HOME/linkdir/result/finish/ に移す。
+</p>
+<pre class="code">&gt; cd $HOME/exp/run
+&gt; sh move_result.sh</pre>
+
+</div>
+<!-- EDIT20 SECTION "ファイルの移動" [5358-] --><div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<div class="content">「Clone or download」→「Download ZIP」でも良い。</div></div>
+<div class="fn"><sup><a href="#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+<div class="content">シェル・スクリプトconfigure実行時に、.コマンドで読み込まれる。</div></div>
+<div class="fn"><sup><a href="#fnt__3" id="fn__3" class="fn_bot">3)</a></sup> 
+<div class="content">データ読み込み事のユニット(open 文内でreclで指定されるフォーマットデータ長の値の単位)が1バイトであることを前提にしている。コンパイルオプションや、実行シェル・スクリプト内での環境変数の設定などが必要になる場合がある。</div></div>
+</div>
+</div>
+</body>
+</html>

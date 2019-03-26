@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:tp_nest:run_ocean</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,tp_nest,run_ocean"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:tp_nest';var JSINFO = {"id":"mri.com-user:tp_nest:run_ocean","namespace":"mri.com-user:tp_nest"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#全球_熱帯ネストモデル実験_海洋単体_の実施方法">全球－熱帯ネストモデル実験（海洋単体）の実施方法</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#準備_入力ファイルの整備_実験設定の作成_ソースのコンパイルなど">準備(入力ファイルの整備、実験設定の作成、ソースのコンパイルなど)</a></div></li>
+<li class="level2"><div class="li"><a href="#モデルの積分_fx100">モデルの積分（@FX100）</a></div></li>
+<li class="level2"><div class="li"><a href="#実験結果のルーチン処理_任意のワークステーション">実験結果のルーチン処理（@任意のワークステーション）</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="全球_熱帯ネストモデル実験_海洋単体_の実施方法">全球－熱帯ネストモデル実験（海洋単体）の実施方法</h1>
+<div class="level1">
+
+<p>
+ここでは、気象研 FX100 を用いた「全球－熱帯域高解像度モデルネスティング実験」の実施について、推奨される方法を説明します。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "全球－熱帯ネストモデル実験（海洋単体）の実施方法" [1-268] -->
+<h2 class="sectionedit2" id="準備_入力ファイルの整備_実験設定の作成_ソースのコンパイルなど">準備(入力ファイルの整備、実験設定の作成、ソースのコンパイルなど)</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="入力ファイルの場所を確認">1. 入力ファイルの場所を確認</h4>
+<div class="level4">
+
+<p>
+モデルへの入力データの一式が以下に用意されている。ocsv003 および front では 2. の処理によりシンボリックリンクが自動で作成される。
+</p>
+<pre class="code"> ocsv003:/work/a/htsujino/TP_NEST/data, forcing, restart 
+ front:/data/ocpublic/TP_NEST/data, forcing, restart</pre>
+
+</div>
+
+<h4 id="パッケージを_clone_して_初期設定を行う">2. パッケージを clone して、初期設定を行う</h4>
+<div class="level4">
+<pre class="code">     $ git clone http://jksv-pj.npd.naps.kishou.go.jp/git_repos/ocean/tp_nest
+     $ cd tp_nest/linkdir
+     $ cp sample/link.sh link.sh 
+     (link.sh を必要に応じて編集, SCUP の場所を確認しておく)
+     $ cd ..
+     $ cd setting
+     $ cp sample/make_macros.make.sh .
+     (make_macros.make.sh を必要に応じて編集)
+     $ cd .. 
+     $ ./Setup.sh</pre>
+<ul>
+<li class="level1"><div class="li"> パッケージが更新された時には、以下のようにして最新版を取得する</div>
+</li>
+</ul>
+<pre class="code">    (tp_nest パッケージが展開されたディレクトリから)
+    $ git checkout master
+    $ (git checkout -- 変更したけど残さないファイル名) # 書き換えたファイルを元のmasterに戻す場合（競合を起こさないため）
+    $ git fetch origin
+    $ git pull origin master</pre>
+
+</div>
+
+<h4 id="exp_に移動し_sample_ディレクトリから_config_expsh_をコピー">3. exp に移動し、sample ディレクトリから config_exp.sh をコピー</h4>
+<div class="level4">
+<pre class="code">     $ cd exp
+     $ cp sample/config_exp.sh .</pre>
+
+</div>
+
+<h4 id="config_expsh_を編集">4. config_exp.sh を編集</h4>
+<div class="level4">
+<pre class="code">    STOREDIR : ルーチン処理や事後解析を行うサーバー等における実験結果の格納場所
+    FX100DIR : FX100 における実験結果の格納場所
+    FX100HOME: FX100 における実験実施場所
+    ST_YEAR, ST_MON, ST_DAY : 実験開始年月日
+    ED_YEAR, ED_MON, ED_DAY : 実験開始年月日
+    CONT_GLB : 全球モデルをリスタートファイルから始めるか否か[yes,no]
+    INIT_DIR_GLB : リスタートファイルから始める場合、リスタートファイルの格納場所 (../linkdir/restart 以下からディレクトリ名を選択)
+    CONT_TP : 熱帯域モデルをリスタートファイルから始めるか否か[yes,no]
+    INIT_DIR_TP : リスタートファイルから始める場合、リスタートファイルの格納場所  (../linkdir/restart 以下からディレクトリ名を選択)</pre>
+<ul>
+<li class="level1"><div class="li"> 1958 年から実験を開始する場合、全球は GONDOLA_100 でスピンアップした状態、熱帯は一様成層静止状態から始める。<code>config_exp.sh</code>では</div>
+</li>
+</ul>
+<pre class="code">    export CONT_GLB=yes
+    export INIT_DIR_GLB=glb.02
+    export CONT_TP=no
+    export INIT_DIR_TP=dummy</pre>
+
+<p>
+　　のようにする。
+</p>
+
+</div>
+
+<h4 id="ソースの展開とリンク">5. ソースの展開とリンク</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 実験に使う MRI.COM ソースをtar ball等で取得する(暫定的に front:/home/htsujino/MRICOM-git/MRICOM-4_0-20150828.tgz)</div>
+</li>
+<li class="level1"><div class="li"> ソースを展開する (exp/MRICOM ディレクトリとする)</div>
+</li>
+<li class="level1"><div class="li"> src-glb, src-tp ディレクトリから MRICOM/src の中身にリンクを貼る</div>
+</li>
+</ul>
+<pre class="code">      (exp ディレクトリで)
+      $ tar xvfz MRICOM-4_0-20150828.tgz
+      $ cd MRICOM
+      $ ln -s ../MRICOM-4_0-20150828/* .
+      $ cd ..
+      $ cd src-glb
+      $ ln -s ../MRICOM/src/* .
+      $ cd src-tp
+      $ ln -s ../MRICOM/src/* .</pre>
+
+</div>
+<!-- EDIT2 SECTION "準備(入力ファイルの整備、実験設定の作成、ソースのコンパイルなど)" [269-3630] -->
+<h2 class="sectionedit3" id="モデルの積分_fx100">モデルの積分（@FX100）</h2>
+<div class="level2">
+
+<p>
+<strong>exp</strong> ディレクトリで 全球－熱帯域ネスト モデルの実行を行う
+</p>
+
+</div>
+
+<h4 id="実験の実行環境を作成">1. 実験の実行環境を作成</h4>
+<div class="level4">
+<pre class="code">     $ ./make_newexp.sh 実験名  (実験名は spinup_001, historical_002 等と &quot;実験内容&quot;_&quot;実験番号&quot; とする)</pre>
+
+</div>
+
+<h4 id="run_ディレクトリに移動">2. run ディレクトリに移動</h4>
+<div class="level4">
+<pre class="code">     $ cd run</pre>
+
+</div>
+
+<h4 id="configsh_の編集">3. config.sh の編集</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> config.sh は 1. の <code>make_newexp.sh</code> の実行により、<code>run/sample/config.sh_template</code> をもとに、<code>../config_exp.sh</code> で指定した内容を反映して作成される。</div>
+</li>
+<li class="level1"><div class="li"> config.sh の中の force で海面外力の種類を定義(force=jra55 のみをサポート)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="ソースのコンパイル">4. ソースのコンパイル</h4>
+<div class="level4">
+<pre class="code">    ($ module load TCSuite/fx/fx ... まだコンパイラモジュールをロードしていない場合)
+     $ ./compile.sh </pre>
+
+<p>
+stat
+</p>
+
+</div>
+
+<h4 id="初期値を_restart-_glb_tp_にシンボリックリンク">5. 初期値を restart-[glb,tp] にシンボリックリンク</h4>
+<div class="level4">
+<pre class="code">     $ ./link_restart.sh </pre>
+
+</div>
+
+<h4 id="run_presh_の実行によりnamelistなどを作成">6. run_pre.sh の実行によりnamelistなどを作成</h4>
+<div class="level4">
+
+<p>
+以下のファイルの内容を必要に応じてチェックする
+</p>
+<ul>
+<li class="level1"><div class="li">  NAMELIST.GLOBAL</div>
+</li>
+<li class="level1"><div class="li">  NAMELIST.TROPIC</div>
+</li>
+<li class="level1"><div class="li">  date.txt</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="実験の実行">7. 実験の実行</h4>
+<div class="level4">
+<pre class="code">     $ pjsub run.sh （１ヶ月だけ実行する場合）
+     $ submit_step_job.sh 12 （１年(12ヶ月)実行する場合）</pre>
+
+</div>
+
+<h4 id="実行ログの整理">8. 実行ログの整理</h4>
+<div class="level4">
+<pre class="code">     $ ./clean_logs.sh YYYYMMDD (実験が成功すれば run.sh の最後で実行される)</pre>
+
+</div>
+<!-- EDIT3 SECTION "モデルの積分（@FX100）" [3631-5164] -->
+<h2 class="sectionedit4" id="実験結果のルーチン処理_任意のワークステーション">実験結果のルーチン処理（@任意のワークステーション）</h2>
+<div class="level2">
+
+<p>
+<strong>exp</strong> ディレクトリで 全球－熱帯域ネスト モデルのルーチン処理環境を作成、<strong>storeroom/実験名</strong> で処理を行う
+</p>
+
+</div>
+
+<h4 id="各実験結果の処理環境を作成">1. 各実験結果の処理環境を作成</h4>
+<div class="level4">
+<pre class="code">    $ ./make_exp_storeroom.sh 実験名 ⇒ storeroom/実験名 以下に環境が作成される</pre>
+
+</div>
+
+<h4 id="実験結果のコピー">2. 実験結果のコピー</h4>
+<div class="level4">
+<pre class="code">    $ cd storeroom/実験名
+    $ ./rsync_front.sh</pre>
+
+<p>
+スパコン共用ストレージに積分結果を出力した場合などにはコピーは不要になります。
+</p>
+
+</div>
+
+<h4 id="tools_tp_tools_glb_にけるルーチン処理">3. tools_tp, tools_glb にけるルーチン処理</h4>
+<div class="level4">
+
+<p>
+以下の処理プログラムが用意されている
+</p>
+<ul>
+<li class="level1"><div class="li"> 海峡通過流 (passages_itf_mon.sh)</div>
+</li>
+<li class="level2"><div class="li"> 子午面循環 (moc.sh, gmmoc.sh)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "実験結果のルーチン処理（@任意のワークステーション）" [5165-] --></div>
+</body>
+</html>

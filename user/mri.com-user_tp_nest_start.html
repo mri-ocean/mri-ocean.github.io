@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:tp_nest:start</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,tp_nest,start"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:tp_nest';var JSINFO = {"id":"mri.com-user:tp_nest:start","namespace":"mri.com-user:tp_nest"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#全球_熱帯域ネストモデル_mricom-tp_nest">全球－熱帯域ネストモデル MRI.COM-TP_NEST</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#概要">概要</a></div></li>
+<li class="level2"><div class="li"><a href="#デモ">デモ</a></div></li>
+<li class="level2"><div class="li"><a href="#必要要件">必要要件</a></div></li>
+<li class="level2"><div class="li"><a href="#モデル動作実績">モデル動作実績</a></div></li>
+<li class="level2"><div class="li"><a href="#提供物">提供物</a></div></li>
+<li class="level2"><div class="li"><a href="#取得方法">取得方法</a></div></li>
+<li class="level2"><div class="li"><a href="#モデル実行方法">モデル実行方法</a></div></li>
+<li class="level2"><div class="li"><a href="#バージョン">バージョン</a></div></li>
+<li class="level2"><div class="li"><a href="#開発に参加するには">開発に参加するには</a></div></li>
+<li class="level2"><div class="li"><a href="#ライセンス">ライセンス</a></div></li>
+<li class="level2"><div class="li"><a href="#発表資料">発表資料</a></div></li>
+<li class="level2"><div class="li"><a href="#開発">開発</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="全球_熱帯域ネストモデル_mricom-tp_nest">全球－熱帯域ネストモデル MRI.COM-TP_NEST</h1>
+<div class="level1">
+
+<p>
+気候モデルにおける熱帯域の海洋高解像度化のインパクトを調べるための、東西20 km、南北10 km 解像度のネスト・モデル。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "全球－熱帯域ネストモデル MRI.COM-TP_NEST" [1-234] -->
+<h2 class="sectionedit2" id="概要">概要</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 全球モデルは GONDOLA_100</div>
+</li>
+<li class="level1"><div class="li"> 東西は全球と端を同じにした周期境界条件(西端 80ºE)、南北は19ºS-17ºN</div>
+</li>
+<li class="level1"><div class="li"> 水平解像度1/5º×1/10º、61層だが BBL なし</div>
+</li>
+<li class="level1"><div class="li"> フォーシングにはJRA55を使用</div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_tp_nest_spec.html" class="wikilink2" title="mri.com-user_tp_nest_spec" rel="nofollow">詳細な仕様</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "概要" [235-519] -->
+<h2 class="sectionedit3" id="デモ">デモ</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT3 SECTION "デモ" [520-539] -->
+<h2 class="sectionedit4" id="必要要件">必要要件</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Fortran コンパイラ</div>
+</li>
+<li class="level1"><div class="li"> MPIライブラリ</div>
+</li>
+<li class="level1"><div class="li"> make</div>
+</li>
+<li class="level1"><div class="li"> GrADS</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "必要要件" [540-636] -->
+<h2 class="sectionedit5" id="モデル動作実績">モデル動作実績</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 気象研スパコン FX-100</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "モデル動作実績" [637-705] -->
+<h2 class="sectionedit6" id="提供物">提供物</h2>
+<div class="level2">
+<ul>
+<li class="level1 node"><div class="li"> <a href="./mri.com-user_tp_nest_package.html" class="wikilink1" title="mri.com-user_tp_nest_package">パッケージ(ソースコードと解析ツール等一式)</a></div>
+<ul>
+<li class="level2"><div class="li"> gitリポジトリ: <a href="http://jksv-pj.npd.naps.kishou.go.jp/git_repos/ocean/tp_nest" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/git_repos/ocean/tp_nest" rel="nofollow">http://jksv-pj.npd.naps.kishou.go.jp/git_repos/ocean/tp_nest</a></div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 入力ファイル　ocsv003:/work/a/htsujino/TP_NEST/</div>
+<ul>
+<li class="level2"><div class="li"> 設定ファイル(data)、リスタート(restart)、フォーシング(forcing)</div>
+</li>
+<li class="level2"><div class="li"> 一部は front:/data/htsujino/tp_nest/ にミラーリング</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_tp_nest_result.html" class="wikilink2" title="mri.com-user_tp_nest_result" rel="nofollow">実験結果</a>　気象庁内のみ</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "提供物" [706-1159] -->
+<h2 class="sectionedit7" id="取得方法">取得方法</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 気象庁、気象研の方：「提供物」を参照</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "取得方法" [1160-1246] -->
+<h2 class="sectionedit8" id="モデル実行方法">モデル実行方法</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_tp_nest_run_ocean.html" class="wikilink1" title="mri.com-user_tp_nest_run_ocean">海洋単独の実験を行う</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_tp_nest_run_cgcm.html" class="wikilink1" title="mri.com-user_tp_nest_run_cgcm">大気－海洋結合モデルの実験を行う</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "モデル実行方法" [1247-1398] -->
+<h2 class="sectionedit9" id="バージョン">バージョン</h2>
+<div class="level2">
+
+<p>
+<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/jpn/roadmap" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/jpn/roadmap" rel="nofollow">本庁Redmine</a>を参照。
+</p>
+
+</div>
+<!-- EDIT9 SECTION "バージョン" [1399-1530] -->
+<h2 class="sectionedit10" id="開発に参加するには">開発に参加するには</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 気象研、気象庁の方：<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/jpn" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/jpn" rel="nofollow">本庁Redmine</a>に参加</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "開発に参加するには" [1531-1697] -->
+<h2 class="sectionedit11" id="ライセンス">ライセンス</h2>
+<div class="level2">
+
+<p>
+気象庁用です。
+</p>
+
+</div>
+<!-- EDIT11 SECTION "ライセンス" [1698-1749] -->
+<h2 class="sectionedit12" id="発表資料">発表資料</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT12 SECTION "発表資料" [1750-1776] -->
+<h2 class="sectionedit13" id="開発">開発</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 辻野（海洋・地球化学研究部） htsujino@mri-jma.go.jp</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT13 SECTION "開発" [1777-] --></div>
+</body>
+</html>

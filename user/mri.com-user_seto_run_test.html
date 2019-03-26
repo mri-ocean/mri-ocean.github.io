@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:seto:run_test</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,seto,run_test"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:seto';var JSINFO = {"id":"mri.com-user:seto:run_test","namespace":"mri.com-user:seto"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#標準実験のチュートリアル">標準実験のチュートリアル</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#実験環境の用意">実験環境の用意</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#パッケージの展開">パッケージの展開</a></div></li>
+<li class="level3"><div class="li"><a href="#入力データの展開">入力データの展開</a></div></li>
+<li class="level3"><div class="li"><a href="#シンボリック・リンクの作成_一度だけ">シンボリック・リンクの作成(一度だけ)</a></div></li>
+<li class="level3"><div class="li"><a href="#シンボリック・リンクの作成_実験ごと">シンボリック・リンクの作成(実験ごと)</a></div></li>
+<li class="level3"><div class="li"><a href="#初期値データの用意">初期値データの用意</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#mricomのコンパイル">MRI.COMのコンパイル</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#気象研海洋_スパコンの場合">気象研海洋、スパコンの場合</a></div></li>
+<li class="level3"><div class="li"><a href="#その他の場合">その他の場合</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#プログラムの実行">プログラムの実行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#実行の準備">実行の準備</a></div></li>
+<li class="level3"><div class="li"><a href="#プログラムの実行1">プログラムの実行</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#実験結果の確認と後処理">実験結果の確認と後処理</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#リスタートファイルとヒストリーファイル">リスタートファイルとヒストリーファイル</a></div></li>
+<li class="level3"><div class="li"><a href="#解の簡単な確認">解の簡単な確認</a></div></li>
+<li class="level3"><div class="li"><a href="#ファイルの掃除">ファイルの掃除</a></div></li>
+<li class="level3"><div class="li"><a href="#後処理">後処理</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="標準実験のチュートリアル">標準実験のチュートリアル</h1>
+<div class="level1">
+
+<p>
+デフォルト設定で実験を行う手順です。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "標準実験のチュートリアル" [1-106] -->
+<h2 class="sectionedit2" id="実験環境の用意">実験環境の用意</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "実験環境の用意" [107-141] -->
+<h3 class="sectionedit3" id="パッケージの展開">パッケージの展開</h3>
+<div class="level3">
+
+<p>
+パッケージのtar ballを展開するか、gitでパッケージを取得する。
+</p>
+<pre class="code">&gt; git clone [共有リポジトリURL]</pre>
+
+<p>
+以下、展開したディレクトリを$HOMEと表記する。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "パッケージの展開" [142-372] -->
+<h3 class="sectionedit4" id="入力データの展開">入力データの展開</h3>
+<div class="level3">
+
+<p>
+実験入力データ一式(MRICOM-seto-data.tar.gz)を気象研開発者から取得し、適当な場所($HOME/の下でなくて良い)で展開する。
+</p>
+<pre class="code">&gt; tar -zxvf MRICOM-seto-data.tar.gz</pre>
+
+</div>
+<!-- EDIT4 SECTION "入力データの展開" [373-603] -->
+<h3 class="sectionedit5" id="シンボリック・リンクの作成_一度だけ">シンボリック・リンクの作成(一度だけ)</h3>
+<div class="level3">
+
+<p>
+以下のシンボリック・リンクを作る。
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">リンク</th><th class="col1">リンク先</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">$HOME/linkdir/data</td><td class="col1">MRICOM-seto-data.tarを展開して現れるdataディレクトリ</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">$HOME/linkdir/restart</td><td class="col1">同じくrestartディレクトリ</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">$HOME/linkdir/result</td><td class="col1">出力ファイル用のディレクトリ(どこでも良い)。以降、絶対パスを$RESULTと表記</td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [722-1022] -->
+<p>
+気象研内であれば、トップのシェル・スクリプト Setup.sh でリンクが作られます。
+</p>
+
+</div>
+<!-- EDIT5 SECTION "シンボリック・リンクの作成(一度だけ)" [604-1134] -->
+<h3 class="sectionedit7" id="シンボリック・リンクの作成_実験ごと">シンボリック・リンクの作成(実験ごと)</h3>
+<div class="level3">
+
+<p>
+次に実験の出力用のディレクトリを作る。
+</p>
+<pre class="code">&gt; cd $HOME/exp
+&gt; sh make_newexp.sh [適当な実験名]</pre>
+
+</div>
+<!-- EDIT7 SECTION "シンボリック・リンクの作成(実験ごと)" [1135-1319] -->
+<h3 class="sectionedit8" id="初期値データの用意">初期値データの用意</h3>
+<div class="level3">
+<pre class="code">&gt; cd $HOME/exp/run
+&gt; sh link_restart.sh</pre>
+
+<p>
+初期値ファイルへのシンボリック・リンクが $HOME/exp/restart/ の中に作られる。
+</p>
+
+</div>
+<!-- EDIT8 SECTION "初期値データの用意" [1320-1511] -->
+<h2 class="sectionedit9" id="mricomのコンパイル">MRI.COMのコンパイル</h2>
+<div class="level2">
+
+<p>
+ビルド環境を設定してから、MRI.COMをコンパイルします。
+</p>
+
+</div>
+<!-- EDIT9 SECTION "MRI.COMのコンパイル" [1512-1626] -->
+<h3 class="sectionedit10" id="気象研海洋_スパコンの場合">気象研海洋、スパコンの場合</h3>
+<div class="level3">
+
+<p>
+気象研内では、シェル・スクリプトによってビルド環境の設定、並列数の調整、実行スクリプトの修正を一括して行います。
+</p>
+<pre class="code">&gt; cd $HOME/exp/run
+&gt; sh setup.sh main
+&gt; cd $HOME/exp/src
+&gt; sh compile.sh</pre>
+
+</div>
+<!-- EDIT10 SECTION "気象研海洋、スパコンの場合" [1627-1928] -->
+<h3 class="sectionedit11" id="その他の場合">その他の場合</h3>
+<div class="level3">
+
+<p>
+コンパイラ等のビルド環境を $HOME/exp/config_files/configure.in に記述する。
+詳細は<a href="./mri.com-user_rectangle_run_test.html#ビルド環境の設定" class="wikilink1" title="mri.com-user_rectangle_run_test">ビルド環境の設定</a>(矩形海モデル)を参照。
+</p>
+
+<p>
+その後、exp/srcディレクトリで configure と make を行う。
+</p>
+<pre class="code">&gt; cd $HOME/exp/src
+&gt; ./configure
+&gt; make</pre>
+
+<p>
+configure (シェル・スクリプト)を実行すると、コンパイルに必要な項目が $HOME/exp/config_files/configure.in ファイルをもとに設定され、Makefileが作成される。
+次にmakeによってコンパイルが成功すると実行モジュール ogcm　が作られる。
+</p>
+
+</div>
+<!-- EDIT11 SECTION "その他の場合" [1929-2583] -->
+<h2 class="sectionedit12" id="プログラムの実行">プログラムの実行</h2>
+<div class="level2">
+
+<p>
+プログラムの実行は exp/run/ で行う。
+用意されているファイルについてはREADME.mdを参照。
+</p>
+
+</div>
+<!-- EDIT12 SECTION "プログラムの実行" [2584-2742] -->
+<h3 class="sectionedit13" id="実行の準備">実行の準備</h3>
+<div class="level3">
+
+<p>
+実行準備のシェル・スクリプト run_pre.sh を実行する。
+</p>
+<pre class="code">&gt; cd $HOME/exp/run
+&gt; sh run_pre.sh</pre>
+
+<p>
+実行モジュール ogcm が実行ディレクトリ $HOME/exp/run にコピーされ、実行時に読み込むNAMELISTファイル(NAMELIST.SETO, NAMELIST.SETO.MONITOR)が作られることを確認して下さい。
+</p>
+
+</div>
+<!-- EDIT13 SECTION "実行の準備" [2743-3105] -->
+<h3 class="sectionedit14" id="プログラムの実行1">プログラムの実行</h3>
+<div class="level3">
+
+<p>
+実行モジュール ogcm を直接に実行するか、編集した run.sh を使う。
+</p>
+<ul>
+<li class="level1"><div class="li"> はじめに実行するときは、デバッグモードにしておくと(NAMELIST.SETOのl_debug=.true.)、どこまで動いたかが分かりやすい。</div>
+</li>
+<li class="level1"><div class="li"> デフォルトでは20ステップのテスト実験をします。run.conf を編集して、実験の時間ステップや出力を変更できます。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT14 SECTION "プログラムの実行" [3106-3556] -->
+<h2 class="sectionedit15" id="実験結果の確認と後処理">実験結果の確認と後処理</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT15 SECTION "実験結果の確認と後処理" [3557-3601] -->
+<h3 class="sectionedit16" id="リスタートファイルとヒストリーファイル">リスタートファイルとヒストリーファイル</h3>
+<div class="level3">
+
+<p>
+$HOME/exp/restart/ にプレフィックス「rs_」のリスタートファイル、exp/hst_1day/に「hs_」のヒストリーファイルが出力されたことを確認する。
+</p>
+
+</div>
+<!-- EDIT16 SECTION "リスタートファイルとヒストリーファイル" [3602-3854] -->
+<h3 class="sectionedit17" id="解の簡単な確認">解の簡単な確認</h3>
+<div class="level3">
+
+<p>
+標準出力ログは exp/run/log/ に作成される。
+</p>
+
+<p>
+標準出力ログファイル「SETO-201110101-stdout.0000」中の「SSH Snap Ave」項目(領域平均した海面高度)の値を確認する。
+</p>
+<pre class="code">% grep &quot;SSH Snap&quot; SETO-201110101-stdout.0000</pre>
+
+<p>
+値が 25.18688145148407 に近ければ良い。
+</p>
+
+</div>
+<!-- EDIT17 SECTION "解の簡単な確認" [3855-4194] -->
+<h3 class="sectionedit18" id="ファイルの掃除">ファイルの掃除</h3>
+<div class="level3">
+<pre class="code">&gt; cd $HOME/exp
+&gt; sh clean_exp_confs.sh</pre>
+
+</div>
+<!-- EDIT18 SECTION "ファイルの掃除" [4195-4271] -->
+<h3 class="sectionedit19" id="後処理">後処理</h3>
+<div class="level3">
+
+<p>
+後処理は以下。
+</p>
+<pre class="code">% cd lib/
+% make  !!! MXEライブラリのコンパイル
+% cd setting/
+% sh make_namelist.sh  !!! namelist.configure.in の作成。時間(出力ファイルのサフィックス)を変更するには iolst-hst.add を編集
+% cd postp/
+% sh post.sh [実験名]  !!! 出力ファイルを適当なサブディレクトリに振り分け、gradsコントロールファイルを作る</pre>
+
+</div>
+<!-- EDIT19 SECTION "後処理" [4272-] --></div>
+</body>
+</html>

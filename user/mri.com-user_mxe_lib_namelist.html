@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:namelist</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,namelist"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:namelist","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#namelistファイル">namelistファイル</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#サンプル">サンプル</a></div></li>
+<li class="level2"><div class="li"><a href="#内容">内容</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="namelistファイル">namelistファイル</h1>
+<div class="level1">
+
+<p>
+MXEライブラリは、namelistファイルを基に、実験設定情報を抱える構造体(para,grid,topo,io)を作成します。
+</p>
+
+<p>
+通常では./NAMELIST.MXEを参照しますが、ツールによっては他のファイル名が使われることもあります。<sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup>
+</p>
+
+</div>
+<!-- EDIT1 SECTION "namelistファイル" [1-454] -->
+<h2 class="sectionedit2" id="サンプル">サンプル</h2>
+<div class="level2">
+
+<p>
+以下のようなnamelistファイル「NAMELIST.MXE」を準備します。
+</p>
+<pre class="code">&amp;nml_grid_size
+  imut                  = 62,
+  jmut                  = 52,
+  km                    = 10,
+  ksgm                  = 5,
+/
+
+&amp;nml_coordinate
+  lspherical            = .true.,
+/
+
+&amp;nml_vert_grid
+  file_dz_cm            = &quot;../../linkdir/mxe/rect/data/dz_cm.d&quot;,
+/
+
+&amp;nml_horz_grid
+  lon_west_end_of_core  = 0.d0,
+  lat_south_end_of_core = 10.d0,
+  dx_const_deg          = 1.0d0,
+  dy_const_deg          = 1.0d0,
+/
+
+&amp;nml_topo
+  file_topo             = &quot;../../linkdir/mxe/rect/data/topo.d&quot;,
+/
+
+&amp;nml_record_date
+  rec_first_date        = 1901, 1, 1, 0, 0, 0,
+  rec_last_date         = 1901, 1,10, 0, 0, 0,
+  rec_interval_date     =    0, 0, 1, 0, 0, 0,
+/</pre>
+
+</div>
+<!-- EDIT2 SECTION "サンプル" [455-1232] -->
+<h2 class="sectionedit3" id="内容">内容</h2>
+<div class="level2">
+
+<p>
+namelistファイルの内容は以下のとおり。
+</p>
+
+</div>
+
+<h4 id="nml_grid_size">nml_grid_size</h4>
+<div class="level4">
+
+<p>
+モデルの格子数。MRI.COMのconfigure.inに書かれるものと同じ。
+</p>
+<ul>
+<li class="level1"><div class="li">imut [integer]: 経度方向の格子数。</div>
+</li>
+<li class="level1"><div class="li">jmut [integer]: 緯度方向の格子数。</div>
+</li>
+<li class="level1"><div class="li">km [integer]: 深さ方向の層の数。</div>
+</li>
+<li class="level1"><div class="li">ksgm [integer]: σ-layerである層の数。</div>
+</li>
+<li class="level1"><div class="li">kbbl [integer]: BBLである層の数。</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="nml_coordinate">nml_coordinate</h4>
+<div class="level4">
+
+<p>
+モデル座標系の基本設定。configure.in のOPTIONSに対応。
+</p>
+<ul>
+<li class="level1"><div class="li">lsub [logical][default: .false.]: ネスティング・モデルの子モデルである場合に.true.。</div>
+</li>
+<li class="level1"><div class="li">lcyclic [logical][default: .false.]: 東西方向に周期境界の場合に.true.。</div>
+</li>
+<li class="level1"><div class="li">lspherical [logical][default: .false.]: 極座標系の場合に.true.。</div>
+</li>
+<li class="level1"><div class="li">ljot [logical][default: .false.]:</div>
+</li>
+<li class="level1"><div class="li">ltripolar [logical][default: .false.]:</div>
+</li>
+<li class="level1"><div class="li">lzstar [logical][default: .false.]:</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="nml_record_date">nml_record_date</h4>
+<div class="level4">
+
+<p>
+実験のhistory出力に関する情報。
+</p>
+<ul>
+<li class="level1"><div class="li">rec_first_date [integer,要素数6の1次元配列]: ヒストリー出力の最初のレコードの日付・時刻(年,月,日,時,分,秒)。</div>
+</li>
+<li class="level1"><div class="li">rec_last_date [integer,要素数6の1次元配列]: 最終ファイルの日付・時刻(年,月,日,時,分,秒)。</div>
+</li>
+<li class="level1"><div class="li">rec_interval_date [integer,要素数6の1次元配列]: 出力の時間間隔(年,月,日,時,分,秒)。</div>
+</li>
+<li class="level1"><div class="li"> l_leap_year [logical][default: .false.]: 閏年を考慮する(T)、無視する(F)</div>
+</li>
+<li class="level1 node"><div class="li"> suffix [character] [default: &#039;auto&#039;]: 時間を示すファイルのサフィックスの種別。以下から選ぶ。</div>
+<ul>
+<li class="level2"><div class="li"> year/month/day/hour/minute</div>
+</li>
+<li class="level2"><div class="li"> auto - 時間間隔から自動に決める (年毎ならyear, 月毎ならmonthなど)</div>
+</li>
+<li class="level2"><div class="li"> no - サフィックスなし</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> input_header_rec [integer][default: 0] : 読み飛ばすヘッダーの量(単位はレコード)。前年の最後尾レコードがファイルの冒頭に入っている場合に用いる。</div>
+</li>
+</ul>
+
+<p>
+例えば、水温の実験出力ファイルが「t.19950101」「t.19950102」「t.19950103」の3つある場合には、
+</p>
+<pre class="code">rec_first_date   =1995, 1, 1,0,0,0,
+rec_last_date    =1995, 1, 3,0,0,0,
+rec_interval_date=   0, 0, 1,0,0,0,</pre>
+
+</div>
+
+<h4 id="mricomと同じブロック">MRI.COMと同じブロック</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> nml_horz_grid</div>
+</li>
+<li class="level1"><div class="li"> nml_vert_grid</div>
+</li>
+<li class="level1"><div class="li"> nml_scale</div>
+</li>
+<li class="level1 node"><div class="li"> nml_topo</div>
+<ul>
+<li class="level2"><div class="li"> file_topo = &#039;all_sea&#039; とすると地形データを読み込まずに全て海とする</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "内容" [1233-] --><div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<div class="content">ツール開発者がサブルーチンlibmxe_para__registerのオプショナル引数file_namelistでnamelistファイル名を指定。</div></div>
+</div>
+</div>
+</body>
+</html>

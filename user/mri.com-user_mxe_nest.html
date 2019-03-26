@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:nest</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,nest"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:nest","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#prep_nest">prep/nest</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#内容">内容</a></div></li>
+<li class="level2"><div class="li"><a href="#注意">注意</a></div></li>
+<li class="level2"><div class="li"><a href="#格子定義">格子定義</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#namelistnestから読み込むもの">namelist.nestから読み込むもの</a></div></li>
+<li class="level3"><div class="li"><a href="#mkngridsf90において計算されるもの">mkngrids.F90において計算されるもの</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="prep_nest">prep/nest</h1>
+<div class="level1">
+
+<p>
+ネスト実験の子モデルを作成する
+</p>
+
+</div>
+<!-- EDIT1 SECTION "prep/nest" [1-72] -->
+<h2 class="sectionedit2" id="内容">内容</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">ディレクトリ</th><th class="col1">内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"><a href="./mri.com-user_mxe_topo.html" class="wikilink1" title="mri.com-user_mxe_topo">topo</a></td><td class="col1">グリッドと地形を作る</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"><a href="./mri.com-user_mxe_remap.html" class="wikilink1" title="mri.com-user_mxe_remap">remap</a></td><td class="col1">親モデルと子モデルの変換テーブルを作る (オンラインのみ)</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"><a href="./mri.com-user_mxe_clim.html" class="wikilink1" title="mri.com-user_mxe_clim">clim</a></td><td class="col1">親モデル実験結果から子モデルの気候値データを作る (ナッジングを行う場合)</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">prep/nest/offline/</td><td class="col1">親モデル実験結果から側面境界データを作る (オフラインのみ)</td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [93-479] -->
+</div>
+<!-- EDIT2 SECTION "内容" [73-481] -->
+<h2 class="sectionedit4" id="注意">注意</h2>
+<div class="level2">
+
+<p>
+今のところ、親モデル、子モデルとも極座標の場合のみに対応
+</p>
+
+<p>
+（ただし、親モデルがtripolarの場合、極座標の領域を親に使うのは可能）
+</p>
+
+</div>
+<!-- EDIT4 SECTION "注意" [482-685] -->
+<h2 class="sectionedit5" id="格子定義">格子定義</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT5 SECTION "格子定義" [686-709] -->
+<h3 class="sectionedit6" id="namelistnestから読み込むもの">namelist.nestから読み込むもの</h3>
+<div class="level3">
+
+<p>
+サブモデルのコア領域 (should be defined at T-points)
+</p>
+<pre class="code">ybed+-----------------------+
+    |    core region        |
+    |     of sub model      |
+ybst+-----------------------+
+   xbst                   xbed</pre>
+
+<p>
+横境界でのネスティングに関するフラグ
+</p>
+<pre class="code">ioutw, ioute, iouts, ioutn
+    1: variables at boundary are given from parent model
+    0: not</pre>
+
+<p>
+�
+</p>
+
+</div>
+<!-- EDIT6 SECTION "namelist.nestから読み込むもの" [710-1143] -->
+<h3 class="sectionedit7" id="mkngridsf90において計算されるもの">mkngrids.F90において計算されるもの</h3>
+<div class="level3">
+
+<p>
+親モデルにおけるネスト領域の指定。
+(ifst:ifed, jfst:jfed) の範囲が内挿に使われる。
+</p>
+<pre class="code">jfed +----------------------------------+
+     | jbed+-----------------------+    |
+     |     |    core region        |    |
+     |     |     of sub model      |    |
+     | jbst+-----------------------+    |
+     |    ibst                   ibed   |
+jfst +----------------------------------+
+    ifst                               ifed</pre>
+
+<p>
+子モデル格子から親モデル格子へのインデックス： indx, jndx
+</p>
+
+<p>
+子モデル格子による親モデル格子の分割数： irt,jrt
+</p>
+<pre class="code">                ifst ibst
+      indx(i) :   5   6   7   8   (parent)
+                   -+---+---+---+
+           i  :    1 234 567 89   (child)
+  irt(indx(i)):   3   3   3   3   (parent)</pre>
+
+<p>
+子モデルの東（西）端[2＋ieast（iwest）]格子の水深は親モデルと同じにする
+</p>
+
+<p>
+（topo_parent=2 の場合）  
+</p>
+<pre class="code">     |&lt;- iwest -&gt;|         |&lt;- ieast -&gt;| 2
+   xx|xxxxx|xxxxx|rrr...rrr|xxxxx|xxxxx|xx
+   1              *       *              ifn
+     r:replaced, x:not,   *-*: iloops-iloope</pre>
+
+</div>
+<!-- EDIT7 SECTION "mkngrids.F90において計算されるもの" [1144-] --></div>
+</body>
+</html>

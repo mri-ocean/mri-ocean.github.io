@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:lib:libmxe_para</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,lib,libmxe_para"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe:lib';var JSINFO = {"id":"mri.com-user:mxe:lib:libmxe_para","namespace":"mri.com-user:mxe:lib"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#libmxe_para">libmxe_para</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#構造体の型">構造体の型</a></div></li>
+<li class="level2"><div class="li"><a href="#サブルーチン">サブルーチン</a></div></li>
+<li class="level2"><div class="li"><a href="#定数">定数</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="libmxe_para">libmxe_para</h1>
+<div class="level1">
+
+<p>
+実験の基本的なパラメータを設定するモジュール。
+使い方は<a href="./mri.com-user_mxe_lib_program.html" class="wikilink1" title="mri.com-user_mxe_lib_program">MXEライブラリを用いたプログラミング</a>を参照してください。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "libmxe_para" [1-202] -->
+<h2 class="sectionedit2" id="構造体の型">構造体の型</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">type_libmxe_para: 実験パラメータの情報を保持するクラス。要素はソースコードを参照。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "構造体の型" [203-347] -->
+<h2 class="sectionedit3" id="サブルーチン">サブルーチン</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="libmxe_para_register">libmxe_para__register</h4>
+<div class="level4">
+
+<p>
+<a href="./mri.com-user_mxe_lib_namelist.html" class="wikilink1" title="mri.com-user_mxe_lib_namelist">namelistファイル</a>を読んで、クラスtype_libmxe_paraのインスタンスを生成するメソッド。
+</p>
+
+<p>
+デフォルトでは./NAMELIST.MXEを参照しますが、オプショナル引数file_namelistでファイルのパスを指定することもできます。
+</p>
+
+<p>
+下がサンプル・プログラムです。NAMELIST.MXEとNAMELIST.MXE-2という2つの実験設定についてインスタンスを作成します。
+</p>
+<pre class="code">program main
+use libmxe_para,only: type_libmxe_para, libmxe_para__register
+type(type_libmxe_para) :: para, para2
+call libmxe_para__register(para)
+call libmxe_para__register(para2,file_namelist=&quot;NAMELIST.MXE-2&quot;)
+end program</pre>
+
+</div>
+<!-- EDIT3 SECTION "サブルーチン" [348-1086] -->
+<h2 class="sectionedit4" id="定数">定数</h2>
+<div class="level2">
+
+<p>
+よく使われる定数を定義しています。例えば
+</p>
+<ul>
+<li class="level1"><div class="li">pi=3.14…: パイ</div>
+</li>
+<li class="level1"><div class="li">clen=256: 文字変数の長さ</div>
+</li>
+</ul>
+
+<p>
+詳細はソースコードを参照してください。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "定数" [1087-] --></div>
+</body>
+</html>
