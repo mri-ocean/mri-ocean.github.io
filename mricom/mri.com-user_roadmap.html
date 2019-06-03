@@ -44,22 +44,46 @@
 <ul>
 <li class="level1"><div class="li"> 主要な変更：時間差分スキーム leap frog + Adams-Moulton (LFAM3) を選択可能にする</div>
 </li>
+<li class="level1"><div class="li"> z-sigmaを削除する(ZSTAR必須にする)</div>
+</li>
+<li class="level1"><div class="li"> 中規模渦パラメタリゼーションと混合層渦パラメタリゼーションの分離</div>
+</li>
+<li class="level1"><div class="li"> JPNシステム本庁版として使う?</div>
+</li>
 </ul>
 
 </div>
-<!-- EDIT2 SECTION "ver.4.6 (2019年夏頃)" [53-196] -->
+<!-- EDIT2 SECTION "ver.4.6 (2019年夏頃)" [53-391] -->
 <h2 class="sectionedit3" id="ver50_2020年以降">ver.5.0 (2020年以降)</h2>
 <div class="level2">
 <ul>
 <li class="level1"><div class="li"> 主要な変更：時間差分スキームを LFAM3 に一本化する。(ver.4までの leap frog + Matsuno を削除する)</div>
 </li>
+<li class="level1"><div class="li"> 潮汐エネルギー散逸ベースの鉛直乱流混合スキームの導入</div>
+</li>
+<li class="level1 node"><div class="li"> 海氷スキーム</div>
+<ul>
+<li class="level2"><div class="li"> 棚氷</div>
+</li>
+<li class="level2"><div class="li"> メルトポンド</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> COARE3.0等未実装のバルク式の導入</div>
+</li>
+<li class="level1"><div class="li"> 海洋ネストモデルを用いた結合モデルで、子モデルが直接大気モデルと結合する機能を追加</div>
+</li>
 </ul>
 
 </div>
-<!-- EDIT3 SECTION "ver.5.0 (2020年以降)" [197-364] -->
+<!-- EDIT3 SECTION "ver.5.0 (2020年以降)" [392-879] -->
 <h2 class="sectionedit4" id="その他の課題">その他の課題</h2>
 <div class="level2">
 <ul>
+<li class="level1"><div class="li"> 降水顕熱フラックスパラメタリゼーションの導入 (Gosnell et al., 1995, JGR; 注：熱帯が対象)</div>
+</li>
+<li class="level1"><div class="li"> 陸面モデルとの結合：河川の水温を受け取る</div>
+</li>
 <li class="level1 node"><div class="li"> 出力の拡充</div>
 <ul>
 <li class="level2"><div class="li"> GRIB2 出力オプション</div>
@@ -92,16 +116,10 @@
 </li>
 <li class="level2"><div class="li"> 状態方程式をTEOS10に</div>
 </li>
-<li class="level2"><div class="li"> COARE3.0</div>
-</li>
 </ul>
 </li>
 <li class="level1 node"><div class="li"> 海氷スキーム</div>
 <ul>
-<li class="level2"><div class="li"> 棚氷</div>
-</li>
-<li class="level2"><div class="li"> メルトポンド</div>
-</li>
 <li class="level2"><div class="li"> 接地</div>
 </li>
 <li class="level2"><div class="li"> 海氷モデル複数層</div>
@@ -110,7 +128,7 @@
 </li>
 <li class="level1"><div class="li"> wet and dry</div>
 </li>
-<li class="level1"><div class="li"> 潮汐スキーム：主要成分毎に方程式を解く</div>
+<li class="level1"><div class="li"> 波浪モデルとの結合</div>
 </li>
 <li class="level1 node"><div class="li"> サブグリッドスケールプロセスを Lagrange 粒子で追いかける</div>
 <ul>
@@ -130,9 +148,19 @@
 </li>
 <li class="level1"><div class="li"> 非静水圧を Poisson solver ではなく、音波を解く方式にできないか（気象モデルと同じ） or 再整備</div>
 </li>
+<li class="level1 node"><div class="li"> 結合モデル</div>
+<ul>
+<li class="level2"><div class="li"> エーロゾルモデルからダストデータをもらう</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> 潮汐スキーム：主要成分毎に方程式を解く</div>
+</li>
 </ul>
 
 </div>
-<!-- EDIT4 SECTION "その他の課題" [365-] --></div>
+<!-- EDIT4 SECTION "その他の課題" [880-] --></div>
 </body>
 </html>
