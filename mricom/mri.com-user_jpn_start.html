@@ -99,6 +99,10 @@
 <h2 class="sectionedit4" id="海洋モデル・データ同化システム">海洋モデル・データ同化システム</h2>
 <div class="level2">
 <ul>
+<li class="level1"><div class="li"> 和名：日本沿岸海況監視予測システム</div>
+</li>
+<li class="level1"><div class="li"> 英名：the Japanese Coastal Ocean Monitoring and Forecasting System</div>
+</li>
 <li class="level1"><div class="li"> 海洋・海氷モデル：MRI.COM ver.4.5</div>
 </li>
 <li class="level1"><div class="li"> 同化システム: MOVE (incremental 4DVAR)</div>
@@ -120,33 +124,45 @@
 </ul>
 
 </div>
-<!-- EDIT4 SECTION "海洋モデル・データ同化システム" [1397-2085] -->
+<!-- EDIT4 SECTION "海洋モデル・データ同化システム" [1397-2215] -->
 <h2 class="sectionedit5" id="提供ファイル仕様">提供ファイル仕様</h2>
 <div class="level2">
 <ul>
 <li class="level1"><div class="li"> ファイル名：</div>
 </li>
-<li class="level1"><div class="li"> フォーマット：</div>
+<li class="level1"><div class="li"> フォーマット：Fortran単精度バイナリ(GrADS CTLファイル付き)</div>
 </li>
-<li class="level1"><div class="li"> ファイル構造：</div>
+<li class="level1 node"><div class="li"> ファイル構造：hst_(間隔)-(モデル)/(年)/hs_(変数).YYYYMMDD</div>
+<ul>
+<li class="level2"><div class="li"> (間隔) day:日別, 30min:30分ごと, mon:月毎</div>
 </li>
-<li class="level1"><div class="li"> 必要なソフトウェア：</div>
+<li class="level2"><div class="li"> (モデル) JPN, NP, GLB</div>
+</li>
+<li class="level2"><div class="li"> (年) 4桁の西暦</div>
+</li>
+<li class="level2"><div class="li"> (変数) t,s,u,v,ssh, etc.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 必要なソフトウェア：GrADS</div>
+</li>
+<li class="level1"><div class="li"> 容量：3Dデータ 520[<abbr title="Megabyte">MB</abbr>/1レコード], 2Dデータ 9[<abbr title="Megabyte">MB</abbr>/1レコード]</div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT5 SECTION "提供ファイル仕様" [2086-2234] -->
+<!-- EDIT5 SECTION "提供ファイル仕様" [2216-2704] -->
 <h2 class="sectionedit6" id="取得">取得</h2>
 <div class="level2">
 <ul>
-<li class="level1"><div class="li"> 利用条件：</div>
+<li class="level1"><div class="li"> 利用条件：「データ提供申請書」の提出 (雛形WORDファイルを渡します)</div>
 </li>
-<li class="level1"><div class="li"> 入手方法：</div>
+<li class="level1"><div class="li"> 入手方法： 外付けHDD(ext3フォーマット)、LTOテープ</div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT6 SECTION "取得" [2235-2296] -->
+<!-- EDIT6 SECTION "取得" [2705-2897] -->
 <h2 class="sectionedit7" id="結果概要">結果概要</h2>
 <div class="level2">
 <ul>
@@ -154,15 +170,17 @@
 </li>
 <li class="level1"><div class="li"> デモ: <a href="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/7541ae3249a62e4ad9d370d010f98f20" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/7541ae3249a62e4ad9d370d010f98f20" rel="nofollow">JPNモデル SSTアニメーション</a> <a href="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/yOxJaQt05DYq8I2" class="urlextern" title="https://mri-2.mri-jma.go.jp/owncloud/index.php/s/yOxJaQt05DYq8I2" rel="nofollow">高解像度版 (要ダウンロード)</a></div>
 </li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_jpn_atlas.html" class="wikilink1" title="mri.com-user_jpn_atlas">アトラス</a></div>
+</li>
 </ul>
 
 </div>
-<!-- EDIT7 SECTION "結果概要" [2297-2594] -->
+<!-- EDIT7 SECTION "結果概要" [2898-3222] -->
 <h2 class="sectionedit8" id="ドキュメント">ドキュメント</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT8 SECTION "ドキュメント" [2595-2626] -->
+<!-- EDIT8 SECTION "ドキュメント" [3223-3254] -->
 <h3 class="sectionedit9" id="解説">解説</h3>
 <div class="level3">
 <ul>
@@ -175,7 +193,7 @@
 </ul>
 
 </div>
-<!-- EDIT9 SECTION "解説" [2627-3466] -->
+<!-- EDIT9 SECTION "解説" [3255-4094] -->
 <h3 class="sectionedit10" id="その他の論文">その他の論文</h3>
 <div class="level3">
 <ol>
@@ -190,7 +208,7 @@
 </ol>
 
 </div>
-<!-- EDIT10 SECTION "その他の論文" [3467-4664] -->
+<!-- EDIT10 SECTION "その他の論文" [4095-5292] -->
 <h3 class="sectionedit11" id="学会等の発表">学会等の発表</h3>
 <div class="level3">
 <ol>
@@ -203,6 +221,6 @@
 </ol>
 
 </div>
-<!-- EDIT11 SECTION "学会等の発表" [4665-] --></div>
+<!-- EDIT11 SECTION "学会等の発表" [5293-] --></div>
 </body>
 </html>
