@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:rectangle:setup_machine</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,rectangle,setup_machine"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:rectangle';var JSINFO = {"id":"mri.com-user:rectangle:setup_machine","namespace":"mri.com-user:rectangle"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="矩形海モデル・パッケージにおけるマシン環境の設定_気象研外">矩形海モデル・パッケージにおけるマシン環境の設定(気象研外)</h1>
+<div class="level1">
+
+<p>
+コンパイラ等のビルド環境を $HOME/exp/config_files/configure.in に記述する。<sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup>
+</p>
+
+</div>
+
+<h5 id="自動判定">自動判定</h5>
+<div class="level5">
+
+<p>
+以下のマシンでは、MRI.COM内で自動判定されるので設定は不要です。
+</p>
+<ul>
+<li class="level1"><div class="li"> 東大FX10</div>
+</li>
+<li class="level1"><div class="li"> JAMSTEC ICE-X</div>
+</li>
+</ul>
+
+</div>
+
+<h5 id="標準的なマシン設定の利用">標準的なマシン設定の利用</h5>
+<div class="level5">
+
+<p>
+モデル添付の標準的なマシン設定の中から選ぶ場合は、以下の変数を設定する。
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">変数</th><th class="col1">設定内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">MACHINE</td><td class="col1">$HOME/exp/MRICOM/src/machines/ 以下のディレクトリ名から選ぶ</td>
+	</tr>
+</table></div>
+<!-- EDIT2 TABLE [593-698] -->
+<p>
+例えば
+</p>
+<pre class="code">MACHINE=linux86-ifort</pre>
+
+</div>
+
+<h5 id="直接の指定">直接の指定</h5>
+<div class="level5">
+
+<p>
+コンパイラやコンパイル・オプションを直接に指定する場合は、以下の項目を設定する。
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">変数</th><th class="col1">設定内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">F90</td><td class="col1">Fortranコンパイラ</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">FFLAGS</td><td class="col1">コンパイル時オプション</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">INCLUDES</td><td class="col1">結合ライブラリ</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">LDFLAGS</td><td class="col1">結合時オプション</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">POSTFC</td><td class="col1">後処理</td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [880-1060] -->
+<p>
+詳細は $HOME/exp/MRICOM/README.Firstの3節(To build)を参照せよ。
+</p>
+
+</div>
+
+<h4 id="mpi分割数">MPI分割数</h4>
+<div class="level4">
+
+<p>
+本パッケージのデフォルト設定ではMPI並列を使用する。
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">変数</th><th class="col1">設定内容</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">NPARTX</td><td class="col1">X方向分割数</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">NPARTY</td><td class="col1">Y方向分割数</td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [1237-1310] -->
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<div class="content">シェル・スクリプトconfigure実行時に、.コマンドで読み込まれる。</div></div>
+</div>
+</div>
+</body>
+</html>
