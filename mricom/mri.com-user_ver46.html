@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:ver46</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,ver46"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:ver46","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_ver46">MRI.COM ver.4.6</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#ソースコードの取得">ソースコードの取得</a></div></li>
+<li class="level2"><div class="li"><a href="#追加された主な機能">追加された主な機能</a></div></li>
+<li class="level2"><div class="li"><a href="#ver44_から_46_への移行">ver.4.4 から 4.6 への移行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#入力データファイル">入力データファイル</a></div></li>
+<li class="level3"><div class="li"><a href="#コンパイル・オプション">コンパイル・オプション</a></div></li>
+<li class="level3"><div class="li"><a href="#namelist">namelist</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#機能削除の予定">機能削除の予定</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_ver46">MRI.COM ver.4.6</h1>
+<div class="level1">
+
+<p>
+MRI.COM ver.4.6 は、2019年10月頃にリリースされる安定版です。
+日本沿岸海況監視予測システムのモデル部分になります。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM ver.4.6" [1-191] -->
+<h2 class="sectionedit2" id="ソースコードの取得">ソースコードの取得</h2>
+<div class="level2">
+
+<p>
+MRI.COM gitリポジトリでブランチ「4_6」をチェックアウトして下さい。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "ソースコードの取得" [192-326] -->
+<h2 class="sectionedit3" id="追加された主な機能">追加された主な機能</h2>
+<div class="level2">
+
+<p>
+ver.4.4から以下の機能が追加されています。
+</p>
+<ul>
+<li class="level1 node"><div class="li"> <strong>時間差分スキーム Leapfrog-Adams-Moulton (LFAM3) の導入</strong></div>
+<ul>
+<li class="level2"><div class="li"> オプションで指定しますが、次の安定版(ver.5.0)ではデフォルトになります</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 海氷のリッジングに関するパラメータ shear dissipation ratio の追加</div>
+</li>
+<li class="level1"><div class="li"> 相対風速データを絶対風速に換算して使用するための機能</div>
+</li>
+<li class="level1 node"><div class="li"> オフライン・トレーサーモデルの機能強化</div>
+<ul>
+<li class="level2"><div class="li"> age, cfcの読み込み</div>
+</li>
+<li class="level2"><div class="li"> 初期値の時間補間の指定</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> オフライン・ネスティングの機能強化</div>
+<ul>
+<li class="level2"><div class="li"> 側面境界に単精度データが使用できる</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 出力機能の強化</div>
+<ul>
+<li class="level2"><div class="li"> SOMフラックスリミッターの発生頻度, ポテンシャル密度, spiciness</div>
+</li>
+<li class="level2"><div class="li"> PPMスキームによるトレーサー輸送</div>
+</li>
+<li class="level2"><div class="li"> 海氷の熱収支と海面フラックス</div>
+</li>
+<li class="level2"><div class="li"> 等密度面解析の強化</div>
+</li>
+<li class="level2"><div class="li"> tide killerをかけた出力</div>
+</li>
+<li class="level2"><div class="li"> 特定の期間だけ出力</div>
+</li>
+<li class="level2"><div class="li"> ある地点の時系列モニタ</div>
+</li>
+<li class="level2"><div class="li"> NetCDF 形式での倍精度出力</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 高速化</div>
+<ul>
+<li class="level2"><div class="li"> 順圧モード計算の高速化</div>
+</li>
+<li class="level2"><div class="li"> パッシブトレーサーの時間積分の高速化</div>
+</li>
+<li class="level2"><div class="li"> SOMリスタート入出力のMPI-IO対応</div>
+</li>
+<li class="level2"><div class="li"> OpenMP 指示行</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> マシン対応: ES3, 気象庁Cray XC50</div>
+</li>
+</ul>
+
+<p>
+その他の変更
+</p>
+<ul>
+<li class="level1"><div class="li"> 海氷モデルの安定性向上</div>
+</li>
+<li class="level1"><div class="li"> 海氷リッジングのスキームを変更</div>
+</li>
+<li class="level1 node"><div class="li"> PPMスキームのアルゴリズムを変更</div>
+<ul>
+<li class="level2"><div class="li"> リミッターを Zalesak (1979) から Lin et al. (1994) に変更</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 多数のバグ修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "追加された主な機能" [327-1924] -->
+<h2 class="sectionedit4" id="ver44_から_46_への移行">ver.4.4 から 4.6 への移行</h2>
+<div class="level2">
+
+<p>
+安定版 <a href="./mri.com-user_ver44.html" class="wikilink1" title="mri.com-user_ver44">ver.4.4</a> から ver.4.6 へ移行する場合のメモです。
+ほぼ同じ設定にした場合でも結果は変わります。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "ver.4.4 から 4.6 への移行" [1925-2120] -->
+<h3 class="sectionedit5" id="入力データファイル">入力データファイル</h3>
+<div class="level3">
+<ul>
+<li class="level1 node"><div class="li"> <strong>SOMリスタート</strong> ファイル名の変更</div>
+<ul>
+<li class="level2"><div class="li"> nml_somadv - l_auto_<abbr title="specification">spec</abbr>_for_som_restart = .true. と指定する</div>
+</li>
+<li class="level2"><div class="li"> 既存のファイルをリネームする場合は tools/ver46to47/ を参照</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <strong>長波放射</strong> 正味ではなく下向き成分を与えるように変更</div>
+<ul>
+<li class="level2"><div class="li"> LWDOWNオプションを使っていた場合は変更不要</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "入力データファイル" [2121-2518] -->
+<h3 class="sectionedit6" id="コンパイル・オプション">コンパイル・オプション</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 廃止：LWDOWN</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "コンパイル・オプション" [2519-2584] -->
+<h3 class="sectionedit7" id="namelist">namelist</h3>
+<div class="level3">
+
+<p>
+主な変更です。変更する場合は docs/README_Namelist.md を参照してください
+</p>
+<ul>
+<li class="level1 node"><div class="li"> <strong>リスタート</strong>: nmlrs_* から nml_restart への変更</div>
+<ul>
+<li class="level2"><div class="li"> docs/README_Restart.md を参照</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <strong>ヒストリー</strong>: 旧形式 (nmlhs_*) の削除</div>
+</li>
+<li class="level1"><div class="li"> <strong>PPMスキーム</strong>: nml_tracer_data - adv_scheme の変更</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "namelist" [2585-2924] -->
+<h2 class="sectionedit8" id="機能削除の予定">機能削除の予定</h2>
+<div class="level2">
+
+<p>
+次期安定版(v5.0)で削除される予定の機能です。
+</p>
+<ul>
+<li class="level1"><div class="li"> leap frog + Matsuno 時間差分スキーム</div>
+</li>
+<li class="level1"><div class="li"> z-sigmaスキーム (オプション ZSTAR の必須化)</div>
+</li>
+<li class="level1"><div class="li"> リスタートファイルの旧指定方法 (nmlrs_*)</div>
+</li>
+<li class="level1"><div class="li"> 2層以上のBBL (4.6で削除する予定だったが延期)</div>
+</li>
+<li class="level1"><div class="li"> BULKNCAR 時にBULKITER必須化 (4.6で削除する予定だったが延期)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "機能削除の予定" [2925-] --></div>
+</body>
+</html>
