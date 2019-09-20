@@ -25,14 +25,27 @@
 <ul class="toc">
 <li class="level1"><div class="li"><a href="#mricom実行環境_mxe">MRI.COM実行環境 MXE</a></div>
 <ul class="toc">
-<li class="level2"><div class="li"><a href="#特徴">特徴</a></div></li>
-<li class="level2"><div class="li"><a href="#必要要件">必要要件</a></div></li>
-<li class="level2"><div class="li"><a href="#動作実績">動作実績</a></div></li>
-<li class="level2"><div class="li"><a href="#取得方法">取得方法</a></div></li>
-<li class="level2"><div class="li"><a href="#使い方">使い方</a></div></li>
-<li class="level2"><div class="li"><a href="#内容">内容</a></div></li>
-<li class="level2"><div class="li"><a href="#バーション">バーション</a></div></li>
-<li class="level2"><div class="li"><a href="#開発">開発</a></div></li>
+<li class="level2"><div class="li"><a href="#概要">概要</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#特徴">特徴</a></div></li>
+<li class="level3"><div class="li"><a href="#内容">内容</a></div></li>
+<li class="level3"><div class="li"><a href="#開発">開発</a></div></li>
+<li class="level3"><div class="li"><a href="#バーション">バーション</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#使い方">使い方</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#ライセンス">ライセンス</a></div></li>
+<li class="level3"><div class="li"><a href="#必要要件">必要要件</a></div></li>
+<li class="level3"><div class="li"><a href="#取得方法">取得方法</a></div></li>
+<li class="level3"><div class="li"><a href="#チュートリアル">チュートリアル</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#開発に参加するには">開発に参加するには</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#気象研究所_気象庁の方">気象研究所、気象庁の方</a></div></li>
+<li class="level3"><div class="li"><a href="#外部機関の方">外部機関の方</a></div></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -48,8 +61,13 @@ MRI.COM実行環境 (MRI.COM eXecution Environment; MXE)とは、MRI.COM実験�
 
 </div>
 <!-- EDIT1 SECTION "MRI.COM実行環境 MXE" [1-290] -->
-<h2 class="sectionedit2" id="特徴">特徴</h2>
+<h2 class="sectionedit2" id="概要">概要</h2>
 <div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "概要" [291-310] -->
+<h3 class="sectionedit3" id="特徴">特徴</h3>
+<div class="level3">
 <ul>
 <li class="level1"><div class="li"> MRI.COMの前処理、後処理、解析ツールを集約</div>
 </li>
@@ -61,58 +79,14 @@ MRI.COM実行環境 (MRI.COM eXecution Environment; MXE)とは、MRI.COM実験�
 </li>
 <li class="level1"><div class="li"> いくつかのツールは単体テストによって動作が確認されている</div>
 </li>
-</ul>
-
-</div>
-<!-- EDIT2 SECTION "特徴" [291-713] -->
-<h2 class="sectionedit3" id="必要要件">必要要件</h2>
-<div class="level2">
-<ul>
-<li class="level1"><div class="li"> Fortranコンパイラ (MPIは使わない)</div>
-</li>
-<li class="level1"><div class="li"> make</div>
+<li class="level1"><div class="li"> 動作実績_ <a href="./mri.com-user_rectangle_start.html" class="wikilink1" title="mri.com-user_rectangle_start">矩形海モデル</a>、<a href="./mri.com-user_gondola_100_start.html" class="wikilink1" title="mri.com-user_gondola_100_start">全球渦なしモデル GONDOLA_100</a>、<a href="./mri.com-user_jpn_start.html" class="wikilink1" title="mri.com-user_jpn_start">日本沿岸モデル</a>、<a href="./mri.com-user_seto_start.html" class="wikilink1" title="mri.com-user_seto_start">瀬戸内海モデル</a></div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT3 SECTION "必要要件" [714-797] -->
-<h2 class="sectionedit4" id="動作実績">動作実績</h2>
-<div class="level2">
-
-<p>
-<a href="./mri.com-user_rectangle_start.html" class="wikilink1" title="mri.com-user_rectangle_start">矩形海モデル</a>、<a href="./mri.com-user_gondola_100_start.html" class="wikilink1" title="mri.com-user_gondola_100_start">全球渦なしモデル GONDOLA_100</a>、<a href="./mri.com-user_jpn_start.html" class="wikilink1" title="mri.com-user_jpn_start">日本沿岸モデル</a>、<a href="./mri.com-user_seto_start.html" class="wikilink1" title="mri.com-user_seto_start">瀬戸内海モデル</a>の開発に使われている。
-</p>
-
-</div>
-<!-- EDIT4 SECTION "動作実績" [798-1087] -->
-<h2 class="sectionedit5" id="取得方法">取得方法</h2>
-<div class="level2">
-<ul>
-<li class="level1"><div class="li"> 気象庁、気象研の方：<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/mxe/wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/mxe/wiki" rel="nofollow">本庁Redmine</a>を参照</div>
-</li>
-<li class="level1"><div class="li"> モデル共同研究の方：<a href="http://synthesis.jamstec.go.jp/redmine/projects/mri/wiki" class="urlextern" title="http://synthesis.jamstec.go.jp/redmine/projects/mri/wiki" rel="nofollow">JAMSTEC Redmine</a>を参照</div>
-</li>
-<li class="level1"><div class="li"> その他の方：MRI.COMのおまけとして提供されます</div>
-</li>
-</ul>
-
-</div>
-<!-- EDIT5 SECTION "取得方法" [1088-1433] -->
-<h2 class="sectionedit6" id="使い方">使い方</h2>
-<div class="level2">
-<ul>
-<li class="level1"><div class="li"><a href="./mri.com-user_mxe_use_tools.html" class="wikilink1" title="mri.com-user_mxe_use_tools">MXEのツールを使う</a></div>
-</li>
-<li class="level1"><div class="li"><a href="./mri.com-user_mxe_make_package.html" class="wikilink1" title="mri.com-user_mxe_make_package">MXEをベースに実験パッケージを作る</a></div>
-</li>
-<li class="level1"><div class="li"><a href="./mri.com-user_mxe_update_mxe.html" class="wikilink1" title="mri.com-user_mxe_update_mxe">実験パッケージのMXEをアップデートする</a></div>
-</li>
-</ul>
-
-</div>
-<!-- EDIT6 SECTION "使い方" [1434-1641] -->
-<h2 class="sectionedit7" id="内容">内容</h2>
-<div class="level2">
+<!-- EDIT3 SECTION "特徴" [311-978] -->
+<h3 class="sectionedit4" id="内容">内容</h3>
+<div class="level3">
 
 <p>
 各ディレクトリの内容です。詳細は README-MXE.md を参照。
@@ -139,9 +113,20 @@ MRI.COM実行環境 (MRI.COM eXecution Environment; MXE)とは、MRI.COM実験�
 </ul>
 
 </div>
-<!-- EDIT7 SECTION "内容" [1642-2114] -->
-<h2 class="sectionedit8" id="バーション">バーション</h2>
-<div class="level2">
+<!-- EDIT4 SECTION "内容" [979-1448] -->
+<h3 class="sectionedit5" id="開発">開発</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 気象研究所 全球大気海洋研究部第4研究室</div>
+</li>
+<li class="level1"><div class="li"> 連絡先窓口：坂本 (ksakamot@mri-jma.go.jp)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "開発" [1449-1582] -->
+<h3 class="sectionedit6" id="バーション">バーション</h3>
+<div class="level3">
 
 <p>
 MRI.COMに合わせて月1回の更新。
@@ -149,17 +134,100 @@ MRI.COMに合わせて月1回の更新。
 </p>
 
 </div>
-<!-- EDIT8 SECTION "バーション" [2115-2325] -->
-<h2 class="sectionedit9" id="開発">開発</h2>
+<!-- EDIT6 SECTION "バーション" [1583-1791] -->
+<h2 class="sectionedit7" id="使い方">使い方</h2>
 <div class="level2">
+
+</div>
+<!-- EDIT7 SECTION "使い方" [1792-1814] -->
+<h3 class="sectionedit8" id="ライセンス">ライセンス</h3>
+<div class="level3">
+
+<p>
+MRI.COMにならいます。(第三者への提供や一般公開は許可していません。)
+</p>
+
+</div>
+<!-- EDIT8 SECTION "ライセンス" [1815-1939] -->
+<h3 class="sectionedit9" id="必要要件">必要要件</h3>
+<div class="level3">
 <ul>
-<li class="level1"><div class="li"> <a href="http://www.mri-jma.go.jp/Dep/oc/oc_1.html" class="urlextern" title="http://www.mri-jma.go.jp/Dep/oc/oc_1.html" rel="nofollow">気象研究所海洋・地球化学研究部第一研究室</a></div>
+<li class="level1"><div class="li"> Fortranコンパイラ (MPIは使わない)</div>
 </li>
-<li class="level1"><div class="li"> 窓口：坂本 (ksakamot@mri-jma.go.jp)</div>
+<li class="level1"><div class="li"> make</div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT9 SECTION "開発" [2326-] --></div>
+<!-- EDIT9 SECTION "必要要件" [1940-2021] -->
+<h3 class="sectionedit10" id="取得方法">取得方法</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 気象庁、気象研の方：<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/mxe/wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/mxe/wiki" rel="nofollow">本庁Redmine</a>を参照</div>
+</li>
+<li class="level1"><div class="li"> モデル共同研究の方：<a href="http://synthesis.jamstec.go.jp/redmine/projects/mri/wiki" class="urlextern" title="http://synthesis.jamstec.go.jp/redmine/projects/mri/wiki" rel="nofollow">JAMSTEC Redmine</a>を参照</div>
+</li>
+<li class="level1"><div class="li"> その他の方：MRI.COMのおまけとして提供されます</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "取得方法" [2022-2365] -->
+<h3 class="sectionedit11" id="チュートリアル">チュートリアル</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"><a href="./mri.com-user_mxe_use_tools.html" class="wikilink1" title="mri.com-user_mxe_use_tools">MXEのツールを使う</a></div>
+</li>
+<li class="level1"><div class="li"><a href="./mri.com-user_mxe_make_package.html" class="wikilink1" title="mri.com-user_mxe_make_package">MXEをベースに実験パッケージを作る</a></div>
+</li>
+<li class="level1"><div class="li"><a href="./mri.com-user_mxe_update_mxe.html" class="wikilink1" title="mri.com-user_mxe_update_mxe">実験パッケージのMXEをアップデートする</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "チュートリアル" [2366-2584] -->
+<h2 class="sectionedit12" id="開発に参加するには">開発に参加するには</h2>
+<div class="level2">
+
+<p>
+パッケージを拡充・修正する開発フローは以下のとおり。
+</p>
+
+</div>
+<!-- EDIT12 SECTION "開発に参加するには" [2585-2705] -->
+<h3 class="sectionedit13" id="気象研究所_気象庁の方">気象研究所、気象庁の方</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> <a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/mricom/" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/ocean/projects/mricom/" rel="nofollow">本庁Redmine</a> への参加申請を坂本( ksakamot@mri-jma.go.jp )に行う</div>
+</li>
+<li class="level1"><div class="li"> 変更内容を4研メンバーに相談する</div>
+</li>
+<li class="level1"><div class="li"> Redmineでチケットを作成し、ウォッチャーに相談した人を追加する</div>
+</li>
+<li class="level1"><div class="li"> ソースコードが完成すれば、開発管理サーバ上のmasterを直接に更新し、チケットのステータスを「解決」とする。</div>
+</li>
+<li class="level1"><div class="li"> (その後、4研メンバーがmasterのコードをテストし、必要であれば勝手に修正します。テストが終わればチケットのステータスを「終了」にします。)</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT13 SECTION "気象研究所、気象庁の方" [2706-3409] -->
+<h3 class="sectionedit14" id="外部機関の方">外部機関の方</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> <a href="https://github.com/mri-ocean/MXE" class="urlextern" title="https://github.com/mri-ocean/MXE" rel="nofollow">GitHub - MXE</a> への参加申請を坂本( ksakamot@mri-jma.go.jp )に行う</div>
+</li>
+<li class="level1"><div class="li"> 変更内容を坂本に相談する</div>
+</li>
+<li class="level1"><div class="li"> GitHubでIssueを作成する</div>
+</li>
+<li class="level1"><div class="li"> コードが完成すればプル・リクエストを送る</div>
+</li>
+<li class="level1"><div class="li"> 坂本がコードをテストし、masterに取り込みます。必要であれば勝手に修正します。</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT14 SECTION "外部機関の方" [3410-] --></div>
 </body>
 </html>
