@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:couple_wave</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,couple_wave"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:couple_wave","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#波浪モデルとの結合">波浪モデルとの結合</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#波浪モデルから海洋モデルへのインパクト">波浪モデルから海洋モデルへのインパクト</a></div></li>
+<li class="level2"><div class="li"><a href="#波浪モデル概要">波浪モデル概要</a></div></li>
+<li class="level2"><div class="li"><a href="#波浪モデルとの結合に向けて">波浪モデルとの結合に向けて</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#オフライン結合">オフライン結合</a></div></li>
+<li class="level3"><div class="li"><a href="#オンライン結合">オンライン結合</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="波浪モデルとの結合">波浪モデルとの結合</h1>
+<div class="level1">
+
+<p>
+MRI.COMと波浪モデルとの結合に向けた調査。とりあえずのメモなので加筆・修正をお願いします。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "波浪モデルとの結合" [1-175] -->
+<h2 class="sectionedit2" id="波浪モデルから海洋モデルへのインパクト">波浪モデルから海洋モデルへのインパクト</h2>
+<div class="level2">
+<ul>
+<li class="level1 node"><div class="li"> radiation stress</div>
+<ul>
+<li class="level2 node"><div class="li"> Longuet-Higgins and Stewart (1962, 1964)</div>
+<ul>
+<li class="level3"><div class="li"> 目的：波浪の運動量輸送を海洋に反映させ、wave set-upなどを再現</div>
+</li>
+<li class="level3"><div class="li"> 手法：波浪エネルギー水平勾配→順圧的な運動量供給</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 海面フラックスのバルク係数</div>
+<ul>
+<li class="level2 node"><div class="li"> Donelan et al. (2012)</div>
+<ul>
+<li class="level3"><div class="li"> 目的：風応力の計算で波形の form drag を考慮</div>
+</li>
+<li class="level3"><div class="li"> 手法：</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> スカラー量海面フラックス？</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 乱流混合スキームの海面境界条件</div>
+<ul>
+<li class="level2 node"><div class="li"> Mellor and Blumberg (2004)</div>
+<ul>
+<li class="level3"><div class="li"> 砕波による乱流渦エネルギー供給を考慮、夏の温度躍層が浅すぎる問題を解決</div>
+</li>
+<li class="level3"><div class="li"> 手法：MYスキームのTKE海面注入を wave age に依存させる</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> ストークス・ドリフト</div>
+<ul>
+<li class="level2 node"><div class="li"> Noh et al. (2016)</div>
+<ul>
+<li class="level3"><div class="li"> 目的：OGCMで混合層が浅すぎる問題への対応</div>
+</li>
+<li class="level3"><div class="li"> 手法：ストークス・ドリフトの流速鉛直勾配(波浪の波数等に依存)によるTKE供給、混合長にラングミュア循環を導入 (MRI.COMへの導入例あり)</div>
+</li>
+</ul>
+</li>
+<li class="level2 node"><div class="li"> Saetra et al. (2007)</div>
+<ul>
+<li class="level3"><div class="li"> 目的：ストークス・ドリフトを台風高潮時に考慮</div>
+</li>
+<li class="level3"><div class="li"> 手法：ストークス・ドリフト流(波浪エネルギーから計算)を海洋モデルに足し込む</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "波浪モデルから海洋モデルへのインパクト" [176-1516] -->
+<h2 class="sectionedit3" id="波浪モデル概要">波浪モデル概要</h2>
+<div class="level2">
+
+<p>
+基本的には波浪エネルギーE (x,y,波数k,波の伝播方向という4つの独立変数の関数)の時間発展を解く。
+</p>
+<ul>
+<li class="level1 node"><div class="li"> 第2世代,2.5世代波浪モデル</div>
+<ul>
+<li class="level2"><div class="li"> UKMOでテストしたが、性能に難あり。 </div>
+</li>
+<li class="level2"><div class="li"> 波高はあうが、スペクトルがいまいち</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 第3世代波浪モデル: 波浪の波数間相互作用を直接に解く？</div>
+<ul>
+<li class="level2"><div class="li"> 一般に計算コストが高い。海洋モデルとのオンライン結合を目的とする場合は、特別な考慮が必要。</div>
+</li>
+<li class="level2"><div class="li"> DIA離散相互作用近似が発展中</div>
+</li>
+<li class="level2"><div class="li"> 外洋: WAM、本庁波浪モデル(大気モデルとはSCup結合が可能)</div>
+</li>
+<li class="level2"><div class="li"> 沿岸: SWAN (Booij et al. 1999) 時間積分を陰解法で解く</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> その他?</div>
+<ul>
+<li class="level2"><div class="li"> Donelan et al. (2012) 海洋モデルの風応力にフォーカスした低計算コストのモデル？</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "波浪モデル概要" [1517-2399] -->
+<h2 class="sectionedit4" id="波浪モデルとの結合に向けて">波浪モデルとの結合に向けて</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "波浪モデルとの結合に向けて" [2400-2452] -->
+<h3 class="sectionedit5" id="オフライン結合">オフライン結合</h3>
+<div class="level3">
+
+<p>
+本庁波浪モデルの出力(成分ごと)を読み込んで上記「インパクト」の要素を計算する。
+</p>
+
+</div>
+<!-- EDIT5 SECTION "オフライン結合" [2453-2603] -->
+<h3 class="sectionedit6" id="オンライン結合">オンライン結合</h3>
+<div class="level3">
+
+<p>
+SCupを利用してMPMDで海洋モデルと波浪モデルを走らせる
+</p>
+<ul>
+<li class="level1"><div class="li"> 本庁波浪モデルは波浪自体が対象。海洋モデルとの結合を目的とした場合だと、かなりの調整が必要。</div>
+</li>
+<li class="level1 node"><div class="li"> SCup結合を行うために、波浪モデルのソースコードを修正しなくてはならない。</div>
+<ul>
+<li class="level2"><div class="li"> 外部の波浪モデルを導入する場合でも、バージョンの追随や修正部分のメンテナンスなど、維持管理を行う必要あり。</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> MRI.COM src/wave_scup/ にコード案あり(辻野さん作成)</div>
+</li>
+</ul>
+
+<p>
+NAMELIST_SCUP例
+</p>
+<pre class="code">&amp;nam_scup_pre model_put=&#039;GLOBAL&#039; , model_get=&#039;WAVE-NP&#039;, type=&#039;INTEGER&#039; /	
+&amp;nam_scup_pre  var_put=&#039;IMAX_OGCM&#039; ,  var_get=&#039;IMAX_OGCM&#039; /
+&amp;nam_scup_pre  var_put=&#039;JMAX_OGCM&#039; ,  var_get=&#039;JMAX_OGCM&#039; /
+
+&amp;nam_scup_pre model_put=&#039;GLOBAL&#039; , model_get=&#039;WAVE-NP&#039;, type=&#039;REAL8&#039; /
+&amp;nam_scup_pre  var_put=&#039;ALONTO&#039;   ,  var_get=&#039;ALONTC&#039; /
+&amp;nam_scup_pre  var_put=&#039;ALATTO&#039;   ,  var_get=&#039;ALATTC&#039; /
+&amp;nam_scup_pre  var_put=&#039;ALONUO&#039;   ,  var_get=&#039;ALONUC&#039; /
+&amp;nam_scup_pre  var_put=&#039;ALATUO&#039;   ,  var_get=&#039;ALATUC&#039; /
+
+&amp;nam_scup iverbose = 1 /
+
+&amp;nam_scup model_put=&#039;WAVE-NP&#039;    , model_get=&#039;GLOBAL&#039;     ,
+          comp_put =&#039; &#039;          , comp_get =&#039; &#039;          ,
+          grid_put =&#039;WAVE2D_UV&#039;  , grid_get =&#039;OGCM2D_TS_A&#039;,
+          fl_remap=&#039;../data-remap/file_rmp_wu2ot_surf.d&#039; /
+&amp;nam_scup  var_put=&#039;WHGT_W&#039;   ,  var_get=&#039;WHGT_S&#039;   , intvl=-1, lag=0, flag=&#039;SNP&#039; /
+&amp;nam_scup  var_put=&#039;WAGE_W&#039;   ,  var_get=&#039;WAGE_S&#039;   , intvl=-1, lag=0, flag=&#039;SNP&#039; /
+
+&amp;nam_scup model_put=&#039;GLOBAL&#039;   , model_get=&#039;WAVE-NP&#039;  ,
+          comp_put =&#039; &#039;              , comp_get =&#039; &#039;         ,
+          grid_put =&#039;OGCM2D_TS_C&#039;    , grid_get =&#039;WAVE2D_UV&#039; ,
+          fl_remap=&#039;../data-remap/file_rmp_ot2wu_surf.d&#039; /
+&amp;nam_scup  var_put=&#039;SLPRS_S&#039;    ,  var_get=&#039;SLPRS_W&#039;  , intvl=-1, lag=0, flag=&#039;SNP&#039; /
+
+&amp;nam_scup model_put=&#039;GLOBAL&#039;   , model_get=&#039;WAVE-NP&#039;  ,
+          comp_put =&#039; &#039;              , comp_get =&#039; &#039;         ,
+          grid_put =&#039;OGCM2D_UV_C&#039;    , grid_get =&#039;WAVE2D_UV&#039; ,
+          fl_remap=&#039;../data-remap/file_rmp_ou2wu_surf.d&#039; /
+&amp;nam_scup  var_put=&#039;FRVLA_S&#039; ,  var_get=&#039;FRVLA_W&#039; , intvl=-1, lag=0, flag=&#039;SNP&#039; /
+
+&amp;nam_scup model_put=&#039;GLOBAL&#039;   , model_get=&#039;WAVE-NP&#039;  ,
+          comp_put =&#039; &#039;              , comp_get =&#039; &#039;         ,
+          grid_put =&#039;OGCM2D_UV_C&#039;    , grid_get =&#039;WAVE2D_UV&#039; ,
+          fl_remap=&#039;../data-remap/file_rmp_ou2wu_surf.d&#039; /
+&amp;nam_scup  var_put_vec=&#039;UVM10M_S&#039; ,  var_get_vec=&#039;UVM10M_W&#039; , intvl=-1, lag=0, flag=&#039;SNP&#039; /
+&amp;nam_scup  var_put_vec=&#039;UVMSFC_S&#039; ,  var_get_vec=&#039;UVMSFC_W&#039; , intvl=-1, lag=0, flag=&#039;SNP&#039; /</pre>
+
+</div>
+<!-- EDIT6 SECTION "オンライン結合" [2604-] --></div>
+</body>
+</html>
