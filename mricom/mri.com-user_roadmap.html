@@ -25,7 +25,6 @@
 <ul class="toc">
 <li class="level1"><div class="li"><a href="#mricom_開発のロードマップ">MRI.COM 開発のロードマップ</a></div>
 <ul class="toc">
-<li class="level2"><div class="li"><a href="#ver46_2019年夏頃">ver.4.6 (2019年夏頃)</a></div></li>
 <li class="level2"><div class="li"><a href="#ver50_2020年以降">ver.5.0 (2020年以降)</a></div></li>
 <li class="level2"><div class="li"><a href="#ver60">ver.6.0</a></div></li>
 <li class="level2"><div class="li"><a href="#その他の課題">その他の課題</a></div></li>
@@ -39,21 +38,8 @@
 <div class="level1">
 
 </div>
-<!-- EDIT1 SECTION "MRI.COM 開発のロードマップ" [1-52] -->
-<h2 class="sectionedit2" id="ver46_2019年夏頃">ver.4.6 (2019年夏頃)</h2>
-<div class="level2">
-<ul>
-<li class="level1"><div class="li"> 主要な変更：時間差分スキーム leap frog + Adams-Moulton (LFAM3) を選択可能にする</div>
-</li>
-<li class="level1"><div class="li"> 中規模渦パラメタリゼーションと混合層渦パラメタリゼーションの分離</div>
-</li>
-<li class="level1"><div class="li"> JPNシステム本庁版として使う</div>
-</li>
-</ul>
-
-</div>
-<!-- EDIT2 SECTION "ver.4.6 (2019年夏頃)" [53-341] -->
-<h2 class="sectionedit3" id="ver50_2020年以降">ver.5.0 (2020年以降)</h2>
+<!-- EDIT1 SECTION "MRI.COM 開発のロードマップ" [1-51] -->
+<h2 class="sectionedit2" id="ver50_2020年以降">ver.5.0 (2020年以降)</h2>
 <div class="level2">
 <ul>
 <li class="level1"><div class="li"> 主要な変更：時間差分スキームを LFAM3 に一本化する。(ver.4までの leap frog + Matsuno を削除する)</div>
@@ -77,19 +63,31 @@
 </ul>
 
 </div>
-<!-- EDIT3 SECTION "ver.5.0 (2020年以降)" [342-880] -->
-<h2 class="sectionedit4" id="ver60">ver.6.0</h2>
+<!-- EDIT2 SECTION "ver.5.0 (2020年以降)" [52-590] -->
+<h2 class="sectionedit3" id="ver60">ver.6.0</h2>
 <div class="level2">
 <ul>
 <li class="level1"><div class="li"> ハイブリッド鉛直座標系 ( <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" class="urlextern" title="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" rel="nofollow">Adcroft et al. 2019</a> )</div>
 </li>
+<li class="level1"><div class="li"> wet and dry</div>
+</li>
 </ul>
 
 </div>
-<!-- EDIT4 SECTION "ver.6.0" [881-1038] -->
-<h2 class="sectionedit5" id="その他の課題">その他の課題</h2>
+<!-- EDIT3 SECTION "ver.6.0" [591-764] -->
+<h2 class="sectionedit4" id="その他の課題">その他の課題</h2>
 <div class="level2">
 <ul>
+<li class="level1 node"><div class="li"> コード整理</div>
+<ul>
+<li class="level2"><div class="li"> BBL複数層</div>
+</li>
+<li class="level2"><div class="li"> ACTIVE1</div>
+</li>
+<li class="level2"><div class="li"> KPP</div>
+</li>
+</ul>
+</li>
 <li class="level1"><div class="li"> 降水顕熱フラックスパラメタリゼーションの導入 (Gosnell et al., 1995, JGR; 注：熱帯が対象)</div>
 </li>
 <li class="level1"><div class="li"> 陸面モデルとの結合：河川の水温を受け取る</div>
@@ -114,8 +112,6 @@
 <ul>
 <li class="level2"><div class="li"> SIMD対応 (本庁スパコンに必要であれば, <a href="https://ja.wikipedia.org/wiki/Xeon_Phi" class="urlextern" title="https://ja.wikipedia.org/wiki/Xeon_Phi" rel="nofollow">intel xeonであれば倍精度浮動小数点演算8つのSIMD</a>)</div>
 </li>
-<li class="level2"><div class="li"> OpenMP対応</div>
-</li>
 <li class="level2"><div class="li"> 全球4極座標</div>
 </li>
 </ul>
@@ -135,8 +131,6 @@
 <li class="level2"><div class="li"> 海氷モデル複数層</div>
 </li>
 </ul>
-</li>
-<li class="level1"><div class="li"> wet and dry</div>
 </li>
 <li class="level1"><div class="li"> <a href="./mri.com-user_couple_wave.html" class="wikilink1" title="mri.com-user_couple_wave">波浪モデルとの結合</a></div>
 </li>
@@ -171,6 +165,6 @@
 </ul>
 
 </div>
-<!-- EDIT5 SECTION "その他の課題" [1039-] --></div>
+<!-- EDIT4 SECTION "その他の課題" [765-] --></div>
 </body>
 </html>
