@@ -25,7 +25,12 @@
 <ul class="toc">
 <li class="level1"><div class="li"><a href="#mricom_開発のロードマップ">MRI.COM 開発のロードマップ</a></div>
 <ul class="toc">
-<li class="level2"><div class="li"><a href="#ver50_2020年以降">ver.5.0 (2020年以降)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver50_2020年以降">ver.5.0 (2020年以降)</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#追加される主な機能">追加される主な機能</a></div></li>
+<li class="level3"><div class="li"><a href="#その他の変更">その他の変更</a></div></li>
+</ul>
+</li>
 <li class="level2"><div class="li"><a href="#ver60">ver.6.0</a></div></li>
 <li class="level2"><div class="li"><a href="#その他の課題">その他の課題</a></div></li>
 </ul></li>
@@ -41,30 +46,64 @@
 <!-- EDIT1 SECTION "MRI.COM 開発のロードマップ" [1-51] -->
 <h2 class="sectionedit2" id="ver50_2020年以降">ver.5.0 (2020年以降)</h2>
 <div class="level2">
+
+<p>
+5.0作成のタイミングの予定：以下のどちらか早い方
+</p>
 <ul>
-<li class="level1"><div class="li"> 主要な変更：時間差分スキームを LFAM3 に一本化する。(ver.4までの leap frog + Matsuno を削除する)</div>
+<li class="level1"><div class="li"> コード整理に区切りがつき、ハイブリッド鉛直座標系の開発に着手する直前(浦川さんの準備ができたら)</div>
 </li>
-<li class="level1"><div class="li"> z-sigmaを削除する(ZSTAR必須にする)</div>
-</li>
-<li class="level1"><div class="li"> 潮汐エネルギー散逸ベースの鉛直乱流混合スキームの導入</div>
-</li>
-<li class="level1 node"><div class="li"> 海氷スキーム</div>
-<ul>
-<li class="level2"><div class="li"> 棚氷</div>
-</li>
-<li class="level2"><div class="li"> メルトポンド</div>
-</li>
-</ul>
-</li>
-<li class="level1"><div class="li"> COARE3.0等未実装のバルク式の導入</div>
-</li>
-<li class="level1"><div class="li"> 海洋ネストモデルを用いた結合モデルで、子モデルが直接大気モデルと結合する機能を追加</div>
+<li class="level1"><div class="li"> レポート2025に向けた本実験時(2021-22あたり)</div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT2 SECTION "ver.5.0 (2020年以降)" [52-590] -->
-<h2 class="sectionedit3" id="ver60">ver.6.0</h2>
+<!-- EDIT2 SECTION "ver.5.0 (2020年以降)" [52-366] -->
+<h3 class="sectionedit3" id="追加される主な機能">追加される主な機能</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> COARE3.0等未実装のバルク式の導入 (中野さん)</div>
+</li>
+<li class="level1"><div class="li"> 潮汐エネルギー散逸ベースの鉛直乱流混合スキームの導入 (浦川さん)</div>
+</li>
+<li class="level1 node"><div class="li"> 海氷スキーム</div>
+<ul>
+<li class="level2"><div class="li"> 棚氷 (浦川さん)</div>
+</li>
+<li class="level2"><div class="li"> メルトポンド　(豊田さん)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 海洋ネストモデルを用いた結合モデルで、子モデルが直接大気モデルと結合する機能を追加 (辻野さん、浦川さん)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "追加される主な機能" [367-819] -->
+<h3 class="sectionedit4" id="その他の変更">その他の変更</h3>
+<div class="level3">
+<ul>
+<li class="level1 node"><div class="li"> コード整理 (坂本)</div>
+<ul>
+<li class="level2"><div class="li"> 時間差分スキームを LFAM3 に一本化する。(v5.0作成の直前に、leap frog + Matsuno を削除する)</div>
+</li>
+<li class="level2"><div class="li"> <del>z-sigmaを削除する(ZSTAR必須にする)</del></div>
+</li>
+<li class="level2"><div class="li"> リスタートファイルの旧指定方法 (nmlrs_*)</div>
+</li>
+<li class="level2"><div class="li"> 2層以上のBBL</div>
+</li>
+<li class="level2"><div class="li"> BULKNCAR 時にBULKITER必須化</div>
+</li>
+<li class="level2"><div class="li"> その他、使ってないのはなるべく出してください</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "その他の変更" [820-1262] -->
+<h2 class="sectionedit5" id="ver60">ver.6.0</h2>
 <div class="level2">
 <ul>
 <li class="level1"><div class="li"> ハイブリッド鉛直座標系 ( <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" class="urlextern" title="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" rel="nofollow">Adcroft et al. 2019</a> )</div>
@@ -74,8 +113,8 @@
 </ul>
 
 </div>
-<!-- EDIT3 SECTION "ver.6.0" [591-764] -->
-<h2 class="sectionedit4" id="その他の課題">その他の課題</h2>
+<!-- EDIT5 SECTION "ver.6.0" [1263-1436] -->
+<h2 class="sectionedit6" id="その他の課題">その他の課題</h2>
 <div class="level2">
 <ul>
 <li class="level1 node"><div class="li"> コード整理</div>
@@ -165,6 +204,6 @@
 </ul>
 
 </div>
-<!-- EDIT4 SECTION "その他の課題" [765-] --></div>
+<!-- EDIT6 SECTION "その他の課題" [1437-] --></div>
 </body>
 </html>
