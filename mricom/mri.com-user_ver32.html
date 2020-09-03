@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:ver32</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,ver32"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:ver32","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_version_32">MRI.COM version 3.2</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#概要">概要</a></div></li>
+<li class="level2"><div class="li"><a href="#開発項目">開発項目</a></div></li>
+<li class="level2"><div class="li"><a href="#タイムスケジュール">タイムスケジュール</a></div></li>
+<li class="level2"><div class="li"><a href="#更新履歴">更新履歴</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_version_32">MRI.COM version 3.2</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM version 3.2" [1-35] -->
+<h2 class="sectionedit2" id="概要">概要</h2>
+<div class="level2">
+
+<p>
+次々期現業システム（NAPS10）を目指した開発版。コードとしての高い可読性、高いメンテナンス性に主眼を置く。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "概要" [36-210] -->
+<h2 class="sectionedit3" id="開発項目">開発項目</h2>
+<div class="level2">
+<ul>
+<li class="level1 node"><div class="li"> 日本近海モデルへ向けた機能の追加</div>
+<ul>
+<li class="level3"><div class="li"> 潮汐関連</div>
+</li>
+<li class="level3"><div class="li"> ネスティング(２段ネスティング、１対多のネスティング、大気モデルとの結合)</div>
+</li>
+<li class="level3"><div class="li"> 波浪モデルとの並行運用</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 季節予報システムの海洋部分としての機能の追加</div>
+<ul>
+<li class="level2 node"><div class="li"> 同化システム（MOVE/MRI.COM-G）による利用を意識したコーディング</div>
+<ul>
+<li class="level4"><div class="li"> 解析インクリメントをトレーサーに加えるサブルーチンを追加する</div>
+</li>
+<li class="level4"><div class="li"> #ifdef MODEL_MOVE のエントリができるだけ少なくて済むようにする</div>
+</li>
+<li class="level4"><div class="li"> 初期値、パラメータ設定と、リスタート入出力部分の分離</div>
+</li>
+</ul>
+</li>
+<li class="level2 node"><div class="li"> GSAM との結合インターフェイス</div>
+<ul>
+<li class="level4"><div class="li"> 結合仕様の早期確定に向けて働きかけを強める</div>
+</li>
+</ul>
+</li>
+<li class="level2 node"><div class="li"> 各種表層スキームの充実</div>
+<ul>
+<li class="level4"><div class="li"> 短波吸収</div>
+</li>
+<li class="level4"><div class="li"> 混合層モデル(GLS, MYNN …)</div>
+</li>
+<li class="level4"><div class="li"> 波浪結合(大気側の可能性あり)</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> モジュール化の推進。<a href="./mri.com_module_note.html" class="wikilink1" title="mri.com_module_note">モジュールサブルーチン作成上の注意点</a>を参考にして下さい。</div>
+</li>
+<li class="level1"><div class="li"> NEMURO など生物地球化学の高度化</div>
+</li>
+<li class="level1"><div class="li"> カレンダー機能の充実</div>
+</li>
+<li class="level1 node"><div class="li"> 入出力ルーチン(rdinit.F90, writdt.F90) の簡便化</div>
+<ul>
+<li class="level2"><div class="li"> 気象庁現業システムで使用する入出力ルーチンのサポートの仕方を決める必要がある</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 不使用オプションを削る</div>
+<ul>
+<li class="level2"><div class="li"> 必要なら version3.0 から取ってきて復活させる</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "開発項目" [211-1725] -->
+<h2 class="sectionedit4" id="タイムスケジュール">タイムスケジュール</h2>
+<div class="level2">
+
+<p>
+以下の項目は、研究計画等に記載されており、スケジュールを決める上での優先事項です。
+</p>
+<ul>
+<li class="level1"><div class="li"> 季節予報モデルの作成(季節予報 H24)</div>
+</li>
+<li class="level1"><div class="li"> ネストモデルの大気モデルとの結合(温暖化特研 H23)</div>
+</li>
+<li class="level1"><div class="li"> 日本近海予測システムのプロトタイプモデルの作成(海洋経常 H24)</div>
+</li>
+</ul>
+
+<p>
+以上のことから、このバージョンの開発に関して以下のようなスケジュールを設定します。
+</p>
+<ul>
+<li class="level1"><div class="li"> 2011：コードの作成</div>
+</li>
+<li class="level1"><div class="li"> 2012：コード、パラメータの調整</div>
+</li>
+<li class="level1"><div class="li"> 2012末：バージョンの確定</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "タイムスケジュール" [1726-2354] -->
+<h2 class="sectionedit5" id="更新履歴">更新履歴</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT5 SECTION "更新履歴" [2355-] --></div>
+</body>
+</html>

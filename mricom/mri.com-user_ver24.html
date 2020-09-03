@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:ver24</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,ver24"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:ver24","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_24">MRI.COM 2.4</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#概要">概要</a></div></li>
+<li class="level2"><div class="li"><a href="#使用にあたって">使用にあたって</a></div></li>
+<li class="level2"><div class="li"><a href="#更新履歴">更新履歴</a></div></li>
+<li class="level2"><div class="li"><a href="#git_リポジトリ">git リポジトリ</a></div></li>
+<li class="level2"><div class="li"><a href="#ソースコード置き場">ソースコード置き場</a></div></li>
+<li class="level2"><div class="li"><a href="#後処理_grads_作成ツール">後処理(GrADs)作成ツール</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_24">MRI.COM 2.4</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM 2.4" [1-27] -->
+<h2 class="sectionedit2" id="概要">概要</h2>
+<div class="level2">
+
+<p>
+気象庁現業システム NAPS8,9 で使用している海洋モデル用バージョン。
+外部提供の依頼があった場合にはこのバージョンを出すことになっている。
+</p>
+
+<p>
+2007年6月に当時の開発版 MRI.COM 2.4 (MRICOM-2_4-20070611) から分離されたもので、その後追加機能の付加として海氷カテゴリ分けの対応が為されている。
+</p>
+
+<p>
+バグフィックスのサポートのみを行っている。
+</p>
+
+<p>
+バージョン３の系列とは別途管理が行われている。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "概要" [28-579] -->
+<h2 class="sectionedit3" id="使用にあたって">使用にあたって</h2>
+<div class="level2">
+
+<p>
+使用にあたっての条件等を記述しました。<a href="./mri.com_mricom2.4_copyright.html" class="wikilink1" title="mri.com_mricom2.4_copyright">こちら</a>をご覧ください。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "使用にあたって" [580-738] -->
+<h2 class="sectionedit4" id="更新履歴">更新履歴</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 2012.08.10: 貸与向けに GrADs 作成プログラム(mkgrads)やサンプル(samples)中心に調整を行いました。</div>
+</li>
+<li class="level1"><div class="li"> 2012.07.03: my25.F90 のバグが修正されました。</div>
+</li>
+<li class="level1"><div class="li"> 2011.05.09: rivermouth.F90 で arat1r の使用を中止しました。</div>
+</li>
+<li class="level1"><div class="li"> 2011.04.25: git リポジトリを共用のスペース(ocsv004:/home/git/repos/MRICOM-2_4.git)に移動しました。</div>
+</li>
+<li class="level1"><div class="li"> 2011.04.21: git リポジトリ作成、初版の公開</div>
+</li>
+<li class="level1"><div class="li"> 2011.04.20: git リポジトリ作成にあたり、ドキュメント類を整理しました。</div>
+</li>
+<li class="level1"><div class="li"> 2010.12.28: 蓄積したバグの修正、公開版の準備を開始 … ファイル ChangeLog_maintain に幹からの分離以降の維持管理全てを記録(今後もここに記入されます)</div>
+</li>
+<li class="level1"><div class="li"> 2009.12.07: 海氷厚さカテゴリーの導入 … MEMO_icecat_20091207.txt</div>
+</li>
+<li class="level1"><div class="li"> 2007.06.11: 本庁現業向けバージョン、幹からの分離 … ファイル ChangeLog_trunk は分離時のログファイルです(MRICOM-2_4-20070611 のChangeLog)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "更新履歴" [739-1786] -->
+<h2 class="sectionedit5" id="git_リポジトリ">git リポジトリ</h2>
+<div class="level2">
+
+<p>
+ocsv001:/home/ocpublic/repos/MRICOM-2_4.git
+</p>
+<ul>
+<li class="level1"><div class="li"> 開発メンバー用の git リポジトリです。</div>
+</li>
+</ul>
+<pre class="code"> $ git clone ocsv001:/home/ocpublic/repos/MRICOM-2_4.git MRICOM-2_4</pre>
+
+</div>
+<!-- EDIT5 SECTION "git リポジトリ" [1787-2006] -->
+<h2 class="sectionedit6" id="ソースコード置き場">ソースコード置き場</h2>
+<div class="level2">
+
+<p>
+ocsv001:/home/htsujino/ocsv001_home/develop_mricom/MRICOM-2_4-YYYYMMDD.tgz
+</p>
+<ul>
+<li class="level1"><div class="li"> 利用者は上記よりソースを取得して下さい。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "ソースコード置き場" [2007-2189] -->
+<h2 class="sectionedit7" id="後処理_grads_作成ツール">後処理(GrADs)作成ツール</h2>
+<div class="level2">
+
+<p>
+ocsv001:/home/htsujino/ocsv001_home/develop_mricom/MRICOM-2_4/mkgrads
+</p>
+<ul>
+<li class="level1"><div class="li"> バージョン３用に作成したものと比べると GrADs コントロールを作成しないなど、不備な点もありますが、出力項目や順序の変更がありましたので、こちらをご使用ください。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "後処理(GrADs)作成ツール" [2190-] --></div>
+</body>
+</html>
