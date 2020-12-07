@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:mxe:unittest</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,mxe,unittest"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:unittest","namespace":"mri.com-user:mxe"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mxeの単体テスト">MXEの単体テスト</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#実例">実例</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#事前の準備">事前の準備</a></div></li>
+<li class="level3"><div class="li"><a href="#作成するファイル">作成するファイル</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#参考">参考</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mxeの単体テスト">MXEの単体テスト</h1>
+<div class="level1">
+
+<p>
+MXEのPythonモジュールには単体テストを作成する。単体テストは tests/ の下に置き、make check で実行できるようにする。単体テストのコードは python unittest を使う。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MXEの単体テスト" [1-255] -->
+<h2 class="sectionedit2" id="実例">実例</h2>
+<div class="level2">
+
+<p>
+MXE anlpy/particle/ に単体テストの実例がある。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "実例" [256-336] -->
+<h3 class="sectionedit3" id="事前の準備">事前の準備</h3>
+<div class="level3">
+
+<p>
+使うための準備
+</p>
+<ul>
+<li class="level1"><div class="li"> MXEの更新、<a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/projects/mxe/wiki" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/projects/mxe/wiki" rel="nofollow">mxe-data</a> の更新</div>
+</li>
+<li class="level1"><div class="li"> pythonライブラリのインストール: matplotlib, numpy, scipy, pandas, cartopy, cmocean</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "事前の準備" [337-598] -->
+<h3 class="sectionedit4" id="作成するファイル">作成するファイル</h3>
+<div class="level3">
+
+<p>
+下の順番でファイルを見てください。
+</p>
+<ol>
+<li class="level1"><div class="li"> README-MXE.md</div>
+</li>
+<li class="level1"><div class="li"> Makefile</div>
+</li>
+<li class="level1"><div class="li"> sample/plot_particle.py   - 絵を描くスクリプト(linkdir/mxe-data/temp/に出力)</div>
+</li>
+<li class="level1"><div class="li"> particle/particle.py - particle用ライブラリ・モジュール</div>
+</li>
+<li class="level1"><div class="li"> tests/test_particle.py  - particle.pyの単体テスト・モジュール</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT4 SECTION "作成するファイル" [599-963] -->
+<h2 class="sectionedit5" id="参考">参考</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="https://docs.python.org/ja/3/library/unittest.html" class="urlextern" title="https://docs.python.org/ja/3/library/unittest.html" rel="nofollow">https://docs.python.org/ja/3/library/unittest.html</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://www.python.ambitious-engineer.com/archives/828" class="urlextern" title="https://www.python.ambitious-engineer.com/archives/828" rel="nofollow">https://www.python.ambitious-engineer.com/archives/828</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "参考" [964-] --></div>
+</body>
+</html>
