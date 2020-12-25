@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:openmp</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,openmp"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openmp","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_openmp">MRI.COM OpenMP</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#使い方">使い方</a></div></li>
+<li class="level2"><div class="li"><a href="#コーディング方針">コーディング方針</a></div></li>
+<li class="level2"><div class="li"><a href="#検討">検討</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_openmp">MRI.COM OpenMP</h1>
+<div class="level1">
+
+<p>
+気象研スパコン CX-2550 で自動並列に問題がありそうなこともあり、MRI.COMでは、OpenMPによる並列化(スレッド並列とベクトル化)の明示が推奨される。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM OpenMP" [1-230] -->
+<h2 class="sectionedit2" id="使い方">使い方</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openmp-code.html" class="wikilink1" title="mri.com-user_dev_openmp-code">OpenMP指示行の基本</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openmp-do.html" class="wikilink1" title="mri.com-user_dev_openmp-do">スレッド並列化</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "使い方" [231-339] -->
+<h2 class="sectionedit3" id="コーディング方針">コーディング方針</h2>
+<div class="level2">
+<ul>
+<li class="level1 node"><div class="li"> コードを新規作成する際には、openmp指示行も含めて書く</div>
+<ul>
+<li class="level2"><div class="li"> 可読性を壊してまでムリに並列化する必要はない</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> リファクタリング時には、既存のスレッド並列やベクトル化を壊さない</div>
+</li>
+<li class="level1 node"><div class="li"> 並列化されたかは、気象研スパコン CX-2550 における最適化レポートを参照する。ざっと見るには<code>-opt-report=1</code>が、なぜ最適化されないかを調べるには<code>-opt-report=5</code>が良い。</div>
+<ul>
+<li class="level2"><div class="li"> gfortranの最適化レポートはよく分からない</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <code>omp simd</code>によるベクトル化(CPUコア内の並列化)もできれば書く (OpenMP 5.0の規格)</div>
+</li>
+<li class="level1 node"><div class="li"> 配列のコピーでは<code>omp workshare</code>を使う</div>
+<ul>
+<li class="level2 node"><div class="li"> 3行以上、続けてコピーする場合は、最外側のループで開いて<code>omp parallel do</code>で並列化する</div>
+<ul>
+<li class="level3"><div class="li"> <code>omp workshare</code>はifortで実装されていない</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "コーディング方針" [340-1281] -->
+<h2 class="sectionedit4" id="検討">検討</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> スレッド並列では、モジュール変数は shared、サブルーチン内変数は private となるのがデフォルトの動作らしい</div>
+</li>
+<li class="level1"><div class="li"> <code>omp declare simd</code>によって「スカラー関数をベクトル化する」ことも可能らしい</div>
+</li>
+<li class="level1 node"><div class="li"> OpenMPによるSIMD</div>
+<ul>
+<li class="level2"><div class="li"> 外側ループをスレッド並列化しているときにprivate変数の指定が不足していると、内側ループのベクトル化がなされない。</div>
+</li>
+<li class="level2"><div class="li"> 内側ループをアンローリングして、その1つ外でベクトル化してほしいときがある。内側ループのアンローリングが自動で行われれば良いが、そうならないときは1つ外側ループに !$omp simd を指示して、強制的にベクトル化できる。</div>
+</li>
+<li class="level2"><div class="li"> doループ内に関数呼び出しがあると、!$omp simdでもベクトル化できない場合がある。インライン展開の指示が必要か？</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> doループの冒頭などでcycleで抜ける、いわゆるガード節は並列化にとって問題ないか？</div>
+</li>
+<li class="level1"><div class="li"> doループ中の関数呼び出しはベクトル化等を妨げる。長いサブルーチンを分割する場合にはdoループを含めてまとめて移す？長大なループの可読性をどう改善するか</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "検討" [1282-] --></div>
+</body>
+</html>

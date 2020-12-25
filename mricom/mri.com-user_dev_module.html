@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:module</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,module"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:module","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_モジュール作成">MRI.COM モジュール作成</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#定数参照型モジュール">定数参照型モジュール</a></div></li>
+<li class="level2"><div class="li"><a href="#変数参照型モジュール">変数参照型モジュール</a></div></li>
+<li class="level2"><div class="li"><a href="#パッケージ型モジュール">パッケージ型モジュール</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#内部変数">内部変数</a></div></li>
+<li class="level3"><div class="li"><a href="#サブルーチン">サブルーチン</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_モジュール作成">MRI.COM モジュール作成</h1>
+<div class="level1">
+
+<p>
+MRI.COMの各モジュールは、<a href="http://www.mri-jma.go.jp/Project/mrinpd/coderule.html" class="urlextern" title="http://www.mri-jma.go.jp/Project/mrinpd/coderule.html" rel="nofollow">気象庁Fortran標準コーディングルール</a>の「定数参照型モジュール」「変数参照型モジュール」「パッケージ型モジュール」のどれかに相当する。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM モジュール作成" [1-330] -->
+<h2 class="sectionedit2" id="定数参照型モジュール">定数参照型モジュール</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 海洋モデルでは <code>param.F90</code> のみ</div>
+</li>
+<li class="level1"><div class="li"> 階層構造では最下位に位置する</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "定数参照型モジュール" [331-469] -->
+<h2 class="sectionedit3" id="変数参照型モジュール">変数参照型モジュール</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>common.F90</code> <code>tracer_vars.F90</code> など</div>
+</li>
+<li class="level1"><div class="li"> 時間ステップ毎に予測される、物理の独立変数に限定する</div>
+</li>
+<li class="level1"><div class="li"> 上位パッケージによる更新が可</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "変数参照型モジュール" [470-690] -->
+<h2 class="sectionedit4" id="パッケージ型モジュール">パッケージ型モジュール</h2>
+<div class="level2">
+
+<p>
+オブジェクト指向プログラミングを意識して作成する。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "パッケージ型モジュール" [691-814] -->
+<h3 class="sectionedit5" id="内部変数">内部変数</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <code>save</code>属性の内部変数の設定はできるだけ <code>ini</code>, <code>prepare</code> に限る</div>
+</li>
+<li class="level1"><div class="li"> 仕方なくprepare以後に更新する場合は、必ずモジュール内部で行う (<code>protected</code>)</div>
+</li>
+<li class="level1"><div class="li"> 上位パッケージからの参照は可</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "内部変数" [815-1087] -->
+<h3 class="sectionedit6" id="サブルーチン">サブルーチン</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_dev_name_rule.html" class="wikilink1" title="mri.com-user_dev_name_rule">命名規則</a>と<a href="./mri.com-user_dev_layer.html" class="wikilink1" title="mri.com-user_dev_layer">階層構造</a>を踏まえて、なるべく共通の名前のサブルーチンを用意する</div>
+</li>
+<li class="level1 node"><div class="li"> 推奨されるサブルーチン</div>
+<ul>
+<li class="level2"><div class="li">  <code>ini</code> <code>prepare</code> <code>predict</code> <code>read_restart</code> <code>write_restart</code></div>
+</li>
+<li class="level2"><div class="li"> <code>write_history</code> 各モジュールが、自分が受け持つ情報についてモニタリングする</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "サブルーチン" [1088-] --></div>
+</body>
+</html>

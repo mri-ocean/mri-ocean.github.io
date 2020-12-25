@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:doxygen</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,doxygen"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:doxygen","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="mricom_doxygen">MRI.COM Doxygen</h1>
+<div class="level1">
+
+<p>
+サブルーチン等を説明するコメントは Doxygen の記法に従う。
+</p>
+
+<p>
+サンプル
+</p>
+<pre class="code">!&gt; @brief 短波放射による水温時間変化量を計算する
+!! @param[in] qswnt 海面の短波入射[]
+!! @param[out] t_tend_sw_absorb 短波放射の吸収による水温時間変化量 [K/s]
+!! @param[out] qsw_flux グリッド底を通過する短波入射の熱フラックス []
+subroutine
+
+!&gt; @brief Compute friction velocity on T-points on the basis of air-sea stress
+!!   using surface wind stress on UV-points
+!! @param[in] strsx_ao X-ward wind stress [dyn/cm^2]
+!! @param[in] strsy_ao Y-ward wind stress [dyn/cm^2]
+!! @param[out] obj%frcvl friction velocity [m/s]
+
+real(8),save :: strsy_ao (imx,jmx) !&lt; wind stress ocean receives from atmosphere (Y-ward) [dyn/cm^2]</pre>
+
+</div>
+</div>
+</body>
+</html>

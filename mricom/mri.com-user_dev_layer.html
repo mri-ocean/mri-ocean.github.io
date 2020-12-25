@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:layer</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,layer"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:layer","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="mricom_モジュール構成">MRI.COM モジュール構成</h1>
+<div class="level1">
+
+<p>
+MRI.COMのモジュールは、独立のサービスルーチンからモデル全体制御まで、7つの階層構造を持って構成されている。
+</p>
+<ol>
+<li class="level1"><div class="li">サービスルーチン</div>
+</li>
+<li class="level1"><div class="li">基本変数</div>
+</li>
+<li class="level1"><div class="li">一般計算手続き</div>
+</li>
+<li class="level1"><div class="li">物理サブパッケージ</div>
+</li>
+<li class="level1"><div class="li">物理パッケージ</div>
+</li>
+<li class="level1"><div class="li">制御(窓口係)：物理パッケージに対応する窓口係と、rewritなど機能別に設けられた窓口係がある。</div>
+</li>
+<li class="level1"><div class="li">全体制御</div>
+</li>
+</ol>
+
+<p>
+数字が大きいほど高位である。概念図は<a href="http://ogsv009/~ksakamot/doc/mricom_module_map.pdf" class="urlextern" title="http://ogsv009/~ksakamot/doc/mricom_module_map.pdf" rel="nofollow">MRI.COM Module Map(ver.3.3.7)</a>参照。(<a href="http://ogsv009/~ksakamot/doc/mricom_module_map.ai" class="urlextern" title="http://ogsv009/~ksakamot/doc/mricom_module_map.ai" rel="nofollow">Illustratorファイル</a>、<a href="http://ogsv009/~ksakamot/doc/mricom_module_map-3_2.pdf" class="urlextern" title="http://ogsv009/~ksakamot/doc/mricom_module_map-3_2.pdf" rel="nofollow">Ver.3.2</a>)
+</p>
+
+<p>
+各モジュールは下位のモジュールのみをuseする。循環参照を避けるため、同じ階層のモジュールもuseしない(サブパッケージの階層を除く)。
+</p>
+
+</div>
+</div>
+</body>
+</html>

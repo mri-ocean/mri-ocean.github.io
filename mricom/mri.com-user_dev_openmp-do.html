@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:openmp-do</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,openmp-do"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openmp-do","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="openmp_スレッド並列化">OpenMP スレッド並列化</h1>
+<div class="level1">
+
+<p>
+OpenMPによるスレッド並列化を行う場所を以下のように!$omp parallel と!$omp end parallel で挟む。
+</p>
+<pre class="code">!$omp parallel
+
+!$omp end parallel</pre>
+
+<p>
+この挟まれた区画の do loop に対して並列化を行う場合には、do loop の前に!$omp do をつける。
+do loop の場合には、!$omp end do を省略できる。MRI.COMではこの省略形を基本とする。
+</p>
+<pre class="code">!$omp parallel
+
+!$omp do
+do j = 1, jmut
+
+end do 
+
+!$omp end parallel</pre>
+
+<p>
+両者を一行にまとめることもできる。
+</p>
+<pre class="code">!$omp parallel do
+do j = 1, jmut
+
+end do 
+!$omp end parallel do</pre>
+
+<p>
+ただし、以下のように、並列化したloopが複数続いている場合には、!$omp parallel の指示行を何度も書くよりも、いちどだけ!$omp parallel を指定して中に!$omp do を複数書いた方が速い。(機種依存であろうが、fx100 で調査済み).
+</p>
+<pre class="code">!$omp parallel
+
+!$omp do
+do j = 1, jmut
+
+end do 
+
+!$omp do
+do j = 1, jmut
+
+end do 
+
+!$omp end parallel</pre>
+
+<p>
+!$omp parallel で挟まれた中で、除きたい部分(io やcall 文など)は、!$omp critical !$omp end critical 
+で挟んで、並列化の対象外とすることができる。
+</p>
+<pre class="code">!$omp parallel
+
+!$omp do
+do j = 1, jmut
+
+end do 
+
+!$omp critical
+   call hogehoge
+!$omp end critical 
+  
+
+!$omp do
+do j = 1, jmut
+
+end do 
+
+!$omp end parallel</pre>
+
+<p>
+do loopの中の変数はデフォルトではshared となっていて共用される。でそれぞれのスレッドが別の変数を持つ必要が場合には
+private としてする必要がある。ただし、do loop のループ制御変数はデフォルトでprivate となっている。
+</p>
+<pre class="code">!$omp parallel
+
+!$omp do private(hl1)
+do j = 1, jmut
+  hl1 = a(j)
+end do 
+
+!$omp end parallel</pre>
+
+<p>
+ループが多重となり、ループの間に依存関係がない場合には、一般には一番外側にのみかける。
+ただし、その場合には内側ループのループ制御変数はprivate 指定にする必要がある。
+</p>
+<pre class="code">!$omp parallel
+
+!$omp do private (hl1, i)
+do j = 1, jmut
+　do i = 1, imut 
+     hl1 = a(i,j)
+  end do 
+end do 
+
+!$omp end parallel</pre>
+
+</div>
+</div>
+</body>
+</html>

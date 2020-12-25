@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:openmp-code</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,openmp-code"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openmp-code","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="openmp指示行の基本">OpenMP指示行の基本</h1>
+<div class="level1">
+<pre class="code">!$omp </pre>
+
+<p>
+でOpenMP指示行の始まりをコンパイラーに知らせることができる。OpenMPがないシステムにとってはただのコメント文となる。
+</p>
+
+<p>
+!$omp をコメントアウトしたい場合には、!!$omp と二つ以上!をつければよい。
+</p>
+
+<p>
+指示行が複数渡る場合には文末に&amp;をつけて、次の行も!$omp から始める。
+つまり、
+</p>
+<pre class="code">!$omp do private(i)</pre>
+
+<p>
+を以下のように二行に分けることができる。
+</p>
+<pre class="code">!$omp do &amp;
+!$omp private(i)</pre>
+
+</div>
+</div>
+</body>
+</html>

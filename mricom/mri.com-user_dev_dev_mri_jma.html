@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:dev_mri_jma</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,dev_mri_jma"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:dev_mri_jma","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_気象研_気象庁内からの開発手順">MRI.COM 気象研、気象庁内からの開発手順</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#チケットを作成_新規">1.チケットを作成 (新規)</a></div></li>
+<li class="level2"><div class="li"><a href="#レビュアーが方針を確認_方針確認">2.レビュアーが方針を確認 (方針確認)</a></div></li>
+<li class="level2"><div class="li"><a href="#作業を開始_進行中">3.作業を開始 (進行中)</a></div></li>
+<li class="level2"><div class="li"><a href="#ローカルでコードを完成_解決">4.ローカルでコードを完成 (解決)</a></div></li>
+<li class="level2"><div class="li"><a href="#コードレビュー_レビュー済">5.コードレビュー (レビュー済)</a></div></li>
+<li class="level2"><div class="li"><a href="#コードの公開とmasterへの取り込み_フィードバック_終了">6.コードの公開とmasterへの取り込み (フィードバック、終了)</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_気象研_気象庁内からの開発手順">MRI.COM 気象研、気象庁内からの開発手順</h1>
+<div class="level1">
+
+<p>
+気象研究所、気象庁の方(全球4研メンバー以外)が MRI.COM の本流にコミットするワークフローです。
+</p>
+<ul>
+<li class="level1"><div class="li"> 進行は、<a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/projects/mricom" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/projects/mricom" rel="nofollow">Redmine海洋-MRI.COM</a> のチケットによって管理されます。まずは登録してください。</div>
+</li>
+<li class="level1"><div class="li"> 現業用の機能も歓迎します。中長期的に使うものは本流へのコミットを検討してください。</div>
+</li>
+<li class="level1"><div class="li"> 見出しのカッコは、それぞれの段階におけるチケットの「ステータス」です。なるべく更新してください。(「進捗率」は入力不要)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM 気象研、気象庁内からの開発手順" [1-706] -->
+<h2 class="sectionedit2" id="チケットを作成_新規">1.チケットを作成 (新規)</h2>
+<div class="level2">
+
+<p>
+まずチケットを作成し、変更する内容を情報共有します。
+</p>
+<ol>
+<li class="level1"><div class="li"> Redmineの「新しいチケット」をクリックする</div>
+</li>
+<li class="level1 node"><div class="li"> 「トラッカー」を下から選ぶ</div>
+<ul>
+<li class="level2"><div class="li"> バグ： バグ修正</div>
+</li>
+<li class="level2"><div class="li"> 機能： 機能追加</div>
+</li>
+<li class="level2"><div class="li"> サポート: その他。リファクタリング、ツールのバージョン更新、文書の追加、など。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 「担当者」：とりあえずご自分を指定してください</div>
+<ul>
+<li class="level2"><div class="li"> 内容によっては4研メンバーが開発を引き取ります。その場合は依頼者がレビュアーとなります。</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 「対象バージョン」を「request」にする</div>
+</li>
+<li class="level1 node"><div class="li"> 内容を「説明」に書く。</div>
+<ul>
+<li class="level2"><div class="li"> 安定版からの修正の場合は明示する</div>
+</li>
+</ul>
+</li>
+</ol>
+
+<p>
+4研で対応者(レビュアー)を決めるので、しばらくお待ち下さい。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "1.チケットを作成 (新規)" [707-1569] -->
+<h2 class="sectionedit3" id="レビュアーが方針を確認_方針確認">2.レビュアーが方針を確認 (方針確認)</h2>
+<div class="level2">
+
+<p>
+コードを変更する前に、レビュアーに合意を得ます。
+</p>
+<ul>
+<li class="level1"><div class="li"> レビュアーがチケット内容を確認し、ステータスを「方針確認」に、対象バージョンを作業月に変更</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "2.レビュアーが方針を確認 (方針確認)" [1570-1846] -->
+<h2 class="sectionedit4" id="作業を開始_進行中">3.作業を開始 (進行中)</h2>
+<div class="level2">
+
+<p>
+ローカルでコード変更の作業を始めます。
+</p>
+<ul>
+<li class="level1"><div class="li"> チケットのステータスを「進行中」に変更</div>
+</li>
+<li class="level1"><div class="li"> 安定版ベースでも可</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "3.作業を開始 (進行中)" [1847-2041] -->
+<h2 class="sectionedit5" id="ローカルでコードを完成_解決">4.ローカルでコードを完成 (解決)</h2>
+<div class="level2">
+
+<p>
+ローカルでコード変更を完成させます。
+</p>
+<ol>
+<li class="level1 node"><div class="li"> ローカルでgitコミットを完成させる</div>
+<ul>
+<li class="level2"><div class="li"> ログメッセージには <code>refs #チケット番号</code> を加える</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> チケットの「更新」によって作成したコミットのパスとブランチ名を示し、レビュアーにレビューを依頼する</div>
+</li>
+<li class="level1"><div class="li"> ステータスを「解決」に変更</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT5 SECTION "4.ローカルでコードを完成 (解決)" [2042-2479] -->
+<h2 class="sectionedit6" id="コードレビュー_レビュー済">5.コードレビュー (レビュー済)</h2>
+<div class="level2">
+
+<p>
+レビュアーがコード変更のレビューとテストをします。
+</p>
+<ol>
+<li class="level1"><div class="li"> レビュアー: チケットに記述されたパスからコミットを取得し、レビューとテストを行う</div>
+</li>
+<li class="level1"><div class="li"> レビュアー: チケットにレビュー結果を書き、ステータスを「レビュー済」に変更する(口頭で話したこともメモとして残す)</div>
+</li>
+<li class="level1"><div class="li"> コミッター: あれば返信を書く</div>
+</li>
+</ol>
+
+<p>
+以上で作業は終了です。
+</p>
+
+</div>
+<!-- EDIT6 SECTION "5.コードレビュー (レビュー済)" [2480-2986] -->
+<h2 class="sectionedit7" id="コードの公開とmasterへの取り込み_フィードバック_終了">6.コードの公開とmasterへの取り込み (フィードバック、終了)</h2>
+<div class="level2">
+
+<p>
+後は、全球4研でのソースコードの公開とテストのプロセスになります。終われば、レビュアーがチケットを閉じます。
+</p>
+
+</div>
+<!-- EDIT7 SECTION "6.コードの公開とmasterへの取り込み (フィードバック、終了)" [2987-] --></div>
+</body>
+</html>

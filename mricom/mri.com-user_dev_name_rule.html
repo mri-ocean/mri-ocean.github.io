@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:name_rule</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,name_rule"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:name_rule","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_命名規則">MRI.COM 命名規則</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#モジュール名">モジュール名</a></div></li>
+<li class="level2"><div class="li"><a href="#サブルーチン名">サブルーチン名</a></div></li>
+<li class="level2"><div class="li"><a href="#namelist名">namelist名</a></div></li>
+<li class="level2"><div class="li"><a href="#略語">略語</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_命名規則">MRI.COM 命名規則</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM 命名規則" [1-36] -->
+<h2 class="sectionedit2" id="モジュール名">モジュール名</h2>
+<div class="level2">
+
+<p>
+原則、<code>oc_mod_[ファイル名]</code>とする。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "モジュール名" [37-119] -->
+<h2 class="sectionedit3" id="サブルーチン名">サブルーチン名</h2>
+<div class="level2">
+
+<p>
+サブルーチンには <strong>モジュール名(アンダーバー２つ)機能</strong> (<em>modulename</em>__<em>functionality</em>)　という名前をつける
+</p>
+
+<p>
+例： tracer__diagnose_horz_flux
+</p>
+
+</div>
+
+<h4 id="代表的なサブルーチン_メソッド">代表的なサブルーチン(メソッド)</h4>
+<div class="level4">
+
+<p>
+各モジュールで備えるメソッドには、なるべく共通の名前を付けると分かりやすい。他にもあれば適当に追加してください。(アルファベット順)
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">メソッド名 </th><th class="col1">行う作業 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">add_hoge</td><td class="col1"> ある変数に足し算する</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">diagnose</td><td class="col1"> 今のステップにおける変数の値を計算する</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">fin</td><td class="col1"> 終了処理を行う</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">get_hoge</td><td class="col1"> ある変数を取得する</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">give_hoge</td><td class="col1"> ある変数をOGCMの外側から与える(例えばMOVE)</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">ini</td><td class="col1"> 初期設定。namelistを読んで、モジュールで使用する定数・チューニングパラメータを決定する(restartデータを読む前)</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">predict</td><td class="col1"> 次ステップの値を予報する</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">prepare</td><td class="col1"> restartデータを読んだ後、1ステップ目のメインルーチンに入る前の作業</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">print</td><td class="col1"> 標準出力に表示する</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0">read_restart</td><td class="col1"> restartデータを初期値として読み込む</td>
+	</tr>
+	<tr class="row11">
+		<td class="col0">register</td><td class="col1"> 構造体の登録を行う</td>
+	</tr>
+	<tr class="row12">
+		<td class="col0">rewrite</td><td class="col1"> 変数を更新する (1つ前の時間ステップの変数はrewrite_prev, 今のステップの変数はrewrite_now)</td>
+	</tr>
+	<tr class="row13">
+		<td class="col0">set_hoge</td><td class="col1"> モジュールの内部変数を与える</td>
+	</tr>
+	<tr class="row14">
+		<td class="col0">subtract_hoge</td><td class="col1"> ある変数に引き算する</td>
+	</tr>
+	<tr class="row15">
+		<td class="col0">write_history</td><td class="col1"> historyデータを出力する</td>
+	</tr>
+	<tr class="row16">
+		<td class="col0">write_restart</td><td class="col1"> restartデータを出力する</td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [595-1674] -->
+</div>
+<!-- EDIT3 SECTION "サブルーチン名" [120-1675] -->
+<h2 class="sectionedit5" id="namelist名">namelist名</h2>
+<div class="level2">
+
+<p>
+項目名
+</p>
+<ul>
+<li class="level1"><div class="li"> 冒頭に「nml_」を付ける</div>
+</li>
+<li class="level1"><div class="li"> namelist項目はモジュール毎に分ける(1つのモジュールで読んでサブモジュールに振り分けるのは、なるべく避ける)</div>
+</li>
+<li class="level1"><div class="li"> 31文字以内(超えると、front実行時に読み込みエラーとなる)</div>
+</li>
+</ul>
+
+<p>
+変数名
+</p>
+<ul>
+<li class="level1"><div class="li"> 変数が物理次元を持つ場合は、最後に「_単位」を付けるのを推奨。例：拡散係数「_cm2ps」</div>
+</li>
+<li class="level1"><div class="li"> 論理変数名：接頭辞「l_」を付ける</div>
+</li>
+<li class="level1"><div class="li"> ファイル名：接頭辞「file_」を付ける</div>
+</li>
+<li class="level1"><div class="li"> 整数、実数の接頭辞は特になし</div>
+</li>
+<li class="level1"><div class="li"> 変数名の完全な重複は避ける。</div>
+</li>
+<li class="level1"><div class="li"> of は入れない。単語の順番は、数学の変数ぽくする。変数+下添字</div>
+</li>
+<li class="level1"><div class="li"> 変更、追加した場合は、そのコミット中にdocs/README.Namelistにきちんと書く。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "namelist名" [1676-2524] -->
+<h2 class="sectionedit6" id="略語">略語</h2>
+<div class="level2">
+
+<p>
+処理系によっては、サブルーチンや変数の名前に文字数に制限がある場合もあるので、単語を短縮して使わざるを得ない状況になった場合には、以下のリストを参考にサブルーチンや変数の名前をつけ、<a href="http://www.nag-j.co.jp/fortran/FI_4.html#FortranVariables" class="urlextern" title="http://www.nag-j.co.jp/fortran/FI_4.html#FortranVariables" rel="nofollow">全体で31文字以下</a>になるようにする。全てに適用する必要はない。
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 単語 </th><th class="col1"> 略語 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> closure </td><td class="col1"> clsr </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> diagnose </td><td class="col1"> diag </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> diffusion/diffusivity </td><td class="col1"> diff </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> history </td><td class="col1"> hs </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> horizontal </td><td class="col1"> horz </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> independent </td><td class="col1"> indep </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> initialize </td><td class="col1"> ini </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> interpolate </td><td class="col1"> intpol </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> prepare </td><td class="col1"> prep </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> restart </td><td class="col1"> rs/rst </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> turbulence </td><td class="col1"> turb </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> vertical </td><td class="col1"> vert </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> viscosity </td><td class="col1"> visc </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [2971-3274] -->
+</div>
+<!-- EDIT6 SECTION "略語" [2525-] --></div>
+</body>
+</html>
