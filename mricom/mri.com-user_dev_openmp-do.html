@@ -91,8 +91,8 @@ end do
 !$omp end parallel</pre>
 
 <p>
-do loopの中の変数はデフォルトではshared となっていて共用される。でそれぞれのスレッドが別の変数を持つ必要が場合には
-private としてする必要がある。ただし、do loop のループ制御変数はデフォルトでprivate となっている。
+do loopの中の変数はデフォルトではshared となっていて共用される。それぞれのスレッドが別の変数を持つ必要が場合には
+private としてする必要がある。ただし、do loop のループ制御変数はデフォルトでprivate となっている。(privateと明示しても良い)
 </p>
 <pre class="code">!$omp parallel
 
