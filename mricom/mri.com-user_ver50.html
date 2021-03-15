@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:ver50</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,ver50"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:ver50","namespace":"mri.com-user"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_v50">MRI.COM v5.0</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#ソースコードの取得">ソースコードの取得</a></div></li>
+<li class="level2"><div class="li"><a href="#追加された主な機能">追加された主な機能</a></div></li>
+<li class="level2"><div class="li"><a href="#v46_から_v50_への移行">v4.6 から v5.0 への移行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#入力データファイル">入力データファイル</a></div></li>
+<li class="level3"><div class="li"><a href="#namelist">namelist</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#削除された機能">削除された機能</a></div></li>
+<li class="level2"><div class="li"><a href="#機能削除の予定">機能削除の予定</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_v50">MRI.COM v5.0</h1>
+<div class="level1">
+
+<p>
+MRI.COM v5.0 は、2021年3月にリリースされた安定版です。
+時間差分スキームが Leapfrog + Matsuno から Leapfrog-Adams-Moulton (LFAM3) に変更されます。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "MRI.COM v5.0" [1-212] -->
+<h2 class="sectionedit2" id="ソースコードの取得">ソースコードの取得</h2>
+<div class="level2">
+
+<p>
+MRI.COM gitリポジトリでブランチ「5_0」をチェックアウトして下さい。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "ソースコードの取得" [213-347] -->
+<h2 class="sectionedit3" id="追加された主な機能">追加された主な機能</h2>
+<div class="level2">
+
+<p>
+v4.6から以下の機能が追加されています。
+</p>
+<ul>
+<li class="level1 node"><div class="li"> 海面フラックス</div>
+<ul>
+<li class="level2 node"><div class="li"> 新オプション BULKECMWF(ECMWF 基準の海面バルク式)の追加</div>
+<ul>
+<li class="level3"><div class="li"> 大気モデル最下層の高度からフラックス計算が可能</div>
+</li>
+<li class="level3"><div class="li"> Charnock 係数を外部ファイルから読み込み可能にする</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> GSAM_MRI で使用されている海面アルベド・スキームを追加</div>
+</li>
+<li class="level2"><div class="li"> 降水と降雪を分離して扱う</div>
+</li>
+<li class="level2"><div class="li"> ファイルから読み込んだ skin temperature、またはSSTをもとに海面フラックスを計算する</div>
+</li>
+<li class="level2"><div class="li"> 結合時に保存性を保つように海面フラックスを調整するオプションの追加</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> LFAM3 時間差分スキームの改善</div>
+<ul>
+<li class="level2"><div class="li"> 精度より安定性を優先するオプション(AB2e)を追加</div>
+</li>
+<li class="level2"><div class="li"> 係数の精度向上</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 順圧計算にAB3AM4スキームのオプションを追加</div>
+</li>
+<li class="level1"><div class="li"> 粒子追跡機能の強化</div>
+</li>
+<li class="level1 node"><div class="li"> 計算機対応</div>
+<ul>
+<li class="level2"><div class="li"> 気象研新スパコン(富士通CX2550 M5)</div>
+</li>
+<li class="level2"><div class="li"> 北大低温研計算機</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 出力機能の強化</div>
+<ul>
+<li class="level2"><div class="li"> MPIノード毎に分割したファイルでリスタート入出力を行うオプション</div>
+</li>
+<li class="level2"><div class="li"> netCDF 並列 I/O対応</div>
+</li>
+<li class="level2"><div class="li"> 水平積算した海氷物理量</div>
+</li>
+<li class="level2"><div class="li"> 気圧補正した海面高度</div>
+</li>
+<li class="level2"><div class="li"> 実行時にモニター出力リストが作成される</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+その他の変更
+</p>
+<ul>
+<li class="level1"><div class="li"> 海氷モデルの安定性向上</div>
+</li>
+<li class="level1"><div class="li"> 等密度面拡散テンソル・テーパリングの仕様を変更</div>
+</li>
+<li class="level1"><div class="li"> SOLARANGLEオプション時の散乱光の仕様を変更</div>
+</li>
+<li class="level1"><div class="li"> 気象庁現業に合わせたソースコードの配置変更</div>
+</li>
+<li class="level1"><div class="li"> 多数のバグ修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "追加された主な機能" [348-1990] -->
+<h2 class="sectionedit4" id="v46_から_v50_への移行">v4.6 から v5.0 への移行</h2>
+<div class="level2">
+
+<p>
+安定版 <a href="./mri.com-user_ver46.html" class="wikilink1" title="mri.com-user_ver46">v4.6</a> から v5.0 へ移行する場合のメモです。
+ほぼ同じ設定にした場合でも結果は変わります。
+</p>
+
+</div>
+<!-- EDIT4 SECTION "v4.6 から v5.0 への移行" [1991-2178] -->
+<h3 class="sectionedit5" id="入力データファイル">入力データファイル</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <strong>SOMリスタート</strong> v4.6 で変更していなかった場合にファイル名変更が必須</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "入力データファイル" [2179-2320] -->
+<h3 class="sectionedit6" id="namelist">namelist</h3>
+<div class="level3">
+
+<p>
+主な変更です。変更する場合は docs/README_Namelist.md を参照してください
+</p>
+<ul>
+<li class="level1 node"><div class="li"> 海氷モデル: nmlrs_* から nml_restart へ指定方法を変更</div>
+<ul>
+<li class="level2"><div class="li"> docs/README_Restart.md を参照</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "namelist" [2321-2550] -->
+<h2 class="sectionedit7" id="削除された機能">削除された機能</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> コンパイル・オプション必須化：ZSTAR, BULKITER</div>
+</li>
+<li class="level1"><div class="li"> オプション削除: EXACTRHO, NETCDF4CLASSIC, BULKKONDO2、BULKNCAR2004</div>
+</li>
+<li class="level1"><div class="li"> nmlrs_*</div>
+</li>
+<li class="level1"><div class="li"> l_global_local_cnsv_ssh = .false.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "削除された機能" [2551-2780] -->
+<h2 class="sectionedit8" id="機能削除の予定">機能削除の予定</h2>
+<div class="level2">
+
+<p>
+次期安定版(v5.2)で削除される予定の機能です。
+</p>
+<ul>
+<li class="level1"><div class="li"> l_LFAM3 = .false. ( leap frog + Matsuno 時間差分スキーム、v5.0でも非推奨)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "機能削除の予定" [2781-] --></div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:openmp-parallel-fail</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,dev,openmp-parallel-fail"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openmp-parallel-fail","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<h1 class="sectionedit1" id="openmp_スレッド並列の失敗例">OpenMP スレッド並列の失敗例</h1>
+<div class="level1">
+
+<p>
+omp parallel でスレッド並列化を行う場合には
+</p>
+<ul>
+<li class="level1"><div class="li"> スレッド競合を避けること</div>
+</li>
+<li class="level1"><div class="li"> スレッド間同期のタイミングを意識すること</div>
+</li>
+</ul>
+
+<p>
+が重要である。
+</p>
+
+<p>
+例えば以下のようなコードは OpenMP 有効時に結果の再現性を損う可能性がある。
+</p>
+<pre class="code">!$omp parallel
+   do ntrc = ntrc_strt, numtrc
+     if ( trim(adv_scheme(ntrc)%name)/=&quot;som&quot; .and. trim(adv_scheme(ntrc)%name)/=&quot;ppm&quot; ) then
+       trczadvtmp(1:imu, 1:jmu, ntrc) = 0.d0
+!$omp do private(i,k,kd,wt)
+       do j = 2, jmu
+         do i = 2, imu
+          k  = ktbtm(i, j) - texnbbl(i,j)
+          kd = km+1-kbbl
+          wt = sign(vupp-.5D0, wlwl_total(i,j,k))
+          trczadvtmp(i,j,ntrc) = atexl(i,j,kd)&amp;
+               &amp; * (wlwl_total(i,j,k)&amp;
+               &amp;   *((.5D0-wt)*trcbl(i,j,k,ntrc)&amp;
+               &amp;    +(.5D0+wt)*trcbl(i,j,kd,ntrc)))
+        end do
+      end do
+    end if
+  end do
+!$omp end parallel</pre>
+
+<p>
+上記コードでは、
+</p>
+<ul>
+<li class="level1"><div class="li"> trczadvtmp の0埋め(4行目)が全スレッドで実施されるため、スレッド競合が起きる</div>
+</li>
+<li class="level1"><div class="li"> 直後の omp do 指示文(5行目)は、doループの入口でスレッド間同期がとられない</div>
+</li>
+</ul>
+
+<p>
+ことが問題である。
+つまり、trczadvtmp の0埋め作業が全てのスレッドで終了する前に、doループでのtrczadvtmp計算が開始される場合がある。
+正しく計算された trczadvtmp が、再度0埋めされる場合があり、これによって結果の再現性が損われてしまう。
+</p>
+
+<p>
+4行目と5行目の間に !omp barrier を挿入してスレッド間同期をとれば、結果の再現性は確保できる。
+しかし、今回のケースでは、無用なトラブルを避けるためにも、single 指示文を用いてスレッド競合を排した以下のような実装が好ましい。
+</p>
+<pre class="code">!$omp parallel
+  do ntrc = ntrc_strt, numtrc
+    if ( trim(adv_scheme(ntrc)%name)/=&quot;som&quot; .and. trim(adv_scheme(ntrc)%name)/=&quot;ppm&quot; ) then
+!$omp single
+      trczadvtmp(1:imu, 1, ntrc) = 0.d0
+      trczadvtmp(1, 2:jmu, ntrc) = 0.d0
+!$omp end single
+!$omp do private(i,k,kd,wt)
+      do j = 2, jmu
+        do i = 2, imu
+          k  = ktbtm(i, j) - texnbbl(i,j)
+          kd = km+1-kbbl
+          wt = sign(vupp-.5D0, wlwl_total(i,j,k))
+          trczadvtmp(i,j,ntrc) = atexl(i,j,kd)&amp;
+               &amp; * (wlwl_total(i,j,k)&amp;
+               &amp;   *((.5D0-wt)*trcbl(i,j,k,ntrc)&amp;
+               &amp;    +(.5D0+wt)*trcbl(i,j,kd,ntrc)))
+        end do
+      end do
+    end if
+  end do
+!$omp end parallel</pre>
+
+</div>
+</div>
+</body>
+</html>

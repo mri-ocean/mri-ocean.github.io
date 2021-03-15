@@ -51,7 +51,7 @@ end do
 !$omp end parallel do</pre>
 
 <p>
-ただし、以下のように、並列化したloopが複数続いている場合には、!$omp parallel の指示行を何度も書くよりも、いちどだけ!$omp parallel を指定して中に!$omp do を複数書いた方が速い。(機種依存であろうが、fx100 で調査済み).
+ただし、以下のように、並列化したloopが複数続いている場合には、!$omp parallel の指示行を何度も書くよりも、いちどだけ!$omp parallel を指定して中に!$omp do を複数書いた方が速い。(機種依存であろうが、fx100 で調査済み). ただし、スレッド間同期のタイミング等を意識して実装しないと、想定した動作をしない場合があるので注意が必要 (<a href="./mri.com-user_dev_openmp-parallel-fail.html" class="wikilink1" title="mri.com-user_dev_openmp-parallel-fail">OpenMPスレッド並列の失敗例</a>)
 </p>
 <pre class="code">!$omp parallel
 
@@ -68,8 +68,15 @@ end do
 !$omp end parallel</pre>
 
 <p>
-!$omp parallel で挟まれた中で、除きたい部分(io やcall 文など)は、!$omp critical !$omp end critical 
-で挟んで、並列化の対象外とすることができる。
+!$omp parallel で挟まれた領域の一部の処理に対して、スレッド並列実行に制限をかけることもできる。
+スレッド計算の同時実行数を1に制限したい場合は、!$omp critical !$omp end critical で挟む。
+同時実行数は1に制限されるが、全てのスレッドで該当領域の処理が順番に行われることに注意。
+</p>
+
+<p>
+io や call 文などのように単一スレッドで1度だけ計算をしたい場合には、!$omp single !$omp end single で挟む。
+単一スレッドだけで処理が実行され、他のスレッドは何もしない。
+処理が実行されるスレッド番号は決まっていない。!$omp end single の後に暗黙的にスレッド間同期がとられるが、!$omp single の前では同期はとられないことに注意。
 </p>
 <pre class="code">!$omp parallel
 
@@ -78,9 +85,9 @@ do j = 1, jmut
 
 end do 
 
-!$omp critical
+!$omp single
    call hogehoge
-!$omp end critical 
+!$omp end single
   
 
 !$omp do
@@ -89,6 +96,11 @@ do j = 1, jmut
 end do 
 
 !$omp end parallel</pre>
+
+<p>
+スレッド番号0のスレッドでのみ実行したい場合は !$omp master !$omp end master で挟む。
+single 指示文と異なり、入口だけでなく出口でもスレッド間同期がとられないことに注意したい。
+</p>
 
 <p>
 do loopの中の変数はデフォルトではshared となっていて共用される。それぞれのスレッドが別の変数を持つ必要が場合には

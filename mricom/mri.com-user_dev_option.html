@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:option</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="mri.com-user,dev,option"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:option","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#開発時のfortran_mricom推奨オプション">開発時のFortran, MRI.COM推奨オプション</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#mricom">MRI.COM</a></div></li>
+<li class="level2"><div class="li"><a href="#fortranコンパイラ">Fortranコンパイラ</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#ifort">ifort</a></div></li>
+<li class="level3"><div class="li"><a href="#gfortran">gfortran</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="開発時のfortran_mricom推奨オプション">開発時のFortran, MRI.COM推奨オプション</h1>
+<div class="level1">
+
+<p>
+MRI.COMコーディング時の推奨オプションです。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "開発時のFortran, MRI.COM推奨オプション" [1-128] -->
+<h2 class="sectionedit2" id="mricom">MRI.COM</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>&amp;nml_mpi l_strict_run = .true.</code> MPI並列でもシングル実行と同じ結果を得る ＋ 再実験で同じ結果を得る</div>
+</li>
+<li class="level1"><div class="li"> 標準出力で「WARNING」をgrepしてMPI依存のオプションを探しだし、外す</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "MRI.COM" [129-384] -->
+<h2 class="sectionedit3" id="fortranコンパイラ">Fortranコンパイラ</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT3 SECTION "Fortranコンパイラ" [385-420] -->
+<h3 class="sectionedit4" id="ifort">ifort</h3>
+<div class="level3">
+
+<p>
+src/machines/mri-cx2550/profile or src/machines/mri-cx2550-flatmpi/profile を参照
+</p>
+
+</div>
+<!-- EDIT4 SECTION "ifort" [421-522] -->
+<h3 class="sectionedit5" id="gfortran">gfortran</h3>
+<div class="level3">
+
+<p>
+src/machines/linux-gfortran/profile を参照
+</p>
+
+</div>
+<!-- EDIT5 SECTION "gfortran" [523-] --></div>
+</body>
+</html>
