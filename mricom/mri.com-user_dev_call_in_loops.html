@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:call_in_loops</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,dev,call_in_loops"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:call_in_loops","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#do-loop内関数呼び出し">do-loop内関数呼び出し</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#インライン展開の阻害の回避">インライン展開の阻害の回避</a></div></li>
+<li class="level2"><div class="li"><a href="#ベクトル化の阻害の回避">ベクトル化の阻害の回避</a></div></li>
+<li class="level2"><div class="li"><a href="#参考">参考</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="do-loop内関数呼び出し">do-loop内関数呼び出し</h1>
+<div class="level1">
+
+<p>
+一般的にdo-loop内での関数呼び出しはコンパイラによるベクトル化・最適化を阻害する要因になる。
+一方で、コード管理の観点等から、do-loop内関数呼び出しの形式での実装が好ましい場合もある。
+例えば MRI.COM での密度計算がこれにあたる。
+MRI.COM では include 文を用いてコード本体を一括管理することにより、高速化とコード管理の両立を図っている。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "do-loop内関数呼び出し" [1-519] -->
+<h2 class="sectionedit2" id="インライン展開の阻害の回避">インライン展開の阻害の回避</h2>
+<div class="level2">
+
+<p>
+Intel Fortranでは -ipo オプションの利用により、複数ファイル間で手続き間の処理を最適化することができる。
+例えば density.F90 で密度計算のスカラー関数を定義し、それを別ファイルの手続きで利用する場合も、-ipoオプションを用いればインライン展開などの最適化が期待される。
+</p>
+
+<p>
+インライン展開のような最適化にはコンパイラ依存がある。
+例えば、gfortranには、複数ファイル間を跨いだ手続き間の最適化を実施するようなオプションは存在しなさそうである。
+このようなコンパイラではモデルの実行速度が低下する。
+</p>
+
+<p>
+一方で、gfortranのようなコンパイラでも、<strong>同一ファイルに定義された手続き間ではインライン展開等の最適化は実施されると期待して良さそう</strong>である。
+<strong>密度計算コード本体を1つのファイルに記載し、密度計算を要するファイル毎に、密度計算スカラー関数を定義</strong>してあげれば、コードの一括管理を実現しつつ、インライン展開などの最適化が有効になることが期待される。
+例えば MRI.COM の stratification.F90 では以下のような実装がなされている。
+</p>
+<pre class="code">module oc_mod_stratification
+...
+contains
+...
+subroutine stratification__stable
+  ...
+  do k = 1, ktmp
+    do jjj = numj4(k) + 1, numj4(k+1)
+      i = ii4(jjj)
+      j = jj4(jjj)
+      call stratification__ts2sig(trcal(i,j,k,1),trcal(i,j,k,2),sigma_theta(i,j,k))
+    end do
+  end do
+  ...
+end subroutine stratification__stable
+...
+subroutine stratification__ts2sig
+#include &quot;eos/ts2sig_center.inc&quot;
+end subroutine stratification__ts2sig
+...
+end module oc_mod_stratification</pre>
+
+<p>
+この例では、eos/ts2sig_center.inc に水温、塩分から海面基準のポテンシャル密度を計算するコード本体が記載されている。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "インライン展開の阻害の回避" [520-2530] -->
+<h2 class="sectionedit3" id="ベクトル化の阻害の回避">ベクトル化の阻害の回避</h2>
+<div class="level2">
+
+<p>
+do-loop内での関数呼び出しは、SIMDと呼ばれるベクトル化を阻害する場合があり、計算速度が大きく低下する。
+密度計算のような手続きは本来ベクトル化に影響しないものである。
+このような関数では OpenMP の指示行を用いることで、do-loop内での関数呼び出しを実施する場合でも SIMD 化を促進することができる。
+具体的には<strong>指示行 !$omp declare simd を、implicit none や use 文の前に挿入する。</strong>
+</p>
+
+<p>
+例えば、上記の eos/ts2sig_center.inc は以下のような内容になっている
+</p>
+<pre class="code">!$omp declare simd
+    use oc_mod_eos, only: dc_a, dc_b, dc_c, dc_d
+    implicit none
+    real(8),   intent(in)  :: t, s
+    real(8),   intent(out) :: sig  !&gt; [kg/m3 - 1000]
+
+    real(8) :: t2, t3, t4, t5, s05
+
+#include &quot;eos/ts_prep.inc&quot;
+    t5 = t4*t
+#include &quot;eos/ts2sig.inc&quot;</pre>
+
+</div>
+<!-- EDIT3 SECTION "ベクトル化の阻害の回避" [2531-3483] -->
+<h2 class="sectionedit4" id="参考">参考</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5265" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5265" rel="nofollow">https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5265</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5368" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5368" rel="nofollow">https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5368</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "参考" [3484-] --></div>
+</body>
+</html>

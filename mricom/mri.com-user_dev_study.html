@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:study</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,dev,study"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:study","namespace":"mri.com-user:dev"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#プログラミング習熟">プログラミング習熟</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#mricomテスト実験">0. MRI.COMテスト実験</a></div></li>
+<li class="level2"><div class="li"><a href="#fortran_95">1. Fortran 95</a></div></li>
+<li class="level2"><div class="li"><a href="#make">2. make</a></div></li>
+<li class="level2"><div class="li"><a href="#シェル・スクリプト">3. シェル・スクリプト</a></div></li>
+<li class="level2"><div class="li"><a href="#mpi並列">4. MPI並列</a></div></li>
+<li class="level2"><div class="li"><a href="#mricom関連">5. MRI.COM関連</a></div></li>
+<li class="level2"><div class="li"><a href="#git">6. git</a></div></li>
+<li class="level2"><div class="li"><a href="#コーディング">7. コーディング</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="プログラミング習熟">プログラミング習熟</h1>
+<div class="level1">
+
+<p>
+新しく勉強される方のための情報。順番は参考程度に。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "プログラミング習熟" [1-120] -->
+<h2 class="sectionedit2" id="mricomテスト実験">0. MRI.COMテスト実験</h2>
+<div class="level2">
+
+<p>
+モチベーションを得るために、まずは簡単なMRI.COM実験を動かしてみる。
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_rectangle_start.html" class="wikilink1" title="mri.com-user_rectangle_start">rectangle</a> 「デフォルト設定で動かす」を参照に。</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "0. MRI.COMテスト実験" [121-351] -->
+<h2 class="sectionedit3" id="fortran_95">1. Fortran 95</h2>
+<div class="level2">
+
+<p>
+基本的な構文に加えて、モジュール、構造体などの習熟が必要。
+</p>
+<ol>
+<li class="level1"><div class="li"> Fortran 90/95プログラミング 富田博之 (培風館)</div>
+</li>
+<li class="level1"><div class="li"> 数値計算のためのFortran90/95プログラミング入門(第2版) 牛島 省 (森北出版)</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT3 SECTION "1. Fortran 95" [352-635] -->
+<h2 class="sectionedit4" id="make">2. make</h2>
+<div class="level2">
+
+<p>
+いわゆるビルド・ツール。モジュールで構成されたfortranプログラムのコンパイルに必須。
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.jsk.t.u-tokyo.ac.jp/~k-okada/makefile/" class="urlextern" title="http://www.jsk.t.u-tokyo.ac.jp/~k-okada/makefile/" rel="nofollow">トリビアなmakefile入門</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "2. make" [636-867] -->
+<h2 class="sectionedit5" id="シェル・スクリプト">3. シェル・スクリプト</h2>
+<div class="level2">
+
+<p>
+実験や解析ツールの実行で使う。
+</p>
+<ul>
+<li class="level1"><div class="li"> UNIXシェルスクリプト コマンドブック 山下哲典 (SoftBank Creative)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "3. シェル・スクリプト" [868-1047] -->
+<h2 class="sectionedit6" id="mpi並列">4. MPI並列</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://ogsv009.i.mri-jma.go.jp/~ocpublic/wiki/doku.php?id=mri.com-user:rectangle:start" class="urlextern" title="http://ogsv009.i.mri-jma.go.jp/~ocpublic/wiki/doku.php?id=mri.com-user:rectangle:start" rel="nofollow">並列プログラミング虎の巻MPI版</a> (後半の派生タイプは使わない)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "4. MPI並列" [1048-1254] -->
+<h2 class="sectionedit7" id="mricom関連">5. MRI.COM関連</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/projects/mricom_manual/files" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/projects/mricom_manual/files" rel="nofollow">MRI.COMマニュアル</a></div>
+</li>
+<li class="level1"><div class="li"> 坂本圭, 辻野博之, 中野英之, 浦川昇吾, 山中吾郎, Git とRedmine を用いた気象研究所共用海洋モデル「MRI.COM」の開発管理, 海の研究, 27(5), 175-188, 2018/09. <a href="http://kaiyo-gakkai.jp/jos/uminokenkyu/vol27/27-5/27-5-01Sakamoto.pdf" class="urlextern" title="http://kaiyo-gakkai.jp/jos/uminokenkyu/vol27/27-5/27-5-01Sakamoto.pdf" rel="nofollow">論文 PDF</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "5. MRI.COM関連" [1255-1686] -->
+<h2 class="sectionedit8" id="git">6. git</h2>
+<div class="level2">
+
+<p>
+開発に参加するには必須。
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="./git_start.html" class="wikilink1" title="git_start">git</a> - 気象研海洋Wiki内の紹介ページ</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "6. git" [1687-1806] -->
+<h2 class="sectionedit9" id="コーディング">7. コーディング</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="https://www.amazon.co.jp/dp/4873115655/" class="urlextern" title="https://www.amazon.co.jp/dp/4873115655/" rel="nofollow">『リーダブルコード』</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "7. コーディング" [1807-] --></div>
+</body>
+</html>

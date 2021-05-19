@@ -25,11 +25,15 @@
 <ul class="toc">
 <li class="level1"><div class="li"><a href="#開発時のfortran_mricom推奨オプション">開発時のFortran, MRI.COM推奨オプション</a></div>
 <ul class="toc">
-<li class="level2"><div class="li"><a href="#mricom">MRI.COM</a></div></li>
 <li class="level2"><div class="li"><a href="#fortranコンパイラ">Fortranコンパイラ</a></div>
 <ul class="toc">
 <li class="level3"><div class="li"><a href="#ifort">ifort</a></div></li>
 <li class="level3"><div class="li"><a href="#gfortran">gfortran</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#mricom">MRI.COM</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#モニタリング">モニタリング</a></div></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -46,7 +50,30 @@ MRI.COMコーディング時の推奨オプションです。
 
 </div>
 <!-- EDIT1 SECTION "開発時のFortran, MRI.COM推奨オプション" [1-128] -->
-<h2 class="sectionedit2" id="mricom">MRI.COM</h2>
+<h2 class="sectionedit2" id="fortranコンパイラ">Fortranコンパイラ</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "Fortranコンパイラ" [129-164] -->
+<h3 class="sectionedit3" id="ifort">ifort</h3>
+<div class="level3">
+
+<p>
+<a href="https://github.com/mri-ocean/MRICOM/blob/master/src/machines/mri-cx2550/profile" class="urlextern" title="https://github.com/mri-ocean/MRICOM/blob/master/src/machines/mri-cx2550/profile" rel="nofollow">src/machines/mri-cx2550/profile</a> or <a href="https://github.com/mri-ocean/MRICOM/blob/master/src/machines/mri-cx2550-flatmpi/profile" class="urlextern" title="https://github.com/mri-ocean/MRICOM/blob/master/src/machines/mri-cx2550-flatmpi/profile" rel="nofollow">src/machines/mri-cx2550-flatmpi/profile</a> を参照
+</p>
+
+</div>
+<!-- EDIT3 SECTION "ifort" [165-442] -->
+<h3 class="sectionedit4" id="gfortran">gfortran</h3>
+<div class="level3">
+
+<p>
+<a href="https://github.com/mri-ocean/MRICOM/blob/master/src/machines/linux86-gfortran/profile" class="urlextern" title="https://github.com/mri-ocean/MRICOM/blob/master/src/machines/linux86-gfortran/profile" rel="nofollow">src/machines/linux-gfortran/profile</a> を参照
+</p>
+
+</div>
+<!-- EDIT4 SECTION "gfortran" [443-598] -->
+<h2 class="sectionedit5" id="mricom">MRI.COM</h2>
 <div class="level2">
 <ul>
 <li class="level1"><div class="li"> <code>&amp;nml_mpi l_strict_run = .true.</code> MPI並列でもシングル実行と同じ結果を得る ＋ 再実験で同じ結果を得る</div>
@@ -56,29 +83,33 @@ MRI.COMコーディング時の推奨オプションです。
 </ul>
 
 </div>
-<!-- EDIT2 SECTION "MRI.COM" [129-384] -->
-<h2 class="sectionedit3" id="fortranコンパイラ">Fortranコンパイラ</h2>
-<div class="level2">
-
-</div>
-<!-- EDIT3 SECTION "Fortranコンパイラ" [385-420] -->
-<h3 class="sectionedit4" id="ifort">ifort</h3>
+<!-- EDIT5 SECTION "MRI.COM" [599-852] -->
+<h3 class="sectionedit6" id="モニタリング">モニタリング</h3>
 <div class="level3">
 
 <p>
-src/machines/mri-cx2550/profile or src/machines/mri-cx2550-flatmpi/profile を参照
+水体積の変化
 </p>
-
-</div>
-<!-- EDIT4 SECTION "ifort" [421-522] -->
-<h3 class="sectionedit5" id="gfortran">gfortran</h3>
-<div class="level3">
+<pre class="code">&amp;nml_history
+  name                          = &#039;total water volume change&#039;,
+  file_base                     = &#039;result/hs_total_vol&#039;,
+  interval_step                 = ,
+  sampling                      = &#039;snap&#039;,
+  operator                      = &#039;area_integral&#039;,
+/</pre>
 
 <p>
-src/machines/linux-gfortran/profile を参照
+塩分の保存
 </p>
+<pre class="code">&amp;nml_history
+  name                          = &#039;total salt change in ocean and sea ice&#039;,
+  file_base                     = &#039;result/hs_total_salt&#039;,
+  interval_step                 = ,
+  sampling                      = &#039;snap&#039;,
+  operator                      = &#039;area_integral&#039;,
+/</pre>
 
 </div>
-<!-- EDIT5 SECTION "gfortran" [523-] --></div>
+<!-- EDIT6 SECTION "モニタリング" [853-] --></div>
 </body>
 </html>

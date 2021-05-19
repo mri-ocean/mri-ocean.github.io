@@ -87,6 +87,30 @@
 </li>
 </ul>
 </li>
+<li class="level1 node"><div class="li"> 有効値が入ってる水平グリッド範囲は、配列によって2種類ある</div>
+<ul>
+<li class="level2 node"><div class="li"> コアのみ (ibt:iet,jbt:jet), (ibu:ieu,jbu:jeu)</div>
+<ul>
+<li class="level3"><div class="li"> 次ステップ(いわゆるa系)の配列</div>
+</li>
+<li class="level3"><div class="li"> モニター用配列</div>
+</li>
+<li class="level3"><div class="li"> 袖のために不要な重い計算や通信が発生する配列 (サブルーチン引数宣言のコメントで「コアのみ」と明示)</div>
+</li>
+<li class="level3"><div class="li"> マージンには陸欠損値(-9.99e33)を入れる</div>
+</li>
+</ul>
+</li>
+<li class="level2 node"><div class="li"> コア+マージン (1:imu,1:jmu)</div>
+<ul>
+<li class="level3"><div class="li"> 上記以外の配列</div>
+</li>
+<li class="level3"><div class="li"> 値の入力に不要な袖領域計算が必要になりうるが、目をつぶる</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="level1"><div class="li"> 各MPIノードの配列サイズは実行時の標準出力で表示される</div>
 </li>
 <li class="level1"><div class="li"> 配列の動的割付では、使い終わったらdeallocateする。</div>
@@ -94,7 +118,7 @@
 </ul>
 
 </div>
-<!-- EDIT3 SECTION "配列" [329-1005] -->
+<!-- EDIT3 SECTION "配列" [329-1609] -->
 <h2 class="sectionedit4" id="サブルーチン">サブルーチン</h2>
 <div class="level2">
 <ul>
@@ -103,7 +127,7 @@
 </ul>
 
 </div>
-<!-- EDIT4 SECTION "サブルーチン" [1006-1156] -->
+<!-- EDIT4 SECTION "サブルーチン" [1610-1760] -->
 <h3 class="sectionedit5" id="引数_配列">引数：配列</h3>
 <div class="level3">
 <ul>
@@ -112,6 +136,8 @@
 <li class="level1 node"><div class="li"> Fortran規約では、intent(out) の場合、サブルーチンを呼ぶ前に入ってた値は無視され不定となる。</div>
 <ul>
 <li class="level2"><div class="li"> 常にコア+マージン領域(1:imu,1:jmu)の範囲に値を入れて返すようにする</div>
+</li>
+<li class="level2"><div class="li"> コア領域のみ有効値の配列については、マージン領域に陸欠損値(-9.99e33)を入れる</div>
 </li>
 </ul>
 </li>
@@ -122,7 +148,7 @@
 </ul>
 
 </div>
-<!-- EDIT5 SECTION "引数：配列" [1157-1665] -->
+<!-- EDIT5 SECTION "引数：配列" [1761-2385] -->
 <h3 class="sectionedit6" id="引数_ポインター">引数：ポインター</h3>
 <div class="level3">
 <ul>
@@ -131,7 +157,7 @@
 </ul>
 
 </div>
-<!-- EDIT6 SECTION "引数：ポインター" [1666-1828] -->
+<!-- EDIT6 SECTION "引数：ポインター" [2386-2548] -->
 <h3 class="sectionedit7" id="引数_構造体">引数：構造体</h3>
 <div class="level3">
 <ul>
@@ -142,12 +168,12 @@
 </ul>
 
 </div>
-<!-- EDIT7 SECTION "引数：構造体" [1829-2159] -->
+<!-- EDIT7 SECTION "引数：構造体" [2549-2879] -->
 <h2 class="sectionedit8" id="その他">その他</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT8 SECTION "その他" [2160-2183] -->
+<!-- EDIT8 SECTION "その他" [2880-2903] -->
 <h3 class="sectionedit9" id="必須">必須</h3>
 <div class="level3">
 <ul>
@@ -160,7 +186,7 @@
 </ul>
 
 </div>
-<!-- EDIT9 SECTION "必須" [2184-2371] -->
+<!-- EDIT9 SECTION "必須" [2904-3091] -->
 <h3 class="sectionedit10" id="推奨">推奨</h3>
 <div class="level3">
 <ul>
@@ -177,7 +203,7 @@
 </ul>
 
 </div>
-<!-- EDIT10 SECTION "推奨" [2372-2862] -->
+<!-- EDIT10 SECTION "推奨" [3092-3582] -->
 <h3 class="sectionedit11" id="使ってもいいもの">使ってもいいもの</h3>
 <div class="level3">
 <ul>
@@ -186,7 +212,7 @@
 </ul>
 
 </div>
-<!-- EDIT11 SECTION "使ってもいいもの" [2863-2928] -->
+<!-- EDIT11 SECTION "使ってもいいもの" [3583-3648] -->
 <h3 class="sectionedit12" id="避けた方がいいもの">避けた方がいいもの</h3>
 <div class="level3">
 <ul>
@@ -198,6 +224,8 @@
 </li>
 <li class="level1 node"><div class="li"> サブルーチン内のsave宣言: module冒頭に移した方が良い</div>
 <ul>
+<li class="level2"><div class="li"> 状態遷移を抑制するため、save属性変数への代入はiniのみで行うべき。</div>
+</li>
 <li class="level2"><div class="li"> スコープは広くなってしまうが、モジュールで確保されるメモリが分かりやすい</div>
 </li>
 <li class="level2"><div class="li"> OpenMP によるスレッド並列では、モジュール変数は shared、サブルーチン内変数は private となるのがデフォルトの動作</div>
@@ -207,11 +235,11 @@
 </ul>
 
 </div>
-<!-- EDIT12 SECTION "避けた方がいいもの" [2929-3502] -->
+<!-- EDIT12 SECTION "避けた方がいいもの" [3649-4323] -->
 <h3 class="sectionedit13" id="禁止">禁止</h3>
 <div class="level3">
 
 </div>
-<!-- EDIT13 SECTION "禁止" [3503-] --></div>
+<!-- EDIT13 SECTION "禁止" [4324-] --></div>
 </body>
 </html>

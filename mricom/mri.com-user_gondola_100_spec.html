@@ -26,7 +26,7 @@
 </p>
 <div class="table sectionedit2"><table class="inline">
 	<tr class="row0">
-		<td class="col0">数値モデル</td><td class="col1">MRI.COM ver.3.3</td>
+		<td class="col0">数値モデル</td><td class="col1">MRI.COM ver.4.7</td>
 	</tr>
 	<tr class="row1">
 		<td class="col0">領域</td><td class="col1">全球tripolar</td>
@@ -44,28 +44,31 @@
 		<td class="col0">地形</td><td class="col1">GEBCO2014にJTOPO30v2をマージしたデータを元に作成。最も浅いところで3層8m。</td>
 	</tr>
 	<tr class="row6">
-		<td class="col0">海面強制</td><td class="col1">CORE ver.2ももしくはJRA-55較正データ, 海面塩分を50m/365dayで月別気候値に緩和</td>
+		<td class="col0">海面強制</td><td class="col1">CORE2, JRA55-do 等。海面塩分を50m/365dayで月別気候値に緩和</td>
 	</tr>
 	<tr class="row7">
-		<td class="col0">河川</td><td class="col1">CORE ver. 2もしくはCaMa-Flood</td>
+		<td class="col0">河川</td><td class="col1">CORE2, JRA55-do (CaMa-Flood)</td>
 	</tr>
 	<tr class="row8">
-		<td class="col0">主なスキーム</td><td class="col1">SOMトレーサー移流、Redi and GM parameterization, GLS混合層スキーム</td>
+		<td class="col0">時間積分スキーム</td><td class="col1">LFAM3</td>
 	</tr>
 	<tr class="row9">
-		<td class="col0">水平粘性</td><td class="col1">Smagorinsky調和型、非等方粘性</td>
+		<td class="col0">主なスキーム</td><td class="col1">SOMトレーサー移流、Redi and GM parameterization, GLS混合層スキーム</td>
 	</tr>
 	<tr class="row10">
-		<td class="col0">背景鉛直混合</td><td class="col1">Decloedt and Luther (2010)を元に主に外洋域の500m以浅でテーパリング</td>
+		<td class="col0">水平粘性</td><td class="col1">Smagorinsky調和型、非等方粘性</td>
 	</tr>
 	<tr class="row11">
-		<td class="col0">初期場</td><td class="col1">PHC気候値</td>
+		<td class="col0">背景鉛直混合</td><td class="col1">Decloedt and Luther (2010)を元に主に外洋域の500m以浅でテーパリング</td>
 	</tr>
 	<tr class="row12">
-		<td class="col0">時間ステップ</td><td class="col1">20-30分(順圧は60-120秒)</td>
+		<td class="col0">初期場</td><td class="col1">PHC気候値</td>
+	</tr>
+	<tr class="row13">
+		<td class="col0">標準時間ステップ</td><td class="col1">60分(順圧・海氷力学は30秒)</td>
 	</tr>
 </table></div>
-<!-- EDIT2 TABLE [62-968] -->
+<!-- EDIT2 TABLE [62-984] -->
 </div>
 </div>
 </body>
