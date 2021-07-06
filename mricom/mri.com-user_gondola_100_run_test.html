@@ -41,11 +41,11 @@
 <div class="level1">
 
 <p>
-テスト設定 (16MPI並列、24step) で実験を行う手順です。
+テスト設定 (16MPI並列、24 or 48 steps) で実験を行う手順です。
 </p>
 
 </div>
-<!-- EDIT1 SECTION "テスト実験のチュートリアル" [1-127] -->
+<!-- EDIT1 SECTION "テスト実験のチュートリアル" [1-135] -->
 <h2 class="sectionedit2" id="パッケージの展開">パッケージの展開</h2>
 <div class="level2">
 
@@ -60,12 +60,12 @@
 </p>
 
 </div>
-<!-- EDIT2 SECTION "パッケージの展開" [128-425] -->
+<!-- EDIT2 SECTION "パッケージの展開" [136-433] -->
 <h2 class="sectionedit3" id="実験の実行と結果の検証">実験の実行と結果の検証</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT3 SECTION "実験の実行と結果の検証" [426-470] -->
+<!-- EDIT3 SECTION "実験の実行と結果の検証" [434-478] -->
 <h3 class="sectionedit4" id="気象研海洋サーバ_ogsv009_および気象研スパコンの場合">気象研海洋サーバ (ogsv009) および気象研スパコンの場合</h3>
 <div class="level3">
 <ol>
@@ -73,7 +73,7 @@
 </li>
 <li class="level1"><div class="li"> [実験実行] “./exec.sh (実験モード) (実験名)” を実行</div>
 </li>
-<li class="level1"><div class="li"> [結果検証] “./check.sh (実験モード) (実験名) (参照実験名)” を実行</div>
+<li class="level1"><div class="li"> [結果検証] “./check.sh (実験モード) (実験名)” を実行</div>
 </li>
 </ol>
 
@@ -82,23 +82,23 @@
 </p>
 
 <p>
-例えば、実験モード=parallel、実験名=next、参照実験名=masterの場合
+例えば、実験モード=parallel、実験名=next の場合
 </p>
 <pre class="code">$ cd $TOP/test
 $ ./exec.sh parallel next
-$ ./check.sh parallel next master</pre>
+$ ./check.sh parallel next</pre>
 
 <p>
 とする。
 </p>
 
 <p>
-./check.sh parallel next master では、$TOP/compare_next_parallel_to_master_parallel.txt が生成される。
-全ての項目で [o.k.] が出力されていれば、2つの実験の結果の一致がわかる。
+./check.sh parallel next では、$TOP/compare_next_parallel_to_master_parallel.txt が生成される。
+最後に “[o.k.] All files matched.” が出力されていれば、2つの実験の結果の一致がわかる。
 </p>
 
 </div>
-<!-- EDIT4 SECTION "気象研海洋サーバ (ogsv009) および気象研スパコンの場合" [471-1224] -->
+<!-- EDIT4 SECTION "気象研海洋サーバ (ogsv009) および気象研スパコンの場合" [479-1188] -->
 <h3 class="sectionedit5" id="その他サーバ">その他サーバ</h3>
 <div class="level3">
 
@@ -107,6 +107,6 @@ $ ./check.sh parallel next master</pre>
 </p>
 
 </div>
-<!-- EDIT5 SECTION "その他サーバ" [1225-] --></div>
+<!-- EDIT5 SECTION "その他サーバ" [1189-] --></div>
 </body>
 </html>
