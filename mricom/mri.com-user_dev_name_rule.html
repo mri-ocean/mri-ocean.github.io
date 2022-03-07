@@ -44,11 +44,11 @@
 <div class="level2">
 
 <p>
-原則、<code>oc_mod_[ファイル名]</code>とする。
+原則、<code>oc_mod_[ファイル名]</code>とする。通常は名詞。
 </p>
 
 </div>
-<!-- EDIT2 SECTION "モジュール名" [37-119] -->
+<!-- EDIT2 SECTION "モジュール名" [37-137] -->
 <h2 class="sectionedit3" id="サブルーチン名">サブルーチン名</h2>
 <div class="level2">
 
@@ -78,6 +78,7 @@
 <div class="level4">
 
 <p>
+通常は動詞とする。
 各モジュールで備えるメソッドには、なるべく共通の名前を付けると分かりやすい。他にもあれば適当に追加してください。(アルファベット順)
 </p>
 <div class="table sectionedit4"><table class="inline">
@@ -90,54 +91,57 @@
 		<td class="col0">add_hoge</td><td class="col1"> ある変数に足し算する</td>
 	</tr>
 	<tr class="row2">
-		<td class="col0">diagnose</td><td class="col1"> 今のステップにおける変数の値を計算する</td>
+		<td class="col0">calc_hoge</td><td class="col1"> モジュール内変数によりある量を計算し、呼び出し側に返す</td>
 	</tr>
 	<tr class="row3">
-		<td class="col0">fin</td><td class="col1"> 終了処理を行う</td>
+		<td class="col0">diagnose</td><td class="col1"> 今のステップにおける変数の値を計算し、モジュール内変数に保持する</td>
 	</tr>
 	<tr class="row4">
-		<td class="col0">get_hoge</td><td class="col1"> ある変数を取得する</td>
+		<td class="col0">fin</td><td class="col1"> 終了処理を行う</td>
 	</tr>
 	<tr class="row5">
-		<td class="col0">give_hoge</td><td class="col1"> ある変数をOGCMの外側から与える(例えばMOVE)</td>
+		<td class="col0">get_hoge</td><td class="col1"> ある変数を取得する</td>
 	</tr>
 	<tr class="row6">
-		<td class="col0">ini</td><td class="col1"> 初期設定。namelistを読んで、モジュールで使用する定数・チューニングパラメータを決定する(restartデータを読む前)</td>
+		<td class="col0">give_hoge</td><td class="col1"> ある変数をOGCMの外側から与える(例えばMOVE)</td>
 	</tr>
 	<tr class="row7">
-		<td class="col0">predict</td><td class="col1"> 次ステップの値を予報する</td>
+		<td class="col0">ini</td><td class="col1"> 初期設定。namelistを読んで、モジュールで使用する定数・チューニングパラメータを決定する(restartデータを読む前)</td>
 	</tr>
 	<tr class="row8">
-		<td class="col0">prepare</td><td class="col1"> restartデータを読んだ後、1ステップ目のメインルーチンに入る前の作業</td>
+		<td class="col0">predict</td><td class="col1"> 次ステップの値を予報する</td>
 	</tr>
 	<tr class="row9">
-		<td class="col0">print</td><td class="col1"> 標準出力に表示する</td>
+		<td class="col0">prepare</td><td class="col1"> restartデータを読んだ後、1ステップ目のメインルーチンに入る前の作業</td>
 	</tr>
 	<tr class="row10">
-		<td class="col0">read_restart</td><td class="col1"> restartデータを初期値として読み込む</td>
+		<td class="col0">print</td><td class="col1"> 標準出力に表示する</td>
 	</tr>
 	<tr class="row11">
-		<td class="col0">register</td><td class="col1"> 構造体の登録を行う</td>
+		<td class="col0">read_restart</td><td class="col1"> restartデータを初期値として読み込む</td>
 	</tr>
 	<tr class="row12">
-		<td class="col0">rewrite</td><td class="col1"> 変数を更新する (1つ前の時間ステップの変数はrewrite_prev, 今のステップの変数はrewrite_now)</td>
+		<td class="col0">register</td><td class="col1"> 構造体の登録を行う</td>
 	</tr>
 	<tr class="row13">
-		<td class="col0">set_hoge</td><td class="col1"> モジュールの内部変数を与える</td>
+		<td class="col0">rewrite</td><td class="col1"> 変数を更新する (1つ前の時間ステップの変数はrewrite_prev, 今のステップの変数はrewrite_now)</td>
 	</tr>
 	<tr class="row14">
-		<td class="col0">subtract_hoge</td><td class="col1"> ある変数に引き算する</td>
+		<td class="col0">set_hoge</td><td class="col1"> モジュールの内部変数を与える</td>
 	</tr>
 	<tr class="row15">
-		<td class="col0">write_history</td><td class="col1"> historyデータを出力する</td>
+		<td class="col0">subtract_hoge</td><td class="col1"> ある変数に引き算する</td>
 	</tr>
 	<tr class="row16">
+		<td class="col0">write_history</td><td class="col1"> historyデータを出力する</td>
+	</tr>
+	<tr class="row17">
 		<td class="col0">write_restart</td><td class="col1"> restartデータを出力する</td>
 	</tr>
 </table></div>
-<!-- EDIT4 TABLE [853-1932] -->
+<!-- EDIT4 TABLE [899-2112] -->
 </div>
-<!-- EDIT3 SECTION "サブルーチン名" [120-1933] -->
+<!-- EDIT3 SECTION "サブルーチン名" [138-2113] -->
 <h2 class="sectionedit5" id="namelist名">namelist名</h2>
 <div class="level2">
 
@@ -174,7 +178,7 @@
 </ul>
 
 </div>
-<!-- EDIT5 SECTION "namelist名" [1934-2821] -->
+<!-- EDIT5 SECTION "namelist名" [2114-3001] -->
 <h2 class="sectionedit6" id="略語">略語</h2>
 <div class="level2">
 
@@ -188,47 +192,56 @@
 	</tr>
 	</thead>
 	<tr class="row1">
-		<td class="col0"> closure </td><td class="col1"> clsr </td>
+		<td class="col0"> boundary </td><td class="col1"> bndr </td>
 	</tr>
 	<tr class="row2">
-		<td class="col0"> diagnose </td><td class="col1"> diag </td>
+		<td class="col0"> closure </td><td class="col1"> clsr </td>
 	</tr>
 	<tr class="row3">
-		<td class="col0"> diffusion/diffusivity </td><td class="col1"> diff </td>
+		<td class="col0"> diagnose </td><td class="col1"> diag </td>
 	</tr>
 	<tr class="row4">
-		<td class="col0"> history </td><td class="col1"> hs </td>
+		<td class="col0"> diffusion/diffusivity </td><td class="col1"> diff </td>
 	</tr>
 	<tr class="row5">
-		<td class="col0"> horizontal </td><td class="col1"> horz </td>
+		<td class="col0"> history </td><td class="col1"> hs </td>
 	</tr>
 	<tr class="row6">
-		<td class="col0"> independent </td><td class="col1"> indep </td>
+		<td class="col0"> horizontal </td><td class="col1"> horz </td>
 	</tr>
 	<tr class="row7">
-		<td class="col0"> initialize </td><td class="col1"> ini </td>
+		<td class="col0"> independent </td><td class="col1"> indep </td>
 	</tr>
 	<tr class="row8">
-		<td class="col0"> interpolate </td><td class="col1"> intpol </td>
+		<td class="col0"> initialize </td><td class="col1"> ini </td>
 	</tr>
 	<tr class="row9">
-		<td class="col0"> prepare </td><td class="col1"> prep </td>
+		<td class="col0"> interpolate </td><td class="col1"> intpol </td>
 	</tr>
 	<tr class="row10">
-		<td class="col0"> restart </td><td class="col1"> rs/rst </td>
+		<td class="col0"> ocean </td><td class="col1"> ocn </td>
 	</tr>
 	<tr class="row11">
-		<td class="col0"> turbulence </td><td class="col1"> turb </td>
+		<td class="col0"> optimize </td><td class="col1"> optim </td>
 	</tr>
 	<tr class="row12">
-		<td class="col0"> vertical </td><td class="col1"> vert </td>
+		<td class="col0"> prepare </td><td class="col1"> prep </td>
 	</tr>
 	<tr class="row13">
+		<td class="col0"> restart </td><td class="col1"> rs/rst </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> turbulence </td><td class="col1"> turb </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> vertical </td><td class="col1"> vert </td>
+	</tr>
+	<tr class="row16">
 		<td class="col0"> viscosity </td><td class="col1"> visc </td>
 	</tr>
 </table></div>
-<!-- EDIT7 TABLE [3268-3571] -->
+<!-- EDIT7 TABLE [3448-3808] -->
 </div>
-<!-- EDIT6 SECTION "略語" [2822-] --></div>
+<!-- EDIT6 SECTION "略語" [3002-] --></div>
 </body>
 </html>

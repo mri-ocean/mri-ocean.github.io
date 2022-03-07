@@ -82,7 +82,7 @@ subroutine stratification__stable
 end subroutine stratification__stable
 ...
 subroutine stratification__ts2sig
-#include &quot;eos/ts2sig_center.inc&quot;
+#include &quot;Eos/ts2sig_center.inc&quot;
 end subroutine stratification__ts2sig
 ...
 end module oc_mod_stratification</pre>
@@ -118,8 +118,16 @@ do-loop内での関数呼び出しは、SIMDと呼ばれるベクトル化を阻
     t5 = t4*t
 #include &quot;eos/ts2sig.inc&quot;</pre>
 
+<p>
+注意点
+</p>
+<ul>
+<li class="level1"><div class="li"> サブルーチン中 contains 内の内部サブルーチン、内部関数として作成すると intel fortran ではコンパイルエラーとなる。 呼び出し側と同じ階層の、モジュール内のサブルーチン、関数として作成すれば大丈夫。(2021/10)</div>
+</li>
+</ul>
+
 </div>
-<!-- EDIT3 SECTION "ベクトル化の阻害の回避" [2531-3483] -->
+<!-- EDIT3 SECTION "ベクトル化の阻害の回避" [2531-3787] -->
 <h2 class="sectionedit4" id="参考">参考</h2>
 <div class="level2">
 <ul>
@@ -130,6 +138,6 @@ do-loop内での関数呼び出しは、SIMDと呼ばれるベクトル化を阻
 </ul>
 
 </div>
-<!-- EDIT4 SECTION "参考" [3484-] --></div>
+<!-- EDIT4 SECTION "参考" [3788-] --></div>
 </body>
 </html>

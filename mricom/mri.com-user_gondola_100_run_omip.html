@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:gondola_100:run_omip</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,gondola_100,run_omip"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:gondola_100';var JSINFO = {"id":"mri.com-user:gondola_100:run_omip","namespace":"mri.com-user:gondola_100"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#cmip6_omip実験を動かす">CMIP6/OMIP実験を動かす</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#パッケージの展開">パッケージの展開</a></div></li>
+<li class="level2"><div class="li"><a href="#実験の実行">実験の実行</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="cmip6_omip実験を動かす">CMIP6/OMIP実験を動かす</h1>
+<div class="level1">
+
+<p>
+気象研スパコンであれば容易に CMIP6/OMIP 仕様の実験を実行できます。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "CMIP6/OMIP実験を動かす" [1-137] -->
+<h2 class="sectionedit2" id="パッケージの展開">パッケージの展開</h2>
+<div class="level2">
+
+<p>
+パッケージのtar ballを展開するか、gitでパッケージを取得する。
+</p>
+<pre class="code">&gt; git clone -b (ブランチ名) [共有リポジトリURL]</pre>
+
+<p>
+ブランチ名は例えば master など。
+以下、展開したディレクトリを$TOPと表記する。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "パッケージの展開" [138-435] -->
+<h2 class="sectionedit3" id="実験の実行">実験の実行</h2>
+<div class="level2">
+
+<p>
+${TOP}/exp/run/README.md に従う。
+</p>
+
+<p>
+OMIP仕様設定にするには上記README.mdの「実験設定の変更」において、${TOP}/exp/run/run.conf を以下のとおり修正し、exp/run/以下にて./tool/config.shを実行する。
+</p>
+<ul>
+<li class="level1"><div class="li"> COREv2駆動OMIP1実験を実施したい場合： options に “omip1” を指定</div>
+</li>
+<li class="level1"><div class="li"> JRA55-do v1.5駆動OMIP2実験を実施したい場合： options に “omip2” を指定</div>
+</li>
+<li class="level1"><div class="li"> COREv2駆動OMIP1-SPUNUP実験を実施したい場合： options に “omip1-spunup” を指定</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> 物理場+idealageでOMIP2実験を実施したい場合： run.conf 修正の必要なし</div>
+</li>
+<li class="level1"><div class="li"> 物理場+ideal age+CFC11/12,SF6でOMIP2実験を実施したい場合： options に “omip2_phys” を指定</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "実験の実行" [436-] --></div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:gondola_100:run_1yr</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,gondola_100,run_1yr"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:gondola_100';var JSINFO = {"id":"mri.com-user:gondola_100:run_1yr","namespace":"mri.com-user:gondola_100"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#特定の1年間を動かす">特定の1年間を動かす</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#パッケージの展開">パッケージの展開</a></div></li>
+<li class="level2"><div class="li"><a href="#実験の実行">実験の実行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#共通設定">共通設定</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="特定の1年間を動かす">特定の1年間を動かす</h1>
+<div class="level1">
+
+<p>
+気象研スパコンで、特定の1年間を対象にJRA55-do v1.5を用いて物理場のみを動かしたい場合の手順です (480MPI並列)。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "特定の1年間を動かす" [1-196] -->
+<h2 class="sectionedit2" id="パッケージの展開">パッケージの展開</h2>
+<div class="level2">
+
+<p>
+パッケージのtar ballを展開するか、gitでパッケージを取得する。
+</p>
+<pre class="code">&gt; git clone -b (ブランチ名) [共有リポジトリURL]</pre>
+
+<p>
+ブランチ名は例えば master など。
+以下、展開したディレクトリを$TOPと表記する。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "パッケージの展開" [197-494] -->
+<h2 class="sectionedit3" id="実験の実行">実験の実行</h2>
+<div class="level2">
+
+<p>
+${TOP}/exp/run/README.md に従う。
+ただし、${TOP}/exp/run/run.conf の変更時に以下の作業を行う。
+</p>
+
+<p>
+以下の例では動作させたい年が2000年であるとする。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "実験の実行" [495-711] -->
+<h3 class="sectionedit4" id="共通設定">共通設定</h3>
+<div class="level3">
+
+<p>
+${TOP}/exp/run/run.conf で以下を指定
+</p>
+<pre class="code">options=&quot;jra55do-v1.5&quot;
+last_date=&quot;2001-01-01-00&quot;</pre>
+
+</div>
+
+<h4 id="静止状態・woa_13初期値から動かす場合">静止状態・WOA&#039;13初期値から動かす場合</h4>
+<div class="level4">
+
+<p>
+共通設定に加えて、以下を指定
+</p>
+<pre class="code">init_date=&quot;2000-01-01-00&quot;
+init_dir=&quot;../../linkdir/data/restart.1&quot;
+init_try=0
+init_suffix=&quot;&quot;
+init_subdir=&quot;no&quot;</pre>
+
+</div>
+
+<h4 id="何らかのgondola_100リスタートファイルから動かす場合">何らかのGONDOLA_100リスタートファイルから動かす場合</h4>
+<div class="level4">
+
+<p>
+下記コマンドで作成した場所に初期値を設置する。
+</p>
+<pre class="code">$ cd ${TOP}/linkdir/result
+$ mkdir 2000</pre>
+
+<p>
+共通設定に加えて、以下を指定
+</p>
+<pre class="code">init_date=&quot;1999-01-01-00&quot;
+init_dir=&quot;&quot;</pre>
+
+<p>
+以下コマンドを実施
+</p>
+<pre class="code">$ cd ${TOP}/exp/run
+$ echo 2000-01-01-00 &gt; ./date.txt</pre>
+
+</div>
+<!-- EDIT4 SECTION "共通設定" [712-] --></div>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>mri.com-user:jpn:start</title>
 <meta name="generator" content="DokuWiki"/>
-<meta name="robots" content="noindex,nofollow"/>
+<meta name="robots" content="index,follow"/>
 <meta name="keywords" content="mri.com-user,jpn,start"/>
 <!--[if gte IE 9]><!-->
 <script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:jpn';var JSINFO = {"id":"mri.com-user:jpn:start","namespace":"mri.com-user:jpn"};
@@ -33,7 +33,8 @@
 </li>
 <li class="level2"><div class="li"><a href="#海洋モデル・データ同化システム">海洋モデル・データ同化システム</a></div></li>
 <li class="level2"><div class="li"><a href="#提供ファイル仕様">提供ファイル仕様</a></div></li>
-<li class="level2"><div class="li"><a href="#取得とライセンス">取得とライセンス</a></div></li>
+<li class="level2"><div class="li"><a href="#取得">取得</a></div></li>
+<li class="level2"><div class="li"><a href="#ライセンス等">ライセンス等</a></div></li>
 <li class="level2"><div class="li"><a href="#成果">成果</a></div>
 <ul class="toc">
 <li class="level3"><div class="li"><a href="#論文">論文</a></div></li>
@@ -51,6 +52,11 @@
 </ul>
 </li>
 <li class="level1"><div class="li"><a href="#気象庁現業運用">気象庁現業運用</a></div></li>
+<li class="level1"><div class="li"><a href="#利用上の注意">利用上の注意</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#把握している不具合_バイアス等について">把握している不具合、バイアス等について</a></div></li>
+<li class="level2"><div class="li"><a href="#海面高度の海況変動の計算方法">海面高度の海況変動の計算方法</a></div></li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -178,7 +184,7 @@
 <ul>
 <li class="level1"><div class="li"> ファイル名：</div>
 </li>
-<li class="level1"><div class="li"> フォーマット：Fortran単精度バイナリ(GrADS CTLファイル付き)</div>
+<li class="level1"><div class="li"> フォーマット：Fortran単精度バイナリ(GrADS CTLファイル付き), DIAS経由の場合は、netCDF</div>
 </li>
 <li class="level1 node"><div class="li"> ファイル構造：(実験名)/hst_(間隔)-(モデル)/(年)/hs_(変数).YYYYMMDD</div>
 <ul>
@@ -194,7 +200,7 @@
 </li>
 </ul>
 </li>
-<li class="level1"><div class="li"> 必要なソフトウェア：GrADS</div>
+<li class="level1"><div class="li"> 必要なソフトウェア：GrADS, netCDF(DIAS)</div>
 </li>
 <li class="level1"><div class="li"> 容量</div>
 </li>
@@ -213,33 +219,64 @@
 		<td class="col0">3650</td><td class="col1">1.8[TB]</td><td class="col2">32[<abbr title="Gigabyte">GB</abbr>]</td><td class="col3">1.5[TB]</td>
 	</tr>
 </table></div>
-<!-- EDIT7 TABLE [4236-4393] -->
+<!-- EDIT7 TABLE [4283-4440] -->
 </div>
-<!-- EDIT6 SECTION "提供ファイル仕様" [3688-4394] -->
-<h2 class="sectionedit8" id="取得とライセンス">取得とライセンス</h2>
+<!-- EDIT6 SECTION "提供ファイル仕様" [3688-4442] -->
+<h2 class="sectionedit8" id="取得">取得</h2>
+<div class="level2">
+
+<p>
+データ取得の手順。
+</p>
+<ol>
+<li class="level1"><div class="li"> データ入手にはまず上記「概要」の連絡先までメールしてください。</div>
+</li>
+<li class="level1 node"><div class="li"> 「データ提供申請書」のWORDファイルを送りますので、記入してメール提出してください。</div>
+<ul>
+<li class="level2"><div class="li"> 申請書内に利用規約あり。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 申請書の承認の後、データを以下の手段で提供します。</div>
+<ol>
+<li class="level2 node"><div class="li"> DIAS経由のダウンロード</div>
+<ul>
+<li class="level3"><div class="li"> <a href="http://search.diasjp.net/ja/dataset/MOVEJPN_MRI_2020" class="urlextern" title="http://search.diasjp.net/ja/dataset/MOVEJPN_MRI_2020" rel="nofollow">http://search.diasjp.net/ja/dataset/MOVEJPN_MRI_2020</a></div>
+</li>
+<li class="level3"><div class="li"> 一部要素のみ。netCDF形式の日別ファイルです。</div>
+</li>
+</ul>
+</li>
+<li class="level2 node"><div class="li"> 外付けHDD/LTOテープの送付</div>
+<ul>
+<li class="level3"><div class="li"> USB接続外付けHDD(ext4フォーマット)　または LTOテープ(ver.7か8)で送付</div>
+</li>
+<li class="level3"><div class="li"> コピー後に返送してください。</div>
+</li>
+<li class="level3"><div class="li"> Fortran単精度バイナリ、全データ</div>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+</div>
+<!-- EDIT8 SECTION "取得" [4443-5254] -->
+<h2 class="sectionedit9" id="ライセンス等">ライセンス等</h2>
 <div class="level2">
 <ul>
-<li class="level1 node"><div class="li"> 入手方法： 上記「概要」の連絡先までメールしてください</div>
-<ul>
-<li class="level2"><div class="li"> USB接続外付けHDD(ext4フォーマット)　または LTOテープ(ver.7か8、できればこちらで)で送付</div>
+<li class="level1"><div class="li"> 利用規約は、取得時に記入する申請書を参照</div>
 </li>
-<li class="level2"><div class="li"> コピー後に返送してください。</div>
+<li class="level1"><div class="li"> 本データを利用した成果を公表する場合は、気象研にメール報告する。</div>
 </li>
-</ul>
-</li>
-<li class="level1 node"><div class="li"> 利用条件：「データ提供申請書」のメール提出 (申請書内に利用規約あり。雛形WORDファイルを渡します)</div>
-<ul>
-<li class="level2"><div class="li"> 本データを利用した成果を公表する場合は報告をお願いします。</div>
-</li>
-<li class="level2"><div class="li"> 成果発表の共著に、気象研データ提供者を加える必要はありません。本データの引用先は上記「概要」に示しています。</div>
-</li>
-</ul>
+<li class="level1"><div class="li"> 成果発表の共著に、気象研データ提供者を加える必要はない。本データの引用先は上記「概要」のものとする。</div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT8 SECTION "取得とライセンス" [4395-5099] -->
-<h2 class="sectionedit9" id="成果">成果</h2>
+<!-- EDIT9 SECTION "ライセンス等" [5255-5609] -->
+<h2 class="sectionedit10" id="成果">成果</h2>
 <div class="level2">
 
 <p>
@@ -248,48 +285,52 @@
 </p>
 
 </div>
-<!-- EDIT9 SECTION "成果" [5100-5353] -->
-<h3 class="sectionedit10" id="論文">論文</h3>
+<!-- EDIT10 SECTION "成果" [5610-5863] -->
+<h3 class="sectionedit11" id="論文">論文</h3>
 <div class="level3">
 <ul>
-<li class="level1"><div class="li"> Akihide Kasai, Aya Yamazaki, Hyojin Ahn, Hiroki Yamanaka, Satoshi Kameyama, Reiji Masuda, Nobuyuki Azuma, Shingo Kimura, Tatsuro Karaki, Yuko Kurokawa, and Yoh Yamashita, Distribution of Japanese eel Anguilla japonica revealed by environmental DNA, Frontiers: Ecology and Evolution, 2021</div>
+<li class="level1"><div class="li"> Akihide Kasai, Aya Yamazaki, Hyojin Ahn, Hiroki Yamanaka, Satoshi Kameyama, Reiji Masuda, Nobuyuki Azuma, Shingo Kimura, Tatsuro Karaki, Yuko Kurokawa, and Yoh Yamashita, Distribution of Japanese eel Anguilla japonica revealed by environmental DNA, Frontiers in Ecology and Evolution, 2021, <a href="https://doi.org/10.3389/fevo.2021.621461" class="urlextern" title="https://doi.org/10.3389/fevo.2021.621461" rel="nofollow">https://doi.org/10.3389/fevo.2021.621461</a></div>
+</li>
+<li class="level1"><div class="li"> Takahiro Toyoda, Kei Sakamoto, Norihisa Usui, Nariaki Hirose, Kiyoshi Tanaka, Takaaki Katsumata, Daisuke Takahashi, Masato Niki, Kunio Kutsuwada, Toru Miyama, Hideyuki Nakano, Shogo Urakawa, Kensuke Komatsu, Yuma Kawakami, Goro Yamanaka, Surface-Layer Circulations in Suruga Bay Induced by Intrusions of Kuroshio Branch Water , Frontiers in Marine Science, 2021, <a href="https://doi.org/10.3389/fmars.2021.721500" class="urlextern" title="https://doi.org/10.3389/fmars.2021.721500" rel="nofollow">https://doi.org/10.3389/fmars.2021.721500</a></div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT10 SECTION "論文" [5354-5665] -->
-<h3 class="sectionedit11" id="発表">発表</h3>
+<!-- EDIT11 SECTION "論文" [5864-6627] -->
+<h3 class="sectionedit12" id="発表">発表</h3>
 <div class="level3">
 <ul>
 <li class="level1"><div class="li"> Wagawa, T., Y. Igeta, K. Sakamoto and M. Kuga, Offshore spreading of river discharge in the Japan Sea: glider surveys and numerical experiments, 2020 Ocean Sciences Meeting (San Diego), 2020/02/19, ポスター</div>
 </li>
-<li class="level1"><div class="li"> 唐木達郎, 坂本圭, 木村伸吾, 笠井亮秀, 気象庁海洋大循環モデルを用いたニホンウナギの仔魚輸送実験, 日本海洋学会秋季大会, 2020/11/27, 口頭</div>
+<li class="level1"><div class="li"> 唐木達郎, 坂本圭, 木村伸吾, 笠井亮秀, 気象庁海洋大循環モデルを用いたニホンウナギの仔魚輸送実験, 日本海洋学会2020年度秋季大会, 2020/11/27, 口頭</div>
 </li>
-<li class="level1"><div class="li"> 和川拓, 井桁庸介, 坂本圭, 春季における佐渡島沖合域の上層低塩⽔の形成過程, 日本海洋学会秋季大会, 2020/11/27, ポスター</div>
+<li class="level1"><div class="li"> 和川拓, 井桁庸介, 坂本圭, 春季における佐渡島沖合域の上層低塩⽔の形成過程, 日本海洋学会2020年度秋季大会, 2020/11/27, ポスター</div>
 </li>
 <li class="level1"><div class="li"> Sei-Ichi Saitoh, Yasuyuki Miyakoshi, Fumihiro Takahashi, Takafumi Hirata, Masahide Kaeriyama, Irene D. Alabia, Takashi Hosokawa, Tatsuya Miyoshi and Kei Sakamoto, Optimization of salmon release operation under changing climate in the Okhotsk coast, Japan, Ecosystem Studies of Subarctic and Arctic Seas (ESSAS) Annual Science Meeting 2021, 2021/06/01, 口頭</div>
 </li>
+<li class="level1"><div class="li"> 豊田隆寛, 坂本圭, 碓氷典久, 広瀬成章, 田中潔, 勝間田高明, 高橋大介, 仁木将人, 轡田邦夫, 美山透, 中野英之, 浦川昇吾, 小松謙介, 川上雄真, 山中吾郎, 駿河湾への黒潮水貫入とそれに伴う湾内の表層循環, 日本海洋学会2021年度秋季大会, 2021/09/17, 口頭</div>
+</li>
 </ul>
 
 </div>
-<!-- EDIT11 SECTION "発表" [5666-6625] -->
-<h3 class="sectionedit12" id="提供機関">提供機関</h3>
+<!-- EDIT12 SECTION "発表" [6628-7946] -->
+<h3 class="sectionedit13" id="提供機関">提供機関</h3>
 <div class="level3">
 <ul>
-<li class="level1"><div class="li"> JAMSTEC, RESTEC, 水産研究・教育機構, 防災科学技術研究所, 海洋情報研究センター, 国立環境研究所</div>
+<li class="level1"><div class="li"> JAMSTEC, RESTEC, 水産研究・教育機構, 防災科学技術研究所, 海洋情報研究センター, 国立環境研究所, 理化学研究所</div>
 </li>
-<li class="level1"><div class="li"> 北海道大学(低温科学研究所, 水産学部, 北極域研究センター), 東京大学 (先端技術研究所, 大気海洋研究所), 東海大学</div>
+<li class="level1"><div class="li"> 北海道大学(低温科学研究所, 水産学部, 北極域研究センター), 東京大学 (先端技術研究所, 大気海洋研究所), 東海大学, 千葉大学, 鹿児島大学, 九州大学, 沖縄科学技術大学院大学, 広島大学</div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT12 SECTION "提供機関" [6626-6944] -->
-<h2 class="sectionedit13" id="ドキュメント">ドキュメント</h2>
+<!-- EDIT13 SECTION "提供機関" [7947-8379] -->
+<h2 class="sectionedit14" id="ドキュメント">ドキュメント</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT13 SECTION "ドキュメント" [6945-6976] -->
-<h3 class="sectionedit14" id="解説">解説</h3>
+<!-- EDIT14 SECTION "ドキュメント" [8380-8411] -->
+<h3 class="sectionedit15" id="解説">解説</h3>
 <div class="level3">
 <ul>
 <li class="level1"><div class="li"> <a href="./mri.com-user_jpn_spec.html" class="wikilink1" title="mri.com-user_jpn_spec">詳細な仕様</a></div>
@@ -303,8 +344,8 @@
 </ul>
 
 </div>
-<!-- EDIT14 SECTION "解説" [6977-8088] -->
-<h3 class="sectionedit15" id="その他の論文">その他の論文</h3>
+<!-- EDIT15 SECTION "解説" [8412-9523] -->
+<h3 class="sectionedit16" id="その他の論文">その他の論文</h3>
 <div class="level3">
 <ol>
 <li class="level1"><div class="li"> 坂本圭, 山中吾郎, 辻野博之, 中野英之, 平原幹俊, 次世代日本近海予測モデルMRI.COM-JPNによるあびきの予測可能性, 海と空, 88(3), 15-28, 2013/03. <a href="http://www.umitosora.org/umisora_pdf/vol88_3_2.pdf" class="urlextern" title="http://www.umitosora.org/umisora_pdf/vol88_3_2.pdf" rel="nofollow">論文 PDF</a></div>
@@ -318,8 +359,8 @@
 </ol>
 
 </div>
-<!-- EDIT15 SECTION "その他の論文" [8089-9286] -->
-<h3 class="sectionedit16" id="学会等の発表">学会等の発表</h3>
+<!-- EDIT16 SECTION "その他の論文" [9524-10721] -->
+<h3 class="sectionedit17" id="学会等の発表">学会等の発表</h3>
 <div class="level3">
 
 <p>
@@ -373,8 +414,8 @@
 </ol>
 
 </div>
-<!-- EDIT16 SECTION "学会等の発表" [9287-14751] -->
-<h1 class="sectionedit17" id="気象庁現業運用">気象庁現業運用</h1>
+<!-- EDIT17 SECTION "学会等の発表" [10722-16186] -->
+<h1 class="sectionedit18" id="気象庁現業運用">気象庁現業運用</h1>
 <div class="level1">
 
 <p>
@@ -402,6 +443,91 @@
 </ul>
 
 </div>
-<!-- EDIT17 SECTION "気象庁現業運用" [14752-] --></div>
+<!-- EDIT18 SECTION "気象庁現業運用" [16187-17455] -->
+<h1 class="sectionedit19" id="利用上の注意">利用上の注意</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT19 SECTION "利用上の注意" [17456-17489] -->
+<h2 class="sectionedit20" id="把握している不具合_バイアス等について">把握している不具合、バイアス等について</h2>
+<div class="level2">
+
+<p>
+実験設定等に伴う不具合
+</p>
+<ul>
+<li class="level1"><div class="li"> 2008年2月19日頃-2008年3月7日頃: 水温過大。特に亜熱帯域。</div>
+</li>
+<li class="level1"><div class="li"> 2011年-2012年: 現場観測データの未同化(SSH, SSTは同化)により、他年より解析精度が劣る。</div>
+</li>
+<li class="level1 node"><div class="li"> 観測では存在しない海氷</div>
+<ul>
+<li class="level2"><div class="li"> 親潮域:20080222-20080823, 20090331-20090406, 20100309-20100317, 20120501-20120519, 20140409-20140411, 20150228-20150302, 20150320-20150322, 20160308-20160310, </div>
+</li>
+<li class="level2"><div class="li"> 陸奥湾:201002-201003, 201402</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+観測等から推定される顕著なバイアス
+</p>
+<ul>
+<li class="level1"><div class="li"> オホーツク海南部の亜表層の高温バイアス</div>
+</li>
+<li class="level1"><div class="li"> 黄海の夏季底層の高温バイアス</div>
+</li>
+<li class="level1"><div class="li"> 日本海深層の流速</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT20 SECTION "把握している不具合、バイアス等について" [17490-18235] -->
+<h2 class="sectionedit21" id="海面高度の海況変動の計算方法">海面高度の海況変動の計算方法</h2>
+<div class="level2">
+
+<p>
+JPNには海面気圧による押し下げ・吸い上げと潮汐が導入されているため、モデル出力海面高度 h には、海況要因による潮位偏差 h_ocean に加えて天文潮位 h_tide 、気圧応答による h_slpa も含まれる。
+</p>
+<pre class="code">h=h_tide + h_slpa + h_ocean</pre>
+
+<p>
+よって、海況変動の海面高度を推定する場合は、以下の式を用いる。
+</p>
+<pre class="code">h_ocean = h - h_tide - h_slpa</pre>
+
+</div>
+
+<h4 id="h_tideモデル内潮汐場の8分潮調和解析">h_tide:モデル内潮汐場の8分潮調和解析</h4>
+<div class="level4">
+
+<p>
+モデル出力の30分毎SSHスナップショット(hst_30min-jpn/hs_snp_ssh)を用いて調和解析し、8分潮の調和定数から h_tide を計算した。
+</p>
+<ul>
+<li class="level1"><div class="li"> h_tide(日平均): tideh.YYYYMMDD</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="h_slpa海面気圧偏差によるinverted_barometer">h_slpa:海面気圧偏差によるinverted barometer</h4>
+<div class="level4">
+
+<p>
+Inverted barometer 応答の仮定により、-1cm/hPaを用いる。
+ローカルな気圧応答 h_slp (=-P(x,y,t)) と全球平均 h_slpglb (=-P_全球平均(t)) の差で与える。
+</p>
+<pre class="code">h_slpa = h_slp - h_slpglb = P_全球平均(t) - P(x,y,t)</pre>
+<ul>
+<li class="level1"><div class="li"> h_slp(日平均): hs_slp.YYYYMMDD</div>
+</li>
+<li class="level1"><div class="li"> h_slpglb(日平均): hs_slp_ave.YYYYMMDD</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT21 SECTION "海面高度の海況変動の計算方法" [18236-] --></div>
 </body>
 </html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:gondola_100:run_restart</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,gondola_100,run_restart"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:gondola_100';var JSINFO = {"id":"mri.com-user:gondola_100:run_restart","namespace":"mri.com-user:gondola_100"};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<div id="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#任意の年のリスタートから動かす">任意の年のリスタートから動かす</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#パッケージの展開">パッケージの展開</a></div></li>
+<li class="level2"><div class="li"><a href="#実験の実行">実験の実行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#リスタートファイルの設置">リスタートファイルの設置</a></div></li>
+<li class="level3"><div class="li"><a href="#runconfの修正">run.confの修正</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="任意の年のリスタートから動かす">任意の年のリスタートから動かす</h1>
+<div class="level1">
+
+<p>
+任意の年の1月1日0時0分0秒のリスタートファイルからモデルを動かす場合の手順です。
+ここでは大気外力に JRA55-do v1.5 を使用し、物理場のみのモデル構成とします。
+</p>
+
+</div>
+<!-- EDIT1 SECTION "任意の年のリスタートから動かす" [1-283] -->
+<h2 class="sectionedit2" id="パッケージの展開">パッケージの展開</h2>
+<div class="level2">
+
+<p>
+パッケージのtar ballを展開するか、gitでパッケージを取得する。
+</p>
+<pre class="code">&gt; git clone -b (ブランチ名) [共有リポジトリURL]</pre>
+
+<p>
+ブランチ名は例えば master など。
+以下、展開したディレクトリを$TOPと表記する。
+</p>
+
+</div>
+<!-- EDIT2 SECTION "パッケージの展開" [284-581] -->
+<h2 class="sectionedit3" id="実験の実行">実験の実行</h2>
+<div class="level2">
+
+<p>
+${TOP}/exp/run/README.md に従う。
+</p>
+
+<p>
+ただし、「実験設定の変更」–「exp/run/run.confを修正」の段階で、以下のように作業する。
+</p>
+
+</div>
+<!-- EDIT3 SECTION "実験の実行" [582-769] -->
+<h3 class="sectionedit4" id="リスタートファイルの設置">リスタートファイルの設置</h3>
+<div class="level3">
+
+<p>
+リスタートファイルを適当な場所に設置する。
+設置したディレクトリのパスを以後 RESTARTDIR と記述する。
+また、設置したリスタートファイルの日付サフィックスを SUFFIX と記述する。
+(例えば、温位リスタートファイル名が rs_t.20190101000000 なら、SUFFIX=20190101000000)
+</p>
+
+<p>
+なお、SUFFIX は 後述の init_date と一致していなくても良い
+(設置したファイルを init_date のリスタートと見做してモデルが動く)
+</p>
+
+</div>
+<!-- EDIT4 SECTION "リスタートファイルの設置" [770-1338] -->
+<h3 class="sectionedit5" id="runconfの修正">run.confの修正</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> options=“jra55do-v1.5” に修正</div>
+</li>
+<li class="level1 node"><div class="li"> init_date, last_date を積分したい期間に設定</div>
+<ul>
+<li class="level2"><div class="li"> 例えば init_date=“2001-01-01-00”, last_date=“2004-01-01-00” なら、2001~2003の3年間が積分対象になる</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> init_dir=“${RESTARTDIR}” に修正</div>
+</li>
+<li class="level1"><div class="li"> init_suffix=“${SUFFIX}” に修正</div>
+</li>
+<li class="level1"><div class="li"> init_state_of_rest=“no” に修正</div>
+</li>
+<li class="level1"><div class="li"> init_lfam3 を yes か no に指定する (LFAM3で作成されたリスタートならyes、松野+リープフロッグで作成された古いリスタートならno)</div>
+</li>
+<li class="level1 node"><div class="li"> force_init_year=“”, force_last_year=“” とする</div>
+<ul>
+<li class="level2"><div class="li"> 積分期間が大気外力の範囲外だと動かないので注意</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "run.confの修正" [1339-] --></div>
+</body>
+</html>

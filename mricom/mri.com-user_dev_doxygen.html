@@ -37,11 +37,15 @@ subroutine
 
 !&gt; @brief Compute friction velocity on T-points on the basis of air-sea stress
 !!   using surface wind stress on UV-points
-!! @param[in] strsx_ao X-ward wind stress [dyn/cm^2]
-!! @param[in] strsy_ao Y-ward wind stress [dyn/cm^2]
-!! @param[out] obj%frcvl friction velocity [m/s]
+!! @param[in]  strsx_ao   X-ward wind stress [dyn/cm^2]
+!! @param[in]  strsy_ao   Y-ward wind stress [dyn/cm^2]
+!! @param[out] obj%frcvl  Friction velocity [m/s]
 
 real(8),save :: strsy_ao (imx,jmx) !&lt; wind stress ocean receives from atmosphere (Y-ward) [dyn/cm^2]</pre>
+
+<p>
+引数リストは縦に揃えると見やすい。
+</p>
 
 </div>
 </div>
