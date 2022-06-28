@@ -4,21 +4,22 @@
   <meta charset="utf-8" />
   <title>mri.com-user:tp_nest:run_cgcm</title>
 <meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
 <meta name="robots" content="index,follow"/>
 <meta name="keywords" content="mri.com-user,tp_nest,run_cgcm"/>
 <!--[if gte IE 9]><!-->
-<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:tp_nest';var JSINFO = {"id":"mri.com-user:tp_nest:run_cgcm","namespace":"mri.com-user:tp_nest"};
+<script >/*<![CDATA[*/var NS='mri.com-user:tp_nest';var JSINFO = {"id":"mri.com-user:tp_nest:run_cgcm","namespace":"mri.com-user:tp_nest","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
 /*!]]>*/</script>
 <link rel="stylesheet" type="text/css" href="standard.css">
-<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
-<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
 <!--<![endif]-->
 </head>
 <body>
 <div class="dokuwiki export">
-<!-- TOC START -->
 <div class="level1"><a href="index.html">MRI.COM</a></div>
-<div id="dw__toc">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
 <h3 class="toggle">目次</h3>
 <div>
 
@@ -42,11 +43,11 @@
 </p>
 
 <p>
-地球システムモデルの大気－海洋モデルを動かすための手順は<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" rel="nofollow">地球システムモデルのwiki </a>を参考にしてください。まずはそちらに慣れるのが良いと思います。
+地球システムモデルの大気－海洋モデルを動かすための手順は<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" rel="ugc nofollow">地球システムモデルのwiki </a>を参考にしてください。まずはそちらに慣れるのが良いと思います。
 </p>
 
 </div>
-<!-- EDIT1 SECTION "大気－海洋全球－熱帯ネストモデル実験（結合モデル）の実施方法" [1-596] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5927\u6c17\uff0d\u6d77\u6d0b\u5168\u7403\uff0d\u71b1\u5e2f\u30cd\u30b9\u30c8\u30e2\u30c7\u30eb\u5b9f\u9a13\uff08\u7d50\u5408\u30e2\u30c7\u30eb\uff09\u306e\u5b9f\u65bd\u65b9\u6cd5&quot;,&quot;hid&quot;:&quot;\u5927\u6c17_\u6d77\u6d0b\u5168\u7403_\u71b1\u5e2f\u30cd\u30b9\u30c8\u30e2\u30c7\u30eb\u5b9f\u9a13_\u7d50\u5408\u30e2\u30c7\u30eb_\u306e\u5b9f\u65bd\u65b9\u6cd5&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-596&quot;} -->
 <h2 class="sectionedit2" id="準備_入力ファイルの整備_実験設定の作成_ソースのコンパイルなど">準備(入力ファイルの整備、実験設定の作成、ソースのコンパイルなど)</h2>
 <div class="level2">
 
@@ -64,7 +65,7 @@
 </p>
 <pre class="code">      $ git clone http://jksv-pj.npd.naps.kishou.go.jp/git_repos/cgcm/esm　MRI-ESM</pre>
 <ul>
-<li class="level1"><div class="li"> git を初めて使用する場合には、いくつか初期設定が必要となる場合がある。<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" rel="nofollow">開発管理サーバーredmine の地球システムモデルの wiki </a>を参照</div>
+<li class="level1"><div class="li"> git を初めて使用する場合には、いくつか初期設定が必要となる場合がある。<a href="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" class="urlextern" title="http://jksv-pj.npd.naps.kishou.go.jp/redmine/cgcm/projects/esm/wiki" rel="ugc nofollow">開発管理サーバーredmine の地球システムモデルの wiki </a>を参照</div>
 </li>
 <li class="level1"><div class="li"> MRI-ESM ディレクトリ以下に展開される。MRI-ESM ディレクトリを「親ディレクトリ」と呼ぶことにする。</div>
 </li>
@@ -139,7 +140,7 @@
      $ ./compile.sh</pre>
 
 </div>
-<!-- EDIT2 SECTION "準備(入力ファイルの整備、実験設定の作成、ソースのコンパイルなど)" [597-3721] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u6e96\u5099(\u5165\u529b\u30d5\u30a1\u30a4\u30eb\u306e\u6574\u5099\u3001\u5b9f\u9a13\u8a2d\u5b9a\u306e\u4f5c\u6210\u3001\u30bd\u30fc\u30b9\u306e\u30b3\u30f3\u30d1\u30a4\u30eb\u306a\u3069)&quot;,&quot;hid&quot;:&quot;\u6e96\u5099_\u5165\u529b\u30d5\u30a1\u30a4\u30eb\u306e\u6574\u5099_\u5b9f\u9a13\u8a2d\u5b9a\u306e\u4f5c\u6210_\u30bd\u30fc\u30b9\u306e\u30b3\u30f3\u30d1\u30a4\u30eb\u306a\u3069&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;597-3721&quot;} -->
 <h2 class="sectionedit3" id="モデルの積分_fx100">モデルの積分（@FX100）</h2>
 <div class="level2">
 
@@ -247,7 +248,7 @@ mkneweruns.sh を実行する
        $ ./step_job.sh </pre>
 
 </div>
-<!-- EDIT3 SECTION "モデルの積分（@FX100）" [3722-7844] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30e2\u30c7\u30eb\u306e\u7a4d\u5206\uff08@FX100\uff09&quot;,&quot;hid&quot;:&quot;\u30e2\u30c7\u30eb\u306e\u7a4d\u5206_fx100&quot;,&quot;codeblockOffset&quot;:7,&quot;secid&quot;:3,&quot;range&quot;:&quot;3722-7844&quot;} -->
 <h2 class="sectionedit4" id="実験結果のルーチン処理_fx100のフロントエンドサーバーを含む任意のワークステーション">実験結果のルーチン処理（@fx100のフロントエンドサーバーを含む任意のワークステーション）</h2>
 <div class="level2">
 
@@ -332,6 +333,6 @@ mkneweruns.sh を実行する
 </p>
 
 </div>
-<!-- EDIT4 SECTION "実験結果のルーチン処理（@fx100のフロントエンドサーバーを含む任意のワークステーション）" [7845-] --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5b9f\u9a13\u7d50\u679c\u306e\u30eb\u30fc\u30c1\u30f3\u51e6\u7406\uff08@fx100\u306e\u30d5\u30ed\u30f3\u30c8\u30a8\u30f3\u30c9\u30b5\u30fc\u30d0\u30fc\u3092\u542b\u3080\u4efb\u610f\u306e\u30ef\u30fc\u30af\u30b9\u30c6\u30fc\u30b7\u30e7\u30f3\uff09&quot;,&quot;hid&quot;:&quot;\u5b9f\u9a13\u7d50\u679c\u306e\u30eb\u30fc\u30c1\u30f3\u51e6\u7406_fx100\u306e\u30d5\u30ed\u30f3\u30c8\u30a8\u30f3\u30c9\u30b5\u30fc\u30d0\u30fc\u3092\u542b\u3080\u4efb\u610f\u306e\u30ef\u30fc\u30af\u30b9\u30c6\u30fc\u30b7\u30e7\u30f3&quot;,&quot;codeblockOffset&quot;:16,&quot;secid&quot;:4,&quot;range&quot;:&quot;7845-&quot;} --></div>
 </body>
 </html>

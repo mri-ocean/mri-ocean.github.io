@@ -4,21 +4,22 @@
   <meta charset="utf-8" />
   <title>mri.com-user:dev:openmp</title>
 <meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
 <meta name="robots" content="index,follow"/>
 <meta name="keywords" content="mri.com-user,dev,openmp"/>
 <!--[if gte IE 9]><!-->
-<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openmp","namespace":"mri.com-user:dev"};
+<script >/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openmp","namespace":"mri.com-user:dev","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
 /*!]]>*/</script>
 <link rel="stylesheet" type="text/css" href="standard.css">
-<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
-<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
 <!--<![endif]-->
 </head>
 <body>
 <div class="dokuwiki export">
-<!-- TOC START -->
 <div class="level1"><a href="index.html">MRI.COM</a></div>
-<div id="dw__toc">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
 <h3 class="toggle">目次</h3>
 <div>
 
@@ -42,18 +43,18 @@
 </p>
 
 </div>
-<!-- EDIT1 SECTION "MRI.COM OpenMP" [1-230] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM OpenMP&quot;,&quot;hid&quot;:&quot;mricom_openmp&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-230&quot;} -->
 <h2 class="sectionedit2" id="使い方">使い方</h2>
 <div class="level2">
 <ul>
-<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openmp-code.html" class="wikilink1" title="mri.com-user_dev_openmp-code">OpenMP指示行の基本</a></div>
+<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openmp-code.html" class="wikilink1" title="mri.com-user_dev_openmp-code" data-wiki-id="mri.com-user_dev_openmp-code">OpenMP指示行の基本</a></div>
 </li>
-<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openmp-do.html" class="wikilink1" title="mri.com-user_dev_openmp-do">スレッド並列化</a></div>
+<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openmp-do.html" class="wikilink1" title="mri.com-user_dev_openmp-do" data-wiki-id="mri.com-user_dev_openmp-do">スレッド並列化</a></div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT2 SECTION "使い方" [231-339] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u4f7f\u3044\u65b9&quot;,&quot;hid&quot;:&quot;\u4f7f\u3044\u65b9&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;231-339&quot;} -->
 <h2 class="sectionedit3" id="コーディング方針">コーディング方針</h2>
 <div class="level2">
 <ul>
@@ -77,7 +78,7 @@
 <ul>
 <li class="level2 node"><div class="li"> 3行以上、続けてコピーする場合は、最外側のループで開いて<code>omp parallel do</code>で並列化する</div>
 <ul>
-<li class="level3"><div class="li"> <code>omp workshare</code>はifortで実装されていない (参考：<a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136" rel="nofollow">https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136</a>)</div>
+<li class="level3"><div class="li"> <code>omp workshare</code>はifortで実装されていない (参考：<a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136" rel="ugc nofollow">https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136</a>)</div>
 </li>
 </ul>
 </li>
@@ -86,7 +87,7 @@
 </ul>
 
 </div>
-<!-- EDIT3 SECTION "コーディング方針" [340-1356] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u65b9\u91dd&quot;,&quot;hid&quot;:&quot;\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u65b9\u91dd&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;340-1356&quot;} -->
 <h2 class="sectionedit4" id="検討">検討</h2>
 <div class="level2">
 <ul>
@@ -111,6 +112,6 @@
 </ul>
 
 </div>
-<!-- EDIT4 SECTION "検討" [1357-] --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u691c\u8a0e&quot;,&quot;hid&quot;:&quot;\u691c\u8a0e&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1357-&quot;} --></div>
 </body>
 </html>

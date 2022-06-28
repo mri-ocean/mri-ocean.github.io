@@ -4,21 +4,22 @@
   <meta charset="utf-8" />
   <title>mri.com-user:mxe:clim</title>
 <meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
 <meta name="robots" content="index,follow"/>
 <meta name="keywords" content="mri.com-user,mxe,clim"/>
 <!--[if gte IE 9]><!-->
-<script type="text/javascript">/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:clim","namespace":"mri.com-user:mxe"};
+<script >/*<![CDATA[*/var NS='mri.com-user:mxe';var JSINFO = {"id":"mri.com-user:mxe:clim","namespace":"mri.com-user:mxe","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
 /*!]]>*/</script>
 <link rel="stylesheet" type="text/css" href="standard.css">
-<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
-<script type="text/javascript" charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=fe41e38f371690458d626bd54bd8aef9"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
 <!--<![endif]-->
 </head>
 <body>
 <div class="dokuwiki export">
-<!-- TOC START -->
 <div class="level1"><a href="index.html">MRI.COM</a></div>
-<div id="dw__toc">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
 <h3 class="toggle">目次</h3>
 <div>
 
@@ -52,18 +53,18 @@ sample/ にあるスクリプトは ./にコピー、編集して使用する。
 </p>
 
 </div>
-<!-- EDIT1 SECTION "/prep/nest/clim" [1-231] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\/prep\/nest\/clim&quot;,&quot;hid&quot;:&quot;prep_nest_clim&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-231&quot;} -->
 <h2 class="sectionedit2" id="基本的な手順">基本的な手順</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT2 SECTION "基本的な手順" [232-263] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u57fa\u672c\u7684\u306a\u624b\u9806&quot;,&quot;hid&quot;:&quot;\u57fa\u672c\u7684\u306a\u624b\u9806&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;232-263&quot;} -->
 <h3 class="sectionedit3" id="direct_accessの月別tsデータから_気候値tsデータセットを作成する">1. direct accessの月別TSデータから、気候値TSデータセットを作成する</h3>
 <div class="level3">
 <pre class="code">スクリプト例 sample/make_climts.sh</pre>
 
 </div>
-<!-- EDIT3 SECTION "1. direct accessの月別TSデータから、気候値TSデータセットを作成する" [264-406] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;1. direct access\u306e\u6708\u5225TS\u30c7\u30fc\u30bf\u304b\u3089\u3001\u6c17\u5019\u5024TS\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u3092\u4f5c\u6210\u3059\u308b&quot;,&quot;hid&quot;:&quot;direct_access\u306e\u6708\u5225ts\u30c7\u30fc\u30bf\u304b\u3089_\u6c17\u5019\u5024ts\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u3092\u4f5c\u6210\u3059\u308b&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;264-406&quot;} -->
 <h3 class="sectionedit4" id="気候値tsデータセットの1層目を他のデータに置き換える">2. 気候値TSデータセットの1層目を他のデータに置き換える</h3>
 <div class="level3">
 
@@ -78,7 +79,7 @@ MRI.COM海面リストアにはbforce.dのようなマスクが使えないた�
 スクリプト例 sample/replace_bywoa.sh</pre>
 
 </div>
-<!-- EDIT4 SECTION "2. 気候値TSデータセットの1層目を他のデータに置き換える" [407-879] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;2. \u6c17\u5019\u5024TS\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u306e1\u5c64\u76ee\u3092\u4ed6\u306e\u30c7\u30fc\u30bf\u306b\u7f6e\u304d\u63db\u3048\u308b&quot;,&quot;hid&quot;:&quot;\u6c17\u5019\u5024ts\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u306e1\u5c64\u76ee\u3092\u4ed6\u306e\u30c7\u30fc\u30bf\u306b\u7f6e\u304d\u63db\u3048\u308b&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;407-879&quot;} -->
 <h3 class="sectionedit5" id="気候値tsデータセットの2層目以深の陸地_欠損_を海の値で埋める">3. 気候値TSデータセットの2層目以深の陸地(欠損)を海の値で埋める。</h3>
 <div class="level3">
 
@@ -89,13 +90,13 @@ MRI.COM海面リストアにはbforce.dのようなマスクが使えないた�
 スクリプト例 sample/fill_wnpclim.sh</pre>
 
 </div>
-<!-- EDIT5 SECTION "3. 気候値TSデータセットの2層目以深の陸地(欠損)を海の値で埋める。" [880-1158] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;3. \u6c17\u5019\u5024TS\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u306e2\u5c64\u76ee\u4ee5\u6df1\u306e\u9678\u5730(\u6b20\u640d)\u3092\u6d77\u306e\u5024\u3067\u57cb\u3081\u308b\u3002&quot;,&quot;hid&quot;:&quot;\u6c17\u5019\u5024ts\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u306e2\u5c64\u76ee\u4ee5\u6df1\u306e\u9678\u5730_\u6b20\u640d_\u3092\u6d77\u306e\u5024\u3067\u57cb\u3081\u308b&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;880-1158&quot;} -->
 <h3 class="sectionedit6" id="気候値tsのグリッド情報を与える_mricom用サブルーチンtsintpolf90を作成する">4. 気候値TSのグリッド情報を与える MRI.COM用サブルーチンtsintpol.F90を作成する</h3>
 <div class="level3">
 <pre class="code">プログラム   make_tsintpol.F90</pre>
 
 </div>
-<!-- EDIT6 SECTION "4. 気候値TSのグリッド情報を与える MRI.COM用サブルーチンtsintpol.F90を作成する" [1159-1311] -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;4. \u6c17\u5019\u5024TS\u306e\u30b0\u30ea\u30c3\u30c9\u60c5\u5831\u3092\u4e0e\u3048\u308b MRI.COM\u7528\u30b5\u30d6\u30eb\u30fc\u30c1\u30f3tsintpol.F90\u3092\u4f5c\u6210\u3059\u308b&quot;,&quot;hid&quot;:&quot;\u6c17\u5019\u5024ts\u306e\u30b0\u30ea\u30c3\u30c9\u60c5\u5831\u3092\u4e0e\u3048\u308b_mricom\u7528\u30b5\u30d6\u30eb\u30fc\u30c1\u30f3tsintpolf90\u3092\u4f5c\u6210\u3059\u308b&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;1159-1311&quot;} -->
 <h2 class="sectionedit7" id="その他">その他</h2>
 <div class="level2">
 <pre class="code">bforce.F90</pre>
@@ -109,6 +110,6 @@ Namelist njobbdyのkmbを用いて、全領域でかける場合には不要。
 </p>
 
 </div>
-<!-- EDIT7 SECTION "その他" [1312-] --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u305d\u306e\u4ed6&quot;,&quot;hid&quot;:&quot;\u305d\u306e\u4ed6&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;1312-&quot;} --></div>
 </body>
 </html>
