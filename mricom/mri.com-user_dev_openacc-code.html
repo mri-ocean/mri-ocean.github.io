@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:openacc-code</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,dev,openacc-code"/>
+<!--[if gte IE 9]><!-->
+<script >/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openacc-code","namespace":"mri.com-user:dev","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+
+<h1 class="sectionedit1" id="openacc_の基本">OpenACC の基本</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;OpenACC \u306e\u57fa\u672c&quot;,&quot;hid&quot;:&quot;openacc_\u306e\u57fa\u672c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-34&quot;} -->
+<h2 class="sectionedit2" id="記法">記法</h2>
+<div class="level2">
+
+<p>
+!$acc で指示行を書く。文頭に空白、タブがあっても良い。 <a href="https://hpcworld.jp/archive/SPG/Pgi/OpenACC/005.html" class="urlextern" title="https://hpcworld.jp/archive/SPG/Pgi/OpenACC/005.html" rel="ugc nofollow">https://hpcworld.jp/archive/SPG/Pgi/OpenACC/005.html</a>
+</p>
+
+<p>
+次行に継続する場合は &amp; を使う
+</p>
+<pre class="code">!$acc kernels &amp;
+!$acc copyin (...) &amp;
+!$acc copyout(...) </pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u8a18\u6cd5&quot;,&quot;hid&quot;:&quot;\u8a18\u6cd5&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;35-&quot;} --></div>
+</body>
+</html>

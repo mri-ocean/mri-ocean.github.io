@@ -26,13 +26,14 @@
 <ul class="toc">
 <li class="level1"><div class="li"><a href="#mricom_モジュール作成">MRI.COM モジュール作成</a></div>
 <ul class="toc">
-<li class="level2"><div class="li"><a href="#定数参照型モジュール">定数参照型モジュール</a></div></li>
-<li class="level2"><div class="li"><a href="#変数参照型モジュール">変数参照型モジュール</a></div></li>
 <li class="level2"><div class="li"><a href="#パッケージ型モジュール">パッケージ型モジュール</a></div>
 <ul class="toc">
 <li class="level3"><div class="li"><a href="#内部変数">内部変数</a></div></li>
 <li class="level3"><div class="li"><a href="#サブルーチン">サブルーチン</a></div></li>
-</ul></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#定数参照型モジュール">定数参照型モジュール</a></div></li>
+<li class="level2"><div class="li"><a href="#変数参照型モジュール">変数参照型モジュール</a></div></li>
 </ul></li>
 </ul>
 </div>
@@ -43,36 +44,12 @@
 <div class="level1">
 
 <p>
-MRI.COMの各モジュールは、<a href="http://www.mri-jma.go.jp/Project/mrinpd/coderule.html" class="urlextern" title="http://www.mri-jma.go.jp/Project/mrinpd/coderule.html" rel="ugc nofollow">気象庁Fortran標準コーディングルール</a>の「定数参照型モジュール」「変数参照型モジュール」「パッケージ型モジュール」のどれかに相当する。
+MRI.COMの各モジュールは、<a href="http://www.mri-jma.go.jp/Project/mrinpd/coderule.html" class="urlextern" title="http://www.mri-jma.go.jp/Project/mrinpd/coderule.html" rel="ugc nofollow">気象庁Fortran標準コーディングルール</a>の通常の「パッケージ型モジュール」、特別な「定数参照型モジュール」「変数参照型モジュール」のどれかに相当する。
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM \u30e2\u30b8\u30e5\u30fc\u30eb\u4f5c\u6210&quot;,&quot;hid&quot;:&quot;mricom_\u30e2\u30b8\u30e5\u30fc\u30eb\u4f5c\u6210&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-330&quot;} -->
-<h2 class="sectionedit2" id="定数参照型モジュール">定数参照型モジュール</h2>
-<div class="level2">
-<ul>
-<li class="level1"><div class="li"> 海洋モデルでは <code>param.F90</code> のみ</div>
-</li>
-<li class="level1"><div class="li"> 階層構造では最下位に位置する</div>
-</li>
-</ul>
-
-</div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5b9a\u6570\u53c2\u7167\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;hid&quot;:&quot;\u5b9a\u6570\u53c2\u7167\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;331-469&quot;} -->
-<h2 class="sectionedit3" id="変数参照型モジュール">変数参照型モジュール</h2>
-<div class="level2">
-<ul>
-<li class="level1"><div class="li"> <code>common.F90</code> <code>tracer_vars.F90</code> など</div>
-</li>
-<li class="level1"><div class="li"> 時間ステップ毎に予測される、物理の状態変数に限定する</div>
-</li>
-<li class="level1"><div class="li"> 上位パッケージによる更新が可</div>
-</li>
-</ul>
-
-</div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5909\u6570\u53c2\u7167\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;hid&quot;:&quot;\u5909\u6570\u53c2\u7167\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;470-690&quot;} -->
-<h2 class="sectionedit4" id="パッケージ型モジュール">パッケージ型モジュール</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM \u30e2\u30b8\u30e5\u30fc\u30eb\u4f5c\u6210&quot;,&quot;hid&quot;:&quot;mricom_\u30e2\u30b8\u30e5\u30fc\u30eb\u4f5c\u6210&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-352&quot;} -->
+<h2 class="sectionedit2" id="パッケージ型モジュール">パッケージ型モジュール</h2>
 <div class="level2">
 
 <p>
@@ -80,8 +57,8 @@ MRI.COMの各モジュールは、<a href="http://www.mri-jma.go.jp/Project/mrin
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30d1\u30c3\u30b1\u30fc\u30b8\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;hid&quot;:&quot;\u30d1\u30c3\u30b1\u30fc\u30b8\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;691-814&quot;} -->
-<h3 class="sectionedit5" id="内部変数">内部変数</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30d1\u30c3\u30b1\u30fc\u30b8\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;hid&quot;:&quot;\u30d1\u30c3\u30b1\u30fc\u30b8\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;353-476&quot;} -->
+<h3 class="sectionedit3" id="内部変数">内部変数</h3>
 <div class="level3">
 <ul>
 <li class="level1"><div class="li"> <code>save</code>属性の内部変数の設定はできるだけ <code>ini</code>, <code>prepare</code> に限る</div>
@@ -93,8 +70,8 @@ MRI.COMの各モジュールは、<a href="http://www.mri-jma.go.jp/Project/mrin
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5185\u90e8\u5909\u6570&quot;,&quot;hid&quot;:&quot;\u5185\u90e8\u5909\u6570&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;815-1087&quot;} -->
-<h3 class="sectionedit6" id="サブルーチン">サブルーチン</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5185\u90e8\u5909\u6570&quot;,&quot;hid&quot;:&quot;\u5185\u90e8\u5909\u6570&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;477-749&quot;} -->
+<h3 class="sectionedit4" id="サブルーチン">サブルーチン</h3>
 <div class="level3">
 <ul>
 <li class="level1"><div class="li"> <a href="./mri.com-user_dev_name_rule.html" class="wikilink1" title="mri.com-user_dev_name_rule" data-wiki-id="mri.com-user_dev_name_rule">命名規則</a>と<a href="./mri.com-user_dev_layer.html" class="wikilink1" title="mri.com-user_dev_layer" data-wiki-id="mri.com-user_dev_layer">階層構造</a>を踏まえて、なるべく共通の名前のサブルーチンを用意する</div>
@@ -107,9 +84,41 @@ MRI.COMの各モジュールは、<a href="http://www.mri-jma.go.jp/Project/mrin
 </li>
 </ul>
 </li>
+<li class="level1 node"><div class="li"> モジュール内サブルーチン(副プログラム)は、更にその内部に内部副プログラム(サブルーチン、関数)を持つことができる(<a href="https://www.nag-j.co.jp/fortran/FI_3.html" class="urlextern" title="https://www.nag-j.co.jp/fortran/FI_3.html" rel="ugc nofollow">Fortran入門</a>)</div>
+<ul>
+<li class="level2"><div class="li"> 内部副プログラムが内部副プログラムを持つことは不可</div>
+</li>
+<li class="level2"><div class="li"> SIMD化関数の場合は、内部副プログラムとしてではなく、同列のモジュール内関数とする方が安全のよう。</div>
+</li>
+</ul>
+</li>
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30b5\u30d6\u30eb\u30fc\u30c1\u30f3&quot;,&quot;hid&quot;:&quot;\u30b5\u30d6\u30eb\u30fc\u30c1\u30f3&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;1088-&quot;} --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30b5\u30d6\u30eb\u30fc\u30c1\u30f3&quot;,&quot;hid&quot;:&quot;\u30b5\u30d6\u30eb\u30fc\u30c1\u30f3&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;750-1602&quot;} -->
+<h2 class="sectionedit5" id="定数参照型モジュール">定数参照型モジュール</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 海洋モデルでは <code>param.F90</code> のみ</div>
+</li>
+<li class="level1"><div class="li"> 階層構造では最下位に位置する</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5b9a\u6570\u53c2\u7167\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;hid&quot;:&quot;\u5b9a\u6570\u53c2\u7167\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;1603-1741&quot;} -->
+<h2 class="sectionedit6" id="変数参照型モジュール">変数参照型モジュール</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>common.F90</code> <code>tracer_vars.F90</code> など</div>
+</li>
+<li class="level1"><div class="li"> 時間ステップ毎に予測される、物理の状態変数に限定する</div>
+</li>
+<li class="level1"><div class="li"> 上位パッケージによる更新が可</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5909\u6570\u53c2\u7167\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;hid&quot;:&quot;\u5909\u6570\u53c2\u7167\u578b\u30e2\u30b8\u30e5\u30fc\u30eb&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;1742-&quot;} --></div>
 </body>
 </html>

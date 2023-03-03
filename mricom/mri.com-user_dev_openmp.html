@@ -74,11 +74,15 @@
 </li>
 <li class="level1"><div class="li"> <code>omp simd</code>によるベクトル化(CPUコア内の並列化)もできれば書く (OpenMP 5.0の規格)</div>
 </li>
+<li class="level1"><div class="li"> !$omp の指示行は<a href="./mri.com-user_dev_openmp-code.html" class="wikilink1" title="mri.com-user_dev_openmp-code" data-wiki-id="mri.com-user_dev_openmp-code">字下げが可能</a>。Fortranコードに合わせて字下げしたほうが見やすい場合はそうする。</div>
+</li>
 <li class="level1 node"><div class="li"> 配列のコピーでは<code>omp workshare</code>を使う</div>
 <ul>
 <li class="level2 node"><div class="li"> 3行以上、続けてコピーする場合は、最外側のループで開いて<code>omp parallel do</code>で並列化する</div>
 <ul>
-<li class="level3"><div class="li"> <code>omp workshare</code>はifortで実装されていない (参考：<a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136" rel="ugc nofollow">https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136</a>)</div>
+<li class="level3"><div class="li"> <code>omp workshare</code>は <a href="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136" class="urlextern" title="https://tk2-214-16786.vs.sakura.ne.jp/redmine/ocean/issues/5136" rel="ugc nofollow">ifortで実装されていない</a></div>
+</li>
+<li class="level3"><div class="li"> OpenACCではdoループ+配列処理は対応できない。止めた方がいいかも。</div>
 </li>
 </ul>
 </li>
@@ -87,7 +91,7 @@
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u65b9\u91dd&quot;,&quot;hid&quot;:&quot;\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u65b9\u91dd&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;340-1356&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u65b9\u91dd&quot;,&quot;hid&quot;:&quot;\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u65b9\u91dd&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;340-1621&quot;} -->
 <h2 class="sectionedit4" id="検討">検討</h2>
 <div class="level2">
 <ul>
@@ -112,6 +116,6 @@
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u691c\u8a0e&quot;,&quot;hid&quot;:&quot;\u691c\u8a0e&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1357-&quot;} --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u691c\u8a0e&quot;,&quot;hid&quot;:&quot;\u691c\u8a0e&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1622-&quot;} --></div>
 </body>
 </html>

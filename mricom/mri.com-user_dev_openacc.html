@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:openacc</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,dev,openacc"/>
+<!--[if gte IE 9]><!-->
+<script >/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openacc","namespace":"mri.com-user:dev","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_openacc">MRI.COM OpenACC</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#使い方">使い方</a></div></li>
+<li class="level2"><div class="li"><a href="#コーディングのメモ">コーディングのメモ</a></div></li>
+<li class="level2"><div class="li"><a href="#検討">検討</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_openacc">MRI.COM OpenACC</h1>
+<div class="level1">
+
+<p>
+試験的に OpenACC 指示行の導入を行っている。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM OpenACC&quot;,&quot;hid&quot;:&quot;mricom_openacc&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-95&quot;} -->
+<h2 class="sectionedit2" id="使い方">使い方</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openacc-code.html" class="wikilink1" title="mri.com-user_dev_openacc-code" data-wiki-id="mri.com-user_dev_openacc-code">OpenACC指示行の基本</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openacc-do.html" class="wikilink1" title="mri.com-user_dev_openacc-do" data-wiki-id="mri.com-user_dev_openacc-do">ループ並列化</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="./mri.com-user_dev_openacc-data.html" class="wikilink1" title="mri.com-user_dev_openacc-data" data-wiki-id="mri.com-user_dev_openacc-data">メモリ管理</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://hpcworld.jp/archive/SPG/Pgi/OpenACC/" class="urlextern" title="https://hpcworld.jp/archive/SPG/Pgi/OpenACC/" rel="ugc nofollow">PGI OpenACC ディレクティブによるプログラミング</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u4f7f\u3044\u65b9&quot;,&quot;hid&quot;:&quot;\u4f7f\u3044\u65b9&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;96-358&quot;} -->
+<h2 class="sectionedit3" id="コーディングのメモ">コーディングのメモ</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 東大Wisteriaで、ある程度の大きさのモデルを使ってテスト</div>
+</li>
+<li class="level1 node"><div class="li"> やはりGPU-CPUメモリコピーが非常に遅い</div>
+<ul>
+<li class="level2"><div class="li"> 単に acc kernels を入れていくと、どんどん遅くなった。最後は計算が落ちるようになる。</div>
+</li>
+<li class="level2"><div class="li"> GPU-CPUメモリコピーを抑えるように明示すれば、明らかに改善する (遅くなるのがマシになる)</div>
+</li>
+<li class="level2"><div class="li"> メモリ管理が必須。</div>
+</li>
+<li class="level2"><div class="li"> メモリを使い回すためには処理の流れを意識する必要がある。コードを処理毎に独立に書けない。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> Wisteria/Aquarius ではOpenMPだけで相当に速い。</div>
+<ul>
+<li class="level2 node"><div class="li"> OpenMP の併用は必須。</div>
+<ul>
+<li class="level3"><div class="li"> やはりifdefか…</div>
+</li>
+</ul>
+</li>
+<li class="level2 node"><div class="li"> 2次元並列では OpenMPをOpenACCに書き換えても速くならない気がする。</div>
+<ul>
+<li class="level3"><div class="li"> 事前にコードのリファクタリングが必要か</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> 3次元並列でも難しい。メモリをCPUにコピーせず、ほぼGPUで計算できるようになれば速いのか？</div>
+</li>
+<li class="level2"><div class="li"> 部分的にOpenMPをOpenACCに移行しても遅くなる。</div>
+</li>
+<li class="level2"><div class="li"> 漸近的な開発が難しい…</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+方針はどうする？
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u306e\u30e1\u30e2&quot;,&quot;hid&quot;:&quot;\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u306e\u30e1\u30e2&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;359-1525&quot;} -->
+<h2 class="sectionedit4" id="検討">検討</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> CPU-GPUメモリー転送はこれから速くなるらしい</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u691c\u8a0e&quot;,&quot;hid&quot;:&quot;\u691c\u8a0e&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1526-&quot;} --></div>
+</body>
+</html>

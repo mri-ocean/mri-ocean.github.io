@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:dev:openacc-data</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,dev,openacc-data"/>
+<!--[if gte IE 9]><!-->
+<script >/*<![CDATA[*/var NS='mri.com-user:dev';var JSINFO = {"id":"mri.com-user:dev:openacc-data","namespace":"mri.com-user:dev","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+
+<h1 class="sectionedit1" id="openaccメモリ管理">OpenACCメモリ管理</h1>
+<div class="level1">
+
+<p>
+CPUの処理も想定される、予報変数 dprog の処理
+</p>
+<pre class="code">module mymod
+
+real(8),save :: dprog(im,jm)
+
+!$acc declare create( dprog )  GPUメモリに dprog を割り当て
+
+contains
+
+subroutine read_restart
+
+call history__read_restarti( rs_t, dprog )  CPU上でファイル読み込み
+
+!$acc update device( dprog )  GPUメモリを更新 (必要なら)
+
+end subroutine read_restart
+
+subroutine calc
+
+!$acc update device( dprog )
+!$acc kernels present( dprog, dcoef )
+dprog(i,j,k) = dcoef(i,j,k) * dprog(i,j,k)
+!$acc end kernels
+!$acc update host( dprog ) CPUメモリを更新
+
+end subroutine calc</pre>
+
+<p>
+iniで立ち上げる配列 dcoef の処理
+</p>
+<pre class="code">module mymod
+
+real(8),save :: dcoef(im,jm)
+
+!$acc declare create( dcoef )  GPUメモリに dcoef を割り当て
+
+contains
+
+subroutine ini
+
+call io__read_file(&#039;coef.d&#039;, dcoef )  CPU上でファイル読み込み
+
+!$acc update device( dcoef )  GPUメモリ上の dcoef を更新
+
+end subroutine ini
+
+subroutine calc
+
+!$acc kernels present( dcoef )  &quot;present&quot; で指定された配列はCPU-GPU間でメモリコピーを行わない
+aout(i,j,k) = dcoef(i,j,k) * ain(i,j,k)
+!$acc end kernels
+
+end subroutine calc</pre>
+
+<p>
+CPUに持ってこない、サブルーチン内のローカル変数 dtemp の処理。
+</p>
+<pre class="code">
+subroutine calc
+real(8) :: dtemp(im,jm,km)
+
+!$acc enter data create( dtemp )  割り当て
+
+!$acc kernels present( dtemp )
+dtemp(i,j,k) = ain(i,j,k)
+!$acc end kernels
+
+!$acc kernels present( dtemp )
+aout(i,j,k) = dtemp(i,j,k)
+!$acc end kernels
+
+!$acc exit data delete( dtemp ) 開放
+
+end subroutine</pre>
+
+</div>
+</div>
+</body>
+</html>
