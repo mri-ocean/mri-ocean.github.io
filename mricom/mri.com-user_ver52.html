@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:ver52</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,ver52"/>
+<!--[if gte IE 9]><!-->
+<script >/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:ver52","namespace":"mri.com-user","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_v52">MRI.COM v5.2</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#ソースコードの取得">ソースコードの取得</a></div></li>
+<li class="level2"><div class="li"><a href="#追加された主な機能">追加された主な機能</a></div></li>
+<li class="level2"><div class="li"><a href="#v50_から_v52_への移行">v5.0 から v5.2 への移行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#入力データファイル">入力データファイル</a></div></li>
+<li class="level3"><div class="li"><a href="#namelist">namelist</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#削除された機能">削除された機能</a></div></li>
+<li class="level2"><div class="li"><a href="#機能削除の予定">機能削除の予定</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_v52">MRI.COM v5.2</h1>
+<div class="level1">
+
+<p>
+MRI.COM v5.2 は、2023年4月にリリースされた安定版です。
+次期の気象研地球システムモデル(MRI-ESM3.2)の海洋モデル部分及び気候変動予測先端研究プログラム領域課題3日本域海洋変動予測システムのモデル部分になります。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM v5.2&quot;,&quot;hid&quot;:&quot;mricom_v52&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-323&quot;} -->
+<h2 class="sectionedit2" id="ソースコードの取得">ソースコードの取得</h2>
+<div class="level2">
+
+<p>
+MRI.COM gitリポジトリでブランチ「5_2」をチェックアウトして下さい。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30bd\u30fc\u30b9\u30b3\u30fc\u30c9\u306e\u53d6\u5f97&quot;,&quot;hid&quot;:&quot;\u30bd\u30fc\u30b9\u30b3\u30fc\u30c9\u306e\u53d6\u5f97&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;324-458&quot;} -->
+<h2 class="sectionedit3" id="追加された主な機能">追加された主な機能</h2>
+<div class="level2">
+
+<p>
+v5.0から以下の機能が追加されています。
+</p>
+<ul>
+<li class="level1 node"><div class="li"> 海氷モデルの高度化</div>
+<ul>
+<li class="level2 node"><div class="li"> 海氷中の塩分を可変にするオプションの導入</div>
+<ul>
+<li class="level3"><div class="li"> 海氷形成時の塩分に関する式 (Cox and Weeks, 1988) を導入</div>
+</li>
+<li class="level3"><div class="li"> 積雪から海氷への変性についてスラッシュ形成過程を導入</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> 海氷モデル・パラメータを動的に調整するオプション (Toyoda et al., 2021) を追加</div>
+</li>
+<li class="level2"><div class="li"> メルトポンド・モデルの導入</div>
+</li>
+<li class="level2"><div class="li"> 脱塩パラメタリゼーションの高度化</div>
+</li>
+<li class="level2"><div class="li"> 海氷厚の下限値をユーザーが指定できるように変更</div>
+</li>
+<li class="level2"><div class="li"> 海氷の温度・塩分によって熱伝導係数が変わるオプションの追加</div>
+</li>
+<li class="level2"><div class="li"> 積雪の熱伝導率の改良</div>
+</li>
+<li class="level2"><div class="li"> 多くの海氷モニターの増強</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> de Lavergne et al. (2020) の潮汐混合パラメタリゼーション</div>
+</li>
+<li class="level1"><div class="li"> Kawasaki et al. (2021) の潮汐混合パラメタリゼーション</div>
+</li>
+<li class="level1"><div class="li"> 水柱が消失しても計算を継続するオプションを追加</div>
+</li>
+<li class="level1"><div class="li"> ALEの試験的実装</div>
+</li>
+<li class="level1"><div class="li"> MRI-AGCM4との炭素循環結合機能</div>
+</li>
+<li class="level1"><div class="li"> passive tracer の NaN チェック機能</div>
+</li>
+<li class="level1 node"><div class="li"> 計算機対応</div>
+<ul>
+<li class="level2"><div class="li"> 気象研新海洋サーバー(HPE DL380 Gen10 Plus、intel fortran &amp; gfortran)</div>
+</li>
+<li class="level2"><div class="li"> 東大Wisteria</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 出力機能の強化</div>
+<ul>
+<li class="level2"><div class="li"> 混合層収支を計算するモニター出力の追加</div>
+</li>
+<li class="level2"><div class="li"> モデル空間中の最大値・最小値出力オプションの追加</div>
+</li>
+<li class="level2"><div class="li"> 大気強制バルク係数のモニター出力</div>
+</li>
+<li class="level2"><div class="li"> 主要変数の初期値モニター出力の追加</div>
+</li>
+<li class="level2"><div class="li"> リスタートファイル出力制御機能を追加</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+その他の変更
+</p>
+<ul>
+<li class="level1"><div class="li"> 海氷モデルの安定性向上</div>
+</li>
+<li class="level1"><div class="li"> 地球半径の変更</div>
+</li>
+<li class="level1"><div class="li"> GPU利用を意識したリファクタリング</div>
+</li>
+<li class="level1"><div class="li"> 高速化 (多数のOpenMP、OpenACC指示行追加)</div>
+</li>
+<li class="level1"><div class="li"> デバッグモード改善</div>
+</li>
+<li class="level1"><div class="li"> 多数のバグ修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u8ffd\u52a0\u3055\u308c\u305f\u4e3b\u306a\u6a5f\u80fd&quot;,&quot;hid&quot;:&quot;\u8ffd\u52a0\u3055\u308c\u305f\u4e3b\u306a\u6a5f\u80fd&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;459-2348&quot;} -->
+<h2 class="sectionedit4" id="v50_から_v52_への移行">v5.0 から v5.2 への移行</h2>
+<div class="level2">
+
+<p>
+安定版 <a href="./mri.com-user_ver50.html" class="wikilink1" title="mri.com-user_ver50" data-wiki-id="mri.com-user_ver50">v5.0</a> から v5.2 へ移行する場合のメモです。
+ほぼ同じ設定にした場合でも結果は変わります。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;v5.0 \u304b\u3089 v5.2 \u3078\u306e\u79fb\u884c&quot;,&quot;hid&quot;:&quot;v50_\u304b\u3089_v52_\u3078\u306e\u79fb\u884c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;2349-2536&quot;} -->
+<h3 class="sectionedit5" id="入力データファイル">入力データファイル</h3>
+<div class="level3">
+<ul>
+<li class="level1 node"><div class="li"> <strong>scaling factors 既定ファイル</strong></div>
+<ul>
+<li class="level2"><div class="li"> 緯度経度格子(SPHERICAL)でない場合、地球半径変更に伴い nml_grid_scale file_scale で指定するファイルの再作成が必要です</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <strong>外力ファイル</strong></div>
+<ul>
+<li class="level2"><div class="li"> 地球半径変更に伴い再作成が好ましい場合があります</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5165\u529b\u30c7\u30fc\u30bf\u30d5\u30a1\u30a4\u30eb&quot;,&quot;hid&quot;:&quot;\u5165\u529b\u30c7\u30fc\u30bf\u30d5\u30a1\u30a4\u30eb&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;2537-2886&quot;} -->
+<h3 class="sectionedit6" id="namelist">namelist</h3>
+<div class="level3">
+
+<p>
+主な変更です。変更する場合は docs/README_Namelist.md を参照してください
+</p>
+<ul>
+<li class="level1 node"><div class="li"> LFAM3時間差分スキームへの完全移行に伴う変更</div>
+<ul>
+<li class="level2"><div class="li"> nstep_matsuno_interval, l_semi_implicit_pres_grad, l_passive_trc_forward_Euler の廃止</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> nstep_energy_interval の廃止</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;namelist&quot;,&quot;hid&quot;:&quot;namelist&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;2887-3201&quot;} -->
+<h2 class="sectionedit7" id="削除された機能">削除された機能</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> コンパイル・オプション必須化：SFLUXR, F2003</div>
+</li>
+<li class="level1"><div class="li"> オプション削除: NOMATSUNO, SFLUXW, AIRMRICOM3, UTZQADVEC</div>
+</li>
+<li class="level1"><div class="li"> leapfrog + Matsuno 時間差分スキーム</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u524a\u9664\u3055\u308c\u305f\u6a5f\u80fd&quot;,&quot;hid&quot;:&quot;\u524a\u9664\u3055\u308c\u305f\u6a5f\u80fd&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;3202-3416&quot;} -->
+<h2 class="sectionedit8" id="機能削除の予定">機能削除の予定</h2>
+<div class="level2">
+
+<p>
+次期安定版(v5.4)で削除される予定の機能です。
+</p>
+<ul>
+<li class="level1"><div class="li"> 特に予定なし</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u6a5f\u80fd\u524a\u9664\u306e\u4e88\u5b9a&quot;,&quot;hid&quot;:&quot;\u6a5f\u80fd\u524a\u9664\u306e\u4e88\u5b9a&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:8,&quot;range&quot;:&quot;3417-&quot;} --></div>
+</body>
+</html>
