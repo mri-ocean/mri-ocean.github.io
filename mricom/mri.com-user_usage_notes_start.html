@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:usage_notes:start</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,usage_notes,start"/>
+<!--[if gte IE 9]><!-->
+<script >/*<![CDATA[*/var NS='mri.com-user:usage_notes';var JSINFO = {"id":"mri.com-user:usage_notes:start","namespace":"mri.com-user:usage_notes","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#利用上の注意">利用上の注意</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#把握している不具合_バイアス等について">把握している不具合、バイアス等について</a></div></li>
+<li class="level2"><div class="li"><a href="#海面高度の海況変動の計算方法">海面高度の海況変動の計算方法</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#faq">FAQ</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="利用上の注意">利用上の注意</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u5229\u7528\u4e0a\u306e\u6ce8\u610f&quot;,&quot;hid&quot;:&quot;\u5229\u7528\u4e0a\u306e\u6ce8\u610f&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-34&quot;} -->
+<h2 class="sectionedit2" id="把握している不具合_バイアス等について">把握している不具合、バイアス等について</h2>
+<div class="level2">
+
+<p>
+実験設定等に伴う不具合
+</p>
+<ul>
+<li class="level1"><div class="li"> 2008年2月19日頃-2008年3月7日頃: 水温過大。特に亜熱帯域。</div>
+</li>
+<li class="level1"><div class="li"> 2011年-2012年: 現場観測データの未同化(SSH, SSTは同化)により、他年より解析精度が劣る。</div>
+</li>
+<li class="level1 node"><div class="li"> 観測では存在しない海氷</div>
+<ul>
+<li class="level2"><div class="li"> 親潮域:20080222-20080823, 20090331-20090406, 20100309-20100317, 20120501-20120519, 20140409-20140411, 20150228-20150302, 20150320-20150322, 20160308-20160310, </div>
+</li>
+<li class="level2"><div class="li"> 陸奥湾:201002-201003, 201402</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+観測等から推定される顕著なバイアス
+</p>
+<ul>
+<li class="level1"><div class="li"> オホーツク海南部の亜表層の高温バイアス</div>
+</li>
+<li class="level1"><div class="li"> 黄海の夏季底層の高温バイアス</div>
+</li>
+<li class="level1"><div class="li"> 日本海深層の流速</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u628a\u63e1\u3057\u3066\u3044\u308b\u4e0d\u5177\u5408\u3001\u30d0\u30a4\u30a2\u30b9\u7b49\u306b\u3064\u3044\u3066&quot;,&quot;hid&quot;:&quot;\u628a\u63e1\u3057\u3066\u3044\u308b\u4e0d\u5177\u5408_\u30d0\u30a4\u30a2\u30b9\u7b49\u306b\u3064\u3044\u3066&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;35-779&quot;} -->
+<h2 class="sectionedit3" id="海面高度の海況変動の計算方法">海面高度の海況変動の計算方法</h2>
+<div class="level2">
+
+<p>
+JPNには海面気圧による押し下げ・吸い上げと潮汐が導入されているため、モデル出力海面高度 h には、海況要因による潮位偏差 h_ocean に加えて天文潮位 h_tide 、気圧応答による h_slpa も含まれる。
+</p>
+<pre class="code">h=h_tide + h_slpa + h_ocean</pre>
+
+<p>
+よって、海況変動の海面高度を推定する場合は、以下の式を用いる。
+</p>
+<pre class="code">h_ocean = h - h_tide - h_slpa</pre>
+
+</div>
+
+<h4 id="h_tideモデル内潮汐場の8分潮調和解析">h_tide:モデル内潮汐場の8分潮調和解析</h4>
+<div class="level4">
+
+<p>
+モデル出力の30分毎SSHスナップショット(hst_30min-jpn/hs_snp_ssh)を用いて調和解析し、8分潮の調和定数から h_tide を計算した。
+</p>
+<ul>
+<li class="level1"><div class="li"> h_tide(日平均): tideh.YYYYMMDD</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="h_slpa海面気圧偏差によるinverted_barometer">h_slpa:海面気圧偏差によるinverted barometer</h4>
+<div class="level4">
+
+<p>
+Inverted barometer 応答の仮定により、-1cm/hPaを用いる。
+ローカルな気圧応答 h_slp (=-P(x,y,t)) と全球平均 h_slpglb (=-P_全球平均(t)) の差で与える。
+</p>
+<pre class="code">h_slpa = h_slp - h_slpglb = P_全球平均(t) - P(x,y,t)</pre>
+<ul>
+<li class="level1"><div class="li"> h_slp(日平均): hs_slp.YYYYMMDD</div>
+</li>
+<li class="level1"><div class="li"> h_slpglb(日平均): hs_slp_ave.YYYYMMDD</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u6d77\u9762\u9ad8\u5ea6\u306e\u6d77\u6cc1\u5909\u52d5\u306e\u8a08\u7b97\u65b9\u6cd5&quot;,&quot;hid&quot;:&quot;\u6d77\u9762\u9ad8\u5ea6\u306e\u6d77\u6cc1\u5909\u52d5\u306e\u8a08\u7b97\u65b9\u6cd5&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;780-1952&quot;} -->
+<h1 class="sectionedit4" id="faq">FAQ</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;FAQ&quot;,&quot;hid&quot;:&quot;faq&quot;,&quot;codeblockOffset&quot;:3,&quot;secid&quot;:4,&quot;range&quot;:&quot;1953-&quot;} --></div>
+</body>
+</html>

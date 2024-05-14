@@ -26,7 +26,6 @@
 <ul class="toc">
 <li class="level1"><div class="li"><a href="#mricom_開発のロードマップ">MRI.COM 開発のロードマップ</a></div>
 <ul class="toc">
-<li class="level2"><div class="li"><a href="#ver52_2023_03">ver.5.2 (2023/03)</a></div></li>
 <li class="level2"><div class="li"><a href="#ver54_2024_03">ver.5.4 (2024/03)</a></div></li>
 <li class="level2"><div class="li"><a href="#ver60_2025年頃">ver.6.0 (2025年頃?)</a></div></li>
 <li class="level2"><div class="li"><a href="#その他の課題">その他の課題</a></div></li>
@@ -41,24 +40,7 @@
 
 </div>
 <!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM \u958b\u767a\u306e\u30ed\u30fc\u30c9\u30de\u30c3\u30d7&quot;,&quot;hid&quot;:&quot;mricom_\u958b\u767a\u306e\u30ed\u30fc\u30c9\u30de\u30c3\u30d7&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-51&quot;} -->
-<h2 class="sectionedit2" id="ver52_2023_03">ver.5.2 (2023/03)</h2>
-<div class="level2">
-<ul>
-<li class="level1"><div class="li"> MRI-ESM3.2, 先端プロ実験(NP+NPZD,JPN)に使用。</div>
-</li>
-<li class="level1"><div class="li"> Fortran 2003必須化？</div>
-</li>
-<li class="level1"><div class="li"> 潮汐エネルギー散逸ベースの鉛直乱流混合スキームの導入 (<del>de Lavergne et al., 2020</del>, Kawasaki 2021)</div>
-</li>
-<li class="level1"><div class="li"> 海氷塩分可変化、eチューニング</div>
-</li>
-<li class="level1"><div class="li"> トレーサーのNaNチェック(あるstep数で間隔)</div>
-</li>
-</ul>
-
-</div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;ver.5.2 (2023\/03)&quot;,&quot;hid&quot;:&quot;ver52_2023_03&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;52-418&quot;} -->
-<h2 class="sectionedit3" id="ver54_2024_03">ver.5.4 (2024/03)</h2>
+<h2 class="sectionedit2" id="ver54_2024_03">ver.5.4 (2024/03)</h2>
 <div class="level2">
 <ul>
 <li class="level1"><div class="li"> MRI-ESM3.4 →　CMIP7, HiresMIP</div>
@@ -75,11 +57,13 @@
 </li>
 <li class="level1"><div class="li"> 海氷メルトポンド？</div>
 </li>
+<li class="level1"><div class="li"> サブグリッドスケールの水温塩分分布を考慮した密度場のパラメタリゼーション</div>
+</li>
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;ver.5.4 (2024\/03)&quot;,&quot;hid&quot;:&quot;ver54_2024_03&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;419-781&quot;} -->
-<h2 class="sectionedit4" id="ver60_2025年頃">ver.6.0 (2025年頃?)</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;ver.5.4 (2024\/03)&quot;,&quot;hid&quot;:&quot;ver54_2024_03&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;52-527&quot;} -->
+<h2 class="sectionedit3" id="ver60_2025年頃">ver.6.0 (2025年頃?)</h2>
 <div class="level2">
 <ul>
 <li class="level1"><div class="li"> ハイブリッド鉛直座標系への移行 ( <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" class="urlextern" title="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" rel="ugc nofollow">Adcroft et al. 2019</a> )</div>
@@ -103,8 +87,8 @@
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;ver.6.0 (2025\u5e74\u9803?)&quot;,&quot;hid&quot;:&quot;ver60_2025\u5e74\u9803&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;782-1330&quot;} -->
-<h2 class="sectionedit5" id="その他の課題">その他の課題</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;ver.6.0 (2025\u5e74\u9803?)&quot;,&quot;hid&quot;:&quot;ver60_2025\u5e74\u9803&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;528-1076&quot;} -->
+<h2 class="sectionedit4" id="その他の課題">その他の課題</h2>
 <div class="level2">
 <ul>
 <li class="level1 node"><div class="li"> コード整理</div>
@@ -198,6 +182,6 @@
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u305d\u306e\u4ed6\u306e\u8ab2\u984c&quot;,&quot;hid&quot;:&quot;\u305d\u306e\u4ed6\u306e\u8ab2\u984c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;1331-&quot;} --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u305d\u306e\u4ed6\u306e\u8ab2\u984c&quot;,&quot;hid&quot;:&quot;\u305d\u306e\u4ed6\u306e\u8ab2\u984c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1077-&quot;} --></div>
 </body>
 </html>
