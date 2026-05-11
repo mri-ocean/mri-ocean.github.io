@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>mri.com-user:ver54</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="theme-color" content="#008800"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mri.com-user,ver54"/>
+<!--[if gte IE 9]><!-->
+<script >/*<![CDATA[*/var NS='mri.com-user';var JSINFO = {"id":"mri.com-user:ver54","namespace":"mri.com-user","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<link rel="stylesheet" type="text/css" href="standard.css">
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/jquery.php?tseed=34a552433bc33cc9c3bc32527289a0b2" defer="defer"></script>
+<script charset="utf-8" src="/~ocpublic/wiki/lib/exe/js.php?t=dokuwiki&amp;tseed=1ba1ca9e5699c4cd37eb1cb4bdf6d000" defer="defer"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<div class="level1"><a href="index.html">MRI.COM</a></div>
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">目次</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#mricom_v54">MRI.COM v5.4</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#ソースコードの取得">ソースコードの取得</a></div></li>
+<li class="level2"><div class="li"><a href="#追加された主な機能">追加された主な機能</a></div></li>
+<li class="level2"><div class="li"><a href="#v52_から_v54_への移行">v5.2 から v5.4 への移行</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#namelist">namelist</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#削除された機能">削除された機能</a></div></li>
+<li class="level2"><div class="li"><a href="#機能削除の予定">機能削除の予定</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mricom_v54">MRI.COM v5.4</h1>
+<div class="level1">
+
+<p>
+MRI.COM v5.4 は、2025年12月にリリースされた安定版です。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM v5.4&quot;,&quot;hid&quot;:&quot;mricom_v54&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-103&quot;} -->
+<h2 class="sectionedit2" id="ソースコードの取得">ソースコードの取得</h2>
+<div class="level2">
+
+<p>
+MRI.COM gitリポジトリでブランチ「5_4」をチェックアウトして下さい。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30bd\u30fc\u30b9\u30b3\u30fc\u30c9\u306e\u53d6\u5f97&quot;,&quot;hid&quot;:&quot;\u30bd\u30fc\u30b9\u30b3\u30fc\u30c9\u306e\u53d6\u5f97&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;104-238&quot;} -->
+<h2 class="sectionedit3" id="追加された主な機能">追加された主な機能</h2>
+<div class="level2">
+
+<p>
+v5.2から以下の機能が追加されています。
+</p>
+<ul>
+<li class="level1"><div class="li"> Shao et al. (2020)の等密度面拡散スキームを導入</div>
+</li>
+<li class="level1 node"><div class="li"> 海氷モデルを高度化</div>
+<ul>
+<li class="level2"><div class="li"> 多重散乱放射伝達モデルによる海氷アルベドスキームの導入</div>
+</li>
+<li class="level2"><div class="li"> リードの表現を追加</div>
+</li>
+<li class="level2"><div class="li"> グリースアイススキームを導入</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 3次元空間分布を持つ等密度面拡散係数の設定機能を追加</div>
+</li>
+<li class="level1"><div class="li"> Density traidsを用いた層厚拡散パラメタリゼーションを実装</div>
+</li>
+<li class="level1 node"><div class="li"> 単精度計算の機能を追加</div>
+<ul>
+<li class="level2"><div class="li"> PPMスキーム</div>
+</li>
+<li class="level2"><div class="li"> 順圧計算</div>
+</li>
+<li class="level2"><div class="li"> 格子情報</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> NetCDFの入力機能の追加</div>
+</li>
+<li class="level1"><div class="li"> 海面塩分のリストアにおいて参照データ誤差情報を利用する機能を追加</div>
+</li>
+<li class="level1 node"><div class="li"> 結合関係の機能を拡充</div>
+<ul>
+<li class="level2"><div class="li"> エアロゾルモデルからダストフラックスを受け取る機能を追加</div>
+</li>
+<li class="level2"><div class="li"> 降雪量を大気モデルから受け取る機能を追加</div>
+</li>
+<li class="level2"><div class="li"> 氷山の熱エネルギーを考慮</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 降水・蒸発・河川に伴う顕熱を考慮</div>
+</li>
+<li class="level1"><div class="li"> Drake et al. (2025)の水塊変質率解析機能を追加</div>
+</li>
+<li class="level1"><div class="li"> Mass Flux Schemeを導入</div>
+</li>
+<li class="level1"><div class="li"> 雨雪判別機能を追加</div>
+</li>
+<li class="level1"><div class="li"> 空間非一様なBBLを可能にする機能を追加</div>
+</li>
+<li class="level1"><div class="li"> 格子内海底存在率に基づく海底からの鉄供給を実装</div>
+</li>
+<li class="level1"><div class="li"> 水温・塩分スキンレイヤースキームを実装</div>
+</li>
+<li class="level1 node"><div class="li"> 出力機能を強化</div>
+<ul>
+<li class="level2"><div class="li"> 鉛直方向に和をとるモニター出力機能を追加</div>
+</li>
+<li class="level2"><div class="li"> 水温・塩分・流速の格子体積重みつきモニターを追加</div>
+</li>
+<li class="level2"><div class="li"> 海氷関係のモニターを拡充</div>
+</li>
+<li class="level2"><div class="li"> 等密度面上での水平体積輸送量モニターの拡充</div>
+</li>
+<li class="level2"><div class="li"> CMIP7用モニターを追加</div>
+</li>
+<li class="level2"><div class="li"> エクマン輸送量のモニターを追加</div>
+</li>
+<li class="level2"><div class="li"> バリアレイヤー層厚のモニターを追加</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+その他の変更
+</p>
+<ul>
+<li class="level1"><div class="li"> ファイル名とモジュール名が一致するように一部のモジュール名を変更</div>
+</li>
+<li class="level1"><div class="li"> 熱力学定数の変更</div>
+</li>
+<li class="level1"><div class="li"> 安定性向上のための修正</div>
+</li>
+<li class="level1"><div class="li"> 高速化のための修正</div>
+</li>
+<li class="level1"><div class="li"> バグの修正</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u8ffd\u52a0\u3055\u308c\u305f\u4e3b\u306a\u6a5f\u80fd&quot;,&quot;hid&quot;:&quot;\u8ffd\u52a0\u3055\u308c\u305f\u4e3b\u306a\u6a5f\u80fd&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;239-2283&quot;} -->
+<h2 class="sectionedit4" id="v52_から_v54_への移行">v5.2 から v5.4 への移行</h2>
+<div class="level2">
+
+<p>
+安定版 <a href="./mri.com-user_ver52.html" class="wikilink1" title="mri.com-user_ver52" data-wiki-id="mri.com-user_ver52">v5.2</a> から <a href="./mri.com-user_ver54.html" class="wikilink1" title="mri.com-user_ver54" data-wiki-id="mri.com-user_ver54">v5.4</a>へ移行する場合のメモです。
+ほぼ同じ設定にした場合でも結果は変わります。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;v5.2 \u304b\u3089 v5.4 \u3078\u306e\u79fb\u884c&quot;,&quot;hid&quot;:&quot;v52_\u304b\u3089_v54_\u3078\u306e\u79fb\u884c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;2284-2480&quot;} -->
+<h3 class="sectionedit5" id="namelist">namelist</h3>
+<div class="level3">
+
+<p>
+主な変更です。詳しくは docs/README_Namelist.md を参照してください
+</p>
+<ul>
+<li class="level1"><div class="li"> Shao et al. (2020)の等密度面拡散スキームに関係した変更</div>
+</li>
+<li class="level1"><div class="li"> グリースアイススキームに関係した変更</div>
+</li>
+<li class="level1"><div class="li"> 多重散乱放射伝達モデルによる海氷アルベドスキームの導入に伴う変更</div>
+</li>
+<li class="level1"><div class="li"> 海面塩分リストアにおける参照データ誤差情報の利用に関係した変更</div>
+</li>
+<li class="level1"><div class="li"> 海氷リードの表現に伴う変更</div>
+</li>
+<li class="level1"><div class="li"> Density traidsを用いた層厚拡散パラメタリゼーションに関係した変更</div>
+</li>
+<li class="level1 node"><div class="li"> 降水データの読み込みに関する変更</div>
+<ul>
+<li class="level2 node"><div class="li"> nml_force_snowfall l_read_snowfall = true のとき</div>
+<ul>
+<li class="level3"><div class="li"> 旧：nml_force_data name=&#039;Precipitaion&#039; に降雨量を指定</div>
+</li>
+<li class="level3"><div class="li"> 新：nml_force_data name=&#039;Rainfall&#039; に降雨量を指定</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Mass Flux Scheme に関係した変更</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;namelist&quot;,&quot;hid&quot;:&quot;namelist&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;2481-3352&quot;} -->
+<h2 class="sectionedit6" id="削除された機能">削除された機能</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> total 体積輸送モニター及び residual 体積輸送モニターを廃止</div>
+</li>
+<li class="level1"><div class="li"> MRI-ESM1のために調整された海面アルベド(Barker and Li 1995)を廃止</div>
+</li>
+<li class="level1"><div class="li"> ACTIVE1オプション、KPPオプションを廃止</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u524a\u9664\u3055\u308c\u305f\u6a5f\u80fd&quot;,&quot;hid&quot;:&quot;\u524a\u9664\u3055\u308c\u305f\u6a5f\u80fd&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;3353-3616&quot;} -->
+<h2 class="sectionedit7" id="機能削除の予定">機能削除の予定</h2>
+<div class="level2">
+
+<p>
+次期安定版(v5.6)で削除される予定の機能です。
+</p>
+<ul>
+<li class="level1"><div class="li"> 特に予定なし</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u6a5f\u80fd\u524a\u9664\u306e\u4e88\u5b9a&quot;,&quot;hid&quot;:&quot;\u6a5f\u80fd\u524a\u9664\u306e\u4e88\u5b9a&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;3617-&quot;} --></div>
+</body>
+</html>

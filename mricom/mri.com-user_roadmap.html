@@ -26,8 +26,7 @@
 <ul class="toc">
 <li class="level1"><div class="li"><a href="#mricom_開発のロードマップ">MRI.COM 開発のロードマップ</a></div>
 <ul class="toc">
-<li class="level2"><div class="li"><a href="#ver54_2024_03">ver.5.4 (2024/03)</a></div></li>
-<li class="level2"><div class="li"><a href="#ver60_2025年頃">ver.6.0 (2025年頃?)</a></div></li>
+<li class="level2"><div class="li"><a href="#ver56_2025年以降">ver.5.6 (2025年以降?)</a></div></li>
 <li class="level2"><div class="li"><a href="#その他の課題">その他の課題</a></div></li>
 </ul></li>
 </ul>
@@ -39,79 +38,134 @@
 <div class="level1">
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM \u958b\u767a\u306e\u30ed\u30fc\u30c9\u30de\u30c3\u30d7&quot;,&quot;hid&quot;:&quot;mricom_\u958b\u767a\u306e\u30ed\u30fc\u30c9\u30de\u30c3\u30d7&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-51&quot;} -->
-<h2 class="sectionedit2" id="ver54_2024_03">ver.5.4 (2024/03)</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;MRI.COM \u958b\u767a\u306e\u30ed\u30fc\u30c9\u30de\u30c3\u30d7&quot;,&quot;hid&quot;:&quot;mricom_\u958b\u767a\u306e\u30ed\u30fc\u30c9\u30de\u30c3\u30d7&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-52&quot;} -->
+<h2 class="sectionedit2" id="ver56_2025年以降">ver.5.6 (2025年以降?)</h2>
 <div class="level2">
 <ul>
-<li class="level1"><div class="li"> MRI-ESM3.4 →　CMIP7, HiresMIP</div>
-</li>
-<li class="level1"><div class="li"> GLBで負値をうまない等密度面拡散スキーム (Shao et al., 2020?, Griffies?)</div>
-</li>
-<li class="level1 node"><div class="li"> GMスキームの再検討?</div>
-<ul>
-<li class="level2"><div class="li"> 新しい等密度面拡散スキームと整合したコーディングの導入?</div>
-</li>
-<li class="level2"><div class="li"> GEOMETRIC等、新スキームの導入?</div>
-</li>
-</ul>
-</li>
-<li class="level1"><div class="li"> 海氷メルトポンド？</div>
-</li>
-<li class="level1"><div class="li"> サブグリッドスケールの水温塩分分布を考慮した密度場のパラメタリゼーション</div>
-</li>
-</ul>
-
-</div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;ver.5.4 (2024\/03)&quot;,&quot;hid&quot;:&quot;ver54_2024_03&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;52-527&quot;} -->
-<h2 class="sectionedit3" id="ver60_2025年頃">ver.6.0 (2025年頃?)</h2>
-<div class="level2">
-<ul>
-<li class="level1"><div class="li"> ハイブリッド鉛直座標系への移行 ( <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" class="urlextern" title="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" rel="ugc nofollow">Adcroft et al. 2019</a> )</div>
-</li>
-<li class="level1"><div class="li"> レポート2025に向けた本実験時(2021-22あたり)の機能強化</div>
-</li>
-<li class="level1"><div class="li"> wet and dry</div>
-</li>
 <li class="level1 node"><div class="li"> 海氷スキーム</div>
 <ul>
 <li class="level2"><div class="li"> 塩分可変</div>
 </li>
-<li class="level2"><div class="li"> 棚氷 (浦川さん)</div>
+<li class="level2"><div class="li"> メルトポンド</div>
 </li>
-<li class="level2"><div class="li"> メルトポンド　(豊田さん)</div>
+<li class="level2"><div class="li"> グリースアイス</div>
 </li>
 </ul>
 </li>
-<li class="level1"><div class="li"> 海洋ネストモデルを用いた結合モデルで、子モデルが直接大気モデルと結合する機能を追加 (辻野さん、浦川さん)</div>
+<li class="level1"><div class="li"> サブグリッドスケールの水温塩分分布を考慮した密度場のパラメタリゼーション</div>
+</li>
+<li class="level1 node"><div class="li"> 高速化</div>
+<ul>
+<li class="level2"><div class="li"> SOM移流スキームにおける単精度オプションの導入</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 層厚拡散スキームの再検討</div>
+<ul>
+<li class="level2"><div class="li"> 数値安定性向上のためにGrffies et al. (1999) による density triads を用いて再実装</div>
+</li>
+<li class="level2"><div class="li"> Ferrari et al. (2010) による層厚拡散スキームでの海面・海底境界処理の実装</div>
+</li>
+<li class="level2"><div class="li"> 数値的に不安定かつisopycnal model との相性問題から、Greatbatch and Lamb (1990) の導入? (Loose et al. JAMES, 2023)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 層厚拡散スキームに MEKE パラメタリゼーション (Jansen et al., 2019) を導入</div>
+</li>
+<li class="level1"><div class="li"> 深層対流のためのEDMFパラメタリゼーション (Giordani et al., 2020) 導入</div>
+</li>
+<li class="level1"><div class="li"> ハイブリッド鉛直座標系の導入 ( <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" class="urlextern" title="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001726" rel="ugc nofollow">Adcroft et al. 2019</a> )</div>
+</li>
+<li class="level1 node"><div class="li"> 高速化</div>
+<ul>
+<li class="level2"><div class="li"> 混合精度</div>
+</li>
+<li class="level2"><div class="li"> GPU 利用</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> BGC・物質循環モデル</div>
+<ul>
+<li class="level2 node"><div class="li"> 河川水への生物地球化学トレーサーの導入</div>
+<ul>
+<li class="level3"><div class="li"> 溶存無機炭素、アルカリ度、硝酸塩、リン酸塩、鉄（仮に導入済） </div>
+</li>
+</ul>
+</li>
+<li class="level2 node"><div class="li"> 河川水への生物地球化学トレーサーの導入への対として</div>
+<ul>
+<li class="level3"><div class="li"> 各種トレーサーの除去過程の導入</div>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;ver.6.0 (2025\u5e74\u9803?)&quot;,&quot;hid&quot;:&quot;ver60_2025\u5e74\u9803&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;528-1076&quot;} -->
-<h2 class="sectionedit4" id="その他の課題">その他の課題</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;ver.5.6 (2025\u5e74\u4ee5\u964d?)&quot;,&quot;hid&quot;:&quot;ver56_2025\u5e74\u4ee5\u964d&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;53-1501&quot;} -->
+<h2 class="sectionedit3" id="その他の課題">その他の課題</h2>
 <div class="level2">
 <ul>
-<li class="level1 node"><div class="li"> コード整理</div>
+<li class="level1 node"><div class="li"> 高速化</div>
 <ul>
-<li class="level2"><div class="li"> ACTIVE1</div>
+<li class="level2"><div class="li"> SIMD対応 (本庁スパコンに必要であれば, <a href="https://ja.wikipedia.org/wiki/Xeon_Phi" class="urlextern" title="https://ja.wikipedia.org/wiki/Xeon_Phi" rel="ugc nofollow">intel xeonであれば倍精度浮動小数点演算8つのSIMD</a>)</div>
 </li>
-<li class="level2"><div class="li"> KPP</div>
+<li class="level2"><div class="li"> 全球4極座標</div>
 </li>
 </ul>
 </li>
-<li class="level1"><div class="li"> CVMix</div>
+<li class="level1 node"><div class="li"> 海氷モデル</div>
+<ul>
+<li class="level2"><div class="li"> アルベドの精緻化</div>
+</li>
+<li class="level2"><div class="li"> 側面融解の導入</div>
+</li>
+<li class="level2"><div class="li"> 力学・レオロジーの高度化</div>
+</li>
+<li class="level2"><div class="li"> アイスアルジーの効果の導入</div>
+</li>
+<li class="level2"><div class="li"> 接地</div>
+</li>
+<li class="level2"><div class="li"> multi-layer化</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> BGC・物質循環モデル</div>
+<ul>
+<li class="level2 node"><div class="li"> 海洋低次生態系モデルでの FlexPFT の導入</div>
+<ul>
+<li class="level3"><div class="li"> 固定Redfield比の解除が必須となる </div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> 生物地球化学過程への海面窒素固定過程の導入、これへの対として脱窒過程の導入  </div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 結合関連</div>
+<ul>
+<li class="level2"><div class="li"> 海洋ネストモデルを用いた結合モデルで、子モデルが直接大気モデルと結合する機能を追加</div>
+</li>
+<li class="level2"><div class="li"> 陸面モデルとの結合：河川の水温を受け取る</div>
+</li>
+<li class="level2"><div class="li"> エーロゾルモデルからダストデータをもらう</div>
+</li>
+<li class="level2"><div class="li"> JCup 対応</div>
+</li>
+</ul>
 </li>
 <li class="level1"><div class="li"> 降水顕熱フラックスパラメタリゼーションの導入 (Gosnell et al., 1995, JGR; 注：熱帯が対象)</div>
 </li>
-<li class="level1"><div class="li"> 陸面モデルとの結合：河川の水温を受け取る</div>
-</li>
-<li class="level1 node"><div class="li"> 出力の拡充</div>
+<li class="level1 node"><div class="li"> 入出力の拡充</div>
 <ul>
 <li class="level2"><div class="li"> GRIB2 出力オプション</div>
 </li>
 <li class="level2"><div class="li"> 診断(energy, <del>meanfc</del>)のモジュール化</div>
 </li>
 <li class="level2"><div class="li"> 落ちたときの診断の改善</div>
+</li>
+<li class="level2"><div class="li"> NetCDF入力</div>
 </li>
 </ul>
 </li>
@@ -121,27 +175,13 @@
 </li>
 </ul>
 </li>
-<li class="level1 node"><div class="li"> 高速化</div>
-<ul>
-<li class="level2"><div class="li"> SIMD対応 (本庁スパコンに必要であれば, <a href="https://ja.wikipedia.org/wiki/Xeon_Phi" class="urlextern" title="https://ja.wikipedia.org/wiki/Xeon_Phi" rel="ugc nofollow">intel xeonであれば倍精度浮動小数点演算8つのSIMD</a>)</div>
+<li class="level1"><div class="li"> 状態方程式をTEOS10に</div>
 </li>
-<li class="level2"><div class="li"> 全球4極座標</div>
+<li class="level1"><div class="li"> CVMix</div>
 </li>
-</ul>
+<li class="level1"><div class="li"> wet and dry</div>
 </li>
-<li class="level1 node"><div class="li"> 各種スキーム対応</div>
-<ul>
-<li class="level2"><div class="li"> JCup</div>
-</li>
-<li class="level2"><div class="li"> 状態方程式をTEOS10に</div>
-</li>
-</ul>
-</li>
-<li class="level1 node"><div class="li"> 海氷スキーム</div>
-<ul>
-<li class="level2"><div class="li"> 接地</div>
-</li>
-</ul>
+<li class="level1"><div class="li"> 棚氷モデル</div>
 </li>
 <li class="level1"><div class="li"> <a href="./mri.com-user_couple_wave.html" class="wikilink1" title="mri.com-user_couple_wave" data-wiki-id="mri.com-user_couple_wave">波浪モデルとの結合</a></div>
 </li>
@@ -163,25 +203,11 @@
 </li>
 <li class="level1"><div class="li"> 非静水圧を Poisson solver ではなく、音波を解く方式にできないか（気象モデルと同じ） or 再整備</div>
 </li>
-<li class="level1 node"><div class="li"> 結合モデル</div>
-<ul>
-<li class="level2"><div class="li"> エーロゾルモデルからダストデータをもらう</div>
-</li>
-</ul>
-</li>
-</ul>
-
-<p>
-余裕があれば
-</p>
-<ul>
-<li class="level1"><div class="li"> 海氷モデル複数層</div>
-</li>
 <li class="level1"><div class="li"> 潮汐スキーム：主要成分毎に方程式を解く</div>
 </li>
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u305d\u306e\u4ed6\u306e\u8ab2\u984c&quot;,&quot;hid&quot;:&quot;\u305d\u306e\u4ed6\u306e\u8ab2\u984c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1077-&quot;} --></div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u305d\u306e\u4ed6\u306e\u8ab2\u984c&quot;,&quot;hid&quot;:&quot;\u305d\u306e\u4ed6\u306e\u8ab2\u984c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;1502-&quot;} --></div>
 </body>
 </html>
